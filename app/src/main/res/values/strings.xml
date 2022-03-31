@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FFC App</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="done">Done</string>
+    <string name="doyouwantlogin">Do You Want to Login ?</string>
+    <string name="share">Share</string>
+</resources>

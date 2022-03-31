@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#9a5aab</color>
+    <color name="colorPrimaryDark">#701487</color>
+    <color name="colorAccent">#701487</color>
+    <color name="activitybg">#fbfbfb</color>
+    <color name="textcolor">#9a5aab</color>
+    <color name="white">#ffff</color>
+    <color name="black">#000</color>
+    <color name="gray">#e6e6e6</color>
+    <color name="bink">#f8e1fe</color>
+    <color name="gray_dark">#a4a4a4</color>
+    <color name="loading_color">#659A5AAB</color>
+    <color name="green">#00FF0A</color>
+</resources>

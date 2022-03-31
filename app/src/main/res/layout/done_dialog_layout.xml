@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="msg"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/_10sdp"
+        android:background="@drawable/message_dialog_bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_14sdp"
+            android:padding="@dimen/_10sdp"
+            android:inputType="textMultiLine"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@{msg}">
+        </TextView>
+
+        <Button
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:text="@string/done"
+            android:id="@+id/dismiss_btn"
+            style="@style/main_button">
+        </Button>
+    </LinearLayout>
+</layout>

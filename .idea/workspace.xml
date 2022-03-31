@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config>
+        <device id="pixel_3" />
+        <device id="pixel_2_xl" />
+        <device id="pixel_2" />
+        <device id="Nexus 5X" />
+        <device id="pixel_4_xl" />
+        <device id="Nexus 6" />
+        <device id="pixel" />
+      </config>
+    </shared>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d219a198-d409-4f7a-91ec-02cd32610b85" name="Default Changelist" comment="Pagination" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/home/eng-ali/.android/avd/Nexus_10_API_29.avd]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="RecyclerAdapter" />
+        <option value="layoutResourceFile_vertical" />
+        <option value="layoutResourceFile" />
+        <option value="resourceFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1jmVCmlVfndS79BJJvY8IfBUhWy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+    <option name="sortByType" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_2_XL_API_29" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-11-19T14:38:18.948Z" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ToolWindowRun.ShowToolbar" value="false" />
+    <property name="android-custom-viewE:/My Work/UpClicks/Ads4You/app/src/main/java/com/upclicks/ads4you/ui/components/CurvedBottomNavigationView.java_SELECTED" value="CurvedBottomNavigationView" />
+    <property name="android-custom-viewE:/My Work/UpClicks/Ads4You/app/src/main/java/com/upclicks/ads4you/ui/components/indicator/BaseCircleIndicator.java_SELECTED" value="BaseCircleIndicator" />
+    <property name="android.project.structure.last.selected" value="SDK Location" />
+    <property name="android.project.structure.proportion" value="0.15" />
+    <property name="android.sdk.path" value="$PROJECT_DIR$/../../../Android Devlopments Work/sdk" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="memory.settings.postsync.last.time.stamp" value="1648713621725" />
+    <property name="multi-representation-previewE:/My Work/UpClicks/Ads4You/app/src/main/java/com/upclicks/ads4you/ui/components/CurvedBottomNavigationView.java_selected" value="Custom views" />
+    <property name="multi-representation-previewE:/My Work/UpClicks/Ads4You/app/src/main/java/com/upclicks/ads4you/ui/components/indecator/BaseCircleIndicator.java_selected" value="Custom views" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="android.template.1267809077">
+      <recent name="com.upclicks.ads4you.ui.activites.AccountActivites.editProfile" />
+    </key>
+    <key name="android.template.packageName">
+      <recent name="com.upclicks.ads4you.ui.activites.MainActivity" />
+      <recent name="com.upclicks.ads4you.ui.activites.AccountActivites.signUp" />
+      <recent name="com.upclicks.ads4you.Activites.AccountActivites" />
+      <recent name="com.upclicks.ads4you.Activites" />
+    </key>
+    <key name="android.template.1237049412">
+      <recent name="com.upclicks.ads4you.ui.activites" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\My Work\UpClicks\Lokta\app\src\main\res\layout" />
+      <recent name="E:\My Work\UpClicks\Lokta\app\src\main\res\drawable" />
+      <recent name="E:\My Work\UpClicks\Ads4You\app\src\main\res\values-ar" />
+      <recent name="E:\My Work\UpClicks\Ads4You\app\src\main\java\com\upclicks\ads4you\ui\activites\Ads" />
+      <recent name="E:\My Work\UpClicks\Ads4You\app\src\main\res\drawable" />
+    </key>
+    <key name="android.template.1327266735">
+      <recent name="com.upclicks.ads4you.ui.activites.AccountActivites.signUp" />
+    </key>
+    <key name="android.template.1511726045">
+      <recent name="com.upclicks.ads4you.ui.activites.Ads" />
+    </key>
+    <key name="android.template.-1048991225">
+      <recent name="com.upclicks.ads4you.ui.activites" />
+    </key>
+    <key name="android.template.2021124531">
+      <recent name="com.upclicks.ads4you.ui.activites.Ads" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.upclicks.ads4you.di" />
+    </key>
+    <key name="android.template.-1223163543">
+      <recent name="com.upclicks.ads4you.ui" />
+    </key>
+    <key name="android.template.1455465412">
+      <recent name="com.upclicks.ads4you.ui.activites.journalsActivity" />
+    </key>
+    <key name="android.template.1535417448">
+      <recent name="com.upclicks.ads4you.ui.activites.Ads.Daily" />
+      <recent name="com.upclicks.ads4you.ui.activites.Ads" />
+    </key>
+    <key name="android.template.1635666565">
+      <recent name="com.upclicks.ads4you.ui.activites.MainActivity" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\My Work\UpClicks\app\src\main\res\drawable" />
+    </key>
+    <key name="android.template.-1013023697">
+      <recent name="com.upclicks.ads4you.ui.activites.Ads" />
+      <recent name="com.upclicks.ads4you.ui.activites.Ads.Weekly" />
+    </key>
+    <key name="android.template.-1432879977">
+      <recent name="com.upclicks.ads4you.ui.activites.Settings" />
+    </key>
+    <key name="android.template.1464681549">
+      <recent name="com.upclicks.ads4you.ui.activites.Ads.Weekly" />
+      <recent name="com.upclicks.ads4you.ui.activites.Ads.Daily" />
+      <recent name="com.upclicks.ads4you.ui.activites.Ads.Explore" />
+      <recent name="com.upclicks.ads4you.ui.activites.AccountActivites.editProfile" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.upclicks.ads4you.ui.activites" />
+      <recent name="com.upclicks.ads4you.ui.dialogs" />
+      <recent name="com.upclicks.ads4you.ui.adapters" />
+    </key>
+    <key name="android.template.1920951919">
+      <recent name="com.upclicks.ads4you.ui.activites.journalsActivity" />
+      <recent name="com.upclicks.ads4you.ui.activites.Ads.Explore" />
+    </key>
+    <key name="android.template.1982380340">
+      <recent name="com.upclicks.ads4you.ui.activites.journalsActivity" />
+    </key>
+    <key name="android.template.1705815256">
+      <recent name="com.upclicks.ads4you.ui.activites.Ads" />
+    </key>
+    <key name="android.template.587117772">
+      <recent name="com.upclicks.ads4you.ui.activites.Ads" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="FFC_APP.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d219a198-d409-4f7a-91ec-02cd32610b85" name="Default Changelist" comment="" />
+      <created>1603367529382</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603367529382</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Demo 1">
+      <created>1603984010603</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603984010603</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Demo 2">
+      <created>1604598009509</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1604598009511</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Demo 2">
+      <created>1605603245178</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1605603245178</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Demo 2">
+      <created>1606816474522</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1606816474522</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fixes add Ads places issue">
+      <created>1607297145772</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1607297145774</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fav and Journals">
+      <created>1607948649118</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1607948649119</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fav and Journals">
+      <created>1608556364203</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1608556364203</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add Langauge UI">
+      <created>1608563910112</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1608563910113</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Localization">
+      <created>1608586670344</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1608586670344</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Change Avatar and Update profile">
+      <created>1608677317526</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1608677317526</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Wishlist">
+      <created>1608733145529</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1608733145530</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Pagination">
+      <created>1609080454973</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1609080454976</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <MESSAGE value="Demo 1" />
+    <MESSAGE value="Demo 2" />
+    <MESSAGE value="Fixes add Ads places issue" />
+    <MESSAGE value="Fav and Journals" />
+    <MESSAGE value="Add Langauge UI" />
+    <MESSAGE value="Localization" />
+    <MESSAGE value="Change Avatar and Update profile" />
+    <MESSAGE value="Wishlist" />
+    <MESSAGE value="Pagination" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pagination" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffcapp/session/SessionHelper.java</url>
+          <line>194</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
