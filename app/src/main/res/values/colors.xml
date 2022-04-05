@@ -5,11 +5,55 @@
     <color name="colorAccent">#701487</color>
     <color name="activitybg">#fbfbfb</color>
     <color name="textcolor">#9a5aab</color>
-    <color name="white">#ffff</color>
-    <color name="black">#000</color>
     <color name="gray">#e6e6e6</color>
     <color name="bink">#f8e1fe</color>
     <color name="gray_dark">#a4a4a4</color>
     <color name="loading_color">#659A5AAB</color>
     <color name="green">#00FF0A</color>
+    <color name="black">#FF000000</color>
+    <color name="red">#c21d21</color>
+    <color name="light_black">#333333</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary">#008952</color>
+    <color name="secondary">#c41618</color>
+    <color name="light_grey">#f4f4f4</color>
+    <color name="rating_bar_background">#cc319fa0</color>
+    <color name="light_primary">#d9ede5</color>
+    <color name="primary_text_color">#12BFC5</color>
+    <color name="button_white_text_color">#595959</color>
+    <color name="button_primary_text_color">#ffffff</color>
+    <color name="text_color_grey">#808080</color>
+    <color name="line_color_grey">#c4c4c4</color>
+    <color name="background_color_light_grey">#f4f4f4</color>
+    <color name="transparent">#00000000</color>
+    <color name="accept__color">#45bb0c</color>
+    <color name="refuse_color">#ff0000</color>
+
+
+
+
+
+    <!-- this colors for Color helper class used to generate random colors  -->
+    <item name="blue_helper" type="color">#FF33B5E5</item>
+    <item name="purple_helper" type="color">#FFAA66CC</item>
+    <item name="green_helper" type="color">#FF99CC00</item>
+    <item name="orange_helper" type="color">#FFFFBB33</item>
+    <item name="red_helper" type="color">#FFFF4444</item>
+    <item name="darkblue_helper" type="color">#FF0099CC</item>
+    <item name="darkpurple_helper" type="color">#FF9933CC</item>
+    <item name="darkgreen_helper" type="color">#FF669900</item>
+    <item name="darkorange_helper" type="color">#FFFF8800</item>
+    <item name="darkred_helper" type="color">#FFCC0000</item>
+    <integer-array name="androidcolors">
+        <item>@color/blue_helper</item>
+        <item>@color/purple_helper</item>
+        <item>@color/green_helper</item>
+        <item>@color/orange_helper</item>
+        <item>@color/red_helper</item>
+        <item>@color/darkblue_helper</item>
+        <item>@color/darkpurple_helper</item>
+        <item>@color/darkgreen_helper</item>
+        <item>@color/darkorange_helper</item>
+        <item>@color/darkred_helper</item>
+    </integer-array>
 </resources>

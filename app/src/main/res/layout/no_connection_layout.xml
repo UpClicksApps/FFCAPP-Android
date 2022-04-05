@@ -6,7 +6,7 @@
         <import type="android.view.View"/>
         <variable
             name="viewModel"
-            type="com.upclicks.ffcapp.base.BaseViewModel" />
+            type="com.upclicks.ffc.base.BaseViewModel" />
     </data>
 
     <LinearLayout
@@ -18,8 +18,8 @@
         android:gravity="center"
         android:clickable="true"
         android:orientation="vertical"
-        android:visibility="@{viewModel.noConnection ? View.VISIBLE : View.GONE}"
         tools:ignore="UnusedAttribute">
+        android:visibility="@{viewModel.noConnection ? View.VISIBLE : View.GONE}"
 
 <!--        <pl.droidsonroids.gif.GifImageView-->
 <!--            android:id="@+id/spin_kit"-->

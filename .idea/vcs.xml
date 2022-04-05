@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
-    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/AutoClickDelivery" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/AutoClicks/App/OneClick" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/AutoClicksUpClicks" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/BCare" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/BCareProvider" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Bkam" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Bkam-master" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/BkamCompanies" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/BkamCompanies-master" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/FARW" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/FARW Driver" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/FoodBooky" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/GulfShop" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/HappyDays" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Lensaty" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Morgan" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Racop" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/SharmFM" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Shipment" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Tajj" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/TheShipment" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/manzileProvider" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/manzili" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
 </project>

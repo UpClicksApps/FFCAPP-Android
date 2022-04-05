@@ -1,37 +1,49 @@
-apply plugin: 'com.android.application'
-apply plugin: 'dagger.hilt.android.plugin'
-//apply plugin: 'com.google.gms.google-services'
+plugins {
+    id 'com.android.application'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'kotlin-platform-android'
+    id 'com.google.gms.google-services'
 
+}
 android {
     compileSdkVersion 30
-    buildToolsVersion "29.0.2"
+    buildToolsVersion "30.0.3"
     defaultConfig {
-        applicationId "com.upclicks.ffcapp"
+        applicationId "com.upclicks.ffc"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        ndkVersion '21.3.6528147'
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        freeCompilerArgs = ["-Xallow-result-return-type"]
+    }
+    packagingOptions {
+        pickFirst "androidsupportmultidexversion.txt"
     }
     buildTypes {
         release {
             buildConfigField("int", "DELAY", "0")
-            debuggable false
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
             buildConfigField("int", "DELAY", "0")
+            debuggable true
         }
     }
-
-    dataBinding {
-        enabled = true
-    }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dataBinding {
+        enabled = true
     }
 }
 
@@ -45,39 +57,40 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     //Firebase
-    implementation 'com.google.firebase:firebase-messaging:17.3.4'
-    implementation 'com.google.firebase:firebase-auth:16.0.5'
-    implementation 'com.google.firebase:firebase-database:16.0.4'
+    implementation 'com.google.firebase:firebase-messaging:23.0.2'
+    implementation 'com.google.firebase:firebase-auth:21.0.3'
+    implementation 'com.google.firebase:firebase-database:20.0.4'
+    // Firebase
+//    implementation 'com.google.firebase:firebase-analytics:18.0.3'
+//    implementation 'com.google.firebase:firebase-database-ktx:19.7.0'
+//    implementation 'com.google.firebase:firebase-messaging:21.1.0'
+//    implementation 'com.google.firebase:firebase-crashlytics-ktx:17.4.1'
+
 
     // Hilt
-    implementation "com.google.dagger:hilt-android:2.28-alpha"
-    annotationProcessor 'com.google.dagger:hilt-android-compiler:2.28-alpha'
-    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha01'
-    annotationProcessor 'androidx.hilt:hilt-compiler:1.0.0-alpha01'
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_viewmodels"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
+
 
     //RxJava
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
-    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
-
-
-    // Retrofit & OkHttp
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation "com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0"
-    implementation("com.squareup.okhttp3:logging-interceptor:4.3.1")
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.3'
 
     //RecyclerView
-    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
 
     //life cycle + viewModel + LiveData
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-common-java8:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.4.1"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:2.4.1"
 
 
     //Shimmer
-    implementation 'com.facebook.shimmer:shimmer:0.4.0'
-    implementation 'com.todkars:shimmer-recyclerview:0.4.0'
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    implementation 'com.todkars:shimmer-recyclerview:0.4.1'
 
     //Toasty
     implementation 'com.github.GrenderG:Toasty:1.4.2'
@@ -86,7 +99,7 @@ dependencies {
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
 
     //Material
-    implementation 'com.google.android.material:material:1.3.0-alpha03'
+    implementation 'com.google.android.material:material:1.5.0'
 
     //OTP
     implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.1.0'
@@ -114,7 +127,7 @@ dependencies {
 
     //List animation
     implementation 'com.github.Spikeysanju:ZoomRecylerLayout:1.0'
-    implementation 'com.github.rubensousa:gravitysnaphelper:2.2.0'
+    implementation 'com.github.rubensousa:gravitysnaphelper:2.2.2'
     implementation 'com.azoft.carousellayoutmanager:carousel:1.2.1'
 
     //Expandable layout
@@ -142,5 +155,83 @@ dependencies {
     //Video view
     implementation 'com.linsea:universalvideoview:1.1.0@aar'
 
+
+
+
+    // SwipeToRefresh
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    // Sdp
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+    // CameraView
+    implementation 'com.otaliastudios:cameraview:2.7.1'
+    // CircleImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    // ExoPlayer
+    implementation 'com.google.android.exoplayer:exoplayer:2.17.1'
+
+    //Multidex
+    implementation 'com.android.support:multidex:1.0.3'
+    // retrofit
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0"
+    implementation "com.squareup.moshi:moshi:$moshiVersion"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpInterceptorVersion"
+    implementation("com.github.bumptech.glide:glide:$glid") {
+        exclude group: "com.android.support"
+    }
+    implementation "androidx.activity:activity-ktx:$activityKtxVersion"
+    // Coroutines dependency
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'
+    // define a BOM and its version
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.0"))
+    // define any required OkHttp artifacts without version
+    implementation("com.squareup.okhttp3:okhttp")
+    implementation("com.squareup.okhttp3:logging-interceptor")
+    // logger
+    implementation "com.jakewharton.timber:timber:$rootProject.timberVersion"
+    //RxJava
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.3'
+    //MotionToast
+    implementation 'com.github.Spikeysanju:MotionToast:1.3.3.4'
+    //ShimmerRecyclerView
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    implementation 'com.todkars:shimmer-recyclerview:0.4.1'
+    //Round image view
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    //Pager indicator
+    implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2'
+    implementation 'com.github.zhpanvip:viewpagerindicator:1.2.1'
+    //picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    //ExpandableRecyclerView
+    implementation("com.github.pokercc:ExpandableRecyclerView:0.9.3")
+    //Number Picker
+    implementation 'com.github.travijuu:numberpicker:1.0.7'
+    //HorizontalCalendar
+    implementation 'com.github.HedyHidouRy:HorizontalCalendar:1.00'
+    //OtpView
+    implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.1.2'
+    //Map Utils
+//    implementation 'com.google.maps.android:android-maps-utils:0.5+'
+//    Map
+//    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+//    Location service
+//    implementation 'com.google.android.gms:play-services-location:17.0.0'
+//    Quick permissions
+    implementation 'com.github.quickpermissions:quickpermissions-kotlin:0.4.0'
+    //RangeSeekBar
+    implementation 'com.github.Jay-Goo:RangeSeekBar:v3.0.0'
+    //badgeView
+    implementation 'q.rorbin:badgeview:1.1.3'
+
+    //List animation
+    implementation 'com.github.Spikeysanju:ZoomRecylerLayout:1.0'
+    implementation 'com.github.rubensousa:gravitysnaphelper:2.2.2'
+    implementation 'com.azoft.carousellayoutmanager:carousel:1.2.1'
 
 }
