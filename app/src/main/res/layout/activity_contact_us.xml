@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.general.SendFeedbackActivity">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/app_bar_layout" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/_16sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/stroke_rectangle_background_grey"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/_5sdp"
+                    android:paddingVertical="@dimen/_2sdp">
+
+                    <com.upclicks.ffc.ui.general.component.customedittext.TextInput
+                        android:id="@+id/nameEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:hint="@string/name"
+                        android:paddingVertical="@dimen/_8sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/line_color_grey" />
+
+                    <com.upclicks.ffc.ui.general.component.customedittext.TextInput
+                        android:id="@+id/emailEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:hint="@string/e_mail"
+                        android:paddingVertical="@dimen/_8sdp" />
+                </LinearLayout>
+
+                <com.upclicks.ffc.ui.general.component.customedittext.TextInput
+                    android:id="@+id/phoneEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/stroke_rectangle_background_grey"
+                    android:hint="@string/phone_number"
+                    android:paddingHorizontal="@dimen/_5sdp"
+                    android:paddingVertical="@dimen/_8sdp" />
+
+                <com.upclicks.ffc.ui.general.component.customedittext.TextInput
+                    android:id="@+id/messageEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_150sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/stroke_rectangle_background_grey"
+                    android:gravity="top"
+                    android:hint="@string/send_your_feedback_let_us_know_how_you_like"
+                    android:paddingHorizontal="@dimen/_5sdp"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:textSize="@dimen/_12sdp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sendFeedbackButton"
+                    style="@style/ButtonContainedPrimary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:enabled="false"
+                    android:text="@string/send_feedback" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

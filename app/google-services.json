@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "808331210931",
+    "project_id": "ffc-app-f5ad2",
+    "storage_bucket": "ffc-app-f5ad2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:808331210931:android:0b23a1b594cc70847100c6",
+        "android_client_info": {
+          "package_name": "com.upclicks.ffc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "808331210931-gps4q3gero4rm0771ivs06dq40hqqs8u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.upclicks.ffc",
+            "certificate_hash": "ed4e3e47af42672a6d1d58f996c124fd1d7b3a7f"
+          }
+        },
+        {
+          "client_id": "808331210931-fm6ch5i3a1hus8a1tflsnraens85nqed.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7zeIRRH8m1zzxZsF69EA51VM9Hr1i19I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "808331210931-fm6ch5i3a1hus8a1tflsnraens85nqed.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

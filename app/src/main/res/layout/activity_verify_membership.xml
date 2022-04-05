@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primary"
+        android:fillViewport="true"
+        tools:context=".ui.authentication.VerifyMembershipActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_60sdp"
+                android:gravity="center"
+                android:text="@string/verification"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_22sdp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/msg"
+                android:layout_marginVertical="@dimen/_20sdp"
+                android:text="@string/enter_4_digit_code"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_10sdp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+                    <com.mukesh.OtpView
+                        android:id="@+id/otp_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:cursorVisible="true"
+                        android:focusableInTouchMode="true"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14sdp"
+                        app:OtpItemCount="4"
+                        app:OtpLineColor="@color/line_color_grey"
+                        app:OtpItemHeight="@dimen/_45sdp"
+                        app:OtpItemRadius="@dimen/_5sdp"
+                        app:OtpItemSpacing="@dimen/_10sdp"
+                        app:OtpItemWidth="@dimen/_45sdp"
+                        app:OtpViewType="rectangle"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/title">
+                    </com.mukesh.OtpView>
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/done"
+                        style="@style/ButtonContainedPrimary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="@string/done" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="@string/didn_t_receive_any_code"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:textColor="@color/text_color_grey"
+                        android:textSize="@dimen/_12sdp"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="@string/resend_a_new_code"
+                        android:id="@+id/resend"
+                        android:textColor="@color/primary"
+                        android:textSize="@dimen/_12sdp"
+                        android:onClick="resendCode"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:textStyle="bold"></TextView>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</layout>

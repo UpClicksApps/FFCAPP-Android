@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="notification"
+            type="com.upclicks.ffc.ui.notification.data.model.Notification" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        >
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_8sdp"
+            android:id="@+id/notificationCard"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:cardElevation="@dimen/_5sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/light_grey"
+                android:orientation="horizontal"
+                android:paddingVertical="@dimen/_5sdp"
+                android:paddingStart="@dimen/_60sdp"
+                android:paddingEnd="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_10sdp"
+                        bindServerDate="@{notification.creationTime}"
+                        tools:text="Yesterday" />
+
+                    <TextView
+                        notNullHtmlText="@{notification.content}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingMultiplier=".8"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/more_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_gravity="center|start"
+                    android:src="@drawable/more_icon"
+                    android:textAlignment="viewStart"
+                    app:tint="@color/line_color_grey" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            imageBinding="@{notification.notificationImage}"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:tint="@color/white"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:elevation="@dimen/_10sdp"
+            app:riv_corner_radius="@dimen/_8sdp" />
+    </FrameLayout>
+
+</layout>
