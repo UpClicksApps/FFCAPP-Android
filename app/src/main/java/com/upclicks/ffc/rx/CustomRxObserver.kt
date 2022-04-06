@@ -3,6 +3,7 @@ package com.upclicks.ffc.rx
 import androidx.annotation.NonNull
 import com.upclicks.ffc.ui.general.events.EventsModel
 import com.upclicks.ffc.base.BaseViewModel
+import com.upclicks.ffc.commons.Utils
 import io.reactivex.rxjava3.observers.DefaultObserver
 import retrofit2.HttpException
 import retrofit2.Response

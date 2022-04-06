@@ -7,10 +7,10 @@ import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.upclicks.ffc.base.BaseActivity
 import com.upclicks.ffc.databinding.ActivityLoginByEmailBinding
-import com.upclicks.ffc.ui.MainActivity
 import com.upclicks.ffc.ui.authentication.model.request.LoginRequest
 import com.upclicks.ffc.ui.general.component.Validator
 import com.upclicks.ffc.ui.authentication.viewmodel.AccountViewModel
+import com.upclicks.ffc.ui.main.MainActivity
 
 class LoginByEmailActivity : BaseActivity() {
     lateinit var binding: ActivityLoginByEmailBinding
@@ -18,7 +18,17 @@ class LoginByEmailActivity : BaseActivity() {
 
     override fun getLayoutResourceId(): View {
         binding = ActivityLoginByEmailBinding.inflate(layoutInflater)
-        initPage()
+
+        binding.loginBtn.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+        binding.signUpTv.setOnClickListener {
+            startActivity(Intent(this, SignUpFirstActivity::class.java))
+        }
+        binding.forgetPasswordTv.setOnClickListener {
+            startActivity(Intent(this, ResetPasswordActivity::class.java))
+        }
+//        initPage()
         return binding.root
     }
 
@@ -39,7 +49,7 @@ class LoginByEmailActivity : BaseActivity() {
         binding.skip.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
-        binding.done.setOnClickListener {
+        binding.loginBtn.setOnClickListener {
             login()
         }
         binding.forgetPasswordTv.setOnClickListener {

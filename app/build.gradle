@@ -1,22 +1,23 @@
 plugins {
     id 'com.android.application'
-    id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
     id 'kotlin-platform-android'
-    id 'com.google.gms.google-services'
+    id 'dagger.hilt.android.plugin'
 
 }
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
     defaultConfig {
         applicationId "com.upclicks.ffc"
-        minSdkVersion 23
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode 2
+        multiDexEnabled true
+        versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndkVersion '21.3.6528147'
     }
@@ -48,13 +49,17 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.5.0'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
 
     //Firebase
     implementation 'com.google.firebase:firebase-messaging:23.0.2'
@@ -66,110 +71,28 @@ dependencies {
 //    implementation 'com.google.firebase:firebase-messaging:21.1.0'
 //    implementation 'com.google.firebase:firebase-crashlytics-ktx:17.4.1'
 
-
     // Hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_viewmodels"
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
     androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
     kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
-
-
-    //RxJava
-    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
-    implementation 'io.reactivex.rxjava3:rxjava:3.0.3'
-
-    //RecyclerView
-    implementation "androidx.recyclerview:recyclerview:1.2.1"
-
-    //life cycle + viewModel + LiveData
-    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-common-java8:2.4.1"
-    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:2.4.1"
-
-
-    //Shimmer
-    implementation 'com.facebook.shimmer:shimmer:0.5.0'
-    implementation 'com.todkars:shimmer-recyclerview:0.4.1'
-
-    //Toasty
-    implementation 'com.github.GrenderG:Toasty:1.4.2'
-
-    //SDP
-    implementation 'com.intuit.sdp:sdp-android:1.0.6'
-
-    //Material
-    implementation 'com.google.android.material:material:1.5.0'
-
-    //OTP
-    implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.1.0'
-
-    //Progress spinner
-    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
-
-    //Circle Image View
-    implementation 'de.hdodenhof:circleimageview:3.1.0'
-
-    //Round image view
-    implementation 'com.makeramen:roundedimageview:2.3.0'
-
-    //Picasso
-    implementation 'com.squareup.picasso:picasso:2.71828'
-
-    //BetterSpinner
-    implementation 'com.weiwangcn.betterspinner:library:1.1.0'
-
-    //Sweet dialog
-    implementation 'com.github.mjn1369:prettydialog:1.0.4'
-
-    //Rounded image view
-    implementation 'com.makeramen:roundedimageview:2.3.0'
-
-    //List animation
-    implementation 'com.github.Spikeysanju:ZoomRecylerLayout:1.0'
-    implementation 'com.github.rubensousa:gravitysnaphelper:2.2.2'
-    implementation 'com.azoft.carousellayoutmanager:carousel:1.2.1'
-
-    //Expandable layout
-    implementation 'net.cachapa.expandablelayout:expandablelayout:2.9.2'
-
-    //Gif
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.17'
-
-    //Event bus
-    implementation 'org.greenrobot:eventbus:3.2.0'
-
-    //Otp
-    implementation 'com.github.aabhasr1:OtpView:v1.1.2'
-
-    //Biometric fingerprint
-    implementation 'me.aflak.libraries:fingerprint:2.5.3'
-
-
-    //Videos Slider
-    implementation 'com.github.mohan-dev1248:PosterSlider:1.0.2'
-
-    //Page indicator
-    implementation 'com.romandanylyk:pageindicatorview:1.0.3'
-
-    //Video view
-    implementation 'com.linsea:universalvideoview:1.1.0@aar'
-
-
-
-
     // SwipeToRefresh
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
     // Sdp
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
     // CameraView
-    implementation 'com.otaliastudios:cameraview:2.7.1'
+    implementation 'com.otaliastudios:cameraview:2.6.4'
     // CircleImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     // ExoPlayer
-    implementation 'com.google.android.exoplayer:exoplayer:2.17.1'
-
+    implementation 'com.google.android.exoplayer:exoplayer:2.13.3'
+    // Firebase
+    implementation 'com.google.firebase:firebase-analytics:18.0.3'
+    implementation 'com.google.firebase:firebase-database-ktx:19.7.0'
+    implementation 'com.google.firebase:firebase-messaging:21.1.0'
+//    implementation 'com.google.firebase:firebase-crashlytics-ktx:17.4.1'
     //Multidex
     implementation 'com.android.support:multidex:1.0.3'
     // retrofit
@@ -184,8 +107,8 @@ dependencies {
     }
     implementation "androidx.activity:activity-ktx:$activityKtxVersion"
     // Coroutines dependency
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
     // define a BOM and its version
     implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.0"))
     // define any required OkHttp artifacts without version
@@ -195,7 +118,7 @@ dependencies {
     implementation "com.jakewharton.timber:timber:$rootProject.timberVersion"
     //RxJava
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
-    implementation 'io.reactivex.rxjava3:rxjava:3.0.3'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
     //MotionToast
     implementation 'com.github.Spikeysanju:MotionToast:1.3.3.4'
     //ShimmerRecyclerView
@@ -217,21 +140,17 @@ dependencies {
     //OtpView
     implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.1.2'
     //Map Utils
-//    implementation 'com.google.maps.android:android-maps-utils:0.5+'
-//    Map
-//    implementation 'com.google.android.gms:play-services-maps:17.0.0'
-//    Location service
-//    implementation 'com.google.android.gms:play-services-location:17.0.0'
-//    Quick permissions
+    implementation 'com.google.maps.android:android-maps-utils:0.5+'
+    //Map
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    //Location service
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    //Quick permissions
     implementation 'com.github.quickpermissions:quickpermissions-kotlin:0.4.0'
     //RangeSeekBar
     implementation 'com.github.Jay-Goo:RangeSeekBar:v3.0.0'
     //badgeView
     implementation 'q.rorbin:badgeview:1.1.3'
 
-    //List animation
-    implementation 'com.github.Spikeysanju:ZoomRecylerLayout:1.0'
-    implementation 'com.github.rubensousa:gravitysnaphelper:2.2.2'
-    implementation 'com.azoft.carousellayoutmanager:carousel:1.2.1'
-
+    implementation  'io.ak1:bubbletabbar:1.0.8'
 }

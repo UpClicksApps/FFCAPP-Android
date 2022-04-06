@@ -1,4 +1,4 @@
-package com.upclicks.tcare.commons
+package com.upclicks.ffc.commons
 
 enum class MessageTypes(val value: Int) {
     Normal(0),

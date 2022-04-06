@@ -114,6 +114,7 @@
         <item name="boxBackgroundColor">@color/white</item>
         <item name="hintTextColor">@color/text_color_grey</item>
         <item name="boxStrokeColor">@color/line_color_grey</item>
+        <item name="startIconTint">@color/primary</item>
     </style>
 
 

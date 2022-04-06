@@ -13,7 +13,7 @@ import com.upclicks.ffc.ui.notification.adapter.NotificationAdapter
 import com.upclicks.ffc.ui.notification.data.model.Notification
 import com.upclicks.ffc.ui.notification.data.viewModel.NotificationViewModel
 import com.upclicks.ffc.ui.general.dialog.ConfirmDialog
-import com.upclicks.tcare.commons.FcmNotificationType
+import com.upclicks.ffc.commons.FcmNotificationType
 import www.sanju.motiontoast.MotionToast
 
 class NotificationActivity : BaseActivity() {

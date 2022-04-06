@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.annotation.NonNull
 import androidx.databinding.BindingAdapter
 import com.google.common.base.Strings.isNullOrEmpty
-import com.upclicks.tcare.R
+import com.upclicks.ffc.R
 import java.text.DateFormat
 import java.text.ParseException
 import java.text.SimpleDateFormat

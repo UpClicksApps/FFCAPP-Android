@@ -4,6 +4,7 @@ import android.view.View
 import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseActivity
 import com.upclicks.ffc.databinding.ActivityChangeLanguageBinding
+import com.upclicks.ffc.session.SessionHelper
 
 class ChangeLanguageActivity : BaseActivity() , SessionHelper.OnSessionUpdate{
 

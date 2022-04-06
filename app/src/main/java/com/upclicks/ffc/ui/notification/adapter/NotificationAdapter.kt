@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.upclicks.ffc.R
 import com.upclicks.ffc.databinding.ItemNotificationBinding
-import com.upclicks.tcare.R
-import com.upclicks.tcare.databinding.ItemNotificationBinding
 import com.upclicks.ffc.ui.notification.data.model.Notification
 
 

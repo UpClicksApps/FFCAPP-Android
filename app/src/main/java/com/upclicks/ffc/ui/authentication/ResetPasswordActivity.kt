@@ -9,11 +9,11 @@ import androidx.lifecycle.Observer
 import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseActivity
 import com.upclicks.ffc.databinding.ActivityResetPasswordBinding
-import com.upclicks.ffc.ui.MainActivity
 import com.upclicks.ffc.ui.authentication.model.request.ResetPasswordRequest
 import com.upclicks.ffc.ui.authentication.model.response.ForgotPasswordResponse
 import com.upclicks.ffc.ui.authentication.viewmodel.AccountViewModel
 import com.upclicks.ffc.ui.general.component.Validator
+import com.upclicks.ffc.ui.main.MainActivity
 import www.sanju.motiontoast.MotionToast
 
 class ResetPasswordActivity : BaseActivity() {
@@ -23,7 +23,7 @@ class ResetPasswordActivity : BaseActivity() {
 
     override fun getLayoutResourceId(): View {
         binding = ActivityResetPasswordBinding.inflate(layoutInflater)
-        initPage()
+        setUpPageActions()
         return binding.root
     }
 

@@ -15,10 +15,11 @@
     <color name="light_black">#333333</color>
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#008952</color>
+    <color name="primary_light">#d9ede5</color>
     <color name="secondary">#c41618</color>
+    <color name="secondary_light">#f6dbdb</color>
     <color name="light_grey">#f4f4f4</color>
     <color name="rating_bar_background">#cc319fa0</color>
-    <color name="light_primary">#d9ede5</color>
     <color name="primary_text_color">#12BFC5</color>
     <color name="button_white_text_color">#595959</color>
     <color name="button_primary_text_color">#ffffff</color>

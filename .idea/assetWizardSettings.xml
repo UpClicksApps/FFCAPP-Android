@@ -20,8 +20,8 @@
                           <map>
                             <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="4a4a4a" />
-                            <entry key="outputName" value="ic_auth_bg" />
-                            <entry key="sourceFile" value="F:\Android\Work\FFC\icons\auth_bg.svg" />
+                            <entry key="outputName" value="ic_user" />
+                            <entry key="sourceFile" value="F:\Android\Work\FFC\icons\user.svg" />
                           </map>
                         </option>
                       </PersistentState>

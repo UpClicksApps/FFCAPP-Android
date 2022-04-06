@@ -1,10 +1,10 @@
-package com.upclicks.tcare.commons
+package com.upclicks.ffc.commons
 
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
-import com.upclicks.tcare.R
+import com.upclicks.ffc.R
 import org.json.JSONException
 import org.json.JSONObject
 import retrofit2.Response

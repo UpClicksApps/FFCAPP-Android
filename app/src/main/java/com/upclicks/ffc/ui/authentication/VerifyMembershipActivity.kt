@@ -4,17 +4,19 @@ import android.content.Intent
 import android.os.CountDownTimer
 import android.text.TextUtils
 import android.view.View
+import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.google.gson.Gson
-import com.upclicks.tcare.R
-import com.upclicks.tcare.architecture.BaseActivity
-import com.upclicks.tcare.commons.Keys.Intent_Constants.MEMBER_REQUEST
-import com.upclicks.tcare.commons.Keys.Intent_Constants.MEMBER_RESPONSE
-import com.upclicks.tcare.databinding.ActivityVerifyMembershipBinding
+import com.upclicks.ffc.R
+import com.upclicks.ffc.base.BaseActivity
+import com.upclicks.ffc.commons.Keys.Intent_Constants.MEMBER_REQUEST
+import com.upclicks.ffc.commons.Keys.Intent_Constants.MEMBER_RESPONSE
+import com.upclicks.ffc.databinding.ActivityVerifyMembershipBinding
 import com.upclicks.ffc.ui.authentication.model.request.CreateMemberShipRequest
 import com.upclicks.ffc.ui.authentication.model.response.MembershipResponse
 import com.upclicks.ffc.ui.authentication.viewmodel.AccountViewModel
-import com.upclicks.tcare.ui.general.component.Validator
+import com.upclicks.ffc.ui.general.component.Validator
+import com.upclicks.ffc.ui.main.MainActivity
 import www.sanju.motiontoast.MotionToast
 
 class VerifyMembershipActivity : BaseActivity() {
@@ -69,11 +71,11 @@ class VerifyMembershipActivity : BaseActivity() {
             accountViewModel.callVerifySession()
         })
         //Observe session verification
-        accountViewModel.observeVerifySession.observe(this, {
+        accountViewModel.observeVerifySession.observe(this) {
             sessionHelper.userProfile = it.profile!!
-            startActivity(Intent(this, CompleteProfileActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
-        })
+        }
     }
 
     //Verify member request

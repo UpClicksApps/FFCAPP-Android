@@ -145,4 +145,10 @@
     <string name="continue_as_a_guest">Continue as a guest</string>
     <string name="create_account">Create account</string>
     <string name="welcome_back">Welcome back</string>
+    <string name="or">Or</string>
+    <string name="login">Login</string>
+    <string name="create_a_new_account">Create a new account</string>
+    <string name="user_name">User name</string>
+    <string name="please_enter_your_email_address_you_will_receive_a_link_to_create_a_new_password_via_email">Please enter your email address. You will receive a link to create a new password via email.</string>
+    <string name="next">Next</string>
 </resources>

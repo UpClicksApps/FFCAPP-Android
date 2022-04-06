@@ -41,8 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|center_vertical"
                 android:padding="@dimen/_8sdp"
-                app:tint="@color/white"
-                android:src="@drawable/ic_arrow_back"></ImageView>
+                android:src="@drawable/ic_back"></ImageView>
 
             <TextView
                 android:id="@+id/resetTv"
