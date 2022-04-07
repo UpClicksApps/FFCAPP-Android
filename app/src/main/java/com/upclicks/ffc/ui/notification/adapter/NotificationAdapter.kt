@@ -26,34 +26,34 @@ class NotificationAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.notification = notificationList[position]
-        if (notificationList[position].notificationState == 0) {
-            holder.binding.notificationCard.setCardBackgroundColor(
-                ColorStateList.valueOf(
-                    context!!.resources.getColor(
-                        R.color.white
-                    )
-                )
-            )
-        } else
-            holder.binding.notificationCard.setCardBackgroundColor(
-                ColorStateList.valueOf(
-                    context!!.resources.getColor(
-                        R.color.line_color_grey
-                    )
-                )
-            )
-        holder.binding.moreBtn.setOnClickListener {
-            onOptionsBtnClicked(notificationList[position],it)
-        }
-        holder.itemView.setOnClickListener {
-            onNotificationItemClicked(notificationList[position])
-        }
+//        holder.binding.notification = notificationList[position]
+//        if (notificationList[position].notificationState == 0) {
+//            holder.binding.notificationCard.setCardBackgroundColor(
+//                ColorStateList.valueOf(
+//                    context!!.resources.getColor(
+//                        R.color.white
+//                    )
+//                )
+//            )
+//        } else
+//            holder.binding.notificationCard.setCardBackgroundColor(
+//                ColorStateList.valueOf(
+//                    context!!.resources.getColor(
+//                        R.color.line_color_grey
+//                    )
+//                )
+//            )
+//        holder.binding.moreBtn.setOnClickListener {
+//            onOptionsBtnClicked(notificationList[position],it)
+//        }
+//        holder.itemView.setOnClickListener {
+//            onNotificationItemClicked(notificationList[position])
+//        }
     }
 
     override fun getItemCount(): Int {
         // number of items in the data set held by the adapter
-        return notificationList.size
+        return 15
     }
 
     class ViewHolder(val binding: ItemNotificationBinding) :

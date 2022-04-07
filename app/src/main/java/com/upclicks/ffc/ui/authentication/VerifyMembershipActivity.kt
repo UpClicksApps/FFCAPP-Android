@@ -1,4 +1,4 @@
-package com.upclicks.tcare.ui.authentication
+package com.upclicks.ffc.ui.authentication
 
 import android.content.Intent
 import android.os.CountDownTimer

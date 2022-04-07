@@ -121,21 +121,21 @@ interface ApiService {
 //    fun getSalonOffers(
 //        @Query("providerId") providerId: String, @Query("skip") skip: Int,
 //        @Query("take") take: Int
-//    ): Observable<Result<List<Offer>>>
+//    ): Observable<Result<List<Order>>>
 //
 //    //Get Offers
 //    @GET("services/app/Provider/GetOffers")
 //    fun getSpecialOffers(
 //        @Query("skip") skip: Int,
 //        @Query("take") take: Int
-//    ): Observable<Result<List<Offer>>>
+//    ): Observable<Result<List<Order>>>
 //
-//    //Get Offer
+//    //Get Order
 //    @GET("services/app/Provider/GetOffer")
 //    fun getOffer(
 //        @Query("id") id: String,
 //        @Query("notifyId") notifyId: String
-//    ): Observable<Result<Offer>>
+//    ): Observable<Result<Order>>
 //
 //    //Get Specialist
 //    @GET("services/app/Provider/GetAvailableTimesAndSpecialists")

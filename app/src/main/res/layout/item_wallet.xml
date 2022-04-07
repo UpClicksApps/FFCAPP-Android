@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/solid_rectangle_background_primary"
+        android:backgroundTint="@color/white"
+        android:layout_margin="@dimen/_8sdp"
+        android:padding="@dimen/_5sdp"
+        android:gravity="center"
+        android:elevation="@dimen/_5sdp"
+        >
+        <ImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/solid_rectangle_background_primary"
+            android:backgroundTint="@color/primary_light"
+            android:src="@drawable/ic_wallet_icon"
+            android:padding="@dimen/_10sdp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Lorem Ipsum is simply dummy text
+of the printing  and typesetting industry."
+            android:padding="@dimen/_5sdp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="KD 8.850"
+            android:textColor="@color/black"
+            />
+    </LinearLayout>
+</layout>

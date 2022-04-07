@@ -25,15 +25,15 @@
             android:id="@+id/notificationCard"
             android:layout_marginHorizontal="@dimen/_8sdp"
             android:layout_marginBottom="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            app:cardElevation="@dimen/_5sdp">
+            android:layout_marginTop="@dimen/_10sdp"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/light_grey"
                 android:orientation="horizontal"
-                android:paddingVertical="@dimen/_5sdp"
+                android:paddingVertical="@dimen/_16sdp"
                 android:paddingStart="@dimen/_60sdp"
                 android:paddingEnd="@dimen/_10sdp">
 
@@ -47,18 +47,20 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_10sdp"
-                        bindServerDate="@{notification.creationTime}"
-                        tools:text="Yesterday" />
+                        tools:text="@string/user_name" />
+<!--                    bindServerDate="@{notification.creationTime}"-->
 
                     <TextView
-                        notNullHtmlText="@{notification.content}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingMultiplier=".8"
+                        android:text="text description"
                         android:textAlignment="viewStart"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp"
                         />
+<!--                    notNullHtmlText="@{notification.content}"-->
+
                 </LinearLayout>
 
                 <ImageView
@@ -73,13 +75,15 @@
         </androidx.cardview.widget.CardView>
 
         <de.hdodenhof.circleimageview.CircleImageView
-            imageBinding="@{notification.notificationImage}"
             android:layout_width="@dimen/_50sdp"
             android:layout_height="@dimen/_50sdp"
             android:tint="@color/white"
+            android:src="@drawable/user_placeholder"
             android:layout_marginStart="@dimen/_10sdp"
             android:elevation="@dimen/_10sdp"
             app:riv_corner_radius="@dimen/_8sdp" />
+<!--        imageBinding="@{notification.notificationImage}"-->
+
     </FrameLayout>
 
 </layout>

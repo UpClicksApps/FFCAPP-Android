@@ -12,7 +12,12 @@ class CustomSpinner<T>(context: Context, attrs: AttributeSet?) : AppCompatSpinne
     lateinit var dataList: ArrayList<BaseSelection>
     lateinit var adapter: ArrayAdapter<String>
     lateinit var baseSelection: BaseSelection
-    lateinit var selectionCallback: SelectionCallback
+    var selectionCallback = object : SelectionCallback {
+        override fun onItemSelected(baseSelection: BaseSelection) {
+
+        }
+    }
+
     init {
         onItemSelectedListener =
             object : OnItemSelectedListener {

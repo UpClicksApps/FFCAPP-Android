@@ -46,6 +46,9 @@ class ResetPasswordActivity : BaseActivity() {
         binding.request.setOnClickListener {
             request()
         }
+        binding.toolbar.backIv.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     fun request() {

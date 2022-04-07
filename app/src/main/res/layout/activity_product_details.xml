@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.products.ProductDetailsActivity">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_250sdp"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/image_placeholder"
+                android:alpha=".7"
+                />
+
+            <FrameLayout
+                android:id="@+id/overlayFrame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha=".3"
+                android:background="@color/primary_light"
+                />
+
+            <ImageView
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/ic_product_details_back"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_gravity="start|top"
+                android:id="@+id/backIv"
+                />
+
+            <ImageView
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/ic_product_details_share"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/solid_rectangle_background_primary"
+                android:backgroundTint="@color/primary_light"
+                android:padding="@dimen/_5sdp"
+                android:layout_gravity="end|top"
+                android:id="@+id/shareIv"
+                />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_230sdp"
+            android:background="@drawable/product_details_background"
+            android:elevation="@dimen/_16sdp"
+            android:padding="@dimen/_10sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Organic Banana"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/text_color_grey"
+                    android:text="KD 8.850"
+                    android:textSize="@dimen/_9sdp"
+                    android:padding="@dimen/_5sdp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/primary"
+                    android:text="KD 8.850"
+                    android:textSize="@dimen/_11sdp"
+                    android:textStyle="bold"
+                    android:padding="@dimen/_5sdp"
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Discount 5%"
+                android:textColor="@color/black"
+                android:drawableStart="@drawable/ic_offer_icon"
+                android:drawablePadding="@dimen/_5sdp"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:src="@drawable/ic_product_details_star"
+                    android:padding="@dimen/_5sdp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4.6 (80 reviews)"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="viewStart"
+                android:textColor="@color/text_color_grey"
+                android:text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                android:textSize="@dimen/_11sdp"
+                android:padding="@dimen/_5sdp"
+                />
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <ImageView
+                    android:layout_width="@dimen/_38sdp"
+                    android:layout_height="@dimen/_38sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:src="@drawable/ic_favorite"
+                    android:layout_gravity="top|end"
+                    android:padding="@dimen/_10sdp"
+                    android:background="@drawable/ic_home_favorite_bg"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_weight="1"
+                    style="@style/ButtonContainedSecondary"
+                    android:text="@string/add_to_cart"
+                    android:textSize="@dimen/_12sdp"
+                    android:id="@+id/addToCartBtn"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+    </FrameLayout>
+</layout>

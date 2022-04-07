@@ -22,6 +22,9 @@ class LoginByEmailActivity : BaseActivity() {
         binding.loginBtn.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
+        binding.skip.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
         binding.signUpTv.setOnClickListener {
             startActivity(Intent(this, SignUpFirstActivity::class.java))
         }

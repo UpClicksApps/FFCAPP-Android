@@ -41,7 +41,7 @@ class NotificationActivity : BaseActivity() {
         setUpToolbar()
         setUpPageUi()
         setUpPageActions()
-        setUpObservers()
+//        setUpObservers()
         binding.viewModel = notificationViewModel
         binding.lifecycleOwner = this
     }
@@ -77,7 +77,7 @@ class NotificationActivity : BaseActivity() {
 
     // Set up page listeners and callback
     private fun setUpPageActions() {
-        setUpLoadOnScrollListener()
+//        setUpLoadOnScrollListener()
     }
 
     // Set Up Load On Scroll Listener

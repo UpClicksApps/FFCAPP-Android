@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#9a5aab</color>
-    <color name="colorPrimaryDark">#701487</color>
-    <color name="colorAccent">#701487</color>
+    <color name="colorPrimary">#008952</color>
+    <color name="colorPrimaryDark">#008952</color>
+    <color name="colorAccent">#008952</color>
     <color name="activitybg">#fbfbfb</color>
     <color name="textcolor">#9a5aab</color>
     <color name="gray">#e6e6e6</color>
@@ -45,7 +45,7 @@
     <item name="darkgreen_helper" type="color">#FF669900</item>
     <item name="darkorange_helper" type="color">#FFFF8800</item>
     <item name="darkred_helper" type="color">#FFCC0000</item>
-    <integer-array name="androidcolors">
+    <integer-array name="randomColors">
         <item>@color/blue_helper</item>
         <item>@color/purple_helper</item>
         <item>@color/green_helper</item>

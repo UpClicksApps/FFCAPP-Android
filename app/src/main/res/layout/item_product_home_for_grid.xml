@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_10sdp"
+        android:layout_margin="@dimen/_5sdp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                >
+
+                <FrameLayout
+                    android:id="@+id/overlayFrame"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha=".4"
+                    android:background="@color/secondary_light"
+                    />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/image_placeholder"
+                    android:layout_marginTop="@dimen/_25sdp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|start"
+                    android:text="Discount 10%"
+                    android:background="@color/primary_light"
+                    android:padding="@dimen/_5sdp"
+                    android:textColor="@color/primary"
+                    />
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:src="@drawable/ic_favorite"
+                    android:layout_gravity="top|end"
+                    android:padding="@dimen/_5sdp"
+                    android:background="@drawable/ic_home_favorite_bg"/>
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:text="Carrots"
+                android:padding="@dimen/_5sdp"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/text_color_grey"
+                    android:text="KD 8.850"
+                    android:textSize="@dimen/_9sdp"
+                    android:padding="@dimen/_5sdp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/primary"
+                    android:text="KD 8.850"
+                    android:textSize="@dimen/_11sdp"
+                    android:textStyle="bold"
+                    android:padding="@dimen/_5sdp"
+                    />
+                <ImageView
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:background="@drawable/ic_product_cart_bg"
+                    android:src="@drawable/ic_cart"
+                    android:padding="@dimen/_7sdp"
+                    android:id="@+id/cartIv"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

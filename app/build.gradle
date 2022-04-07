@@ -152,5 +152,10 @@ dependencies {
     //badgeView
     implementation 'q.rorbin:badgeview:1.1.3'
 
+    // navigation bottom
     implementation  'io.ak1:bubbletabbar:1.0.8'
+
+    // tags ChipCloud
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.github.adroitandroid:ChipCloud:2.2.1'
 }

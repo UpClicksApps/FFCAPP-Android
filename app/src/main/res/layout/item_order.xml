@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_8sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginVertical="@dimen/_5sdp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_8sdp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="@string/order_number"
+                    android:textSize="@dimen/_12sdp"
+                    android:drawableStart="@drawable/ic_order_number_icon"
+                    android:drawablePadding="@dimen/_5sdp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="#15457"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:textColor="@color/text_color_grey"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="@string/date"
+                    android:textSize="@dimen/_12sdp"
+                    android:drawableStart="@drawable/ic_date_icon"
+                    android:drawablePadding="@dimen/_5sdp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Oct 22/10/2021"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:textColor="@color/text_color_grey"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="@string/total"
+                    android:textSize="@dimen/_12sdp"
+                    android:drawableStart="@drawable/ic_total_icon"
+                    android:drawablePadding="@dimen/_5sdp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="KD 10.950"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:textColor="@color/text_color_grey"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginHorizontal="@dimen/_16sdp">
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingVertical="@dimen/_5sdp"
+                    style="@style/ButtonOutlineWhiteSecondary"
+                    android:text="@string/cancel"
+                    app:cornerRadius="@dimen/_25sdp"
+                    android:id="@+id/cancelBtn"
+                    android:textSize="@dimen/_9sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    />
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingVertical="@dimen/_5sdp"
+                    style="@style/ButtonOutlineWhiteSecondary"
+                    android:text="@string/track_order"
+                    app:cornerRadius="@dimen/_25sdp"
+                    android:id="@+id/trackOrderBtn"
+                    android:textSize="@dimen/_9sdp"
+                    android:visibility="gone"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    />
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingVertical="@dimen/_5sdp"
+                    style="@style/ButtonContainedSecondary"
+                    android:text="@string/details"
+                    android:textSize="@dimen/_9sdp"
+                    app:cornerRadius="@dimen/_25sdp"
+                    android:id="@+id/detailsBtn"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

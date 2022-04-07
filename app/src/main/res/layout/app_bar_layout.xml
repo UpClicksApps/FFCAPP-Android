@@ -37,10 +37,10 @@
                 android:textStyle="bold"></TextView>
             <ImageView
                 android:id="@+id/backIv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
                 android:layout_gravity="start|center_vertical"
-                android:padding="@dimen/_8sdp"
+                android:padding="@dimen/_5sdp"
                 android:src="@drawable/ic_back"></ImageView>
 
             <TextView
@@ -59,22 +59,12 @@
                 android:layout_gravity="end">
 
             <ImageView
-                android:id="@+id/filterIv"
+                android:id="@+id/cartIv"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_cart"
                 android:visibility="gone"
-                android:src="@drawable/ic_outline_filter"
-                android:layout_gravity="end"
-                />
-
-            <ImageView
-                android:id="@+id/locationIv"
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:padding="@dimen/_5sdp"
-                android:visibility="gone"
-                android:src="@drawable/ic_outline_location"
                 android:layout_gravity="end"
                 />
             </LinearLayout>
