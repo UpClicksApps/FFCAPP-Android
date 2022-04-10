@@ -174,4 +174,15 @@
     <string name="delivery_address">Delivery Address</string>
     <string name="delivery_time">Delivery Time</string>
     <string name="payment_method">Payment Method</string>
+    <string name="delivery_information">Delivery Information</string>
+    <string name="payment_way">Payment Way</string>
+    <string name="shipping_fees">Shipping fees</string>
+    <string name="street">Street</string>
+    <string name="house_number">House number</string>
+    <string name="notes">Notes</string>
+    <string name="set_a_delivery_sate">Set a Delivery Sate</string>
+    <string name="today">Today</string>
+    <string name="online_payment">Online Payment</string>
+    <string name="cash">Cash</string>
+    <string name="from_wallet">From Wallet</string>
 </resources>

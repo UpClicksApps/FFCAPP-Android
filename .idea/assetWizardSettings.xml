@@ -20,8 +20,8 @@
                           <map>
                             <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="4a4a4a" />
-                            <entry key="outputName" value="ic_payment_method" />
-                            <entry key="sourceFile" value="F:\Android\Work\FFC\icons\payment_method.svg" />
+                            <entry key="outputName" value="ic_checkout_wallet" />
+                            <entry key="sourceFile" value="F:\Android\Work\FFC\icons\ic_checkout_wallet.svg" />
                           </map>
                         </option>
                       </PersistentState>

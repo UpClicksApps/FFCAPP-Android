@@ -1,5 +1,6 @@
 package com.upclicks.ffc.ui.products
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -8,6 +9,8 @@ import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseActivity
 import com.upclicks.ffc.databinding.ActivityProductDetailsBinding
 import com.upclicks.ffc.databinding.ActivityShoppingCartBinding
+import com.upclicks.ffc.ui.checkout.Checkout1Activity
+import com.upclicks.ffc.ui.checkout.Checkout2Activity
 import com.upclicks.ffc.ui.products.adapter.CartAdapter
 import com.upclicks.ffc.ui.products.adapter.WalletAdapter
 import com.upclicks.ffc.ui.products.model.Cart
@@ -41,7 +44,7 @@ class ShoppingCartActivity  : BaseActivity() {
     }
     private fun setUpPageActions() {
         binding.checkoutBtn.setOnClickListener {
-
+            startActivity(Intent(this, Checkout1Activity::class.java))
         }
     }
 

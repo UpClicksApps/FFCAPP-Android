@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:fitsSystemWindows="true"
+        tools:context=".ui.checkout.Checkout1Activity">
+
+
+        <include
+            layout="@layout/app_bar_layout"
+            android:id="@+id/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:id="@+id/nestedScrollView"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp"
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_step1"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:layout_weight="1"
+                        android:textColor="@color/black"
+                        android:text="@string/delivery_information"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:textColor="@color/black"
+                        android:text="@string/delivery_time"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:textColor="@color/black"
+                        android:text="@string/payment_way"/>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="@string/name"
+                    android:layout_marginTop="@dimen/_10sdp"/>
+                <com.upclicks.ffc.ui.general.component.customedittext.TextInput
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@drawable/solid_rectangle_background_primary"
+                    android:backgroundTint="@color/white"
+                    android:elevation="@dimen/_5sdp"
+                    android:enabled="false"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:id="@+id/nameInput"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="@string/e_mail"
+                    android:layout_marginTop="@dimen/_10sdp"/>
+                <com.upclicks.ffc.ui.general.component.customedittext.EmailInput
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@drawable/solid_rectangle_background_primary"
+                    android:backgroundTint="@color/white"
+                    android:inputType="textEmailAddress"
+                    android:enabled="false"
+                    android:elevation="@dimen/_5sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:id="@+id/emailInput"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="@string/phone_number"
+                    android:layout_marginTop="@dimen/_10sdp"/>
+                <com.upclicks.ffc.ui.general.component.customedittext.EmailInput
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@drawable/solid_rectangle_background_primary"
+                    android:backgroundTint="@color/white"
+                    android:elevation="@dimen/_5sdp"
+                    android:inputType="phone"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:enabled="false"
+                    android:padding="@dimen/_5sdp"
+                    android:id="@+id/phoneInput"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="@string/city"
+                            android:textColor="@color/black" />
+
+                        <com.upclicks.ffc.ui.general.component.customedittext.TextInput
+                            android:id="@+id/cityInput"
+                            android:enabled="false"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:background="@drawable/solid_rectangle_background_primary"
+                            android:backgroundTint="@color/white"
+                            android:elevation="@dimen/_5sdp"
+                            android:padding="@dimen/_5sdp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="@string/shipping_fees"
+                            android:textColor="@color/black" />
+
+                        <com.upclicks.ffc.ui.general.component.customedittext.TextInput
+                            android:id="@+id/shippingFeesInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:enabled="false"
+                            android:background="@drawable/solid_rectangle_background_primary"
+                            android:backgroundTint="@color/white"
+                            android:elevation="@dimen/_5sdp"
+                            android:padding="@dimen/_5sdp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="@string/street"
+                            android:textColor="@color/black" />
+
+                        <com.upclicks.ffc.ui.general.component.customedittext.TextInput
+                            android:id="@+id/streetInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:background="@drawable/solid_rectangle_background_primary"
+                            android:enabled="false"
+                            android:backgroundTint="@color/white"
+                            android:elevation="@dimen/_5sdp"
+                            android:padding="@dimen/_5sdp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="@string/house_number"
+                            android:textColor="@color/black" />
+
+                        <com.upclicks.ffc.ui.general.component.customedittext.TextInput
+                            android:id="@+id/houseNumberInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:enabled="false"
+                            android:background="@drawable/solid_rectangle_background_primary"
+                            android:backgroundTint="@color/white"
+                            android:elevation="@dimen/_5sdp"
+                            android:padding="@dimen/_5sdp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="@string/address"
+                    android:layout_marginTop="@dimen/_10sdp"/>
+                <com.upclicks.ffc.ui.general.component.customedittext.TextInput
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@drawable/solid_rectangle_background_primary"
+                    android:backgroundTint="@color/white"
+                    android:enabled="false"
+                    android:elevation="@dimen/_5sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:id="@+id/addressInput"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="@string/notes"
+                    android:layout_marginTop="@dimen/_10sdp"/>
+                <com.upclicks.ffc.ui.general.component.customedittext.TextInput
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@drawable/solid_rectangle_background_primary"
+                    android:backgroundTint="@color/white"
+                    android:elevation="@dimen/_5sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:enabled="false"
+                    android:id="@+id/notesInput"
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/nextBtn"
+                    style="@style/ButtonContainedSecondary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@string/next" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+</layout>

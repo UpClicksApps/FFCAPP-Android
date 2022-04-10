@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.travijuu:numberpicker:1.0.7@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/90daefdd3f5da2b77496b414cadf25cd/jetified-numberpicker-1.0.7/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/90daefdd3f5da2b77496b414cadf25cd/jetified-numberpicker-1.0.7/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/90daefdd3f5da2b77496b414cadf25cd/jetified-numberpicker-1.0.7/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/227e7640eccc87e540f7cd5cba5df80e/jetified-numberpicker-1.0.7/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/227e7640eccc87e540f7cd5cba5df80e/jetified-numberpicker-1.0.7/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/227e7640eccc87e540f7cd5cba5df80e/jetified-numberpicker-1.0.7/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.travijuu/numberpicker/1.0.7/67a78ddf1f36899fbc576dd5628d6afd48ae2093/numberpicker-1.0.7-javadoc.jar!/" />
