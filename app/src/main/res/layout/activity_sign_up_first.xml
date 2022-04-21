@@ -102,6 +102,8 @@
                     android:layout_marginHorizontal="@dimen/_16sdp"
                     app:startIconDrawable="@drawable/ic_password"
                     android:hint="@string/password"
+                    app:endIconTint="@color/primary"
+                    app:endIconDrawable="@drawable/password_seen_selector"
                     app:endIconMode="password_toggle">
 
                     <com.google.android.material.textfield.TextInputEditText

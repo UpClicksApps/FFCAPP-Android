@@ -26,9 +26,7 @@ class Checkout3Activity: BaseActivity() {
     private fun setUpPageActions() {
 
         binding.checkoutBtn.setOnClickListener {
-            startActivity(Intent(this,MainActivity::class.java))
-            finishAffinity()
+            startActivity(Intent(this,CheckoutSuccessActivity::class.java))
         }
-
     }
 }

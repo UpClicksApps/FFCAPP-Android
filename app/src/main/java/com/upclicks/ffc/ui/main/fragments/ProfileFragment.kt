@@ -11,6 +11,9 @@ import com.upclicks.ffc.base.BaseFragment
 import com.upclicks.ffc.databinding.FragmentHomeBinding
 import com.upclicks.ffc.databinding.FragmentProfileBinding
 import com.upclicks.ffc.ui.authentication.PersonalDetailsActivity
+import com.upclicks.ffc.ui.general.SettingsActivity
+import com.upclicks.ffc.ui.general.dialog.ConfirmDialog
+import com.upclicks.ffc.ui.main.SplashActivity
 import com.upclicks.ffc.ui.notification.NotificationActivity
 import com.upclicks.ffc.ui.products.FavoriteActivity
 import com.upclicks.ffc.ui.products.MyOrdersActivity
@@ -59,7 +62,18 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
 
         }
         binding.settingsTv.setOnClickListener {
+            startActivity(Intent(requireContext(), SettingsActivity::class.java))
+        }
+        binding.logoutLy.setOnClickListener {
+            ConfirmDialog(requireContext(),requireActivity().getString(R.string.logout),requireActivity().getString(R.string.are_you_sure_to_logout)
+            , onYesBtnClick = {
+                    startActivity(Intent(requireContext(), SplashActivity::class.java))
+                    requireActivity().finishAffinity()
+                },
+            onNoBtnClick = {
+            }).show()
 
         }
+
     }
 }

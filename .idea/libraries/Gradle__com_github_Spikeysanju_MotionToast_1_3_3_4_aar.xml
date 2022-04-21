@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.Spikeysanju:MotionToast:1.3.3.4@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/05b0d5707ec65e75d3583ce11b5bbb3d/jetified-MotionToast-1.3.3.4/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/05b0d5707ec65e75d3583ce11b5bbb3d/jetified-MotionToast-1.3.3.4/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/05b0d5707ec65e75d3583ce11b5bbb3d/jetified-MotionToast-1.3.3.4/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b40ea2c5e46666b458e44a7c797cfa31/jetified-MotionToast-1.3.3.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b40ea2c5e46666b458e44a7c797cfa31/jetified-MotionToast-1.3.3.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b40ea2c5e46666b458e44a7c797cfa31/jetified-MotionToast-1.3.3.4/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

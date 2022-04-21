@@ -41,7 +41,7 @@ class NotificationActivity : BaseActivity() {
         setUpToolbar()
         setUpPageUi()
         setUpPageActions()
-//        setUpObservers()
+        setUpObservers()
         binding.viewModel = notificationViewModel
         binding.lifecycleOwner = this
     }
@@ -151,6 +151,7 @@ class NotificationActivity : BaseActivity() {
                 R.id.delete_action -> {
                     ConfirmDialog(
                         this,
+                        getString(R.string.delete),
                         getString(R.string.delete_this_notification),
                         onYesBtnClick = {
                             notificationViewModel.callDeleteNotification(id)
@@ -189,8 +190,8 @@ class NotificationActivity : BaseActivity() {
     // Observe read notification
     private fun observeReadNotification() {
         notificationViewModel.observeReadNotificationResult().observe(this, Observer {
-            shoMsg(it,MotionToast.TOAST_SUCCESS)
-            skip=0
+            shoMsg(it, MotionToast.TOAST_SUCCESS)
+            skip = 0
             notificationViewModel.callNotificationsList(skip, take)
         })
     }
@@ -198,8 +199,8 @@ class NotificationActivity : BaseActivity() {
     // Observe delete notification
     private fun observeDeleteNotification() {
         notificationViewModel.observeDeleteNotificationResult().observe(this, Observer {
-            shoMsg(it,MotionToast.TOAST_SUCCESS)
-            skip=0
+            shoMsg(it, MotionToast.TOAST_SUCCESS)
+            skip = 0
             notificationViewModel.callNotificationsList(skip, take)
         })
     }

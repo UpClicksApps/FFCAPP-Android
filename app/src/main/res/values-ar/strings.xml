@@ -34,6 +34,8 @@
     <string name="my_wallet">محفظتى</string>
     <string name="send_feedbacks">إرسال التقيمات</string>
     <string name="logout">تسجيل خروج</string>
+    <string name="are_you_sure">هل انت متاكد</string>
+    <string name="are_you_sure_to_logout">هل انت متاكد من تسجيل الخروج؟</string>
     <string name="special_offers">عروض خاصة</string>
     <string name="the_salon">الصالوم</string>
     <string name="details">التفاصيل</string>
@@ -185,4 +187,10 @@
     <string name="online_payment">Online Payment</string>
     <string name="cash">Cash</string>
     <string name="from_wallet">From Wallet</string>
+    <string name="your_order_is_complete">Your Order is Complete</string>
+    <string name="continue_shopping">Continue Shopping</string>
+    <string name="language">Language</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="about_us">About Us</string>
+    <string name="share_app">Share App</string>
 </resources>

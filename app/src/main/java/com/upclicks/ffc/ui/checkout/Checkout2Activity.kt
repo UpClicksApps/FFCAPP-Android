@@ -26,7 +26,7 @@ class Checkout2Activity : BaseActivity() {
     private fun setUpPageActions() {
 
         binding.nextBtn.setOnClickListener {
-            startActivity(Intent(this,Checkout2Activity::class.java))
+            startActivity(Intent(this,Checkout3Activity::class.java))
         }
 
     }

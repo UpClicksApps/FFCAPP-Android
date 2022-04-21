@@ -10,6 +10,12 @@
         android:theme="@style/Theme.Main"
         android:windowSoftInputMode="adjustResize|stateHidden">
         <activity
+            android:name=".ui.general.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.checkout.CheckoutSuccessActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.checkout.Checkout3Activity"
             android:exported="false" />
         <activity

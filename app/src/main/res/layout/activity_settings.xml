@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.general.SettingsActivity">
+
+        <include layout="@layout/app_bar_layout"
+            android:id="@+id/toolbar"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:background="@drawable/solid_rectangle_background_primary"
+                    android:backgroundTint="@color/white"
+                    android:padding="@dimen/_8sdp"
+                    android:orientation="vertical"
+                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:elevation="@dimen/_5sdp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/language"
+                        android:drawableEnd="@drawable/ic_arrow_right"
+                        android:drawableStart="@drawable/ic_settings_language"
+                        android:drawablePadding="@dimen/_8sdp"
+                        android:gravity="start|center"
+                        android:id="@+id/languageTv"
+                        android:paddingVertical="@dimen/_8sdp"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/line_color_grey"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/contact_us"
+                        android:drawableEnd="@drawable/ic_arrow_right"
+                        android:drawableStart="@drawable/ic_settings_contact_us"
+                        android:drawablePadding="@dimen/_8sdp"
+                        android:gravity="start|center"
+                        android:id="@+id/contactTv"
+                        android:paddingVertical="@dimen/_8sdp"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/line_color_grey"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/about_us"
+                        android:drawableEnd="@drawable/ic_arrow_right"
+                        android:drawableStart="@drawable/ic_settings_about_us"
+                        android:drawablePadding="@dimen/_8sdp"
+                        android:gravity="start|center"
+                        android:id="@+id/aboutTv"
+                        android:paddingVertical="@dimen/_8sdp"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/line_color_grey"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/share_app"
+                        android:drawableEnd="@drawable/ic_arrow_right"
+                        android:drawableStart="@drawable/ic_settings_share_app"
+                        android:drawablePadding="@dimen/_8sdp"
+                        android:gravity="start|center"
+                        android:id="@+id/shareTv"
+                        android:paddingVertical="@dimen/_8sdp"
+                        />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+</layout>

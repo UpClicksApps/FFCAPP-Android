@@ -13,6 +13,7 @@ import com.upclicks.ffc.databinding.DialogConfirmBinding
 
 class ConfirmDialog(
     context: Context,
+    var title: String,
     var message: String,
     private val onYesBtnClick: () -> Unit,
     private val onNoBtnClick: () -> Unit
@@ -32,13 +33,13 @@ class ConfirmDialog(
             WindowManager.LayoutParams.WRAP_CONTENT
         )
         window!!.setBackgroundDrawableResource(android.R.color.transparent)
-        setCancelable(false)
 //        val displayMetrics = context.resources.displayMetrics
 //        val height = displayMetrics.heightPixels
 //        val mBehavior: BottomSheetBehavior<*> =
 //            BottomSheetBehavior.from(binding.root.parent as View)
 //        mBehavior.peekHeight = height
 
+        binding.title = title
         binding.msg = message
         binding.yesBtn.setOnClickListener {
             onYesBtnClick()
@@ -48,5 +49,10 @@ class ConfirmDialog(
             onNoBtnClick()
             dismiss()
         }
+
+        binding.closeIv.setOnClickListener {
+            dismiss()
+        }
+
     }
 }
