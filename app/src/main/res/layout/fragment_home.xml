@@ -57,8 +57,8 @@
             </LinearLayout>
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_100sdp"
-                android:layout_marginTop="@dimen/_50sdp"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_marginTop="@dimen/_40sdp"
                 android:layout_marginHorizontal="@dimen/_20sdp"
                 android:background="@drawable/home_slider_placeholder"
                 />
@@ -93,6 +93,12 @@
                         android:layout_marginStart="@dimen/_8sdp"
                         android:textStyle="bold"
                         />
+                    <View
+                        android:layout_width="@dimen/_115sdp"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:background="@color/black"
+                        />
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -117,15 +123,26 @@
                         android:layout_marginHorizontal="@dimen/_8sdp"
                         android:layout_marginTop="@dimen/_16sdp">
 
-                        <TextView
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/top_sale"
-                            android:textAlignment="viewStart"
-                            android:textColor="@color/primary"
-                            android:textSize="@dimen/_14sdp"
-                            android:textStyle="bold" />
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/top_sale"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/primary"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold" />
+                            <View
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_1sdp"
+                                android:background="@color/black"
+                                />
+                        </LinearLayout>
 
                         <TextView
                             android:id="@+id/moreTv"

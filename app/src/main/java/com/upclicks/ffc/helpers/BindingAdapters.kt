@@ -30,6 +30,19 @@ fun textHtml(textView: TextView, str: String?) {
     textView.text = Html.fromHtml(txt)
 }
 
+
+@BindingAdapter("underlineTextView")
+fun underlineTextView(textView: TextView, text: String?) {
+    textView.text = text
+    textView.paintFlags = textView.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+}
+
+@BindingAdapter("oldPriceTextView")
+fun setOldPriceTextView(textView: TextView, oldPrice: String?) {
+    textView.text = oldPrice
+    textView.paintFlags = textView.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+}
+
 @BindingAdapter("bindServerDate")
 fun bindServerDate(@NonNull textView: TextView, dateString: String?) {
     var dateStr = ""

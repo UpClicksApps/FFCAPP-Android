@@ -94,16 +94,22 @@
                     android:text="@string/city"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:textColor="@color/black"/>
-                <com.upclicks.ffc.ui.general.component.spinner.CustomSpinner
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/solid_rectangle_background_primary"
                     android:backgroundTint="@color/white"
                     android:elevation="@dimen/_5sdp"
                     android:layout_margin="@dimen/_5sdp"
-                    android:padding="@dimen/_5sdp"
-                    android:id="@+id/citySP"
-                    />
+                    >
+                    <com.upclicks.ffc.ui.general.component.spinner.CustomSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:padding="@dimen/_5sdp"
+                        android:id="@+id/citySP"
+                        />
+                </FrameLayout>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0dp"

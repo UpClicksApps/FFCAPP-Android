@@ -87,10 +87,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:padding="@dimen/_5sdp"
-                    android:text='@{@string/forget_password+@string/question_sign}'
+                    underlineTextView='@{@string/forget_password+@string/question_sign}'
                     android:layout_marginHorizontal="@dimen/_16sdp"
                     android:textColor="@color/secondary"
-                    android:textSize="@dimen/_9sdp"
+                    android:textSize="@dimen/_11sdp"
                     tools:text="@string/forget_password" />
 
                 <com.google.android.material.button.MaterialButton
@@ -141,7 +141,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_5sdp"
-                        android:text="@string/create_account"
+                        underlineTextView='@{@string/create_account}'
+                        tools:text="@string/create_account"
                         android:textColor="@color/secondary"
                         android:textSize="@dimen/_11sdp"
                         android:textStyle="bold" />
@@ -162,7 +163,8 @@
             android:text="@string/continue_as_a_guest"
             android:background="@color/primary_light"
             android:textColor="@color/primary"
-            android:textSize="@dimen/_13sdp"
+            android:textStyle="bold"
+            android:textSize="@dimen/_14sdp"
             android:gravity="center"
             />
     </LinearLayout>

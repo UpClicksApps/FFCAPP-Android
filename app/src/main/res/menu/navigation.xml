@@ -6,7 +6,7 @@
         android:icon="@drawable/ic_home"
         android:title="@string/home"
         android:checked="true"
-        android:color="@color/home"
+        android:color="@color/primary"
         />
     <item
         android:id="@+id/categories_nav"
@@ -17,12 +17,12 @@
     <item
         android:id="@+id/search_nav"
         android:icon="@drawable/ic_search"
-        android:color="@color/blue_helper"
+        android:color="@color/primary"
         android:title="@string/search" />
 
     <item
         android:id="@+id/profile_nav"
         android:icon="@drawable/ic_nav_user"
-        android:color="@color/darkorange_helper"
+        android:color="@color/primary"
         android:title="Profile" />
 </menu>
