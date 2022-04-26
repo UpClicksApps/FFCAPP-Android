@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import com.upclicks.ffc.R
 import com.upclicks.ffc.session.SessionHelper
 import dagger.hilt.android.AndroidEntryPoint
 import www.sanju.motiontoast.MotionToast
@@ -34,7 +35,7 @@ abstract class BaseFragment(@LayoutRes val resId: Int?) : Fragment() {
     fun shoMsg(msg: String, type: String) {
         MotionToast.createColorToast(
             requireActivity(),
-            "App",
+            getString(R.string.app_name),
             msg,
             type,
             MotionToast.GRAVITY_BOTTOM,
