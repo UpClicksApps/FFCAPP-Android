@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.upclicks.ffc">
 
     <application
         android:name=".base.BaseApp"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
+        android:allowBackup="false"
         android:supportsRtl="true"
         android:theme="@style/Theme.Main"
-        android:windowSoftInputMode="adjustResize|stateHidden">
-        <activity
+        android:windowSoftInputMode="adjustResize|stateHidden"
+        tools:replace="android:allowBackup">
+    <activity
             android:name=".ui.general.SettingsActivity"
             android:exported="false" />
         <activity
