@@ -155,6 +155,12 @@ dependencies {
     // navigation bottom
     implementation  'io.ak1:bubbletabbar:1.0.8'
 
+
+    //ZoomRecylerLayout
+    implementation 'com.github.Spikeysanju:ZoomRecylerLayout:1.0'
+    //snaphelper
+    implementation 'com.github.rubensousa:gravitysnaphelper:2.2.2'
+
     // tags ChipCloud
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.github.adroitandroid:ChipCloud:2.2.1'

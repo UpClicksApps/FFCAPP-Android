@@ -1,16 +1,12 @@
 package com.upclicks.ffc.ui.main.fragments
 
 import android.content.Intent
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseFragment
 import com.upclicks.ffc.databinding.FragmentCategoriesBinding
-import com.upclicks.ffc.databinding.FragmentHomeBinding
+import com.upclicks.ffc.helpers.CustomRecyclerViewHelper
 import com.upclicks.ffc.ui.general.model.Category
 import com.upclicks.ffc.ui.main.adapters.CategoryAdapter
 import com.upclicks.ffc.ui.products.ShoppingCartActivity

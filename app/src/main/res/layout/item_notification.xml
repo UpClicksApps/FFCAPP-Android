@@ -4,91 +4,92 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="notification"
             type="com.upclicks.ffc.ui.notification.data.model.Notification" />
-
     </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:id="@+id/notificationCard"
         android:layout_marginTop="@dimen/_5sdp"
         android:paddingHorizontal="@dimen/_10sdp"
         >
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:tint="@color/white"
+                android:src="@drawable/user_placeholder"
+                />
+            <!--        imageBinding="@{notification.notificationImage}"-->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="@dimen/_50sdp"
-                    android:layout_height="@dimen/_50sdp"
-                    android:tint="@color/white"
-                    android:src="@drawable/user_placeholder"
-                    />
-                <!--        imageBinding="@{notification.notificationImage}"-->
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_gravity="center"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_gravity="center"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/_13sdp"
-                            android:textStyle="bold"
-                            android:layout_weight="1"
-                            android:textColor="@color/black"
-                            tools:text="@string/user_name" />
-                        <!--                    bindServerDate="@{notification.creationTime}"-->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"
                         android:textStyle="bold"
-                        android:textColor="@color/text_color_grey"
-                        tools:text="10 minutes ago" />
-<!--                    bindServerDate="@{notification.creationTime}"-->
-                    </LinearLayout>
-
+                        android:layout_weight="1"
+                        android:textColor="@color/black"
+                        android:text="@string/user_name" />
+                    <!--                    bindServerDate="@{notification.creationTime}"-->
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:lineSpacingMultiplier=".8"
-                        android:text="Lorem Ipsum is simply dummy text of the printing and
-typesetting industry"
-                        android:textAlignment="viewStart"
+                        android:textSize="@dimen/_9sdp"
+                        android:textStyle="bold"
+                        android:id="@+id/timeAgoTv"
                         android:textColor="@color/text_color_grey"
-                        android:textSize="@dimen/_11sdp"
-                        />
-<!--                    notNullHtmlText="@{notification.content}"-->
-
+                        android:text="10 minutes ago" />
+                    <!--                    bindServerDate="@{notification.creationTime}"-->
                 </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/more_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_30sdp"
-                    android:layout_gravity="center|start"
-                    android:src="@drawable/more_icon"
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier=".8"
+                    android:text="Lorem Ipsum is simply dummy text of the printing and
+typesetting industry"
                     android:textAlignment="viewStart"
-                    app:tint="@color/line_color_grey" />
+                    android:textColor="@color/text_color_grey"
+                    android:textSize="@dimen/_10sdp"
+                    />
+                <!--                    notNullHtmlText="@{notification.content}"-->
+
             </LinearLayout>
+
+            <ImageView
+                android:id="@+id/more_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="center|start"
+                android:src="@drawable/more_icon"
+                android:textAlignment="viewStart"
+                app:tint="@color/line_color_grey" />
+        </LinearLayout>
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/_1sdp"
-            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:background="@color/line_color_grey"/>
     </LinearLayout>
 </layout>

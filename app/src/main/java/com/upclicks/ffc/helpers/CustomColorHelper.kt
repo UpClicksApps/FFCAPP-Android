@@ -10,7 +10,7 @@ class CustomColorHelper {
     companion object {
         fun generateRandomColor(context: Context): Int {
             var androidColors: IntArray = context.resources.getIntArray(R.array.randomColors)
-            return ColorUtils.setAlphaComponent(androidColors[Random().nextInt(androidColors.size)],0x88)
+            return ColorUtils.setAlphaComponent(androidColors[Random().nextInt(androidColors.size)],0xBB)
         }
 
     }

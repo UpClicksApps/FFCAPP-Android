@@ -146,7 +146,7 @@ class NotificationActivity : BaseActivity() {
         popupMenu.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.read_action -> {
-                    notificationViewModel.callReadNotification(id)
+//                    notificationViewModel.callReadNotification(id)
                 }
                 R.id.delete_action -> {
                     ConfirmDialog(
@@ -154,7 +154,7 @@ class NotificationActivity : BaseActivity() {
                         getString(R.string.delete),
                         getString(R.string.delete_this_notification),
                         onYesBtnClick = {
-                            notificationViewModel.callDeleteNotification(id)
+//                            notificationViewModel.callDeleteNotification(id)
                         },
                         onNoBtnClick = {}).show()
                 }

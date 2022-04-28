@@ -43,9 +43,10 @@ class NotificationAdapter(
 //                    )
 //                )
 //            )
-//        holder.binding.moreBtn.setOnClickListener {
+        holder.binding.moreBtn.setOnClickListener {
+            onOptionsBtnClicked(Notification(),it)
 //            onOptionsBtnClicked(notificationList[position],it)
-//        }
+        }
 //        holder.itemView.setOnClickListener {
 //            onNotificationItemClicked(notificationList[position])
 //        }
