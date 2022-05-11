@@ -24,5 +24,5 @@
         android:id="@+id/profile_nav"
         android:icon="@drawable/ic_nav_user"
         android:color="@color/primary"
-        android:title="Profile" />
+        android:title="@string/profile" />
 </menu>

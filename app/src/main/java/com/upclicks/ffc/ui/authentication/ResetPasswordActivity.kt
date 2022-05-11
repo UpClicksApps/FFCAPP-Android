@@ -29,8 +29,16 @@ class ResetPasswordActivity : BaseActivity() {
 
     // main function for this page
     private fun initPage() {
+        setUpToolbar()
         setUpPageUi()
         setUpPageActions()
+    }
+
+    private fun setUpToolbar() {
+        binding.toolbar.titleTv.text = getString(R.string.forget_password)
+        binding.toolbar.backIv.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     // set up page ui

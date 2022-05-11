@@ -48,6 +48,7 @@
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/drawable/solid_rectangle_background_primary.xml" value="0.2115" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/activity_base.xml" value="0.32592592592592595" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/activity_change_language.xml" value="0.32592592592592595" />
+        <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/activity_change_password.xml" value="0.32146118721461187" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/activity_checkout1.xml" value="0.32592592592592595" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/activity_checkout2.xml" value="0.32592592592592595" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/activity_checkout3.xml" value="0.32592592592592595" />
@@ -62,7 +63,7 @@
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/activity_notification.xml" value="0.32592592592592595" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/activity_order_details.xml" value="0.32592592592592595" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/activity_personal_details.xml" value="0.32592592592592595" />
-        <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/activity_product_details.xml" value="0.25" />
+        <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/activity_product_details.xml" value="0.18" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/activity_products_list.xml" value="0.32592592592592595" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/activity_reset_password.xml" value="0.32592592592592595" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/activity_settings.xml" value="0.32592592592592595" />
@@ -72,6 +73,7 @@
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/activity_verify_membership.xml" value="0.32146118721461187" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/activity_wallet.xml" value="0.31342592592592594" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/app_bar_layout.xml" value="0.25" />
+        <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/custom_empty_layout.xml" value="0.32592592592592595" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/dialog_change_language.xml" value="0.33" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/dialog_confirm.xml" value="0.33" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/fragment_categories.xml" value="0.32592592592592595" />
@@ -92,6 +94,7 @@
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/item_product_home_for_linear.xml" value="0.32592592592592595" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/item_wallet.xml" value="0.32592592592592595" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/loading_layout.xml" value="0.32146118721461187" />
+        <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/number_picker_custom_layout.xml" value="0.32592592592592595" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/menu/navigation.xml" value="0.32592592592592595" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/menu/notification_menu.xml" value="0.12083333333333333" />
       </map>

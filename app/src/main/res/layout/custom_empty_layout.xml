@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="textMessage"
+            type="String" />
+        <variable
+            name="textDetail"
+            type="String" />
+        <variable
+            name="image"
+            type="android.graphics.drawable.Drawable" />
+        <variable
+            name="textButton"
+            type="String" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/empty_layout"
+        android:visibility="gone"
+        android:padding="@dimen/_20sdp"
+        android:gravity="center_horizontal"
+        >
+
+        <ImageView
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:src="@{image}"
+            android:layout_marginTop="@dimen/_70sdp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:gravity="center"
+            android:text="@{textMessage}"
+            android:textStyle="bold"
+            android:textSize="@dimen/_16sdp"
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="@{textDetail}"
+            android:textSize="@dimen/_13sdp"
+            android:gravity="center"
+            />
+<!--        android:textColor="@color/auth_et_text_gray_color"-->
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_click"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{textButton}"
+                android:layout_gravity="bottom|center_horizontal"
+                android:paddingStart="@dimen/_30sdp"
+                android:paddingEnd="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:textColor="@color/white" />
+<!--            style="@style/button_style"-->
+<!--            android:background="@drawable/solid_btn_bg"-->
+
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+</layout>

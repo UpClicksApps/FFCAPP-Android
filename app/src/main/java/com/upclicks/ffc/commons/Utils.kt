@@ -51,7 +51,6 @@ class Utils {
         intent.data = Uri.parse("tel:$phoneNumber")
         context.startActivity(intent)
     }
-//
 //    fun share(context: Context, url: String) {
 //        try {
 //            val shareIntent = Intent(Intent.ACTION_SEND)
