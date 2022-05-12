@@ -10,6 +10,9 @@ import com.upclicks.ffc.databinding.ActivityLoginByEmailBinding
 import com.upclicks.ffc.ui.authentication.model.request.LoginRequest
 import com.upclicks.ffc.ui.general.component.Validator
 import com.upclicks.ffc.ui.authentication.viewmodel.AccountViewModel
+import com.upclicks.ffc.ui.general.component.CustomMaterialInputHelper
+import com.upclicks.ffc.ui.general.component.material.BaseMaterialEditText
+import com.upclicks.ffc.ui.general.component.material.CustomMaterialInputLayout
 import com.upclicks.ffc.ui.main.MainActivity
 
 class LoginByEmailActivity : BaseActivity() {
@@ -18,20 +21,7 @@ class LoginByEmailActivity : BaseActivity() {
 
     override fun getLayoutResourceId(): View {
         binding = ActivityLoginByEmailBinding.inflate(layoutInflater)
-
-        binding.loginBtn.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-        }
-        binding.skip.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-        }
-        binding.signUpTv.setOnClickListener {
-            startActivity(Intent(this, SignUpFirstActivity::class.java))
-        }
-        binding.forgetPasswordTv.setOnClickListener {
-            startActivity(Intent(this, ResetPasswordActivity::class.java))
-        }
-//        initPage()
+        initPage()
         return binding.root
     }
 
@@ -61,8 +51,18 @@ class LoginByEmailActivity : BaseActivity() {
         binding.signUpTv.setOnClickListener {
             startActivity(Intent(this, SignUpFirstActivity::class.java))
         }
+        CustomMaterialInputHelper.setUpInputsTypingCallback(createInputViewsList())
     }
 
+    // create lis of inputs view
+    private fun createInputViewsList(): ArrayList<CustomMaterialInputLayout> {
+        var inputsList = ArrayList<CustomMaterialInputLayout>()
+        inputsList.add(binding.emailInput)
+        inputsList.add(binding.passwordInput)
+        return inputsList
+    }
+
+    //set up observers
     private fun setUpObserver() {
         //Observe authentication
         accountViewModel.authResponse.observe(this, Observer {
@@ -78,21 +78,13 @@ class LoginByEmailActivity : BaseActivity() {
             finish()
         }
     }
-
+    // make login request
     private fun login() {
-        var email = binding.emailInput.editText!!.text.toString()
-        var password = binding.passwordInput.editText!!.text.toString()
-        if (TextUtils.isEmpty(email) || !Validator.isEmailValid(email)) {
-            binding.emailInput.editText!!.startAnimation(Validator.shakeError())
-            return
+        if (CustomMaterialInputHelper.checkIfInputsIsValid(this, createInputViewsList())) {
+            val loginRequest = LoginRequest()
+            loginRequest.usernameOrEmailAddress = binding.emailInput.editText!!.text.toString()
+            loginRequest.password = binding.passwordInput.editText!!.text.toString()
+            accountViewModel.auth(loginRequest)
         }
-        if (TextUtils.isEmpty(password)) {
-            binding.passwordInput.editText!!.startAnimation(Validator.shakeError())
-            return
-        }
-        val memberShipRequest = LoginRequest()
-        memberShipRequest.usernameOrEmailAddress = email
-        memberShipRequest.password = password
-        accountViewModel.auth(email, password)
     }
 }

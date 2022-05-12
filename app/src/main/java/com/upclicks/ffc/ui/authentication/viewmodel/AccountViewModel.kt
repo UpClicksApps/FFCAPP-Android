@@ -34,10 +34,7 @@ class AccountViewModel
     val observeVerifySession: LiveData<VerifySession>
         get() = _verifySessionResponse
 
-    fun auth(userName: String, password: String) {
-        var loginRequest = LoginRequest()
-        loginRequest.usernameOrEmailAddress = userName
-        loginRequest.password = password
+    fun auth(loginRequest : LoginRequest) {
         loginRequest.rememberClient = true
         accountRepository.login(loginRequest)
             .observeOn(AndroidSchedulers.mainThread())

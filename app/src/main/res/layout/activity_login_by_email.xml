@@ -48,7 +48,7 @@
                     android:layout_marginVertical="@dimen/_16sdp"
                     />
 
-                <com.google.android.material.textfield.TextInputLayout
+                <com.upclicks.ffc.ui.general.component.material.CustomMaterialInputLayout
                     android:id="@+id/emailInput"
                     style="@style/InputTextStyle"
                     android:layout_marginHorizontal="@dimen/_16sdp"
@@ -57,13 +57,13 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/e_mail">
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <com.upclicks.ffc.ui.general.component.material.EmailMaterialEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textEmailAddress" />
-                </com.google.android.material.textfield.TextInputLayout>
+                </com.upclicks.ffc.ui.general.component.material.CustomMaterialInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
+                <com.upclicks.ffc.ui.general.component.material.CustomMaterialInputLayout
                     android:id="@+id/passwordInput"
                     style="@style/InputTextStyle"
                     android:layout_width="match_parent"
@@ -75,11 +75,11 @@
                     app:endIconDrawable="@drawable/password_seen_selector"
                     app:endIconMode="password_toggle">
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <com.upclicks.ffc.ui.general.component.material.PasswordMaterialEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPassword" />
-                </com.google.android.material.textfield.TextInputLayout>
+                </com.upclicks.ffc.ui.general.component.material.CustomMaterialInputLayout>
 
                 <TextView
                     android:id="@+id/forgetPasswordTv"

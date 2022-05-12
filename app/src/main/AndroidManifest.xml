@@ -61,6 +61,9 @@
             android:name=".ui.authentication.SignUpFirstActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.authentication.VerifyMembershipActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.authentication.ResetPasswordActivity"
             android:exported="false" />
         <activity android:name=".ui.authentication.LoginByEmailActivity" />

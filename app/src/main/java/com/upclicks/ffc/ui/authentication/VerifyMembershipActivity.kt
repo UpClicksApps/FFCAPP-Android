@@ -13,6 +13,7 @@ import com.upclicks.ffc.commons.Keys.Intent_Constants.MEMBER_REQUEST
 import com.upclicks.ffc.commons.Keys.Intent_Constants.MEMBER_RESPONSE
 import com.upclicks.ffc.databinding.ActivityVerifyMembershipBinding
 import com.upclicks.ffc.ui.authentication.model.request.CreateMemberShipRequest
+import com.upclicks.ffc.ui.authentication.model.request.LoginRequest
 import com.upclicks.ffc.ui.authentication.model.response.MembershipResponse
 import com.upclicks.ffc.ui.authentication.viewmodel.AccountViewModel
 import com.upclicks.ffc.ui.general.component.Validator
@@ -99,7 +100,10 @@ class VerifyMembershipActivity : BaseActivity() {
 
     //Auto login after verify member request
     private fun autoLogin() {
-        accountViewModel.auth(memberRequest?.emailAddress!!, memberRequest?.password!!)
+        var loginRequest = LoginRequest()
+        loginRequest.usernameOrEmailAddress = memberRequest!!.emailAddress
+        loginRequest.password = memberRequest!!.password
+        accountViewModel.auth(loginRequest)
     }
 
     fun resendCode(view: View) {

@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseActivity
 import com.upclicks.ffc.databinding.ActivityResetPasswordBinding
+import com.upclicks.ffc.ui.authentication.model.request.LoginRequest
 import com.upclicks.ffc.ui.authentication.model.request.ResetPasswordRequest
 import com.upclicks.ffc.ui.authentication.model.response.ForgotPasswordResponse
 import com.upclicks.ffc.ui.authentication.viewmodel.AccountViewModel
@@ -130,10 +131,10 @@ class ResetPasswordActivity : BaseActivity() {
 
     //Auto login after verify member request
     private fun autoLogin() {
-        accountViewModel.auth(
-            binding.emailInput.editText!!.text.toString(),
-            binding.newPasswordInput.editText!!.text.toString()
-        )
+        var loginRequest = LoginRequest()
+        loginRequest.usernameOrEmailAddress = binding.emailInput.editText!!.text.toString()
+        loginRequest.password = binding.newPasswordInput.editText!!.text.toString()
+        accountViewModel.auth(loginRequest)
     }
 
     fun resendCode(view: View) {
