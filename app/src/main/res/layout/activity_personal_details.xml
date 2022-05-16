@@ -87,6 +87,25 @@
                     android:hint="+96512121321"
                     android:id="@+id/phoneInput"
                     />
+                <com.upclicks.ffc.ui.general.component.material.CustomMaterialInputLayout
+                    android:id="@+id/emailInput"
+                    style="@style/InputTextStyle"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    app:startIconDrawable="@drawable/ic_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:hint="@string/e_mail">
+                    <com.upclicks.ffc.ui.general.component.material.EmailMaterialEditText
+                        android:layout_width="match_parent"
+                        android:backgroundTint="@color/white"
+                        android:elevation="@dimen/_5sdp"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/solid_rectangle_background_primary"
+                        android:inputType="textEmailAddress" />
+                </com.upclicks.ffc.ui.general.component.material.CustomMaterialInputLayout>
+
 
                 <TextView
                     android:layout_width="wrap_content"

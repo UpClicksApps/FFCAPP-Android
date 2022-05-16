@@ -99,6 +99,21 @@ class AccountViewModel
                 }
             })
     }
+ //Validate Reset PasswordCode
+    fun validateResetPasswordCode(
+     validateResetPasswordCodeRequest : ValidateResetPasswordCodeRequest,
+        onValidateResetPasswordCode: (Boolean) -> Unit
+    ) {
+        accountRepository.validateResetPasswordCode(validateResetPasswordCodeRequest)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe(object :
+                CustomRxObserver<Result<Boolean>>(this@AccountViewModel) {
+                override fun onResponse(response: Result<Boolean>) {
+                    onValidateResetPasswordCode(response?.result!!)
+                }
+            })
+    }
 
     //sendFeedback
     fun sendFeedback(

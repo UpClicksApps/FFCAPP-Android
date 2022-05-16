@@ -10,6 +10,7 @@ import com.upclicks.ffc.rx.RxBus
 import com.upclicks.ffc.ui.general.events.EventsModel
 import com.upclicks.ffc.session.SessionHelper
 import com.upclicks.ffc.commons.Utils
+import com.upclicks.ffc.data.BaseURLConfigHelper
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.disposables.Disposable
 import www.sanju.motiontoast.MotionToast
@@ -24,6 +25,8 @@ abstract class BaseActivity : AppCompatActivity() {
     private var eventUnAuthDisposable: Disposable? = null
     @Inject
     lateinit var sessionHelper: SessionHelper
+    @Inject
+    lateinit var baseURLConfigHelper: BaseURLConfigHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutResourceId());

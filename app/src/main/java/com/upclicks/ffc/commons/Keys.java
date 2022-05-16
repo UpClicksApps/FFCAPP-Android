@@ -1,7 +1,7 @@
 package com.upclicks.ffc.commons;
 
 public class Keys {
-    public static String BASE_URL = "https://api-v1.tcare.ae/";
+    public static String BASE_URL = "https://api-v1.freshfruitskw.com/";
     public static String API_URL = BASE_URL + "api/";
 
     public static final long SPLASH_DISPLAY_LENGTH = 2000;
@@ -11,8 +11,6 @@ public class Keys {
     public static class PublicKeys {
         public static int CHAT_SENDER_KEY = -1;
     }
-
-
     //Media types
     public static class MediaTypes {
         public static int IMAGE = 0;

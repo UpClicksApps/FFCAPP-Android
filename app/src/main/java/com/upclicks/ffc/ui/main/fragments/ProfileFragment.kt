@@ -6,11 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.viewModels
+import androidx.fragment.app.viewModels
 import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseFragment
 import com.upclicks.ffc.databinding.FragmentHomeBinding
 import com.upclicks.ffc.databinding.FragmentProfileBinding
 import com.upclicks.ffc.ui.authentication.PersonalDetailsActivity
+import com.upclicks.ffc.ui.authentication.viewmodel.AccountViewModel
 import com.upclicks.ffc.ui.general.SettingsActivity
 import com.upclicks.ffc.ui.general.dialog.ConfirmDialog
 import com.upclicks.ffc.ui.main.SplashActivity
@@ -22,6 +25,7 @@ import com.upclicks.ffc.ui.products.WalletActivity
 
 class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
     lateinit var binding: FragmentProfileBinding
+    private val accountViewModel: AccountViewModel by viewModels()
 
     override fun setUpLayout() {
         binding = FragmentProfileBinding.bind(requireView())
@@ -31,6 +35,13 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
     private fun initPage() {
         setUpToolbar()
         setUpPageActions()
+        callMyProfile()
+    }
+
+    private fun callMyProfile() {
+        accountViewModel.getMyProfile { profile ->
+            binding.profile = profile
+        }
     }
 
     // set up toolbar like page title,back button...etc
@@ -67,8 +78,10 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
         binding.logoutLy.setOnClickListener {
             ConfirmDialog(requireContext(),requireActivity().getString(R.string.logout),requireActivity().getString(R.string.are_you_sure_to_logout)
             , onYesBtnClick = {
-                    startActivity(Intent(requireContext(), SplashActivity::class.java))
-                    requireActivity().finishAffinity()
+                    sessionHelper.logout {
+                        startActivity(Intent(requireContext(), SplashActivity::class.java))
+                        requireActivity().finishAffinity()
+                    }
                 },
             onNoBtnClick = {
             }).show()

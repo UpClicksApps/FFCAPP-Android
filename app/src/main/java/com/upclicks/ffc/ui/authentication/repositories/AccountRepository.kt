@@ -33,6 +33,11 @@ class AccountRepository @Inject constructor(private val apiService: ApiService) 
         return apiService.createMembership(createMemberShipRequest)
     }
 
+    //Create membership
+    fun validateResetPasswordCode(validateResetPasswordCodeRequest : ValidateResetPasswordCodeRequest) : Observable<Result<Boolean>> {
+        return apiService.validateResetPasswordCode(validateResetPasswordCodeRequest)
+    }
+
     //Verify membership
     fun verifyMembership(membershipIdentity : String, verificationCode : String) : Observable<Result<Boolean>> {
         return apiService.verifyMembership(membershipIdentity,verificationCode)

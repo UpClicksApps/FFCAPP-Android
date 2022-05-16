@@ -14,6 +14,7 @@ import com.upclicks.ffc.commons.Keys.Intent_Constants.MEMBER_RESPONSE
 import com.upclicks.ffc.databinding.ActivityVerifyMembershipBinding
 import com.upclicks.ffc.ui.authentication.model.request.CreateMemberShipRequest
 import com.upclicks.ffc.ui.authentication.model.request.LoginRequest
+import com.upclicks.ffc.ui.authentication.model.request.ValidateResetPasswordCodeRequest
 import com.upclicks.ffc.ui.authentication.model.response.MembershipResponse
 import com.upclicks.ffc.ui.authentication.viewmodel.AccountViewModel
 import com.upclicks.ffc.ui.general.component.Validator

@@ -8,13 +8,7 @@ import javax.inject.Inject
 
 @HiltAndroidApp
 class BaseApp:Application(){
-    @Inject
-    lateinit var baseURLConfigHelper: BaseURLConfigHelper
     override fun onCreate() {
         super.onCreate()
-        baseURLConfigHelper!!.configBaseUrl { baseUrl ->
-            Keys.BASE_URL = baseUrl
-//            baseUrlFinished.postValue(true)
-        }
     }
 }

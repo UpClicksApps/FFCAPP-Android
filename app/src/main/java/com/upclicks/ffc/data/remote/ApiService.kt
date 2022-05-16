@@ -16,6 +16,7 @@ import okhttp3.MultipartBody
 import retrofit2.http.*
 import com.upclicks.ffc.ui.notification.data.model.Notification
 import com.upclicks.ffc.data.remote.Result
+import com.upclicks.ffc.ui.authentication.model.request.ValidateResetPasswordCodeRequest
 
 interface ApiService {
     @POST("TokenAuth/Authenticate")
@@ -31,6 +32,10 @@ interface ApiService {
         @Query("membershipIdentity") membershipIdentity: String,
         @Query("verificationCode") verificationCode: String
     ): Observable<Result<Boolean>>
+
+    //Validate reset password code
+    @POST("services/app/Account/ValidateResetPasswordCode")
+    fun validateResetPasswordCode(@Body validateResetPasswordCodeRequest : ValidateResetPasswordCodeRequest): Observable<Result<Boolean>>
 
     //Verify Session
     @POST("services/app/session/Verify")

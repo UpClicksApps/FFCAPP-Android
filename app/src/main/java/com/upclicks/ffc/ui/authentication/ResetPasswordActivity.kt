@@ -11,9 +11,12 @@ import com.upclicks.ffc.base.BaseActivity
 import com.upclicks.ffc.databinding.ActivityResetPasswordBinding
 import com.upclicks.ffc.ui.authentication.model.request.LoginRequest
 import com.upclicks.ffc.ui.authentication.model.request.ResetPasswordRequest
+import com.upclicks.ffc.ui.authentication.model.request.ValidateResetPasswordCodeRequest
 import com.upclicks.ffc.ui.authentication.model.response.ForgotPasswordResponse
 import com.upclicks.ffc.ui.authentication.viewmodel.AccountViewModel
+import com.upclicks.ffc.ui.general.component.CustomMaterialInputHelper
 import com.upclicks.ffc.ui.general.component.Validator
+import com.upclicks.ffc.ui.general.component.material.CustomMaterialInputLayout
 import com.upclicks.ffc.ui.main.MainActivity
 import www.sanju.motiontoast.MotionToast
 
@@ -32,6 +35,7 @@ class ResetPasswordActivity : BaseActivity() {
     private fun initPage() {
         setUpToolbar()
         setUpPageUi()
+        setUpObservers()
         setUpPageActions()
     }
 
@@ -49,8 +53,11 @@ class ResetPasswordActivity : BaseActivity() {
 
     // set up page listeners and callback
     private fun setUpPageActions() {
-        binding.done.setOnClickListener {
+        binding.submitBtn.setOnClickListener {
             verify()
+        }
+        binding.resetBtn.setOnClickListener {
+            resetPassword()
         }
         binding.request.setOnClickListener {
             request()
@@ -58,6 +65,14 @@ class ResetPasswordActivity : BaseActivity() {
         binding.toolbar.backIv.setOnClickListener {
             onBackPressed()
         }
+        CustomMaterialInputHelper.setUpInputsTypingCallback(createInputViewsList())
+    }
+    // create lis of inputs view
+    private fun createInputViewsList(): ArrayList<CustomMaterialInputLayout> {
+        var inputsList = ArrayList<CustomMaterialInputLayout>()
+        inputsList.add(binding.newPasswordInput)
+        inputsList.add(binding.confirmNewPasswordInput)
+        return inputsList
     }
 
     fun request() {
@@ -91,13 +106,30 @@ class ResetPasswordActivity : BaseActivity() {
 
     private fun verify() {
         var otpCode = binding.otpView.text.toString()
-        var newPassword = binding.newPasswordInput.editText?.text.toString()
-        var confirmNewPassword = binding.confirmNewPasswordInput.editText?.text.toString()
 
         if (TextUtils.isEmpty(otpCode)) {
             binding.otpView.startAnimation(Validator.shakeError())
             return
         }
+        var validateResetPasswordCodeRequest = ValidateResetPasswordCodeRequest()
+        validateResetPasswordCodeRequest.passwordResetCode = otpCode
+        validateResetPasswordCodeRequest.accountIdentity = forgotPasswordResponse?.accountIdentity!!
+        accountViewModel.validateResetPasswordCode(
+            validateResetPasswordCodeRequest,
+            onValidateResetPasswordCode = { result ->
+                if (result) {
+                    binding.emailView.visibility = View.GONE
+                    binding.verifyView.visibility = View.GONE
+                    binding.resetPasswordView.visibility = View.VISIBLE
+                }
+            })
+
+    }
+
+    private fun resetPassword() {
+        var newPassword = binding.newPasswordInput.editText?.text.toString()
+        var confirmNewPassword = binding.confirmNewPasswordInput.editText?.text.toString()
+        var otpCode = binding.otpView.text.toString()
 
         if (TextUtils.isEmpty(newPassword) || !Validator.isPasswordValid(newPassword)) {
             binding.newPasswordInput.startAnimation(Validator.shakeError())
@@ -115,7 +147,6 @@ class ResetPasswordActivity : BaseActivity() {
             shoMsg(getString(R.string.passwordsnotmatches) + " !", MotionToast.TOAST_ERROR)
             return
         }
-
         var resetPasswordRequest = ResetPasswordRequest()
         resetPasswordRequest.accountIdentity = forgotPasswordResponse?.accountIdentity
         resetPasswordRequest.newPassword = newPassword
