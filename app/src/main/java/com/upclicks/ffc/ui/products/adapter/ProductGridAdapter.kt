@@ -25,6 +25,7 @@ class ProductGridAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.binding.product = productList[position]
 //        holder.binding.overlayFrame.backgroundTintList = ColorStateList.valueOf(CustomColorHelper.generateRandomColor(context))
         holder.itemView.setOnClickListener {
             onItemClicked(position)
@@ -34,7 +35,7 @@ class ProductGridAdapter(
 
     override fun getItemCount(): Int {
         // number of items in the data set held by the adapter
-        return 15
+        return productList.size
     }
 
     class ViewHolder(val binding: ItemProductHomeForGridBinding) : RecyclerView.ViewHolder(binding.root) {}

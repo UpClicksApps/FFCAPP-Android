@@ -36,22 +36,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d219a198-d409-4f7a-91ec-02cd32610b85" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/model/request/validateResetPasswordCodeRequest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/app/FFC_APP.app.androidTest.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/app/FFC_APP.app.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/app/FFC_APP.app.unitTest.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/model/ProductDetails.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/model/Review.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/repositories/ProductRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/viewmodel/ProductViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/shadow_effect.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_activity_activity_ktx_1_2_0_rc01_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_fragment_fragment_ktx_1_2_4_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_core_ktx_2_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_runtime_ktx_2_3_0_rc01_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_ktx_2_3_0_rc01_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_savedstate_savedstate_ktx_1_1_0_rc01_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_HedyHidouRy_HorizontalCalendar_1_00_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_HedyHidouRy_HorizontalCalendar_1_00_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_Jay_Goo_RangeSeekBar_v3_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_Jay_Goo_RangeSeekBar_v3_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_adroitandroid_ChipCloud_2_2_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_adroitandroid_ChipCloud_2_2_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_quickpermissions_quickpermissions_kotlin_0_4_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_quickpermissions_quickpermissions_kotlin_0_4_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_exoplayer_exoplayer_ui_2_13_3_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_exoplayer_exoplayer_ui_2_13_3_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_maps_android_android_maps_utils_0_5_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_maps_android_android_maps_utils_0_5_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_makeramen_roundedimageview_2_3_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_makeramen_roundedimageview_2_3_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_picasso_picasso_2_71828_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_picasso_picasso_2_71828_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/FFC_APP.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/FFC_APP.app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/base/BaseActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/base/BaseActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/base/BaseApp.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/base/BaseApp.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/commons/Keys.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/commons/Keys.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/data/remote/ApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/data/remote/ApiService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/data/remote/HeaderInterceptor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/data/remote/HeaderInterceptor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/ResetPasswordActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/ResetPasswordActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/VerifyMembershipActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/VerifyMembershipActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/repositories/AccountRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/repositories/AccountRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/viewmodel/AccountViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/viewmodel/AccountViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/main/SplashActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/main/SplashActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/main/fragments/ProfileFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/main/fragments/ProfileFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_personal_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_personal_details.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_reset_password.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_reset_password.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/general/slider/adapter/CustomSliderPagerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/general/slider/adapter/CustomSliderPagerAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/general/slider/fragment/MySliderFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/general/slider/fragment/MySliderFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/main/adapters/CategoryAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/main/adapters/CategoryAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/main/adapters/HomeCategoryAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/main/adapters/HomeCategoryAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/main/fragments/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/main/fragments/HomeFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/ProductDetailsActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/ProductDetailsActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/adapter/ProductGridAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/adapter/ProductGridAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/adapter/ProductLinearAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/adapter/ProductLinearAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/model/Cart.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/model/Cart.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/model/DeliveryTime.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/model/DeliveryTime.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/model/Order.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/model/Order.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/model/Product.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/model/Product.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/model/Wallet.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/model/Wallet.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/product_details_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/product_details_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_product_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_product_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_my_slider.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_my_slider.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_category.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_category.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_category_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_category_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_product_home_for_grid.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_product_home_for_grid.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_product_home_for_linear.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_product_home_for_linear.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-ar/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-ar/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,10 +134,10 @@
       <list>
         <option value="RecyclerAdapter" />
         <option value="layoutResourceFile_vertical" />
-        <option value="resourceFile" />
-        <option value="Class" />
         <option value="layoutResourceFile" />
         <option value="Kotlin Class" />
+        <option value="Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -133,10 +167,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="android-custom-viewC:/Users/Mahmoud/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
+    <property name="android-custom-viewC:/Users/Mahmoud/.gradle/caches/modules-2/files-2.1/com.github.zhpanvip/viewpagerindicator/1.2.1/b80c1c5b4d48bfd6344f02182ad64bacf7a5e61e/viewpagerindicator-1.2.1-sources.jar!/com/zhpan/indicator/base/BaseIndicatorView.kt_SELECTED" value="BaseIndicatorView" />
     <property name="android-custom-viewC:/Users/Mahmoud/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.3.0/b42a5159ef2c670d26ce08246ec5aaf8f92e5a42/material-1.3.0-sources.jar!/com/google/android/material/textfield/TextInputLayout.java_SELECTED" value="TextInputLayout" />
+    <property name="android-custom-viewC:/Users/Mahmoud/.gradle/caches/modules-2/files-2.1/de.hdodenhof/circleimageview/3.1.0/e5635e59d66b172f3e99c6a7044dc9535c95d180/circleimageview-3.1.0-sources.jar!/de/hdodenhof/circleimageview/CircleImageView.java_SELECTED" value="CircleImageView" />
     <property name="android-custom-viewE:/My Work/UpClicks/Ads4You/app/src/main/java/com/upclicks/ads4you/ui/components/CurvedBottomNavigationView.java_SELECTED" value="CurvedBottomNavigationView" />
     <property name="android-custom-viewE:/My Work/UpClicks/Ads4You/app/src/main/java/com/upclicks/ads4you/ui/components/indicator/BaseCircleIndicator.java_SELECTED" value="BaseCircleIndicator" />
     <property name="android-custom-viewF:/Android/Work/FFCAPP-Android/app/src/main/java/com/upclicks/ffc/ui/components/CurvedBottomNavigationView.java_SELECTED" value="CurvedBottomNavigationView" />
@@ -154,13 +191,14 @@
     <property name="android-custom-viewF:/Android/Work/FFCAPP-Android/app/src/main/java/com/upclicks/ffc/ui/general/component/material/TextMaterialInput.kt_SELECTED" value="TextMaterialInput" />
     <property name="android-custom-viewF:/Android/Work/FFCAPP-Android/app/src/main/java/com/upclicks/ffc/ui/general/component/numberPicker/NumberPicker.java_SELECTED" value="NumberPicker" />
     <property name="android-custom-viewF:/Android/Work/FFCAPP-Android/app/src/main/java/com/upclicks/ffc/ui/general/component/spinner/CustomSpinner.kt_SELECTED" value="CustomSpinner" />
+    <property name="android-custom-viewF:/Android/Work/FFCAPP-Android/app/src/main/java/com/upclicks/ffc/ui/general/slider/component/AutoScrollViewPager.java_SELECTED" value="AutoScrollViewPager" />
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$PROJECT_DIR$/../../../Android Devlopments Work/sdk" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/layout" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="memory.settings.postsync.last.time.stamp" value="1648713621725" />
     <property name="multi-representation-previewE:/My Work/UpClicks/Ads4You/app/src/main/java/com/upclicks/ads4you/ui/components/CurvedBottomNavigationView.java_selected" value="Custom views" />
     <property name="multi-representation-previewE:/My Work/UpClicks/Ads4You/app/src/main/java/com/upclicks/ads4you/ui/components/indecator/BaseCircleIndicator.java_selected" value="Custom views" />
@@ -228,11 +266,11 @@
       <recent name="com.upclicks.ads4you.di" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
-      <recent name="com.upclicks.ffc.ui.general.component.material" />
-      <recent name="com.upclicks.ffc.ui.general.dialog" />
-      <recent name="com.upclicks.ffc.ui.products.adapter" />
       <recent name="com.upclicks.ffc.ui.products.model" />
-      <recent name="com.upclicks.ffc.ui.notification" />
+      <recent name="com.upclicks.ffc.ui.products.viewmodel" />
+      <recent name="com.upclicks.ffc.ui.products.repositories" />
+      <recent name="com.upclicks.ffc.ui.general.dialog" />
+      <recent name="com.upclicks.ffc.ui.general.component.material" />
     </key>
     <key name="android.template.1327266735">
       <recent name="com.upclicks.ads4you.ui.activites.AccountActivites.signUp" />
@@ -257,9 +295,9 @@
       <recent name="com.upclicks.ads4you.ui.activites.Ads" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Android\Work\FFCAPP-Android\app\src\main\res\drawable" />
       <recent name="F:\Android\Work\FFCAPP-Android\app\src\main\res\layout" />
       <recent name="F:\Android\Work\FFCAPP-Android\app\src\main\java\com\upclicks\ffc\ui\general\component" />
-      <recent name="F:\Android\Work\FFCAPP-Android\app\src\main\res\drawable" />
       <recent name="F:\Android\Work\FFCAPP-Android\app\src\main\res\menu" />
       <recent name="F:\Android\Work\FFCAPP-Android\app\src\main\java\com\upclicks\ffc" />
     </key>
@@ -550,7 +588,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652368669280</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="#16/5/2022">
+      <created>1652713738242</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1652713738242</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -624,7 +669,8 @@
     <MESSAGE value="#28/4/2022" />
     <MESSAGE value="#11/5/2022" />
     <MESSAGE value="#12/5/2022" />
-    <option name="LAST_COMMIT_MESSAGE" value="#12/5/2022" />
+    <MESSAGE value="#16/5/2022" />
+    <option name="LAST_COMMIT_MESSAGE" value="#16/5/2022" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -636,32 +682,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/ProductDetailsActivity.kt</url>
-          <line>39</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/ProductDetailsActivity.kt</url>
-          <line>43</line>
+          <line>67</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/ProductDetailsActivity.kt</url>
-          <line>45</line>
+          <line>69</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/ProductDetailsActivity.kt</url>
-          <line>50</line>
+          <line>77</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/ProductDetailsActivity.kt</url>
-          <line>52</line>
+          <line>79</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/ProductDetailsActivity.kt</url>
-          <line>49</line>
+          <line>76</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
@@ -671,33 +712,33 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/general/slider/adapter/CustomSliderPagerAdapter.kt</url>
-          <line>24</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/general/slider/adapter/CustomSliderPagerAdapter.kt</url>
-          <line>36</line>
+          <line>33</line>
           <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/general/slider/adapter/CustomSliderPagerAdapter.kt</url>
-          <line>38</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/ProductDetailsActivity.kt</url>
-          <line>40</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/ProductDetailsActivity.kt</url>
-          <line>41</line>
-          <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/ResetPasswordActivity.kt</url>
           <line>96</line>
           <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/ProductDetailsActivity.kt</url>
+          <line>66</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/general/slider/fragment/MySliderFragment.kt</url>
+          <line>22</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/general/slider/fragment/MySliderFragment.kt</url>
+          <line>21</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/general/slider/fragment/MySliderFragment.kt</url>
+          <line>24</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="android.view.View"/>
+        <variable
+            name="product"
+            type="com.upclicks.ffc.ui.products.model.Product" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -35,14 +39,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/image_placeholder"
+                    imageBinding="@{product.defaultMediaFilePath}"
                     android:layout_marginTop="@dimen/_25sdp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top|start"
-                    android:text="Discount 10%"
+                    tools:text="Discount 10%"
                     android:background="@color/primary_light"
+                    android:text='@{@string/discount +" " +product.discountPercentage+ " %"}'
+                    android:visibility="@{product.isOnSale()?View.VISIBLE:View.GONE}"
                     android:padding="@dimen/_5sdp"
                     android:textColor="@color/primary"
                     />
@@ -61,7 +68,8 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="viewStart"
                 android:textColor="@color/black"
-                android:text="Carrots"
+                tools:text="Carrots"
+                notNullText="@{product.name}"
                 android:padding="@dimen/_5sdp"
                 />
             <LinearLayout
@@ -74,7 +82,8 @@
                     android:layout_height="wrap_content"
                     android:textAlignment="viewStart"
                     android:textColor="@color/text_color_grey"
-                    oldPriceTextView='@{"KD 8.850"}'
+                    android:visibility="@{product.isOnSale()?View.VISIBLE:View.GONE}"
+                    oldPriceTextView='@{product.price+" "+@string/currency_code}'
                     android:textSize="@dimen/_9sdp"
                     android:padding="@dimen/_5sdp"
                     />
@@ -85,7 +94,8 @@
                     android:layout_height="wrap_content"
                     android:textAlignment="viewStart"
                     android:textColor="@color/primary"
-                    android:text="KD 8.850"
+                    tools:text="KD 8.850"
+                    notNullText='@{product.currentPrice+" "+@string/currency_code}'
                     android:textSize="@dimen/_11sdp"
                     android:textStyle="bold"
                     android:padding="@dimen/_5sdp"

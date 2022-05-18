@@ -17,6 +17,8 @@ import retrofit2.http.*
 import com.upclicks.ffc.ui.notification.data.model.Notification
 import com.upclicks.ffc.data.remote.Result
 import com.upclicks.ffc.ui.authentication.model.request.ValidateResetPasswordCodeRequest
+import com.upclicks.ffc.ui.products.model.Product
+import com.upclicks.ffc.ui.products.model.ProductDetails
 
 interface ApiService {
     @POST("TokenAuth/Authenticate")
@@ -95,8 +97,21 @@ interface ApiService {
     fun resetPassword(@Body resetPasswordRequest: ResetPasswordRequest): Observable<Result<Boolean>>
 
     //Get Categories
-    @GET("services/app/Category/GetPinned")
+    @GET("services/app/Category/GetPinnedCategories")
     fun getCategories(): Observable<Result<List<Category>>>
+
+    //Get Top Sales
+    @GET("services/app/Product/GetOnSaleProducts")
+    fun getTopSales(): Observable<Result<List<Product>>>
+
+    //Get Products
+    @GET("services/app/Product/GetProducts")
+    fun getProducts(): Observable<Result<List<Product>>>
+
+    //Get Product
+    @GET("services/app/Product/GetProduct")
+    fun getProductDetails(@Query("id") id: String): Observable<Result<ProductDetails>>
+
 
 //    //Get salons(providers)
 //    @GET("services/app/Provider/GetProviders")

@@ -5,7 +5,7 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import com.upclicks.ffc.ui.general.component.spinner.BaseSelection
 
-class Cart : BaseSelection() {
+class Cart {
 
     @SerializedName("mediaFilePath")
     @Expose

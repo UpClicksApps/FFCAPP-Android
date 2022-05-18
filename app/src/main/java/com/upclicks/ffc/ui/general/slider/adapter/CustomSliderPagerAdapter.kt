@@ -21,9 +21,6 @@ class CustomSliderPagerAdapter(
             bundle.putString("img", dataList[position].imagePath)
             bundle.putString("url", dataList[position].url)
         }
-        if (providerSliders != null&& providerSliders.isNotEmpty()) {
-            bundle.putString("img", providerSliders[position])
-        }
         val mySliderFragment = MySliderFragment()
         mySliderFragment.arguments = bundle
         return mySliderFragment
@@ -35,8 +32,7 @@ class CustomSliderPagerAdapter(
     override fun getCount(): Int {
         if (dataList != null)
             return dataList.size
-        else
-            return providerSliders.size
+        return 0
     }
 
 

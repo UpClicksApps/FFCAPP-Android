@@ -1,12 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.adroitandroid:ChipCloud:2.2.1@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/293211b33ed48a2f148c73b44a83d761/jetified-ChipCloud-2.2.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/293211b33ed48a2f148c73b44a83d761/jetified-ChipCloud-2.2.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/293211b33ed48a2f148c73b44a83d761/jetified-ChipCloud-2.2.1/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/49d2a7518420ff9d784dbb0c08310f99/jetified-ChipCloud-2.2.1/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/49d2a7518420ff9d784dbb0c08310f99/jetified-ChipCloud-2.2.1/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/49d2a7518420ff9d784dbb0c08310f99/jetified-ChipCloud-2.2.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/49d2a7518420ff9d784dbb0c08310f99/jetified-ChipCloud-2.2.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/49d2a7518420ff9d784dbb0c08310f99/jetified-ChipCloud-2.2.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

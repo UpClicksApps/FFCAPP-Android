@@ -99,15 +99,32 @@
                         android:layout_marginStart="@dimen/_8sdp"
                         android:background="@color/black"
                         />
-                    <androidx.recyclerview.widget.RecyclerView
+
+                    <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/categoryRv"
+                        android:minHeight="@dimen/_60sdp"
                         android:layout_marginTop="@dimen/_8sdp"
-                        tools:listitem="@layout/item_category_home"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        android:orientation="horizontal"
-                        />
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:visibility="gone"
+                            android:text="@string/no_categories"
+                            android:id="@+id/emptyCategoriesTv"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp"
+                            />
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/categoryRv"
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:listitem="@layout/item_category_home" />
+                    </FrameLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -144,23 +161,39 @@
                         </LinearLayout>
 
                         <TextView
-                            android:id="@+id/moreTv"
+                            android:id="@+id/moreTopSalesTv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/more" />
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/topSaleRv"
+                    <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_8sdp"
-                        android:layout_marginHorizontal="@dimen/_8sdp"
-                        app:spanCount="2"
-                        tools:itemCount="2"
-                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                        tools:listitem="@layout/item_product_home_for_grid" />
+                        android:minHeight="@dimen/_60sdp"
+                        android:layout_marginHorizontal="@dimen/_8sdp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:visibility="gone"
+                            android:text="@string/no_products"
+                            android:id="@+id/emptyTopSalesTv"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp"
+                            />
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/topSaleRv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            app:spanCount="2"
+                            tools:itemCount="2"
+                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                            tools:listitem="@layout/item_product_home_for_grid" />
+                    </FrameLayout>
                 </LinearLayout>
 
                 <ImageView

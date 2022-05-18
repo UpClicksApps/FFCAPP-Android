@@ -1,6 +1,7 @@
 package com.upclicks.ffc.ui.general.slider.fragment
 
 import android.text.TextUtils
+import com.squareup.picasso.Picasso
 import com.upclicks.ffc.R
 import com.upclicks.ffc.databinding.FragmentMySliderBinding
 import com.upclicks.ffc.commons.Utils.Companion.openUrl
@@ -17,7 +18,6 @@ class MySliderFragment : BaseFragment(R.layout.fragment_my_slider) {
         binding = FragmentMySliderBinding.bind(requireView())
 
         if (requireArguments() != null) {
-
             imageUrl = requireArguments().getString("img")
             url = requireArguments().getString("url")
             binding.image.setOnClickListener {
@@ -25,9 +25,8 @@ class MySliderFragment : BaseFragment(R.layout.fragment_my_slider) {
                     openUrl(requireContext(), url)
                 }
             }
-//            if (!TextUtils.isEmpty(imageUrl)) Picasso.get().load(imageUrl)
-//                .placeholder(R.mipmap.ic_launcher).into(binding.image)
-
+            if (!TextUtils.isEmpty(imageUrl)) Picasso.get().load(imageUrl)
+                .placeholder(R.drawable.logo).into(binding.image)
         }
     }
 

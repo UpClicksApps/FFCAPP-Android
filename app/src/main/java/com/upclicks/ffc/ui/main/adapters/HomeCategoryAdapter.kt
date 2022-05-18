@@ -16,7 +16,6 @@ class HomeCategoryAdapter(
 ) : RecyclerView.Adapter<HomeCategoryAdapter.ViewHolder>() {
 
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // inflate the custom view from xml layout file
         val inflater = LayoutInflater.from(parent.context)
@@ -27,7 +26,9 @@ class HomeCategoryAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.overlayFrame.backgroundTintList = ColorStateList.valueOf(CustomColorHelper.generateRandomColor(context))
+        holder.binding.category = categoryList[position]
+        holder.binding.overlayFrame.backgroundTintList =
+            ColorStateList.valueOf(CustomColorHelper.generateRandomColor(context))
         holder.itemView.setOnClickListener {
             onItemClicked(position)
         }
@@ -36,10 +37,11 @@ class HomeCategoryAdapter(
 
     override fun getItemCount(): Int {
         // number of items in the data set held by the adapter
-        return 15
+        return categoryList.size
     }
 
-    class ViewHolder(val binding: ItemCategoryHomeBinding) : RecyclerView.ViewHolder(binding.root) {}
+    class ViewHolder(val binding: ItemCategoryHomeBinding) :
+        RecyclerView.ViewHolder(binding.root) {}
 
     // this two methods useful for avoiding duplicate item
     override fun getItemId(position: Int): Long {

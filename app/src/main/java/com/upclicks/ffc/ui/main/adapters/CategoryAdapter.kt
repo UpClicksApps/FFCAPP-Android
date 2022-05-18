@@ -28,6 +28,7 @@ class CategoryAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.binding.category = categoryList[position]
         holder.binding.overlayFrame.backgroundTintList = ColorStateList.valueOf(CustomColorHelper.generateRandomColor(context))
         holder.itemView.setOnClickListener {
             onItemClicked(position)
@@ -37,7 +38,7 @@ class CategoryAdapter(
 
     override fun getItemCount(): Int {
         // number of items in the data set held by the adapter
-        return 15
+        return categoryList.size
     }
 
     class ViewHolder(val binding: ItemCategoryBinding) : RecyclerView.ViewHolder(binding.root) {}

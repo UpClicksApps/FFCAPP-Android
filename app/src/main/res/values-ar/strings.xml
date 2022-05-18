@@ -171,6 +171,7 @@
     <string name="city">City</string>
     <string name="save_changes">Save changes</string>
     <string name="add_to_cart">Add to cart</string>
+    <string name="out_of_stock">Out of stock</string>
     <string name="shopping_cart">Shopping cart</string>
     <string name="enter_you_otp_code">Enter you OTP code</string>
     <string name="delivery_address">Delivery Address</string>
@@ -194,5 +195,8 @@
     <string name="about_us">About Us</string>
     <string name="share_app">Share App</string>
     <string name="promo_code">Share App</string>
+    <string name="currency_code">ك.د</string>
+    <string name="reviews">reviews</string>
+    <string name="description">Description</string>
 
 </resources>

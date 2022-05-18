@@ -20,8 +20,8 @@
                           <map>
                             <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="4a4a4a" />
-                            <entry key="outputName" value="ic_circle_plus" />
-                            <entry key="sourceFile" value="F:\Android\Work\FFC\icons\ic_circle_plus.svg" />
+                            <entry key="outputName" value="ic_gallery" />
+                            <entry key="sourceFile" value="F:\Android\Work\FFC\icons\gallery.svg" />
                           </map>
                         </option>
                       </PersistentState>
