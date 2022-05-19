@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="profile"
+            type="com.upclicks.ffc.ui.authentication.model.response.VerifySession.Profile" />
     </data>
 
     <LinearLayout
@@ -43,32 +45,74 @@
                     android:background="@drawable/solid_circle"
                     android:backgroundTint="@color/primary"
                     android:padding="@dimen/_1sdp"
+                    imageBinding="@{profile.avatarPath}"
+                    android:id="@+id/imageProfile"
                     />
                     <ImageView
                         android:layout_width="@dimen/_25sdp"
                         android:layout_height="@dimen/_25sdp"
                         android:src="@drawable/ic_profile_edit_icon"
                         android:layout_gravity="end|bottom"
+                        android:id="@+id/imageProfileEdit"
                         />
                 </FrameLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/user_name"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:textColor="@color/black"/>
-                <com.upclicks.ffc.ui.general.component.customedittext.TextInput
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:background="@drawable/solid_rectangle_background_primary"
-                    android:backgroundTint="@color/white"
-                    android:elevation="@dimen/_5sdp"
-                    android:layout_margin="@dimen/_5sdp"
-                    android:padding="@dimen/_5sdp"
-                    android:hint="@string/user_name"
-                    android:id="@+id/userNameInput"
-                    />
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:text="@string/name"
+                            android:textColor="@color/black" />
+
+
+                        <com.upclicks.ffc.ui.general.component.customedittext.TextInput
+                            android:id="@+id/nameInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:background="@drawable/solid_rectangle_background_primary"
+                            android:backgroundTint="@color/white"
+                            android:elevation="@dimen/_5sdp"
+                            android:hint="@string/name"
+                            android:padding="@dimen/_5sdp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:text="@string/surname"
+                            android:textColor="@color/black" />
+
+
+                        <com.upclicks.ffc.ui.general.component.customedittext.TextInput
+                            android:id="@+id/surnameInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:background="@drawable/solid_rectangle_background_primary"
+                            android:backgroundTint="@color/white"
+                            android:elevation="@dimen/_5sdp"
+                            android:hint="@string/surname"
+                            android:padding="@dimen/_5sdp" />
+                    </LinearLayout>
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -76,6 +120,7 @@
                     android:text="@string/phone_number"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:textColor="@color/black"/>
+
                 <com.upclicks.ffc.ui.general.component.customedittext.TextInput
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
@@ -84,28 +129,8 @@
                     android:elevation="@dimen/_5sdp"
                     android:layout_margin="@dimen/_5sdp"
                     android:padding="@dimen/_5sdp"
-                    android:hint="+96512121321"
                     android:id="@+id/phoneInput"
                     />
-                <com.upclicks.ffc.ui.general.component.material.CustomMaterialInputLayout
-                    android:id="@+id/emailInput"
-                    style="@style/InputTextStyle"
-                    android:layout_marginHorizontal="@dimen/_16sdp"
-                    app:startIconDrawable="@drawable/ic_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:hint="@string/e_mail">
-                    <com.upclicks.ffc.ui.general.component.material.EmailMaterialEditText
-                        android:layout_width="match_parent"
-                        android:backgroundTint="@color/white"
-                        android:elevation="@dimen/_5sdp"
-                        android:layout_margin="@dimen/_5sdp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/solid_rectangle_background_primary"
-                        android:inputType="textEmailAddress" />
-                </com.upclicks.ffc.ui.general.component.material.CustomMaterialInputLayout>
-
 
                 <TextView
                     android:layout_width="wrap_content"

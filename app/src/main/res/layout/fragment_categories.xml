@@ -4,26 +4,62 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+    <variable
+        name="viewModel"
+        type="com.upclicks.ffc.base.BaseViewModel" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".ui.main.fragments.CategoriesFragment">
-
-        <include layout="@layout/app_bar_layout"
-            android:id="@+id/toolbar"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler"
+        android:layout_height="match_parent">
+        <include layout="@layout/loading_layout" app:viewModel="@{viewModel}" />
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/_8sdp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:itemCount="10"
-            tools:listitem="@layout/item_category" />
+            android:orientation="vertical"
+            tools:context=".ui.main.fragments.CategoriesFragment">
 
-    </LinearLayout>
+            <include layout="@layout/app_bar_layout"
+                android:id="@+id/toolbar"/>
+
+            <com.upclicks.ffc.ui.general.component.CustomSwipeRefreshLayout
+                android:id="@+id/swipeRefresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fillViewport="true"
+                    android:id="@+id/nestedScrollView">
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/emptyCategoriesTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/no_categories"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp"
+                            android:visibility="gone" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/categoriesRv"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="@dimen/_8sdp"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:itemCount="10"
+                            tools:listitem="@layout/item_category" />
+                    </FrameLayout>
+                </androidx.core.widget.NestedScrollView>
+            </com.upclicks.ffc.ui.general.component.CustomSwipeRefreshLayout>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

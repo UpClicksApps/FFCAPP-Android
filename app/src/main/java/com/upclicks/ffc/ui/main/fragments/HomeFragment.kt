@@ -42,6 +42,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         setUpCategoryUiList()
         setUpProductUiList()
         setUpObservers()
+        binding.viewModel = productViewModel
+        binding.lifecycleOwner = this
     }
 
     override fun onStart() {

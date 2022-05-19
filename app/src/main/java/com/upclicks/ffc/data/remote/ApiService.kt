@@ -100,6 +100,13 @@ interface ApiService {
     @GET("services/app/Category/GetPinnedCategories")
     fun getCategories(): Observable<Result<List<Category>>>
 
+    //Get Categories
+    @GET("services/app/Category/GetAll")
+    fun getAllCategories(
+        @Query("skip") skip: Int,
+        @Query("take") take: Int
+    ): Observable<Result<List<Category>>>
+
     //Get Top Sales
     @GET("services/app/Product/GetOnSaleProducts")
     fun getTopSales(): Observable<Result<List<Product>>>

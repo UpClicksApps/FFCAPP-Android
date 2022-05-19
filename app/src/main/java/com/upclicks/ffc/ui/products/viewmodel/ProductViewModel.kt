@@ -22,10 +22,13 @@ class ProductViewModel
 @Inject constructor(
     private val productRepository: ProductRepository,
 ) : BaseViewModel() {
+    private val allCategoriesList: MutableLiveData<List<Category>> = MutableLiveData()
     private val topSalesList: MutableLiveData<List<Product>> = MutableLiveData()
     private val productsList: MutableLiveData<List<Product>> = MutableLiveData()
     private val productDetails: MutableLiveData<ProductDetails> = MutableLiveData()
 
+    val observeAllCategoriesList: LiveData<List<Category>>
+        get() = allCategoriesList
     val observeTopSalesList: LiveData<List<Product>>
         get() = topSalesList
     val observeProductList: LiveData<List<Product>>
@@ -42,6 +45,19 @@ class ProductViewModel
             .subscribe(object : CustomRxObserver<Result<List<Category>>>(this@ProductViewModel) {
                 override fun onResponse(response: Result<List<Category>>) {
                     onGetCategories(response.result!!)
+                }
+            })
+    }
+
+
+    //Get Categories
+    fun getAllCategories(skip: Int, take: Int) {
+        productRepository.getAllCategories(skip, take)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe(object : CustomRxObserver<Result<List<Category>>>(this@ProductViewModel) {
+                override fun onResponse(response: Result<List<Category>>) {
+                    allCategoriesList.postValue(response.result!!)
                 }
             })
     }
@@ -71,8 +87,9 @@ class ProductViewModel
                 }
             })
     }
+
     //Get Product
-    fun getProductDetails(id:String) {
+    fun getProductDetails(id: String) {
         productRepository.getProductDetails(id)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())

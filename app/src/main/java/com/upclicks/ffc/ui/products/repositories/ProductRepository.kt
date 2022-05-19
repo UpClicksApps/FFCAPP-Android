@@ -17,6 +17,11 @@ class ProductRepository @Inject constructor(private val apiService: ApiService) 
     fun getCategories() : Observable<Result<List<Category>>> {
         return apiService.getCategories()
     }
+
+    //Get All Categories
+    fun getAllCategories(skip:Int,take:Int) : Observable<Result<List<Category>>> {
+        return apiService.getAllCategories(skip, take)
+    }
     //Get TopSales
     fun getTopSales() : Observable<Result<List<Product>>> {
         return apiService.getTopSales()

@@ -164,4 +164,10 @@ dependencies {
     // tags ChipCloud
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.github.adroitandroid:ChipCloud:2.2.1'
+
+    //imagePicker
+    implementation 'com.github.dhaval2404:imagepicker:2.1'
+    //Progress spinner
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
 }

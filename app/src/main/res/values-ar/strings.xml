@@ -198,5 +198,8 @@
     <string name="currency_code">ك.د</string>
     <string name="reviews">reviews</string>
     <string name="description">Description</string>
+    <string name="choose">Choose</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
 
 </resources>
