@@ -15,10 +15,12 @@ import io.reactivex.rxjava3.core.Observable
 import okhttp3.MultipartBody
 import retrofit2.http.*
 import com.upclicks.ffc.ui.notification.data.model.Notification
-import com.upclicks.ffc.data.remote.Result
 import com.upclicks.ffc.ui.authentication.model.request.ValidateResetPasswordCodeRequest
+import com.upclicks.ffc.ui.cart.model.CartActionResponse
+import com.upclicks.ffc.ui.cart.model.CartDetails
 import com.upclicks.ffc.ui.products.model.Product
 import com.upclicks.ffc.ui.products.model.ProductDetails
+import com.upclicks.ffc.data.remote.Result
 
 interface ApiService {
     @POST("TokenAuth/Authenticate")
@@ -37,7 +39,7 @@ interface ApiService {
 
     //Validate reset password code
     @POST("services/app/Account/ValidateResetPasswordCode")
-    fun validateResetPasswordCode(@Body validateResetPasswordCodeRequest : ValidateResetPasswordCodeRequest): Observable<Result<Boolean>>
+    fun validateResetPasswordCode(@Body validateResetPasswordCodeRequest: ValidateResetPasswordCodeRequest): Observable<Result<Boolean>>
 
     //Verify Session
     @POST("services/app/session/Verify")
@@ -119,6 +121,24 @@ interface ApiService {
     @GET("services/app/Product/GetProduct")
     fun getProductDetails(@Query("id") id: String): Observable<Result<ProductDetails>>
 
+
+    ///////////////// cart
+    //GetCurrentCartDetails
+    @GET("services/app/Cart/GetCurrentCartDetails")
+    fun getCurrentCartDetails(): Observable<Result<CartDetails>>
+    //Add Product
+    @POST("services/app/Cart/AddProduct")
+    fun addProductToCart(@Body req: Any?): Observable<Result<CartActionResponse>>
+    //UpdateProductQuantity
+    @PUT("services/app/Cart/UpdateProductQuantity")
+    fun updateProductQuantity(@Body req: Any?): Observable<Result<CartActionResponse>>
+    //RemoveProduct
+    @DELETE("services/app/Cart/RemoveProduct")
+    fun removeProductFromCart(
+        @Query("productId") id: String
+    ): Observable<Result<CartActionResponse>>
+    @POST("services/app/Cart/DeleteShoppingCart")
+    fun deleteShoppingCart(): Observable<Result<String>>
 
 //    //Get salons(providers)
 //    @GET("services/app/Provider/GetProviders")
@@ -259,8 +279,6 @@ interface ApiService {
     fun sendFeedback(
         @Body() feedbackRequest: FeedbackRequest
     ): Observable<Result<String>>
-
-
 
 
     /////////////////////////////////////////

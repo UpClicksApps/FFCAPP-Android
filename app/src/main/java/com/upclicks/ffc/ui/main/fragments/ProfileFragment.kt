@@ -1,16 +1,9 @@
 package com.upclicks.ffc.ui.main.fragments
 
 import android.content.Intent
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseFragment
-import com.upclicks.ffc.databinding.FragmentHomeBinding
 import com.upclicks.ffc.databinding.FragmentProfileBinding
 import com.upclicks.ffc.ui.authentication.PersonalDetailsActivity
 import com.upclicks.ffc.ui.authentication.viewmodel.AccountViewModel
@@ -20,7 +13,7 @@ import com.upclicks.ffc.ui.main.SplashActivity
 import com.upclicks.ffc.ui.notification.NotificationActivity
 import com.upclicks.ffc.ui.products.FavoriteActivity
 import com.upclicks.ffc.ui.products.MyOrdersActivity
-import com.upclicks.ffc.ui.products.ShoppingCartActivity
+import com.upclicks.ffc.ui.cart.ShoppingCartActivity
 import com.upclicks.ffc.ui.products.WalletActivity
 
 class ProfileFragment : BaseFragment(R.layout.fragment_profile) {

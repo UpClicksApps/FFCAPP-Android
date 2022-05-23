@@ -5,12 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.upclicks.ffc.databinding.ItemCartBinding
-import com.upclicks.ffc.databinding.ItemFavoriteBinding
-import com.upclicks.ffc.databinding.ItemProductHomeForGridBinding
-import com.upclicks.ffc.databinding.ItemWalletBinding
-import com.upclicks.ffc.ui.products.model.Cart
-import com.upclicks.ffc.ui.products.model.Product
-import com.upclicks.ffc.ui.products.model.Wallet
+import com.upclicks.ffc.ui.cart.model.Cart
 
 class CartAdapter(
     val context: Context,

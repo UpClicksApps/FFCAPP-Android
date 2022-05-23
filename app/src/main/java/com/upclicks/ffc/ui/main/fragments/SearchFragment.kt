@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseFragment
 import com.upclicks.ffc.databinding.FragmentSearchBinding
-import com.upclicks.ffc.ui.products.ShoppingCartActivity
+import com.upclicks.ffc.ui.cart.ShoppingCartActivity
 import com.upclicks.ffc.ui.products.adapter.ProductGridAdapter
 import com.upclicks.ffc.ui.products.model.Product
 
@@ -32,7 +32,7 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
         binding.toolbar.cartIv.visibility = View.VISIBLE
         binding.toolbar.backIv.visibility = View.GONE
         binding.toolbar.cartIv.setOnClickListener {
-            startActivity(Intent(requireContext(),ShoppingCartActivity::class.java))
+            startActivity(Intent(requireContext(), ShoppingCartActivity::class.java))
         }
     }
 

@@ -2,7 +2,6 @@ package com.upclicks.ffc.ui.main.fragments
 
 import android.content.Intent
 import android.view.View
-import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
@@ -11,12 +10,11 @@ import com.upclicks.ffc.base.BaseFragment
 import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.FragmentHomeBinding
 import com.upclicks.ffc.helpers.CustomRecyclerViewHelper
-import com.upclicks.ffc.ui.authentication.viewmodel.AccountViewModel
 import com.upclicks.ffc.ui.general.model.Category
 import com.upclicks.ffc.ui.main.adapters.HomeCategoryAdapter
 import com.upclicks.ffc.ui.products.ProductDetailsActivity
 import com.upclicks.ffc.ui.products.ProductsListActivity
-import com.upclicks.ffc.ui.products.ShoppingCartActivity
+import com.upclicks.ffc.ui.cart.ShoppingCartActivity
 import com.upclicks.ffc.ui.products.adapter.ProductGridAdapter
 import com.upclicks.ffc.ui.products.model.Product
 import com.upclicks.ffc.ui.products.viewmodel.ProductViewModel

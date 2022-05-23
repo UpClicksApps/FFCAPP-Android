@@ -1,4 +1,4 @@
-package com.upclicks.ffc.ui.products.model
+package com.upclicks.ffc.ui.cart.model
 
 import com.google.gson.annotations.Expose
 

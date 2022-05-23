@@ -118,16 +118,13 @@
                     android:textSize="@dimen/_11sdp"
                     android:padding="@dimen/_5sdp"
                     />
-                <com.upclicks.ffc.ui.general.component.numberPicker.NumberPicker
-                    xmlns:numberpicker="http://schemas.android.com/tools"
-                    android:id="@+id/quantity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:custom_layout="@layout/number_picker_custom_layout"
-                    app:min="0"
-                    numberpicker:focusable="false"
-                    numberpicker:min="0"
-                    numberpicker:unit="1" />
+                <ImageView
+                    android:layout_width="@dimen/_38sdp"
+                    android:layout_height="@dimen/_38sdp"
+                    android:src="@drawable/ic_favorite"
+                    android:layout_gravity="top|end"
+                    android:padding="@dimen/_10sdp"
+                    android:background="@drawable/ic_home_favorite_bg"/>
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
@@ -184,15 +181,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 >
-                <ImageView
-                    android:layout_width="@dimen/_38sdp"
-                    android:layout_height="@dimen/_38sdp"
-                    android:layout_margin="@dimen/_4sdp"
-                    android:src="@drawable/ic_favorite"
-                    android:layout_gravity="top|end"
-                    android:padding="@dimen/_10sdp"
-                    android:background="@drawable/ic_home_favorite_bg"/>
 
+                <com.upclicks.ffc.ui.general.component.numberPicker.NumberPicker
+                    xmlns:numberpicker="http://schemas.android.com/tools"
+                    android:id="@+id/quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:custom_layout="@layout/number_picker_custom_layout"
+                    app:min="0"
+                    android:layout_gravity="center"
+                    numberpicker:focusable="false"
+                    numberpicker:min="0"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    numberpicker:unit="1" />
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_45sdp"

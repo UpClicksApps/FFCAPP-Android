@@ -12,17 +12,22 @@ import com.upclicks.ffc.base.BaseActivity
 import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.ActivityFavoriteBinding
 import com.upclicks.ffc.databinding.ActivityProductDetailsBinding
+import com.upclicks.ffc.ui.cart.viewmodel.CartViewModel
 import com.upclicks.ffc.ui.general.slider.adapter.CustomSliderPagerAdapter
 import com.upclicks.ffc.ui.general.slider.model.Slider
 import com.upclicks.ffc.ui.products.adapter.WalletAdapter
+import com.upclicks.ffc.ui.products.model.ProductDetails
 import com.upclicks.ffc.ui.products.model.Wallet
 import com.upclicks.ffc.ui.products.viewmodel.ProductViewModel
+import www.sanju.motiontoast.MotionToast
 
 class ProductDetailsActivity : BaseActivity() {
     lateinit var binding: ActivityProductDetailsBinding
     private val productViewModel: ProductViewModel by viewModels()
+    private val cartViewModel: CartViewModel by viewModels()
 
     var productId = ""
+    var productDetails = ProductDetails()
     override fun getLayoutResourceId(): View {
         binding = ActivityProductDetailsBinding.inflate(layoutInflater)
         initPage()
@@ -43,13 +48,20 @@ class ProductDetailsActivity : BaseActivity() {
 
     private fun setUpObservers() {
         productViewModel.getProductDetails(productId)
-        productViewModel.observeProductDetails.observe(this, Observer { producDetails ->
-            if (producDetails != null) {
-                binding.product = producDetails
-                setUpSlider(producDetails.mediaFiles!!)
+        productViewModel.observeProductDetails.observe(this, Observer { productDetails ->
+            if (productDetails != null) {
+                binding.product = productDetails
+                this.productDetails = productDetails
+                if (productDetails.isOutOfStock!!)
+                    binding.addToCartBtn.text = getString(R.string.out_of_stock)
+
+                setUpSlider(productDetails.mediaFiles!!)
             } else {
                 finish()
             }
+        })
+        cartViewModel.observeCartActionResponse.observe(this, Observer { cartActionResponse->
+            shoMsg(cartActionResponse.message!!,MotionToast.TOAST_SUCCESS)
         })
     }
 
@@ -58,7 +70,17 @@ class ProductDetailsActivity : BaseActivity() {
             onBackPressed()
         }
         binding.addToCartBtn.setOnClickListener {
-
+            if (productDetails.quantity == 0)
+                cartViewModel.addProductToCart(
+                    productDetails.id!!,
+                    productDetails.currentPrice!!,
+                    binding.quantity.value
+                )
+            else
+                cartViewModel.updateProductQuantity(
+                    productDetails.id!!,
+                    binding.quantity.value
+                )
         }
     }
 

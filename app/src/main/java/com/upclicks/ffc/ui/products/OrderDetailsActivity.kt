@@ -1,15 +1,8 @@
 package com.upclicks.ffc.ui.products
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.View
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseActivity
 import com.upclicks.ffc.databinding.ActivityOrderDetailsBinding
-import com.upclicks.ffc.databinding.ActivityShoppingCartBinding
-import com.upclicks.ffc.ui.products.adapter.CartAdapter
-import com.upclicks.ffc.ui.products.model.Cart
 
 class OrderDetailsActivity: BaseActivity() {
     lateinit var binding: ActivityOrderDetailsBinding

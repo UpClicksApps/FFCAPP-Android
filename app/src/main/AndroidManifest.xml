@@ -37,7 +37,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.products.ShoppingCartActivity"
+            android:name=".ui.cart.ShoppingCartActivity"
             android:exported="false" />
         <activity
             android:name=".ui.products.ProductDetailsActivity"

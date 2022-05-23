@@ -9,10 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseFragment
 import com.upclicks.ffc.databinding.FragmentCategoriesBinding
-import com.upclicks.ffc.helpers.CustomRecyclerViewHelper
 import com.upclicks.ffc.ui.general.model.Category
 import com.upclicks.ffc.ui.main.adapters.CategoryAdapter
-import com.upclicks.ffc.ui.products.ShoppingCartActivity
+import com.upclicks.ffc.ui.cart.ShoppingCartActivity
 import com.upclicks.ffc.ui.products.viewmodel.ProductViewModel
 
 class CategoriesFragment : BaseFragment(R.layout.fragment_categories) {
