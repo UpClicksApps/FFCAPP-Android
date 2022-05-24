@@ -7,8 +7,27 @@ import com.upclicks.ffc.ui.general.component.spinner.BaseSelection
 
 class Cart {
 
-    @SerializedName("mediaFilePath")
+    @SerializedName("defaultMediaFilePath")
     @Expose
-    var mediaFilePath: String? = null
+    var defaultMediaFilePath: String? = null
+    @SerializedName("quantity")
+    @Expose
+    var quantity: Int? = null
+    @SerializedName("price")
+    @Expose
+    var price: Double? = null
+    var isOnMyWishlist: Boolean? = null
+    @SerializedName("isOutOfStock")
+    @Expose
+    var isOutOfStock: Boolean? = null
+    @SerializedName("categoryName")
+    @Expose
+    var categoryName: String? = null
+    @SerializedName("productName")
+    @Expose
+    var productName: String? = null
+    @SerializedName("productId")
+    @Expose
+    var productId: String? = null
 
 }

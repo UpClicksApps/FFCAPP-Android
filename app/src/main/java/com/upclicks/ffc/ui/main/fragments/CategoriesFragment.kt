@@ -1,6 +1,8 @@
 package com.upclicks.ffc.ui.main.fragments
 
 import android.content.Intent
+import android.util.Log
+import android.view.Gravity
 import android.view.View
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.viewModels
@@ -13,6 +15,7 @@ import com.upclicks.ffc.ui.general.model.Category
 import com.upclicks.ffc.ui.main.adapters.CategoryAdapter
 import com.upclicks.ffc.ui.cart.ShoppingCartActivity
 import com.upclicks.ffc.ui.products.viewmodel.ProductViewModel
+import q.rorbin.badgeview.QBadgeView
 
 class CategoriesFragment : BaseFragment(R.layout.fragment_categories) {
     lateinit var binding: FragmentCategoriesBinding
@@ -41,6 +44,25 @@ class CategoriesFragment : BaseFragment(R.layout.fragment_categories) {
         observeCategories()
         binding.viewModel = productViewModel
         binding.lifecycleOwner = this
+        setUpCartBadgeCount();
+    }
+
+    private fun setUpCartBadgeCount() {
+        try {
+            if (sessionHelper.cartCount > 0)
+                if (sessionHelper.isEnglish(requireContext()))
+                    QBadgeView(requireContext()).bindTarget(binding.toolbar.cartIv)
+                        .setBadgeNumber(sessionHelper.cartCount!!)
+                        .setBadgePadding(2f, true).badgeGravity =
+                        Gravity.END or Gravity.TOP
+                else QBadgeView(requireContext()).bindTarget(binding.toolbar.cartIv)
+                    .setBadgeNumber(sessionHelper.cartCount!!)
+                    .setBadgePadding(2f, true).badgeGravity =
+                    Gravity.START or Gravity.TOP
+        } catch (e: Exception) {
+            Log.e("Error in setBadgeNumber", "error")
+            e.printStackTrace()
+        }
     }
 
     private fun setUpPageActions() {
@@ -52,6 +74,7 @@ class CategoriesFragment : BaseFragment(R.layout.fragment_categories) {
             productViewModel.getAllCategories(skip, take)
         }
     }
+
     private fun observeCategories() {
         productViewModel.getAllCategories(skip, take)
         productViewModel.observeAllCategoriesList.observe(this, Observer { categories ->
@@ -69,6 +92,7 @@ class CategoriesFragment : BaseFragment(R.layout.fragment_categories) {
             }
         })
     }
+
     // Set Up Load On Scroll Listener
     private fun setUpLoadOnScrollListener() {
         onScrollChangeListener =
@@ -92,13 +116,15 @@ class CategoriesFragment : BaseFragment(R.layout.fragment_categories) {
         skip += take
         scrollView.setOnScrollChangeListener(onScrollChangeListener)
     }
+
     // set up toolbar like page title,back button...etc
     private fun setUpToolbar() {
         binding.toolbar.titleTv.text = getString(R.string.categories)
         binding.toolbar.cartIv.visibility = View.VISIBLE
         binding.toolbar.backIv.visibility = View.GONE
         binding.toolbar.cartIv.setOnClickListener {
-            startActivity(Intent(requireContext(), ShoppingCartActivity::class.java))
+            if (sessionHelper.cartCount > 0)
+                startActivity(Intent(requireContext(), ShoppingCartActivity::class.java))
         }
     }
 

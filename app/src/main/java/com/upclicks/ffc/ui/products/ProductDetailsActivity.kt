@@ -62,6 +62,7 @@ class ProductDetailsActivity : BaseActivity() {
         })
         cartViewModel.observeCartActionResponse.observe(this, Observer { cartActionResponse->
             shoMsg(cartActionResponse.message!!,MotionToast.TOAST_SUCCESS)
+            sessionHelper.saveCartCount(cartActionResponse.currentCartItemsCount)
         })
     }
 
@@ -70,17 +71,18 @@ class ProductDetailsActivity : BaseActivity() {
             onBackPressed()
         }
         binding.addToCartBtn.setOnClickListener {
-            if (productDetails.quantity == 0)
-                cartViewModel.addProductToCart(
-                    productDetails.id!!,
-                    productDetails.currentPrice!!,
-                    binding.quantity.value
-                )
-            else
-                cartViewModel.updateProductQuantity(
-                    productDetails.id!!,
-                    binding.quantity.value
-                )
+            cartViewModel.addProductToCart(
+                productDetails.id!!,
+                productDetails.currentPrice!!,
+                binding.quantity.value
+            )
+//            if (productDetails.quantity == 0)
+//
+//            else
+//                cartViewModel.updateProductQuantity(
+//                    productDetails.id!!,
+//                    binding.quantity.value
+//                )
         }
     }
 

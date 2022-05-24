@@ -21,6 +21,9 @@ import com.upclicks.ffc.ui.cart.model.CartDetails
 import com.upclicks.ffc.ui.products.model.Product
 import com.upclicks.ffc.ui.products.model.ProductDetails
 import com.upclicks.ffc.data.remote.Result
+import com.upclicks.ffc.ui.checkout.model.CheckoutRequest
+import com.upclicks.ffc.ui.checkout.model.CheckoutResponse
+import com.upclicks.ffc.ui.checkout.model.PaymentResponse
 
 interface ApiService {
     @POST("TokenAuth/Authenticate")
@@ -139,6 +142,21 @@ interface ApiService {
     ): Observable<Result<CartActionResponse>>
     @POST("services/app/Cart/DeleteShoppingCart")
     fun deleteShoppingCart(): Observable<Result<String>>
+
+    /////////////// checkout
+
+    //make checkout
+    @POST("services/app/Order/Checkout")
+    fun checkout(
+        @Body() checkoutRequest: CheckoutRequest
+    ): Observable<Result<CheckoutResponse>>
+
+    //check payment online
+    @GET("services/app/Order/getOnlinePaymentRequestStatus")
+    fun checkPaymentOnline(
+        @Query("code") code: String
+    ): Observable<Result<PaymentResponse>>
+
 
 //    //Get salons(providers)
 //    @GET("services/app/Provider/GetProviders")

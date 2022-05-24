@@ -1,6 +1,8 @@
 package com.upclicks.ffc.ui.main.fragments
 
 import android.content.Intent
+import android.util.Log
+import android.view.Gravity
 import androidx.fragment.app.viewModels
 import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseFragment
@@ -15,6 +17,7 @@ import com.upclicks.ffc.ui.products.FavoriteActivity
 import com.upclicks.ffc.ui.products.MyOrdersActivity
 import com.upclicks.ffc.ui.cart.ShoppingCartActivity
 import com.upclicks.ffc.ui.products.WalletActivity
+import q.rorbin.badgeview.QBadgeView
 
 class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
     lateinit var binding: FragmentProfileBinding
@@ -29,6 +32,25 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
         setUpToolbar()
         setUpPageActions()
         callMyProfile()
+        setUpCartBadgeCount();
+    }
+
+    private fun setUpCartBadgeCount() {
+        try {
+            if (sessionHelper.cartCount > 0)
+                if (sessionHelper.isEnglish(requireContext()))
+                    QBadgeView(requireContext()).bindTarget(binding.cartIv)
+                        .setBadgeNumber(sessionHelper.cartCount!!)
+                        .setBadgePadding(2f, true).badgeGravity =
+                        Gravity.END or Gravity.TOP
+                else QBadgeView(requireContext()).bindTarget(binding.cartIv)
+                    .setBadgeNumber(sessionHelper.cartCount!!)
+                    .setBadgePadding(2f, true).badgeGravity =
+                    Gravity.START or Gravity.TOP
+        } catch (e: Exception) {
+            Log.e("Error in setBadgeNumber", "error")
+            e.printStackTrace()
+        }
     }
 
     private fun callMyProfile() {
@@ -41,7 +63,8 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
     private fun setUpToolbar() {
         binding.titleTv.text = getString(R.string.profile)
         binding.cartIv.setOnClickListener {
-            startActivity(Intent(requireContext(), ShoppingCartActivity::class.java))
+            if (sessionHelper.cartCount > 0)
+                startActivity(Intent(requireContext(), ShoppingCartActivity::class.java))
         }
     }
 
@@ -69,15 +92,17 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
             startActivity(Intent(requireContext(), SettingsActivity::class.java))
         }
         binding.logoutLy.setOnClickListener {
-            ConfirmDialog(requireContext(),requireActivity().getString(R.string.logout),requireActivity().getString(R.string.are_you_sure_to_logout)
-            , onYesBtnClick = {
+            ConfirmDialog(requireContext(),
+                requireActivity().getString(R.string.logout),
+                requireActivity().getString(R.string.are_you_sure_to_logout),
+                onYesBtnClick = {
                     sessionHelper.logout {
                         startActivity(Intent(requireContext(), SplashActivity::class.java))
                         requireActivity().finishAffinity()
                     }
                 },
-            onNoBtnClick = {
-            }).show()
+                onNoBtnClick = {
+                }).show()
 
         }
 

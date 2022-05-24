@@ -32,6 +32,7 @@ public class SessionHelper {
     public static final String ENGLISH = "English";
     private static final String DARK_MODE = "dark_mode";
     private static final String DEVICE_ID="device_id";
+    private static final String CART_COUNT="cart_count";
     private static final String AR = "ar";
     private static final String EN = "en";
     private static final String INTRO_LANGUAGE="intro_language";
@@ -97,6 +98,21 @@ public class SessionHelper {
     public String getDeviceId() {
         SharedPreferences preferences =  this.context.getSharedPreferences(DEVICE_ID, Context.MODE_PRIVATE);
         return preferences.getString(DEVICE_ID, "");
+    }
+
+
+
+    //Save cart count
+    public void saveCartCount(Integer count) {
+        SharedPreferences.Editor editor =  this.context.getSharedPreferences(CART_COUNT, Context.MODE_PRIVATE).edit();
+        editor.putInt(CART_COUNT, count);
+        editor.apply();
+    }
+
+    //Get cart count
+    public Integer getCartCount() {
+        SharedPreferences preferences =  this.context.getSharedPreferences(CART_COUNT, Context.MODE_PRIVATE);
+        return preferences.getInt(CART_COUNT, 0);
     }
 
 

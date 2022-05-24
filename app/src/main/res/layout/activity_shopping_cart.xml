@@ -4,7 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.upclicks.ffc.base.BaseViewModel" />
 
+        <variable
+            name="cartDetails"
+            type="com.upclicks.ffc.ui.cart.model.CartDetails" />
     </data>
     <LinearLayout
         android:layout_width="match_parent"
@@ -66,7 +73,9 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:visibility="@{cartDetails.subTotal ==null||cartDetails.subTotal ==0?View.GONE:View.VISIBLE}"
+                    >
 
                     <TextView
                         android:layout_width="match_parent"
@@ -79,13 +88,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="KD 8.850"
+                        android:text='@{cartDetails.subTotal +" "+ @string/currency_code}'
                         android:id="@+id/subTotalTv"
                         android:textColor="@color/text_color_grey" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:visibility="@{cartDetails.discountAmount ==null||cartDetails.discountAmount ==0?View.GONE:View.VISIBLE}"
+                    >
 
                     <TextView
                         android:layout_width="match_parent"
@@ -98,13 +109,36 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="KD 2.850"
+                        android:text='@{cartDetails.discountAmount +" "+ @string/currency_code}'
                         android:id="@+id/discountTv"
                         android:textColor="@color/text_color_grey" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:visibility="@{cartDetails.tax ==null||cartDetails.tax ==0?View.GONE:View.VISIBLE}"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/tax"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{cartDetails.tax +" "+ @string/currency_code}'
+                        android:id="@+id/taxTv"
+                        android:textColor="@color/text_color_grey" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{cartDetails.total ==null||cartDetails.total ==0?View.GONE:View.VISIBLE}"
+                    >
 
                     <TextView
                         android:layout_width="match_parent"
@@ -118,7 +152,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="KD 2.850"
+                        android:text='@{cartDetails.total +" "+ @string/currency_code}'
                         android:id="@+id/totalTv"
                         android:textStyle="bold"
                         android:textSize="@dimen/_13sdp"

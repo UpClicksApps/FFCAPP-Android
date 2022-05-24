@@ -55,6 +55,8 @@ public class Keys {
         public static String MEMBER_RESPONSE = "memberResponse";
         public static String FILTER = "filter";
         public static int FILTER_CODE = 1;
+        public static final String EXTERNAL_LOGIN = "ExternalLoginRequest";
+        public static final String CHECKOUT_MESSAGE = "checkout_message";
     }
 
 

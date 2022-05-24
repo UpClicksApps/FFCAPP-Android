@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="cart"
+            type="com.upclicks.ffc.ui.cart.model.Cart" />
     </data>
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,50 +23,27 @@
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_70sdp"
                 android:src="@drawable/image_placeholder" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Organic Banana"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="KD 8.850"
-                android:textColor="@color/primary"
-                android:textSize="@dimen/_12sdp"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Discount 5%"
-                android:textColor="@color/black"
-                android:drawableStart="@drawable/ic_offer_icon"
-                android:drawablePadding="@dimen/_5sdp"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    notNullText="@{cart.productName}"
+                    tools:text="Organic Banana"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    notNullText='@{cart.productName+" "+@string/currency_code}'
+                    android:textColor="@color/primary"
+                    android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
 
-            <ImageView
-                android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_25sdp"
-                android:src="@drawable/ic_favorite"
-                android:layout_gravity="top|end"
-                android:padding="@dimen/_5sdp"
-                android:background="@drawable/ic_home_favorite_bg"/>
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
             <com.upclicks.ffc.ui.general.component.numberPicker.NumberPicker
                 xmlns:numberpicker="http://schemas.android.com/tools"
                 android:id="@+id/quantity"
@@ -71,11 +51,11 @@
                 android:layout_height="wrap_content"
                 app:custom_layout="@layout/number_picker_custom_layout"
                 app:min="0"
+                android:layout_gravity="center"
+                app:value="@{cart.quantity}"
                 numberpicker:focusable="false"
                 numberpicker:min="0"
-                android:visibility="gone"
                 numberpicker:unit="1" />
-        </LinearLayout>
     </LinearLayout>
     <View
         android:layout_width="match_parent"

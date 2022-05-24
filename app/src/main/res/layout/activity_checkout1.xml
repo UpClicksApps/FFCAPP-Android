@@ -78,7 +78,7 @@
                     android:background="@drawable/solid_rectangle_background_primary"
                     android:backgroundTint="@color/white"
                     android:elevation="@dimen/_5sdp"
-                    android:enabled="false"
+                    
                     android:layout_margin="@dimen/_5sdp"
                     android:padding="@dimen/_5sdp"
                     android:id="@+id/nameInput"
@@ -95,7 +95,7 @@
                     android:background="@drawable/solid_rectangle_background_primary"
                     android:backgroundTint="@color/white"
                     android:inputType="textEmailAddress"
-                    android:enabled="false"
+                    
                     android:elevation="@dimen/_5sdp"
                     android:layout_margin="@dimen/_5sdp"
                     android:padding="@dimen/_5sdp"
@@ -115,7 +115,7 @@
                     android:elevation="@dimen/_5sdp"
                     android:inputType="phone"
                     android:layout_margin="@dimen/_5sdp"
-                    android:enabled="false"
+                    
                     android:padding="@dimen/_5sdp"
                     android:id="@+id/phoneInput"
                     />
@@ -139,7 +139,7 @@
 
                         <com.upclicks.ffc.ui.general.component.customedittext.TextInput
                             android:id="@+id/cityInput"
-                            android:enabled="false"
+                            
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_40sdp"
                             android:layout_margin="@dimen/_5sdp"
@@ -167,7 +167,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_40sdp"
                             android:layout_margin="@dimen/_5sdp"
-                            android:enabled="false"
+                            
                             android:background="@drawable/solid_rectangle_background_primary"
                             android:backgroundTint="@color/white"
                             android:elevation="@dimen/_5sdp"
@@ -197,7 +197,7 @@
                             android:layout_height="@dimen/_40sdp"
                             android:layout_margin="@dimen/_5sdp"
                             android:background="@drawable/solid_rectangle_background_primary"
-                            android:enabled="false"
+                            
                             android:backgroundTint="@color/white"
                             android:elevation="@dimen/_5sdp"
                             android:padding="@dimen/_5sdp" />
@@ -221,7 +221,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_40sdp"
                             android:layout_margin="@dimen/_5sdp"
-                            android:enabled="false"
+                            
                             android:background="@drawable/solid_rectangle_background_primary"
                             android:backgroundTint="@color/white"
                             android:elevation="@dimen/_5sdp"
@@ -239,7 +239,7 @@
                     android:layout_height="@dimen/_40sdp"
                     android:background="@drawable/solid_rectangle_background_primary"
                     android:backgroundTint="@color/white"
-                    android:enabled="false"
+                    
                     android:elevation="@dimen/_5sdp"
                     android:layout_margin="@dimen/_5sdp"
                     android:padding="@dimen/_5sdp"
@@ -259,7 +259,7 @@
                     android:elevation="@dimen/_5sdp"
                     android:layout_margin="@dimen/_5sdp"
                     android:padding="@dimen/_5sdp"
-                    android:enabled="false"
+                    
                     android:id="@+id/notesInput"
                     />
 

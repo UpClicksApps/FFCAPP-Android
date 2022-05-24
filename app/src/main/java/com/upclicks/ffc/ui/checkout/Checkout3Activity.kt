@@ -3,15 +3,26 @@ package com.upclicks.ffc.ui.checkout
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
+import com.google.gson.Gson
 import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseActivity
+import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.ActivityCheckout2Binding
 import com.upclicks.ffc.databinding.ActivityCheckout3Binding
+import com.upclicks.ffc.ui.checkout.dialog.PaymentResponseDialog
+import com.upclicks.ffc.ui.checkout.model.CheckoutRequest
+import com.upclicks.ffc.ui.checkout.model.CheckoutResponse
+import com.upclicks.ffc.ui.checkout.viewmodel.CheckoutViewModel
 import com.upclicks.ffc.ui.main.MainActivity
 
 class Checkout3Activity: BaseActivity() {
     lateinit var binding : ActivityCheckout3Binding
 
+    var checkoutRequest = CheckoutRequest()
+    private val checkoutViewModel: CheckoutViewModel by viewModels()
+    var checkoutResponse = CheckoutResponse()
+    private val PAYMENT_REQUEST = 1250
 
     override fun getLayoutResourceId(): View {
         binding = ActivityCheckout3Binding.inflate(layoutInflater)
@@ -20,13 +31,65 @@ class Checkout3Activity: BaseActivity() {
     }
 
     private fun initPage() {
+        setUpIntent()
         setUpPageActions()
     }
+    private fun setUpIntent() {
+        if (intent.getStringExtra(Keys.Intent_Constants.CHECKOUT)!= null)
+            checkoutRequest = Gson().fromJson(intent.getStringExtra(Keys.Intent_Constants.CHECKOUT),CheckoutRequest::class.java)
+    }
+
 
     private fun setUpPageActions() {
-
+        checkoutRequest.order!!.paymentWay = 1
         binding.checkoutBtn.setOnClickListener {
-            startActivity(Intent(this,CheckoutSuccessActivity::class.java))
+            checkoutViewModel.checkout(checkoutRequest, onResult = { checkoutResponse ->
+                this.checkoutResponse = checkoutResponse     //Do online payment process
+                if (!checkoutResponse.onlinePaymenLink.isNullOrEmpty())
+                    startActivityForResult(
+                        Intent(this, OnlinePaymentActivity::class.java)
+                            .putExtra("url", checkoutResponse.onlinePaymenLink.toString() + "")
+                            .putExtra("callbackUrl", checkoutResponse.callbackUrl.toString() + "")
+                            .putExtra("sec", checkoutResponse.resultPageTimeoutInSec),
+                        PAYMENT_REQUEST
+                    )
+                else
+                    startActivity(
+                        Intent(
+                            this,
+                            CheckoutSuccessActivity::class.java
+                        ).putExtra(
+                            Keys.Intent_Constants.CHECKOUT_MESSAGE,
+                            checkoutResponse.resultMessage
+                        )
+                    )
+            })
+        }
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == PAYMENT_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                checkoutViewModel.checkPaymentOnline(
+                    checkoutResponse.code!!,
+                    onResult = { paymentResponse ->
+                        if (paymentResponse.isSuccess!!) {
+                            startActivity(
+                                Intent(
+                                    this,
+                                    CheckoutSuccessActivity::class.java
+                                ).putExtra(
+                                    Keys.Intent_Constants.CHECKOUT_MESSAGE,
+                                    checkoutResponse.resultMessage
+                                )
+                            )
+                        } else
+                            PaymentResponseDialog(this, paymentResponse.message!!, onOkBtnClick = {
+                                startActivity(Intent(this, MainActivity::class.java))
+                                finishAffinity()
+                            }).show()
+                    })
+            }
         }
     }
 }

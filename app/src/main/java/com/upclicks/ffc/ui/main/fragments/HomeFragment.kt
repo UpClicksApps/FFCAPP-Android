@@ -1,6 +1,8 @@
 package com.upclicks.ffc.ui.main.fragments
 
 import android.content.Intent
+import android.util.Log
+import android.view.Gravity
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -18,6 +20,7 @@ import com.upclicks.ffc.ui.cart.ShoppingCartActivity
 import com.upclicks.ffc.ui.products.adapter.ProductGridAdapter
 import com.upclicks.ffc.ui.products.model.Product
 import com.upclicks.ffc.ui.products.viewmodel.ProductViewModel
+import q.rorbin.badgeview.QBadgeView
 
 class HomeFragment : BaseFragment(R.layout.fragment_home) {
     lateinit var binding: FragmentHomeBinding
@@ -42,6 +45,25 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         setUpObservers()
         binding.viewModel = productViewModel
         binding.lifecycleOwner = this
+        setUpCartBadgeCount();
+    }
+
+    private fun setUpCartBadgeCount() {
+        try {
+            if (sessionHelper.cartCount > 0)
+                if (sessionHelper.isEnglish(requireContext()))
+                    QBadgeView(requireContext()).bindTarget(binding.cartIv)
+                        .setBadgeNumber(sessionHelper.cartCount!!)
+                        .setBadgePadding(2f, true).badgeGravity =
+                        Gravity.END or Gravity.TOP
+                else QBadgeView(requireContext()).bindTarget(binding.cartIv)
+                    .setBadgeNumber(sessionHelper.cartCount!!)
+                    .setBadgePadding(2f, true).badgeGravity =
+                    Gravity.START or Gravity.TOP
+        } catch (e: Exception) {
+            Log.e("Error in setBadgeNumber", "error")
+            e.printStackTrace()
+        }
     }
 
     override fun onStart() {
@@ -78,7 +100,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     private fun setUpPageActions() {
         binding.cartIv.setOnClickListener {
-            startActivity(Intent(requireContext(), ShoppingCartActivity::class.java))
+            if (sessionHelper.cartCount > 0)
+                startActivity(Intent(requireContext(), ShoppingCartActivity::class.java))
         }
     }
 
@@ -92,10 +115,14 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             binding.categoryRv
         )
     }
-
     private fun setUpProductUiList() {
         productAdapter = ProductGridAdapter(requireContext(), productsList, onItemClicked = {
-            startActivity(Intent(requireContext(), ProductDetailsActivity::class.java).putExtra(Keys.Intent_Constants.PRODUCT_ID,productsList[it].id))
+            startActivity(
+                Intent(
+                    requireContext(),
+                    ProductDetailsActivity::class.java
+                ).putExtra(Keys.Intent_Constants.PRODUCT_ID, productsList[it].id)
+            )
         })
         binding.topSaleRv.adapter = productAdapter
         binding.topSaleRv.layoutManager = GridLayoutManager(requireContext(), 2)

@@ -201,4 +201,6 @@
     <string name="choose">Choose</string>
     <string name="camera">Camera</string>
     <string name="gallery">Gallery</string>
+    <string name="tax">Tax</string>
+    <string name="ok">Ok</string>
 </resources>

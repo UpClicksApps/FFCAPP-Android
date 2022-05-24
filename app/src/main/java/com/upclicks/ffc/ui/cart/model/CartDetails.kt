@@ -12,7 +12,10 @@ class CartDetails {
     var id: String? = null
     @SerializedName("discountAmount")
     @Expose
-    var discountAmount: Int? = null
+    var discountAmount: Double? = null
+    @SerializedName("tax")
+    @Expose
+    var tax: Double? = null
     @SerializedName("total")
     @Expose
     var total: Double? = null
@@ -21,6 +24,6 @@ class CartDetails {
     var subTotal: Double? = null
     @SerializedName("orderProducts")
     @Expose
-    var orderProducts: List<Product>? = null
+    var orderProducts: List<Cart>? = null
 
 }
