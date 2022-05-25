@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="order"
+            type="com.upclicks.ffc.ui.orders.model.Order" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -36,7 +39,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="#15457"
+                    tools:text="#15457"
+                    notNullText='@{"#" +order.couponCode}'
                     android:layout_marginStart="@dimen/_8sdp"
                     android:textColor="@color/text_color_grey"/>
             </LinearLayout>
@@ -57,7 +61,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Oct 22/10/2021"
+                    tools:text="Oct 22/10/2021"
+                    bindServerDate="@{order.creationTime}"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:textColor="@color/text_color_grey"/>
             </LinearLayout>
@@ -80,6 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="KD 10.950"
+                    notNullText='@{order.totalCost+" "+@string/currency_code}'
                     android:layout_marginStart="@dimen/_8sdp"
                     android:textColor="@color/text_color_grey"/>
             </LinearLayout>

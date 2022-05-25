@@ -1,19 +1,13 @@
 package com.upclicks.ffc.ui.checkout
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.View
 import com.google.gson.Gson
-import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseActivity
 import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.ActivityCheckout1Binding
 import com.upclicks.ffc.ui.checkout.model.CheckoutRequest
-import com.upclicks.ffc.ui.checkout.model.Order
 import com.upclicks.ffc.ui.general.component.customedittext.BaseInput
-import com.upclicks.ffc.ui.general.component.material.BaseMaterialEditText
-import com.upclicks.ffc.ui.general.component.material.CustomMaterialInputLayout
 
 class Checkout1Activity : BaseActivity() {
     lateinit var binding :ActivityCheckout1Binding

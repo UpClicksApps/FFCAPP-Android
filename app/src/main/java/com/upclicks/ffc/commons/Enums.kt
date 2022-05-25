@@ -19,6 +19,14 @@ enum class SpecificationType(val value: Int) {
     Image(2),
 }
 
+enum class ProductSort(val value: Int) {
+    LowToHighPrice(0),
+    HighToLowPrice(1),
+    LowRate(2),
+    HighRate(3),
+    BestSeller(4),
+}
+
 
 enum class Gender(val value: Int) {
     Female(0),

@@ -44,26 +44,8 @@ class CategoriesFragment : BaseFragment(R.layout.fragment_categories) {
         observeCategories()
         binding.viewModel = productViewModel
         binding.lifecycleOwner = this
-        setUpCartBadgeCount();
     }
 
-    private fun setUpCartBadgeCount() {
-        try {
-            if (sessionHelper.cartCount > 0)
-                if (sessionHelper.isEnglish(requireContext()))
-                    QBadgeView(requireContext()).bindTarget(binding.toolbar.cartIv)
-                        .setBadgeNumber(sessionHelper.cartCount!!)
-                        .setBadgePadding(2f, true).badgeGravity =
-                        Gravity.END or Gravity.TOP
-                else QBadgeView(requireContext()).bindTarget(binding.toolbar.cartIv)
-                    .setBadgeNumber(sessionHelper.cartCount!!)
-                    .setBadgePadding(2f, true).badgeGravity =
-                    Gravity.START or Gravity.TOP
-        } catch (e: Exception) {
-            Log.e("Error in setBadgeNumber", "error")
-            e.printStackTrace()
-        }
-    }
 
     private fun setUpPageActions() {
         setUpLoadOnScrollListener()
@@ -120,12 +102,7 @@ class CategoriesFragment : BaseFragment(R.layout.fragment_categories) {
     // set up toolbar like page title,back button...etc
     private fun setUpToolbar() {
         binding.toolbar.titleTv.text = getString(R.string.categories)
-        binding.toolbar.cartIv.visibility = View.VISIBLE
         binding.toolbar.backIv.visibility = View.GONE
-        binding.toolbar.cartIv.setOnClickListener {
-            if (sessionHelper.cartCount > 0)
-                startActivity(Intent(requireContext(), ShoppingCartActivity::class.java))
-        }
     }
 
     private fun setUpUiList() {

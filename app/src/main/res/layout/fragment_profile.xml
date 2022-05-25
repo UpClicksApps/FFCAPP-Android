@@ -44,14 +44,6 @@
                         android:textColor="@color/white"
                         android:textSize="@dimen/_14sdp"
                         android:textStyle="bold"></TextView>
-                    <ImageView
-                        android:id="@+id/cartIv"
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:padding="@dimen/_5sdp"
-                        android:src="@drawable/ic_cart"
-                        android:layout_gravity="end"
-                        />
 
                 </FrameLayout>
 

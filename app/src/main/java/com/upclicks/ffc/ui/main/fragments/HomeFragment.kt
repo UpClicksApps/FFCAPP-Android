@@ -7,6 +7,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseFragment
 import com.upclicks.ffc.commons.Keys
@@ -17,7 +18,9 @@ import com.upclicks.ffc.ui.main.adapters.HomeCategoryAdapter
 import com.upclicks.ffc.ui.products.ProductDetailsActivity
 import com.upclicks.ffc.ui.products.ProductsListActivity
 import com.upclicks.ffc.ui.cart.ShoppingCartActivity
+import com.upclicks.ffc.ui.products.adapter.HomeProductAdapter
 import com.upclicks.ffc.ui.products.adapter.ProductGridAdapter
+import com.upclicks.ffc.ui.products.model.HomeProduct
 import com.upclicks.ffc.ui.products.model.Product
 import com.upclicks.ffc.ui.products.viewmodel.ProductViewModel
 import q.rorbin.badgeview.QBadgeView
@@ -33,6 +36,9 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     var productsList = ArrayList<Product>()
     lateinit var productAdapter: ProductGridAdapter
 
+    var homeCategoriesList = ArrayList<HomeProduct>()
+    lateinit var homeProductAdapter: HomeProductAdapter
+
     override fun setUpLayout() {
         binding = FragmentHomeBinding.bind(requireView())
         initPage()
@@ -42,6 +48,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         setUpPageActions()
         setUpCategoryUiList()
         setUpProductUiList()
+        setUpHomeCategoriesUiList()
         setUpObservers()
         binding.viewModel = productViewModel
         binding.lifecycleOwner = this
@@ -69,6 +76,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     override fun onStart() {
         super.onStart()
         productViewModel.getTopSales()
+        productViewModel.getHomeCategories()
     }
 
     private fun setUpObservers() {
@@ -96,6 +104,18 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 binding.emptyTopSalesTv.visibility = View.VISIBLE
             }
         })
+        productViewModel.observeHomeCategoriesList.observe(this, Observer { homeCategories->
+            if (!homeCategories.isNullOrEmpty()) {
+                homeCategoriesList.clear()
+                homeCategoriesList.addAll(homeCategories)
+                homeProductAdapter.notifyDataSetChanged()
+                binding.homeCategoriesRv.visibility = View.VISIBLE
+                binding.emptyHomeCategoriesTv.visibility = View.GONE
+            } else {
+                binding.homeCategoriesRv.visibility = View.GONE
+                binding.emptyHomeCategoriesTv.visibility = View.VISIBLE
+            }
+        })
     }
 
     private fun setUpPageActions() {
@@ -107,7 +127,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     private fun setUpCategoryUiList() {
         categoryAdapter = HomeCategoryAdapter(requireContext(), categoriesList, onItemClicked = {
-            startActivity(Intent(requireContext(), ProductsListActivity::class.java))
+            startActivity(Intent(requireContext(), ProductsListActivity::class.java).putExtra(Keys.Intent_Constants.CATEGORY_NAME,categoriesList[it].name)
+                .putExtra(Keys.Intent_Constants.CATEGORY_ID,categoriesList[it].id))
         })
         binding.categoryRv.adapter = categoryAdapter
         CustomRecyclerViewHelper.addZoomRecyclerLayoutHorizontal(
@@ -126,5 +147,11 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         })
         binding.topSaleRv.adapter = productAdapter
         binding.topSaleRv.layoutManager = GridLayoutManager(requireContext(), 2)
+    }
+    private fun setUpHomeCategoriesUiList() {
+        homeProductAdapter = HomeProductAdapter(requireContext(), homeCategoriesList, onItemClicked = {
+        })
+        binding.homeCategoriesRv.adapter = homeProductAdapter
+        binding.homeCategoriesRv.layoutManager = LinearLayoutManager(requireContext())
     }
 }

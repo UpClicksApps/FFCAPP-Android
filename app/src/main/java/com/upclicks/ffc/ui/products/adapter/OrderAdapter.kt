@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.upclicks.ffc.databinding.ItemOrderBinding
-import com.upclicks.ffc.ui.products.model.Order
+import com.upclicks.ffc.ui.orders.model.Order
 
 class OrderAdapter(
     val context: Context,
@@ -34,7 +34,7 @@ class OrderAdapter(
 
     override fun getItemCount(): Int {
         // number of items in the data set held by the adapter
-        return 15
+        return orderList.size
     }
 
     class ViewHolder(val binding: ItemOrderBinding) : RecyclerView.ViewHolder(binding.root) {}

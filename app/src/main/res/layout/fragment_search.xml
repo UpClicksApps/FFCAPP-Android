@@ -79,7 +79,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/item_product_home_for_grid"
+            tools:listitem="@layout/item_product_for_grid"
             android:id="@+id/recycler"
             android:layout_marginHorizontal="@dimen/_8sdp"
             app:spanCount="2"

@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.upclicks.ffc.R
-import com.upclicks.ffc.databinding.ItemOrderBinding
 import com.upclicks.ffc.databinding.ItemOrderStatusSelectionBinding
-import com.upclicks.ffc.ui.products.model.Order
 
 class OrderStatusSelectionAdapter(
     val context: Context,

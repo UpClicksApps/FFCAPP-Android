@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.upclicks.ffc.databinding.ItemProductHomeForGridBinding
+import com.upclicks.ffc.databinding.ItemProductForGridBinding
 import com.upclicks.ffc.ui.products.model.Product
 
 class ProductGridAdapter(
@@ -18,7 +18,7 @@ class ProductGridAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // inflate the custom view from xml layout file
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemProductHomeForGridBinding.inflate(inflater, parent, false)
+        val binding = ItemProductForGridBinding.inflate(inflater, parent, false)
         // return the view holder
         return ViewHolder(binding)
 
@@ -38,7 +38,7 @@ class ProductGridAdapter(
         return productList.size
     }
 
-    class ViewHolder(val binding: ItemProductHomeForGridBinding) : RecyclerView.ViewHolder(binding.root) {}
+    class ViewHolder(val binding: ItemProductForGridBinding) : RecyclerView.ViewHolder(binding.root) {}
 
     // this two methods useful for avoiding duplicate item
     override fun getItemId(position: Int): Long {

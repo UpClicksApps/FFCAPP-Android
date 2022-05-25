@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.upclicks.ffc.databinding.ItemDeliveryTimeBinding
 import com.upclicks.ffc.databinding.ItemFavoriteBinding
-import com.upclicks.ffc.databinding.ItemProductHomeForGridBinding
 import com.upclicks.ffc.databinding.ItemWalletBinding
 import com.upclicks.ffc.ui.products.model.DeliveryTime
 import com.upclicks.ffc.ui.products.model.Product

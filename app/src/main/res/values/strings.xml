@@ -203,4 +203,5 @@
     <string name="gallery">Gallery</string>
     <string name="tax">Tax</string>
     <string name="ok">Ok</string>
+    <string name="category_id_is_empty">Category id is empty</string>
 </resources>

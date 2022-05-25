@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.upclicks.ffc.databinding.ItemFavoriteBinding
-import com.upclicks.ffc.databinding.ItemProductHomeForGridBinding
 import com.upclicks.ffc.ui.products.model.Product
 
 class FavoriteAdapter(

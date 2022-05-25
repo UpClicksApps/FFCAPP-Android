@@ -13,9 +13,9 @@ open class Product{
     @SerializedName("ordersCount")
     @Expose
     var ordersCount: Int? = null
-    @SerializedName("quantity")
+    @SerializedName("productCountInCart")
     @Expose
-    var quantity: Int? = null
+    var productCountInCart: Int? = null
     @SerializedName("discountPercentage")
     @Expose
     var discountPercentage: Int? = null

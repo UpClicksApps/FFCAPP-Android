@@ -137,7 +137,7 @@
                         android:id="@+id/topSaleSection"
                         android:orientation="vertical"
                         >
-                        <androidx.appcompat.widget.LinearLayoutCompat
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="@dimen/_8sdp"
@@ -170,7 +170,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/more" />
 
-                        </androidx.appcompat.widget.LinearLayoutCompat>
+                        </LinearLayout>
 
                         <FrameLayout
                             android:layout_width="match_parent"
@@ -196,7 +196,7 @@
                                 app:spanCount="2"
                                 tools:itemCount="2"
                                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                                tools:listitem="@layout/item_product_home_for_grid" />
+                                tools:listitem="@layout/item_product_for_grid" />
                         </FrameLayout>
                     </LinearLayout>
 
@@ -206,6 +206,30 @@
                         android:background="@drawable/home_advert"
                         android:layout_marginVertical="@dimen/_8sdp"
                         />
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:minHeight="@dimen/_60sdp"
+                        android:layout_marginHorizontal="@dimen/_8sdp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:visibility="gone"
+                            android:text="@string/no_categories"
+                            android:id="@+id/emptyHomeCategoriesTv"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp"
+                            />
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/homeCategoriesRv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:itemCount="2"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:listitem="@layout/item_home_product" />
+                    </FrameLayout>
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>
         </LinearLayout>

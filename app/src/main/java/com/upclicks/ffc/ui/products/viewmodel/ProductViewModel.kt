@@ -10,8 +10,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 import com.upclicks.ffc.data.remote.Result
 import com.upclicks.ffc.ui.general.model.Category
-import com.upclicks.ffc.ui.products.model.Product
-import com.upclicks.ffc.ui.products.model.ProductDetails
+import com.upclicks.ffc.ui.products.model.*
 import com.upclicks.ffc.ui.products.repositories.ProductRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 
@@ -23,15 +22,21 @@ class ProductViewModel
     private val productRepository: ProductRepository,
 ) : BaseViewModel() {
     private val allCategoriesList: MutableLiveData<List<Category>> = MutableLiveData()
+    private val homeCategoriesList: MutableLiveData<List<HomeProduct>> = MutableLiveData()
     private val topSalesList: MutableLiveData<List<Product>> = MutableLiveData()
-    private val productsList: MutableLiveData<List<Product>> = MutableLiveData()
+    private val wishlistList: MutableLiveData<List<Product>> = MutableLiveData()
+    private val productsList: MutableLiveData<ProductsResponse> = MutableLiveData()
     private val productDetails: MutableLiveData<ProductDetails> = MutableLiveData()
 
     val observeAllCategoriesList: LiveData<List<Category>>
         get() = allCategoriesList
     val observeTopSalesList: LiveData<List<Product>>
         get() = topSalesList
-    val observeProductList: LiveData<List<Product>>
+    val observeMyWishlistList: LiveData<List<Product>>
+        get() = wishlistList
+    val observeHomeCategoriesList: LiveData<List<HomeProduct>>
+        get() = homeCategoriesList
+    val observeProductList: LiveData<ProductsResponse>
         get() = productsList
     val observeProductDetails: LiveData<ProductDetails>
         get() = productDetails
@@ -45,6 +50,30 @@ class ProductViewModel
             .subscribe(object : CustomRxObserver<Result<List<Category>>>(this@ProductViewModel) {
                 override fun onResponse(response: Result<List<Category>>) {
                     onGetCategories(response.result!!)
+                }
+            })
+    }
+    //Get Categories
+    fun assign(productId:String,onAddToFavorite: (String) -> Unit) {
+        var body = HashMap<Any,Any>()
+        body["productId"] = productId
+        productRepository.assign(body)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe(object : CustomRxObserver<Result<String>>(this@ProductViewModel) {
+                override fun onResponse(response: Result<String>) {
+                    onAddToFavorite(response.result!!)
+                }
+            })
+    }
+    //Get Categories
+    fun getMyWishlist() {
+        productRepository.getMyWishlist()
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe(object : CustomRxObserver<Result<List<Product>>>(this@ProductViewModel) {
+                override fun onResponse(response: Result<List<Product>>) {
+                    wishlistList.postValue(response.result!!)
                 }
             })
     }
@@ -75,14 +104,26 @@ class ProductViewModel
             })
     }
 
-
-    //Get Products
-    fun getProducts() {
-        productRepository.getProducts()
+    //GetHomeCategories
+    fun getHomeCategories() {
+        productRepository.getHomeCategories()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
-            .subscribe(object : CustomRxObserver<Result<List<Product>>>(this@ProductViewModel) {
-                override fun onResponse(response: Result<List<Product>>) {
+            .subscribe(object : CustomRxObserver<Result<List<HomeProduct>>>(this@ProductViewModel) {
+                override fun onResponse(response: Result<List<HomeProduct>>) {
+                    homeCategoriesList.postValue(response.result)
+                }
+            })
+    }
+
+
+    //Get Products
+    fun getProducts(productRequest: ProductRequest) {
+        productRepository.getProducts(productRequest)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe(object : CustomRxObserver<Result<ProductsResponse>>(this@ProductViewModel) {
+                override fun onResponse(response: Result<ProductsResponse>) {
                     productsList.postValue(response.result)
                 }
             })

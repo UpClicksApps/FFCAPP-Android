@@ -46,7 +46,7 @@
             android:name=".ui.authentication.PersonalDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.products.MyOrdersActivity"
+            android:name=".ui.orders.MyOrdersActivity"
             android:exported="false" />
         <activity
             android:name=".ui.products.WalletActivity"

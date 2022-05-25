@@ -1,9 +1,9 @@
-package com.upclicks.ffc.ui.checkout.model
+package com.upclicks.ffc.ui.orders
 
 import com.google.gson.annotations.Expose
 
 import com.google.gson.annotations.SerializedName
-class Order {
+class OrderDetails {
     @SerializedName("couponId")
     @Expose
     var couponId: String? = null

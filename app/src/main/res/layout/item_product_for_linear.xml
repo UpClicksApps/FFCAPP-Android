@@ -21,12 +21,10 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
-
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_150sdp"
                 >
-
                 <FrameLayout
                     android:id="@+id/overlayFrame"
                     android:layout_width="match_parent"

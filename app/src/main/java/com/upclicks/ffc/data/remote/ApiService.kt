@@ -20,10 +20,13 @@ import com.upclicks.ffc.ui.cart.model.CartActionResponse
 import com.upclicks.ffc.ui.cart.model.CartDetails
 import com.upclicks.ffc.ui.products.model.Product
 import com.upclicks.ffc.ui.products.model.ProductDetails
-import com.upclicks.ffc.data.remote.Result
 import com.upclicks.ffc.ui.checkout.model.CheckoutRequest
 import com.upclicks.ffc.ui.checkout.model.CheckoutResponse
+import com.upclicks.ffc.ui.orders.model.Order
 import com.upclicks.ffc.ui.checkout.model.PaymentResponse
+import com.upclicks.ffc.ui.orders.OrderDetails
+import com.upclicks.ffc.ui.products.model.HomeProduct
+import com.upclicks.ffc.ui.products.model.ProductsResponse
 
 interface ApiService {
     @POST("TokenAuth/Authenticate")
@@ -116,14 +119,43 @@ interface ApiService {
     @GET("services/app/Product/GetOnSaleProducts")
     fun getTopSales(): Observable<Result<List<Product>>>
 
+    //Get Top Sales
+    @GET("services/app/Category/GetHomeCategories")
+    fun getHomeCategories(): Observable<Result<List<HomeProduct>>>
+
     //Get Products
     @GET("services/app/Product/GetProducts")
-    fun getProducts(): Observable<Result<List<Product>>>
+    fun getProducts(
+        @Query("categoryId") categoryId: String,
+        @Query("productName") productName: String,
+        @Query("sortProductBy") sortProductBy: Int,
+        @Query("minPrice") minPrice: Double,
+        @Query("maxPrice") maxPrice: Double,
+        @Query("skip") skip: Int,
+        @Query("take") take: Int
+    ): Observable<Result<ProductsResponse>>
 
     //Get Product
     @GET("services/app/Product/GetProduct")
     fun getProductDetails(@Query("id") id: String): Observable<Result<ProductDetails>>
 
+    //Get MyWishlist
+    @GET("services/app/MemberWishlist/GetMyWishlist")
+    fun getMyWishlist(): Observable<Result<List<Product>>>
+
+    //Get MyOrders
+    @GET("services/app/Order/GetMyOrders")
+    fun getMyOrders(@Query("orderStatus") orderStatus: Int,
+                    @Query("skip") skip: Int,
+                    @Query("take") take: Int): Observable<Result<List<Order>>>
+
+    //Get Order
+    @GET("services/app/Order/GetOrder")
+    fun getOrder(@Query("id") OrderId: String): Observable<Result<OrderDetails>>
+
+    //Assign
+    @POST("services/app/MemberWishlist/Assign")
+    fun assign(@Body body:Any): Observable<Result<String>>
 
     ///////////////// cart
     //GetCurrentCartDetails

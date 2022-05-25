@@ -1,20 +1,16 @@
-package com.upclicks.ffc.ui.products
+package com.upclicks.ffc.ui.orders
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseActivity
-import com.upclicks.ffc.databinding.ActivityFavoriteBinding
 import com.upclicks.ffc.databinding.ActivityMyOrdersBinding
+import com.upclicks.ffc.ui.orders.model.Order
+import com.upclicks.ffc.ui.products.OrderDetailsActivity
 import com.upclicks.ffc.ui.products.adapter.OrderAdapter
 import com.upclicks.ffc.ui.products.adapter.OrderStatusSelectionAdapter
-import com.upclicks.ffc.ui.products.adapter.WalletAdapter
-import com.upclicks.ffc.ui.products.model.Order
-import com.upclicks.ffc.ui.products.model.Wallet
 
 class MyOrdersActivity  : BaseActivity() {
     lateinit var binding: ActivityMyOrdersBinding
@@ -58,7 +54,7 @@ class MyOrdersActivity  : BaseActivity() {
     }
     private fun setUpOrdersUiList() {
         orderAdapter = OrderAdapter(this,orderList, onItemClicked = {
-            startActivity(Intent(this,OrderDetailsActivity::class.java))
+            startActivity(Intent(this, OrderDetailsActivity::class.java))
         })
         binding.ordersRv.adapter = orderAdapter
         binding.ordersRv.layoutManager = LinearLayoutManager(this)

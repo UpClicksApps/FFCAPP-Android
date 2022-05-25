@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ui.products.MyOrdersActivity">
+        tools:context=".ui.orders.MyOrdersActivity">
 
         <include layout="@layout/app_bar_layout"
             android:id="@+id/toolbar"/>
