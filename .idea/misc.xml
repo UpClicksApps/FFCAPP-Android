@@ -25,6 +25,7 @@
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/drawable/gray_input_bg.xml" value="0.2115" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/drawable/ic_accepted.xml" value="0.2115" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/drawable/ic_auth_bg.xml" value="0.2115" />
+        <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/drawable/ic_back.xml" value="0.1925" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/drawable/ic_call.xml" value="0.2305" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/drawable/ic_check_circle.xml" value="0.2305" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/drawable/ic_circle_favorite.xml" value="0.2115" />
@@ -35,6 +36,7 @@
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/drawable/ic_icon_language_uncheck.xml" value="0.223" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/drawable/ic_logout.xml" value="0.223" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/drawable/ic_nav_user.xml" value="0.223" />
+        <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/drawable/ic_outline_favorite.xml" value="0.1925" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/drawable/ic_product_cart_bg.xml" value="0.223" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/drawable/ic_seen_eye.xml" value="0.2305" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/drawable/ic_select.xml" value="0.2305" />
@@ -50,6 +52,7 @@
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/drawable/solid_rectangle_background_primary.xml" value="0.2115" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/drawable/stroke_circle_background_black.xml" value="0.2305" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/drawable/stroke_circle_background_primary.xml" value="0.2305" />
+        <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/drawable/toggle_favorite_background.xml" value="0.1925" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/activity_base.xml" value="0.32592592592592595" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/activity_change_language.xml" value="0.32592592592592595" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/activity_change_password.xml" value="0.32146118721461187" />
@@ -98,13 +101,17 @@
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/item_order.xml" value="0.32592592592592595" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/item_order_status_selection.xml" value="0.32592592592592595" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/item_product.xml" value="0.32592592592592595" />
+        <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/item_product_for_grid.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/item_product_for_linear.xml" value="0.3351851851851852" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/item_product_home_for_grid.xml" value="0.32592592592592595" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/item_product_home_for_linear.xml" value="0.32592592592592595" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/item_wallet.xml" value="0.32592592592592595" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/loading_layout.xml" value="0.32146118721461187" />
-        <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/number_picker_custom_layout.xml" value="0.32592592592592595" />
+        <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/layout/number_picker_custom_layout.xml" value="0.33" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/menu/navigation.xml" value="0.32592592592592595" />
         <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/menu/notification_menu.xml" value="0.12083333333333333" />
+        <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1925" />
+        <entry key="..\:/Android/Work/FFCAPP-Android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1925" />
       </map>
     </option>
   </component>

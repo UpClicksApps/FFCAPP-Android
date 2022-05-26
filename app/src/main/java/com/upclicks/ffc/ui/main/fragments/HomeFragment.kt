@@ -4,6 +4,7 @@ import android.content.Intent
 import android.util.Log
 import android.view.Gravity
 import android.view.View
+import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
@@ -18,16 +19,19 @@ import com.upclicks.ffc.ui.main.adapters.HomeCategoryAdapter
 import com.upclicks.ffc.ui.products.ProductDetailsActivity
 import com.upclicks.ffc.ui.products.ProductsListActivity
 import com.upclicks.ffc.ui.cart.ShoppingCartActivity
+import com.upclicks.ffc.ui.cart.viewmodel.CartViewModel
 import com.upclicks.ffc.ui.products.adapter.HomeProductAdapter
 import com.upclicks.ffc.ui.products.adapter.ProductGridAdapter
 import com.upclicks.ffc.ui.products.model.HomeProduct
 import com.upclicks.ffc.ui.products.model.Product
 import com.upclicks.ffc.ui.products.viewmodel.ProductViewModel
 import q.rorbin.badgeview.QBadgeView
+import www.sanju.motiontoast.MotionToast
 
 class HomeFragment : BaseFragment(R.layout.fragment_home) {
     lateinit var binding: FragmentHomeBinding
     private val productViewModel: ProductViewModel by viewModels()
+    private val cartViewModel: CartViewModel by viewModels()
 
 
     var categoriesList = ArrayList<Category>()
@@ -75,8 +79,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     override fun onStart() {
         super.onStart()
-        productViewModel.getTopSales()
-        productViewModel.getHomeCategories()
+        callProducts()
     }
 
     private fun setUpObservers() {
@@ -104,7 +107,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 binding.emptyTopSalesTv.visibility = View.VISIBLE
             }
         })
-        productViewModel.observeHomeCategoriesList.observe(this, Observer { homeCategories->
+        productViewModel.observeHomeCategoriesList.observe(this, Observer { homeCategories ->
             if (!homeCategories.isNullOrEmpty()) {
                 homeCategoriesList.clear()
                 homeCategoriesList.addAll(homeCategories)
@@ -115,6 +118,10 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 binding.homeCategoriesRv.visibility = View.GONE
                 binding.emptyHomeCategoriesTv.visibility = View.VISIBLE
             }
+        })
+        cartViewModel.observeCartActionResponse.observe(this, Observer { cartActionResponse ->
+            shoMsg(cartActionResponse.message!!, MotionToast.TOAST_SUCCESS)
+            sessionHelper.saveCartCount(cartActionResponse.currentCartItemsCount)
         })
     }
 
@@ -127,8 +134,13 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     private fun setUpCategoryUiList() {
         categoryAdapter = HomeCategoryAdapter(requireContext(), categoriesList, onItemClicked = {
-            startActivity(Intent(requireContext(), ProductsListActivity::class.java).putExtra(Keys.Intent_Constants.CATEGORY_NAME,categoriesList[it].name)
-                .putExtra(Keys.Intent_Constants.CATEGORY_ID,categoriesList[it].id))
+            startActivity(
+                Intent(
+                    requireContext(),
+                    ProductsListActivity::class.java
+                ).putExtra(Keys.Intent_Constants.CATEGORY_NAME, categoriesList[it].name)
+                    .putExtra(Keys.Intent_Constants.CATEGORY_ID, categoriesList[it].id)
+            )
         })
         binding.categoryRv.adapter = categoryAdapter
         CustomRecyclerViewHelper.addZoomRecyclerLayoutHorizontal(
@@ -136,21 +148,48 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             binding.categoryRv
         )
     }
+
     private fun setUpProductUiList() {
-        productAdapter = ProductGridAdapter(requireContext(), productsList, onItemClicked = {
-            startActivity(
-                Intent(
-                    requireContext(),
-                    ProductDetailsActivity::class.java
-                ).putExtra(Keys.Intent_Constants.PRODUCT_ID, productsList[it].id)
-            )
-        })
+        productAdapter =
+            ProductGridAdapter(requireContext(), productsList, onFavoriteClicked = { position ->
+                productViewModel.assign(productsList[position].id!!, onAddToFavorite = { message ->
+                    callProducts()
+                    shoMsg(message, MotionToast.TOAST_SUCCESS)
+                })
+            }, onCartClicked = {
+                cartViewModel.addProductToCart(productsList[it].id!!,productsList[it].currentPrice!!)
+            }, onItemClicked = {
+                startActivity(
+                    Intent(
+                        requireContext(),
+                        ProductDetailsActivity::class.java
+                    ).putExtra(Keys.Intent_Constants.PRODUCT_ID, productsList[it].id)
+                )
+            })
         binding.topSaleRv.adapter = productAdapter
         binding.topSaleRv.layoutManager = GridLayoutManager(requireContext(), 2)
     }
+
+
+    private fun callProducts() {
+        productViewModel.getTopSales()
+        productViewModel.getHomeCategories()
+    }
+
     private fun setUpHomeCategoriesUiList() {
-        homeProductAdapter = HomeProductAdapter(requireContext(), homeCategoriesList, onItemClicked = {
-        })
+        homeProductAdapter = HomeProductAdapter(
+            requireContext(),
+            homeCategoriesList,
+            onFavoriteClicked = { product ->
+                productViewModel.assign(product.id!!, onAddToFavorite = { message ->
+                    callProducts()
+                    shoMsg(message, MotionToast.TOAST_SUCCESS)
+                })
+            }, onCartClicked = { product ->
+                cartViewModel.addProductToCart(product.id!!,product.currentPrice!!)
+            },
+            onItemClicked = {
+            })
         binding.homeCategoriesRv.adapter = homeProductAdapter
         binding.homeCategoriesRv.layoutManager = LinearLayoutManager(requireContext())
     }

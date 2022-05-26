@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.material.button.MaterialButton;
 import com.upclicks.ffc.R;
 import com.upclicks.ffc.ui.general.component.numberPicker.Enums.ActionEnum;
 import com.upclicks.ffc.ui.general.component.numberPicker.Interface.LimitExceededListener;
@@ -44,7 +45,7 @@ public class NumberPicker extends LinearLayout {
     // ui components
     private Context mContext;
     private ImageView decrementButton;
-    private ImageView incrementButton;
+    private MaterialButton incrementButton;
     private EditText displayEditText;
 
     // listeners

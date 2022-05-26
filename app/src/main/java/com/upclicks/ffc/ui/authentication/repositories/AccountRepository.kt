@@ -12,6 +12,7 @@ import javax.inject.Inject
 import com.upclicks.ffc.ui.authentication.model.request.*
 import com.upclicks.ffc.ui.general.model.FeedbackRequest
 import com.upclicks.ffc.data.remote.Result
+import com.upclicks.ffc.ui.general.model.Governorate
 
 @ExperimentalCoroutinesApi
 class AccountRepository @Inject constructor(private val apiService: ApiService) {
@@ -23,8 +24,13 @@ class AccountRepository @Inject constructor(private val apiService: ApiService) 
     }
 
     //Get Cities
-    fun getCities() : Observable<Result<List<City>>> {
-        return apiService.getCities()
+    fun getCities(governorateId: String) : Observable<Result<List<City>>> {
+        return apiService.getCities(governorateId)
+    }
+
+    //Get Governorates
+    fun getGovernorates() : Observable<Result<List<Governorate>>> {
+        return apiService.getGovernorates()
     }
 
 

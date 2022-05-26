@@ -10,9 +10,10 @@ import com.upclicks.ffc.ui.products.model.Product
 class ProductGridAdapter(
     val context: Context,
     private var productList: List<Product>,
+    private val onFavoriteClicked: (Int) -> Unit,
+    private val onCartClicked: (Int) -> Unit,
     private val onItemClicked: (Int) -> Unit
 ) : RecyclerView.Adapter<ProductGridAdapter.ViewHolder>() {
-
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,6 +31,15 @@ class ProductGridAdapter(
         holder.itemView.setOnClickListener {
             onItemClicked(position)
         }
+        holder.binding.cartIv.setOnClickListener {
+            onCartClicked(position)
+        }
+
+        holder.binding.toggleFavBtn.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (buttonView.isPressed) {
+                onFavoriteClicked(position)
+            }
+        }
     }
 
 
@@ -38,7 +48,8 @@ class ProductGridAdapter(
         return productList.size
     }
 
-    class ViewHolder(val binding: ItemProductForGridBinding) : RecyclerView.ViewHolder(binding.root) {}
+    class ViewHolder(val binding: ItemProductForGridBinding) :
+        RecyclerView.ViewHolder(binding.root) {}
 
     // this two methods useful for avoiding duplicate item
     override fun getItemId(position: Int): Long {

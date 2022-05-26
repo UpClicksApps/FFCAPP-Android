@@ -1,23 +1,18 @@
 package com.upclicks.ffc.ui.products
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseActivity
 import com.upclicks.ffc.commons.Keys
-import com.upclicks.ffc.databinding.ActivityFavoriteBinding
+import com.upclicks.ffc.commons.Utils
 import com.upclicks.ffc.databinding.ActivityProductDetailsBinding
 import com.upclicks.ffc.ui.cart.viewmodel.CartViewModel
+import com.upclicks.ffc.ui.general.dialog.ConfirmDialog
 import com.upclicks.ffc.ui.general.slider.adapter.CustomSliderPagerAdapter
 import com.upclicks.ffc.ui.general.slider.model.Slider
-import com.upclicks.ffc.ui.products.adapter.WalletAdapter
 import com.upclicks.ffc.ui.products.model.ProductDetails
-import com.upclicks.ffc.ui.products.model.Wallet
 import com.upclicks.ffc.ui.products.viewmodel.ProductViewModel
 import www.sanju.motiontoast.MotionToast
 
@@ -27,6 +22,7 @@ class ProductDetailsActivity : BaseActivity() {
     private val cartViewModel: CartViewModel by viewModels()
 
     var productId = ""
+    var currentProductCountValue = 0
     var productDetails = ProductDetails()
     override fun getLayoutResourceId(): View {
         binding = ActivityProductDetailsBinding.inflate(layoutInflater)
@@ -52,6 +48,8 @@ class ProductDetailsActivity : BaseActivity() {
             if (productDetails != null) {
                 binding.product = productDetails
                 this.productDetails = productDetails
+                currentProductCountValue = productDetails.quantityInCart!!
+                updateQuantityUi()
                 if (productDetails.isOutOfStock!!)
                     binding.addToCartBtn.text = getString(R.string.out_of_stock)
 
@@ -60,8 +58,8 @@ class ProductDetailsActivity : BaseActivity() {
                 finish()
             }
         })
-        cartViewModel.observeCartActionResponse.observe(this, Observer { cartActionResponse->
-            shoMsg(cartActionResponse.message!!,MotionToast.TOAST_SUCCESS)
+        cartViewModel.observeCartActionResponse.observe(this, Observer { cartActionResponse ->
+            shoMsg(cartActionResponse.message!!, MotionToast.TOAST_SUCCESS)
             sessionHelper.saveCartCount(cartActionResponse.currentCartItemsCount)
         })
     }
@@ -73,16 +71,55 @@ class ProductDetailsActivity : BaseActivity() {
         binding.addToCartBtn.setOnClickListener {
             cartViewModel.addProductToCart(
                 productDetails.id!!,
-                productDetails.currentPrice!!,
-                binding.quantity.value
+                productDetails.currentPrice!!
             )
-//            if (productDetails.quantity == 0)
-//
-//            else
-//                cartViewModel.updateProductQuantity(
-//                    productDetails.id!!,
-//                    binding.quantity.value
-//                )
+            currentProductCountValue = 1
+            updateQuantityUi()
+        }
+        binding.quantity.setValueChangedListener { value, action ->
+            if (value == 0)
+                ConfirmDialog(this,
+                    getString(R.string.delete),
+                    getString(R.string.are_you_sure),
+                    onYesBtnClick = {
+                        cartViewModel.removeProductFromCart(productDetails.id!!)
+                        currentProductCountValue = 0
+                        updateQuantityUi()
+                    },
+                    onNoBtnClick = {
+                        binding.quantity.value = 1
+                        currentProductCountValue = 1
+                    }).show()
+            else {
+                cartViewModel.updateProductQuantity(
+                    productDetails.id!!,
+                    binding.quantity.value
+                )
+                currentProductCountValue = value
+            }
+        }
+        binding.toggleFavBtn.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (buttonView.isPressed) {
+                productViewModel.assign(productDetails.id!!, onAddToFavorite = { message ->
+                    productDetails.isOnMyWishlist = !productDetails.isOnMyWishlist!!
+                    shoMsg(message, MotionToast.TOAST_SUCCESS)
+                })
+            }
+        }
+        binding.shareIv.setOnClickListener {
+            if (!productDetails.shareLink.isNullOrEmpty())
+                Utils.openUrl(this, productDetails.shareLink)
+            else shoMsg(getString(R.string.This_product_not_has_share_link),MotionToast.TOAST_ERROR)
+        }
+    }
+
+    private fun updateQuantityUi() {
+        if (currentProductCountValue == 0) {
+            binding.addToCartBtn.visibility = View.VISIBLE
+            binding.quantity.visibility = View.GONE
+        } else {
+            binding.quantity.visibility = View.VISIBLE
+            binding.addToCartBtn.visibility = View.GONE
         }
     }
 
@@ -92,9 +129,6 @@ class ProductDetailsActivity : BaseActivity() {
         var slider = Slider()
         slides.forEach { image ->
             slider.imagePath = image
-            sliderList.add(slider)
-            sliderList.add(slider)
-            sliderList.add(slider)
             sliderList.add(slider)
         }
         val mySliderPagerAdapter =

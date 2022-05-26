@@ -18,8 +18,8 @@ class ProductRepository @Inject constructor(private val apiService: ApiService) 
     }
 
     //Get MyWishlist
-    fun getMyWishlist() : Observable<Result<List<Product>>> {
-        return apiService.getMyWishlist()
+    fun getMyWishlist(skip: Int,take: Int) : Observable<Result<List<Product>>> {
+        return apiService.getMyWishlist(skip,take)
     }
 
 

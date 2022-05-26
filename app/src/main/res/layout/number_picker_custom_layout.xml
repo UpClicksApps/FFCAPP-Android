@@ -30,11 +30,15 @@
         android:id="@+id/display"
         android:gravity="center"
         />
-    <ImageView
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
         android:id="@+id/increment"
-        android:layout_width="@dimen/_30sdp"
-        android:layout_height="@dimen/_30sdp"
-        android:src="@drawable/ic_circle_plus"
-        android:padding="@dimen/_4sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_weight="1"
+        style="@style/ButtonContainedSecondary"
+        android:text="@string/add_more"
+        android:textSize="@dimen/_12sdp"
         />
+
+
 </LinearLayout>

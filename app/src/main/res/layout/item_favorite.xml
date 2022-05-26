@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="product"
+            type="com.upclicks.ffc.ui.products.model.Product" />
     </data>
 
     <LinearLayout
@@ -19,7 +22,7 @@
             <ImageView
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_70sdp"
-                android:src="@drawable/image_placeholder"
+                imageBinding="@{product.defaultMediaFilePath}"
                 />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -29,14 +32,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Organic Banana"
+                    tools:text="Organic Banana"
+                    notNullText="@{product.name}"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_13sdp"
                     android:textStyle="bold"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="KD 8.850"
+                    android:text=""
+                    notNullText='@{product.currentPrice +" "+@string/currency_code}'
                     android:layout_marginVertical="@dimen/_8sdp"
                     android:textColor="@color/primary"
                     android:textSize="@dimen/_12sdp"
@@ -44,8 +49,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Discount 5%"
                     android:textColor="@color/black"
+                    notNullText='@{@string/discount + " "+product.discountPercentage + "%"}'
                     android:drawableStart="@drawable/ic_offer_icon"
                     android:drawablePadding="@dimen/_5sdp"
                     />
@@ -58,6 +63,7 @@
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
                     android:src="@drawable/ic_remove"
+                    android:id="@+id/removeIv"
                     android:padding="@dimen/_5sdp"
                     />
                 <View
@@ -69,6 +75,7 @@
                     android:layout_height="@dimen/_25sdp"
                     android:src="@drawable/ic_cart"
                     android:padding="@dimen/_5sdp"
+                    android:id="@+id/cartIv"
                     android:background="@drawable/solid_rectangle_background_primary"
                     android:backgroundTint="@color/secondary"
                     />

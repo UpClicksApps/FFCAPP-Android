@@ -83,14 +83,34 @@
             android:elevation="@dimen/_16sdp"
             android:padding="@dimen/_10sdp"
             android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Organic Banana"
-                notNullText="@{product.name}"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_15sdp"
-                android:textStyle="bold"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Organic Banana"
+                    notNullText="@{product.name}"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp"
+                    android:textStyle="bold"/>
+
+                <ToggleButton
+                    android:id="@+id/toggle_fav_btn"
+                    android:layout_width="@dimen/_33sdp"
+                    android:layout_height="@dimen/_33sdp"
+                    android:background="@drawable/favorite_toggle_background"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:text="@null"
+                    android:checked="@{product.onMyWishlist}"
+                    android:textOff="@null"
+                    android:layout_gravity="top|end"
+                    android:textOn="@null"
+                    />
+
+            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -101,7 +121,6 @@
                     android:layout_height="wrap_content"
                     android:textAlignment="viewStart"
                     android:textColor="@color/primary"
-                    tools:text="@string/currency_code"
                     notNullText='@{product.currentPrice+" "+@string/currency_code}'
                     android:textSize="@dimen/_13sdp"
                     android:textStyle="bold"
@@ -112,19 +131,12 @@
                     android:layout_height="wrap_content"
                     android:textAlignment="viewStart"
                     android:textColor="@color/text_color_grey"
-                    android:visibility="@{product.isOnSale()?View.VISIBLE:View.GONE}"
+                    android:visibility="@{product.isOnSale()?View.VISIBLE:View.INVISIBLE}"
                     oldPriceTextView='@{product.price+" "+@string/currency_code}'
                     android:layout_weight="1"
                     android:textSize="@dimen/_11sdp"
                     android:padding="@dimen/_5sdp"
                     />
-                <ImageView
-                    android:layout_width="@dimen/_38sdp"
-                    android:layout_height="@dimen/_38sdp"
-                    android:src="@drawable/ic_favorite"
-                    android:layout_gravity="top|end"
-                    android:padding="@dimen/_10sdp"
-                    android:background="@drawable/ic_home_favorite_bg"/>
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
@@ -180,6 +192,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 >
 
                 <com.upclicks.ffc.ui.general.component.numberPicker.NumberPicker
@@ -192,6 +205,7 @@
                     android:layout_gravity="center"
                     numberpicker:focusable="false"
                     numberpicker:min="0"
+                    android:visibility="gone"
                     android:layout_marginEnd="@dimen/_12sdp"
                     numberpicker:unit="1" />
                 <com.google.android.material.button.MaterialButton
@@ -201,6 +215,8 @@
                     style="@style/ButtonContainedSecondary"
                     android:text='@{product.isOutOfStock()?@string/out_of_stock:@string/add_to_cart}'
                     android:textSize="@dimen/_12sdp"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
                     android:id="@+id/addToCartBtn"
                     />
             </LinearLayout>

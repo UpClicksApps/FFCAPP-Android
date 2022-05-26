@@ -6,11 +6,7 @@ import com.upclicks.ffc.ui.authentication.model.request.ResetPasswordRequest
 import com.upclicks.ffc.ui.authentication.model.response.ForgotPasswordResponse
 import com.upclicks.ffc.ui.authentication.model.response.IdentityVerificationStatus
 import com.upclicks.ffc.ui.authentication.model.response.MembershipResponse
-import com.upclicks.ffc.ui.general.model.City
-import com.upclicks.ffc.ui.general.model.Country
 import com.upclicks.ffc.ui.authentication.model.response.VerifySession
-import com.upclicks.ffc.ui.general.model.FeedbackRequest
-import com.upclicks.ffc.ui.general.model.Category
 import io.reactivex.rxjava3.core.Observable
 import okhttp3.MultipartBody
 import retrofit2.http.*
@@ -24,6 +20,7 @@ import com.upclicks.ffc.ui.checkout.model.CheckoutRequest
 import com.upclicks.ffc.ui.checkout.model.CheckoutResponse
 import com.upclicks.ffc.ui.orders.model.Order
 import com.upclicks.ffc.ui.checkout.model.PaymentResponse
+import com.upclicks.ffc.ui.general.model.*
 import com.upclicks.ffc.ui.orders.OrderDetails
 import com.upclicks.ffc.ui.products.model.HomeProduct
 import com.upclicks.ffc.ui.products.model.ProductsResponse
@@ -55,9 +52,14 @@ interface ApiService {
     @GET("services/app/Country/GetAll")
     fun getCountries(): Observable<Result<List<Country>>>
 
+    //Get Countries
+    @GET("services/app/Governorate/GetAll")
+    fun getGovernorates(): Observable<Result<List<Governorate>>>
+
     //Get Cities
     @GET("services/app/City/GetAll")
-    fun getCities(): Observable<Result<List<City>>>
+    fun getCities(
+        @Query("governorateId") governorateId: String): Observable<Result<List<City>>>
 
     //Complete profile
     @POST("services/app/Member/CompleteProfile")
@@ -141,13 +143,18 @@ interface ApiService {
 
     //Get MyWishlist
     @GET("services/app/MemberWishlist/GetMyWishlist")
-    fun getMyWishlist(): Observable<Result<List<Product>>>
+    fun getMyWishlist(
+        @Query("skip") skip: Int,
+        @Query("take") take: Int
+    ): Observable<Result<List<Product>>>
 
     //Get MyOrders
     @GET("services/app/Order/GetMyOrders")
-    fun getMyOrders(@Query("orderStatus") orderStatus: Int,
-                    @Query("skip") skip: Int,
-                    @Query("take") take: Int): Observable<Result<List<Order>>>
+    fun getMyOrders(
+        @Query("orderStatus") orderStatus: Int,
+        @Query("skip") skip: Int,
+        @Query("take") take: Int
+    ): Observable<Result<List<Order>>>
 
     //Get Order
     @GET("services/app/Order/GetOrder")
@@ -155,23 +162,27 @@ interface ApiService {
 
     //Assign
     @POST("services/app/MemberWishlist/Assign")
-    fun assign(@Body body:Any): Observable<Result<String>>
+    fun assign(@Body body: Any): Observable<Result<String>>
 
     ///////////////// cart
     //GetCurrentCartDetails
     @GET("services/app/Cart/GetCurrentCartDetails")
     fun getCurrentCartDetails(): Observable<Result<CartDetails>>
+
     //Add Product
     @POST("services/app/Cart/AddProduct")
     fun addProductToCart(@Body req: Any?): Observable<Result<CartActionResponse>>
+
     //UpdateProductQuantity
     @PUT("services/app/Cart/UpdateProductQuantity")
     fun updateProductQuantity(@Body req: Any?): Observable<Result<CartActionResponse>>
+
     //RemoveProduct
     @DELETE("services/app/Cart/RemoveProduct")
     fun removeProductFromCart(
         @Query("productId") id: String
     ): Observable<Result<CartActionResponse>>
+
     @POST("services/app/Cart/DeleteShoppingCart")
     fun deleteShoppingCart(): Observable<Result<String>>
 

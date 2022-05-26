@@ -10,6 +10,8 @@ import com.upclicks.ffc.ui.products.model.Product
 class FavoriteAdapter(
     val context: Context,
     private var productList: List<Product>,
+    private val onRemovedClicked: (Product) -> Unit,
+    private val onCartClicked: (Product) -> Unit,
     private val onItemClicked: (Int) -> Unit
 ) : RecyclerView.Adapter<FavoriteAdapter.ViewHolder>() {
 
@@ -26,15 +28,22 @@ class FavoriteAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 //        holder.binding.overlayFrame.backgroundTintList = ColorStateList.valueOf(CustomColorHelper.generateRandomColor(context))
+        holder.binding.product = productList[position]
         holder.itemView.setOnClickListener {
             onItemClicked(position)
+        }
+        holder.binding.removeIv.setOnClickListener {
+            onRemovedClicked(productList[position])
+        }
+        holder.binding.cartIv.setOnClickListener {
+            onCartClicked(productList[position])
         }
     }
 
 
     override fun getItemCount(): Int {
         // number of items in the data set held by the adapter
-        return 15
+        return productList.size
     }
 
     class ViewHolder(val binding: ItemFavoriteBinding) : RecyclerView.ViewHolder(binding.root) {}

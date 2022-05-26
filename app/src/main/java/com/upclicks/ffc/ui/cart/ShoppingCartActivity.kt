@@ -43,6 +43,13 @@ class ShoppingCartActivity : BaseActivity() {
         binding.lifecycleOwner = this
     }
 
+    private fun showEmptyCart() {
+        binding.emptyCartLayout.root.visibility = View.VISIBLE
+        binding.toolbar.root.visibility = View.GONE
+        binding.emptyCartLayout.btnClick.setOnClickListener {
+            finish()
+        }
+    }
     private fun setUpObserver() {
         cartViewModel.getCurrentCartDetails()
         cartViewModel.observeCartDetails.observe(this, Observer { cartDetails ->
@@ -55,7 +62,7 @@ class ShoppingCartActivity : BaseActivity() {
                     cartList.addAll(cartDetails.orderProducts!!)
                     cartAdapter.notifyDataSetChanged()
                 } else {
-                    finish()
+                    showEmptyCart()
                 }
             }
         })
@@ -80,7 +87,8 @@ class ShoppingCartActivity : BaseActivity() {
                 Intent(
                     this,
                     Checkout1Activity::class.java
-                ).putExtra(Keys.Intent_Constants.CHECKOUT, Gson().toJson(checkoutRequest)))
+                ).putExtra(Keys.Intent_Constants.CHECKOUT, Gson().toJson(checkoutRequest))
+            )
         }
     }
 

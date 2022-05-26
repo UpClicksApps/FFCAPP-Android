@@ -17,6 +17,7 @@ import com.upclicks.ffc.ui.general.model.City
 import com.upclicks.ffc.ui.general.model.Country
 import com.upclicks.ffc.ui.general.model.FeedbackRequest
 import com.upclicks.ffc.data.remote.Result
+import com.upclicks.ffc.ui.general.model.Governorate
 import dagger.hilt.android.lifecycle.HiltViewModel
 
 
@@ -71,10 +72,21 @@ class AccountViewModel
                 }
             })
     }
+    //Get Countries
+    fun getGovernorates(onGetGovernorates: (List<Governorate>) -> Unit) {
+        accountRepository.getGovernorates()
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe(object : CustomRxObserver<Result<List<Governorate>>>(this@AccountViewModel) {
+                override fun onResponse(response: Result<List<Governorate>>) {
+                    onGetGovernorates(response?.result!!)
+                }
+            })
+    }
 
     //Get Cities
-    fun getCities(onGetCites: (List<City>) -> Unit) {
-        accountRepository.getCities()
+    fun getCities(governorateId: String,onGetCites: (List<City>) -> Unit) {
+        accountRepository.getCities(governorateId)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribe(object : CustomRxObserver<Result<List<City>>>(this@AccountViewModel) {

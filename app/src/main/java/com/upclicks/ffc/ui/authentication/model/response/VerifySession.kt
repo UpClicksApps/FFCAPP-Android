@@ -37,7 +37,9 @@ class VerifySession {
         @SerializedName("countryId"                      ) var countryId                      : Int?     = null
         @SerializedName("countryName"                    ) var countryName                    : String?  = null
         @SerializedName("cityId"                         ) var cityId                         : String?     = null
+        @SerializedName("governorateId"                 ) var governorateId                         : String?     = null
         @SerializedName("cityName"                       ) var cityName                       : String?  = null
+        @SerializedName("governorateName"                ) var governorateName                       : String?  = null
         @SerializedName("emailAddress"                   ) var emailAddress                   : String?  = null
         @SerializedName("birthDate"                      ) var birthDate                   : String?  = null
         @SerializedName("address"                        ) var address                   : String?  = null

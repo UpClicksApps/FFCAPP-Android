@@ -1,15 +1,11 @@
 package com.upclicks.ffc.ui.products
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseActivity
 import com.upclicks.ffc.databinding.ActivityFavoriteBinding
-import com.upclicks.ffc.ui.products.adapter.FavoriteAdapter
 import com.upclicks.ffc.ui.products.adapter.WalletAdapter
-import com.upclicks.ffc.ui.products.model.Product
 import com.upclicks.ffc.ui.products.model.Wallet
 
 class WalletActivity : BaseActivity() {

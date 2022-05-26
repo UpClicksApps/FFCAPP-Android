@@ -10,6 +10,7 @@ import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseActivity
 import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.ActivityProductsListBinding
+import com.upclicks.ffc.ui.cart.viewmodel.CartViewModel
 import com.upclicks.ffc.ui.products.adapter.ProductGridAdapter
 import com.upclicks.ffc.ui.products.model.Product
 import com.upclicks.ffc.ui.products.model.ProductRequest
@@ -22,6 +23,7 @@ class ProductsListActivity : BaseActivity() {
     var productsList = ArrayList<Product>()
     lateinit var productAdapter: ProductGridAdapter
     private val productViewModel: ProductViewModel by viewModels()
+    private val cartViewModel: CartViewModel by viewModels()
     private var productRequest = ProductRequest()
     override fun getLayoutResourceId(): View {
         binding = ActivityProductsListBinding.inflate(layoutInflater)
@@ -35,16 +37,14 @@ class ProductsListActivity : BaseActivity() {
         setUpUiList()
         setUpObservers()
     }
-
     private fun setUpIntent() {
         if (intent.getStringExtra(Keys.Intent_Constants.CATEGORY_ID) != null) {
             productRequest.categoryId = intent.getStringExtra(Keys.Intent_Constants.CATEGORY_ID)!!
             productRequest.categoryId = intent.getStringExtra(Keys.Intent_Constants.CATEGORY_ID)!!
-        }else{
-            shoMsg(getString(R.string.category_id_is_empty),MotionToast.TOAST_ERROR)
+        } else {
+            shoMsg(getString(R.string.category_id_is_empty), MotionToast.TOAST_ERROR)
         }
     }
-
     private fun setUpToolbar() {
         binding.toolbar.titleTv.text = intent.getStringExtra(Keys.Intent_Constants.CATEGORY_NAME)
         binding.toolbar.backIv.visibility = View.VISIBLE
@@ -53,21 +53,36 @@ class ProductsListActivity : BaseActivity() {
         }
     }
     private fun setUpUiList() {
-        productAdapter = ProductGridAdapter(this, productsList, onItemClicked = {
-            startActivity(Intent(this, ProductDetailsActivity::class.java))
-        })
+        productAdapter = ProductGridAdapter(this, productsList,
+            onFavoriteClicked = {position->
+                productViewModel.assign(productsList[position].id!!, onAddToFavorite = {message->
+                    productViewModel.getProducts(productRequest)
+                    shoMsg(message,MotionToast.TOAST_SUCCESS)
+                })
+            }, onCartClicked = {
+                cartViewModel.addProductToCart(productsList[it].id!!,productsList[it].currentPrice!!)
+            }, onItemClicked = {
+                startActivity(
+                    Intent(
+                        this,
+                        ProductDetailsActivity::class.java
+                    ).putExtra(Keys.Intent_Constants.PRODUCT_ID, productsList[it].id)
+                )
+            })
         binding.recycler.adapter = productAdapter
         binding.recycler.layoutManager = GridLayoutManager(this, 2)
     }
-
     private fun setUpObservers() {
-        productViewModel.getProducts(productRequest)
         productViewModel.observeProductList.observe(this, Observer { productResponse ->
             if (productResponse != null && !productResponse.products.isNullOrEmpty()) {
                 productsList.clear()
                 productsList.addAll(productResponse.products!!)
                 productAdapter.notifyDataSetChanged()
             }
+        })
+        cartViewModel.observeCartActionResponse.observe(this, Observer { cartActionResponse ->
+            shoMsg(cartActionResponse.message!!, MotionToast.TOAST_SUCCESS)
+            sessionHelper.saveCartCount(cartActionResponse.currentCartItemsCount)
         })
     }
 }

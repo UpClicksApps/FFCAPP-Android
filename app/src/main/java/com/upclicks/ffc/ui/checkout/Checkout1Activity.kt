@@ -3,6 +3,7 @@ package com.upclicks.ffc.ui.checkout
 import android.content.Intent
 import android.view.View
 import com.google.gson.Gson
+import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseActivity
 import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.ActivityCheckout1Binding
@@ -19,12 +20,22 @@ class Checkout1Activity : BaseActivity() {
     }
     private fun initPage() {
         setUpIntent()
+        setUpToolbar()
         setUpPageActions()
     }
     private fun setUpIntent() {
         if (intent.getStringExtra(Keys.Intent_Constants.CHECKOUT)!= null)
             checkoutRequest = Gson().fromJson(intent.getStringExtra(Keys.Intent_Constants.CHECKOUT),CheckoutRequest::class.java)
     }
+
+    private fun setUpToolbar() {
+        binding.toolbar.titleTv.text = getString(R.string.delivery_address)
+        binding.toolbar.backIv.visibility = View.VISIBLE
+        binding.toolbar.backIv.setOnClickListener {
+            onBackPressed()
+        }
+    }
+
     private fun setUpPageActions() {
         binding.nextBtn.setOnClickListener {
             next()

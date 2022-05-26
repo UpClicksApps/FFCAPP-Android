@@ -53,7 +53,7 @@ class ProductViewModel
                 }
             })
     }
-    //Get Categories
+    //assign
     fun assign(productId:String,onAddToFavorite: (String) -> Unit) {
         var body = HashMap<Any,Any>()
         body["productId"] = productId
@@ -67,8 +67,8 @@ class ProductViewModel
             })
     }
     //Get Categories
-    fun getMyWishlist() {
-        productRepository.getMyWishlist()
+    fun getMyWishlist(skip: Int, take: Int) {
+        productRepository.getMyWishlist(skip, take)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribe(object : CustomRxObserver<Result<List<Product>>>(this@ProductViewModel) {

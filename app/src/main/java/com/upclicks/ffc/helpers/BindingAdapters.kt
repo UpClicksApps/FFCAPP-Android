@@ -148,12 +148,12 @@ fun bindTime(@NonNull textView: TextView, dateString: String?) {
 @BindingAdapter("imageBinding")
 fun imageBinding(view: ImageView, imageUrl: String?) {
     if (TextUtils.isEmpty(imageUrl)) {
-        view.setImageResource(R.drawable.logo)
+        view.setImageResource(R.mipmap.ic_launcher)
         return
     }
     Glide.with(view.context)
         .load(prepareImageUrl(imageUrl!!))
-        .placeholder(R.drawable.logo)
+        .placeholder(R.mipmap.ic_launcher)
         .timeout(20000)
         .into(view)
 }
@@ -161,24 +161,24 @@ fun imageBinding(view: ImageView, imageUrl: String?) {
 @BindingAdapter("salonLogoBinding")
 fun salonLogoBinding(view: ImageView, imageUrl: String?) {
     if (TextUtils.isEmpty(imageUrl)) {
-        view.setImageResource(R.drawable.logo)
+        view.setImageResource(R.mipmap.ic_launcher)
         return
     }
     Glide.with(view.context)
         .load(prepareImageUrl(imageUrl!!))
-        .placeholder(R.color.text_color_grey)
+        .placeholder(R.mipmap.ic_launcher)
         .timeout(20000)
         .into(view)
 }
 @BindingAdapter("salonDefaultBinding")
 fun salonDefaultBinding(view: ImageView, imageUrl: String?) {
     if (TextUtils.isEmpty(imageUrl)) {
-        view.setImageResource(R.drawable.logo)
+        view.setImageResource(R.mipmap.ic_launcher)
         return
     }
     Glide.with(view.context)
         .load(prepareImageUrl(imageUrl!!))
-        .placeholder(R.drawable.logo)
+        .placeholder(R.mipmap.ic_launcher)
         .timeout(20000)
         .into(view)
 }

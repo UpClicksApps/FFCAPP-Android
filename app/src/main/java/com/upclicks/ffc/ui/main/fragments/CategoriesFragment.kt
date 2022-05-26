@@ -10,10 +10,12 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseFragment
+import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.FragmentCategoriesBinding
 import com.upclicks.ffc.ui.general.model.Category
 import com.upclicks.ffc.ui.main.adapters.CategoryAdapter
 import com.upclicks.ffc.ui.cart.ShoppingCartActivity
+import com.upclicks.ffc.ui.products.ProductsListActivity
 import com.upclicks.ffc.ui.products.viewmodel.ProductViewModel
 import q.rorbin.badgeview.QBadgeView
 
@@ -106,7 +108,15 @@ class CategoriesFragment : BaseFragment(R.layout.fragment_categories) {
     }
 
     private fun setUpUiList() {
-        categoryAdapter = CategoryAdapter(requireContext(), categoriesList, onItemClicked = {})
+        categoryAdapter = CategoryAdapter(requireContext(), categoriesList, onItemClicked = {
+            startActivity(
+                Intent(
+                    requireContext(),
+                    ProductsListActivity::class.java
+                ).putExtra(Keys.Intent_Constants.CATEGORY_NAME, categoriesList[it].name)
+                    .putExtra(Keys.Intent_Constants.CATEGORY_ID, categoriesList[it].id)
+            )
+        })
         binding.categoriesRv.adapter = categoryAdapter
         binding.categoriesRv.layoutManager = LinearLayoutManager(requireContext())
     }

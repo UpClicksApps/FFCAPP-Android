@@ -32,6 +32,7 @@ class Checkout3Activity: BaseActivity() {
 
     private fun initPage() {
         setUpIntent()
+        setUpToolbar()
         setUpPageActions()
     }
     private fun setUpIntent() {
@@ -39,6 +40,13 @@ class Checkout3Activity: BaseActivity() {
             checkoutRequest = Gson().fromJson(intent.getStringExtra(Keys.Intent_Constants.CHECKOUT),CheckoutRequest::class.java)
     }
 
+    private fun setUpToolbar() {
+        binding.toolbar.titleTv.text = getString(R.string.delivery_time)
+        binding.toolbar.backIv.visibility = View.VISIBLE
+        binding.toolbar.backIv.setOnClickListener {
+            onBackPressed()
+        }
+    }
 
     private fun setUpPageActions() {
         checkoutRequest.order!!.paymentWay = 1

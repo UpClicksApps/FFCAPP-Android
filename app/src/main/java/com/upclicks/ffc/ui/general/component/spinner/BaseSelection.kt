@@ -12,6 +12,7 @@ open class BaseSelection {
     @SerializedName("id")
     @Expose
     var id: String? = null
-
-
+    @SerializedName("deliveryFees")
+    @Expose
+    var deliveryFees: Double? = null
 }

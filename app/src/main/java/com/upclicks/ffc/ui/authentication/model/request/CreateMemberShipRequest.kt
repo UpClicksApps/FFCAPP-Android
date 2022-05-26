@@ -24,4 +24,12 @@ class CreateMemberShipRequest {
     @Expose
     var password: String? = null
 
+    @SerializedName("cityId")
+    @Expose
+    var cityId: String? = null
+
+    @SerializedName("governorateId")
+    @Expose
+    var governorateId: String? = null
+
 }

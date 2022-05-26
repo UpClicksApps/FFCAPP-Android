@@ -204,4 +204,9 @@
     <string name="tax">Tax</string>
     <string name="ok">Ok</string>
     <string name="category_id_is_empty">Category id is empty</string>
+    <string name="add_more">Add More</string>
+    <string name="This_product_not_has_share_link">This product not has share link</string>
+    <string name="empty_cart_message">Opss... Your Cart is Empty</string>
+    <string name="shopping_now">Shopping Now</string>
+    <string name="governorate">Governorate</string>
 </resources>

@@ -21,152 +21,154 @@
 
         <include layout="@layout/app_bar_layout"
             android:id="@+id/toolbar"/>
+        <include layout="@layout/custom_empty_layout"
+            android:id="@+id/emptyCartLayout"
+            app:textMessage="@{@string/empty_cart_message}"
+            app:image="@{@drawable/ic_empty_cart}"
+            app:textButton="@{@string/shopping_now}"
+            />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fillViewport="true">
+            android:fillViewport="true"
+            android:layout_weight="1">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp"
+                tools:listitem="@layout/item_cart"
+                android:id="@+id/recycler"
+                android:paddingVertical="@dimen/_8sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="10"/>
+        </androidx.core.widget.NestedScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/solid_rectangle_background_primary"
+                android:backgroundTint="@color/secondary_light"
+                android:elevation="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                >
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_38sdp"
+                    android:layout_weight="1"
+                    android:padding="@dimen/_5sdp"
+                    android:background="@color/transparent"
+                    android:hint="@string/enter_promo_code"
+                    />
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center"
+                    android:padding="0dp"
+                    style="@style/ButtonContainedSecondary"
+                    android:textColor="@color/white"
+                    android:text="@string/apply"/>
+            </FrameLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="@dimen/_10sdp">
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_180sdp"
-                    tools:listitem="@layout/item_cart"
-                    android:id="@+id/recycler"
-                    android:paddingVertical="@dimen/_8sdp"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:itemCount="10"/>
-                <FrameLayout
+                android:layout_height="wrap_content"
+                android:visibility="@{cartDetails.subTotal ==null||cartDetails.subTotal ==0?View.GONE:View.VISIBLE}"
+                >
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:background="@drawable/solid_rectangle_background_primary"
-                    android:backgroundTint="@color/secondary_light"
-                    android:elevation="@dimen/_5sdp"
-                    >
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_38sdp"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:background="@color/transparent"
-                        android:hint="@string/enter_promo_code"
-                        />
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end|center"
-                        android:padding="0dp"
-                        style="@style/ButtonContainedSecondary"
-                        android:textColor="@color/white"
-                        android:text="@string/apply"/>
-                </FrameLayout>
+                    android:layout_weight="1"
+                    android:text="@string/subtotal"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:visibility="@{cartDetails.subTotal ==null||cartDetails.subTotal ==0?View.GONE:View.VISIBLE}"
-                    >
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/subtotal"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text='@{cartDetails.subTotal +" "+ @string/currency_code}'
-                        android:id="@+id/subTotalTv"
-                        android:textColor="@color/text_color_grey" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="@{cartDetails.discountAmount ==null||cartDetails.discountAmount ==0?View.GONE:View.VISIBLE}"
-                    >
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/discount"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text='@{cartDetails.discountAmount +" "+ @string/currency_code}'
-                        android:id="@+id/discountTv"
-                        android:textColor="@color/text_color_grey" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="@{cartDetails.tax ==null||cartDetails.tax ==0?View.GONE:View.VISIBLE}"
-                    >
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/tax"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text='@{cartDetails.tax +" "+ @string/currency_code}'
-                        android:id="@+id/taxTv"
-                        android:textColor="@color/text_color_grey" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="@{cartDetails.total ==null||cartDetails.total ==0?View.GONE:View.VISIBLE}"
-                    >
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/total"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/_14sdp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text='@{cartDetails.total +" "+ @string/currency_code}'
-                        android:id="@+id/totalTv"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/_13sdp"
-                        android:textColor="@color/black" />
-                </LinearLayout>
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end|center"
-                    android:id="@+id/checkoutBtn"
-                    style="@style/ButtonContainedSecondary"
-                    android:textColor="@color/white"
-                    android:text="@string/checkout"/>
+                    android:text='@{cartDetails.subTotal +" "+ @string/currency_code}'
+                    android:id="@+id/subTotalTv"
+                    android:textColor="@color/text_color_grey" />
             </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{cartDetails.discountAmount ==null||cartDetails.discountAmount ==0?View.GONE:View.VISIBLE}"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/discount"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='@{cartDetails.discountAmount +" "+ @string/currency_code}'
+                    android:id="@+id/discountTv"
+                    android:textColor="@color/text_color_grey" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{cartDetails.tax ==null||cartDetails.tax ==0?View.GONE:View.VISIBLE}"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tax"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='@{cartDetails.tax +" "+ @string/currency_code}'
+                    android:id="@+id/taxTv"
+                    android:textColor="@color/text_color_grey" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{cartDetails.total ==null||cartDetails.total ==0?View.GONE:View.VISIBLE}"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/total"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_14sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='@{cartDetails.total +" "+ @string/currency_code}'
+                    android:id="@+id/totalTv"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_13sdp"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center"
+                android:id="@+id/checkoutBtn"
+                style="@style/ButtonContainedSecondary"
+                android:textColor="@color/white"
+                android:text="@string/checkout"/>
+        </LinearLayout>
     </LinearLayout>
 </layout>

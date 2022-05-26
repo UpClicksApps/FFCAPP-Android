@@ -39,7 +39,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    notNullText='@{cart.productName+" "+@string/currency_code}'
+                    notNullText='@{cart.price+" "+@string/currency_code}'
                     android:textColor="@color/primary"
                     android:textSize="@dimen/_12sdp" />
             </LinearLayout>

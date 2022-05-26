@@ -10,6 +10,8 @@ import com.upclicks.ffc.ui.products.model.Product
 class ProductLinearAdapter(
     val context: Context,
     private var productList: List<Product>,
+    private val onFavoriteClicked: (Int) -> Unit,
+    private val onCartClicked: (Int) -> Unit,
     private val onItemClicked: (Int) -> Unit
 ) : RecyclerView.Adapter<ProductLinearAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -24,6 +26,14 @@ class ProductLinearAdapter(
 //        holder.binding.overlayFrame.backgroundTintList = ColorStateList.valueOf(CustomColorHelper.generateRandomColor(context))
         holder.itemView.setOnClickListener {
             onItemClicked(position)
+        }
+        holder.binding.toggleFavBtn.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (buttonView.isPressed) {
+                onFavoriteClicked(position)
+            }
+        }
+        holder.binding.cartIv.setOnClickListener {
+            onCartClicked(position)
         }
     }
     override fun getItemCount(): Int {

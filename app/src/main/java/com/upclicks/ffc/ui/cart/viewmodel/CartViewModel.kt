@@ -46,11 +46,11 @@ class CartViewModel
     }
 
     //addProductToCart
-    fun addProductToCart(productId: String, price: Double, quantity: Int) {
+    fun addProductToCart(productId: String, price: Double) {
         var body = HashMap<Any,Any>()
         body["productId"] = productId
         body["price"] = price
-        body["quantity"] = quantity
+        body["quantity"] = 1
         cartRepository.addProductToCart(body)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())

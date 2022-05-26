@@ -12,10 +12,13 @@ import com.upclicks.ffc.databinding.ItemHomeProductBinding
 import com.upclicks.ffc.ui.products.ProductDetailsActivity
 import com.upclicks.ffc.ui.products.model.HomeProduct
 import com.upclicks.ffc.ui.products.model.Product
+import www.sanju.motiontoast.MotionToast
 
 class HomeProductAdapter(
     val context: Context,
     private var productList: List<HomeProduct>,
+    private val onFavoriteClicked: (Product) -> Unit,
+    private val onCartClicked: (Product) -> Unit,
     private val onItemClicked: (Int) -> Unit
 ) : RecyclerView.Adapter<HomeProductAdapter.ViewHolder>() {
 
@@ -30,7 +33,14 @@ class HomeProductAdapter(
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.category = productList[position]
-        productAdapter = ProductLinearAdapter(context, productList[position].products!!, onItemClicked = {
+        productAdapter = ProductLinearAdapter(context, productList[position].products!!,
+            onFavoriteClicked = {index->
+                             onFavoriteClicked(productList[position].products!![index])
+            }
+            ,onCartClicked = {index->
+                             onCartClicked(productList[position].products!![index])
+            }
+            , onItemClicked = {
             context.startActivity(
                 Intent(
                     context,

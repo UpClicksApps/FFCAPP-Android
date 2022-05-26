@@ -26,7 +26,7 @@ class MySliderFragment : BaseFragment(R.layout.fragment_my_slider) {
                 }
             }
             if (!TextUtils.isEmpty(imageUrl)) Picasso.get().load(imageUrl)
-                .placeholder(R.drawable.logo).into(binding.image)
+                .placeholder(R.mipmap.ic_launcher).into(binding.image)
         }
     }
 
