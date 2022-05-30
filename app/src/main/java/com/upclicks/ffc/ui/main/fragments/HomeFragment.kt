@@ -122,6 +122,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         cartViewModel.observeCartActionResponse.observe(this, Observer { cartActionResponse ->
             shoMsg(cartActionResponse.message!!, MotionToast.TOAST_SUCCESS)
             sessionHelper.saveCartCount(cartActionResponse.currentCartItemsCount)
+            setUpCartBadgeCount()
         })
     }
 
@@ -129,6 +130,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         binding.cartIv.setOnClickListener {
             if (sessionHelper.cartCount > 0)
                 startActivity(Intent(requireContext(), ShoppingCartActivity::class.java))
+
         }
     }
 

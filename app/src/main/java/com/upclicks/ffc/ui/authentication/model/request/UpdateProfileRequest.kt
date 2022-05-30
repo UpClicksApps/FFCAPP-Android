@@ -27,7 +27,10 @@ class UpdateProfileRequest {
     var birthdate: String? = null
     @SerializedName("cityId")
     @Expose
-    var cityId: Int? = null
+    var cityId: String? = null
+    @SerializedName("governorateId")
+    @Expose
+    var governorateId: String? = null
     @SerializedName("gender")
     @Expose
     var gender: Int? = null

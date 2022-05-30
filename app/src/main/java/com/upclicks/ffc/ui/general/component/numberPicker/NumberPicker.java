@@ -31,7 +31,7 @@ public class NumberPicker extends LinearLayout {
     private final int DEFAULT_MAX = 999999999;
     private final int DEFAULT_VALUE = 1;
     private final int DEFAULT_UNIT = 1;
-    private final int DEFAULT_LAYOUT = R.layout.number_picker_custom_layout;
+    private final int DEFAULT_LAYOUT = R.layout.number_picker_custom_layout_product_details;
     private final boolean DEFAULT_FOCUSABLE = false;
 
     // required variables

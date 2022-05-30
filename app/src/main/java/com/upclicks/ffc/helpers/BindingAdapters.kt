@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.commons.Utils
+import com.upclicks.ffc.session.SessionHelper
 
 
 @BindingAdapter("notNullText")
@@ -42,19 +43,20 @@ fun setOldPriceTextView(textView: TextView, oldPrice: String?) {
     textView.text = oldPrice
     textView.paintFlags = textView.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
 }
-
 @BindingAdapter("bindServerDate")
 fun bindServerDate(@NonNull textView: TextView, dateString: String?) {
     var dateStr = ""
+    val sessionHelper = SessionHelper(textView.context)
     if (dateString != null) {
         val dateFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
         var date: Date? =
             null //You will get date object relative to server/client timezone wherever it is parsed
         try {
+            //  Sat 10 November 2018
             date = dateFormat.parse(dateString)
             val formatter: DateFormat = SimpleDateFormat(
-                "dd/MM",
-                Locale.ENGLISH
+                "EEE d MMM yyyy",
+                Locale(sessionHelper.userLanguageCode)
             ) //If you need time just put specific format for time like 'HH:mm:ss'
             dateStr = formatter.format(date)
         } catch (e: ParseException) {
@@ -66,6 +68,7 @@ fun bindServerDate(@NonNull textView: TextView, dateString: String?) {
 @BindingAdapter("bindBirthdate")
 fun bindBirthdate(@NonNull textView: TextView, dateString: String?) {
     var dateStr = ""
+    val sessionHelper = SessionHelper(textView.context)
     if (dateString != null) {
         val dateFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
         var date: Date? =
@@ -73,8 +76,8 @@ fun bindBirthdate(@NonNull textView: TextView, dateString: String?) {
         try {
             date = dateFormat.parse(dateString)
             val formatter: DateFormat = SimpleDateFormat(
-                "dd/MM/yyyy",
-                Locale.ENGLISH
+                "dd/MM/yyyy"
+                ,Locale.ENGLISH
             ) //If you need time just put specific format for time like 'HH:mm:ss'
             dateStr = formatter.format(date)
         } catch (e: ParseException) {
@@ -83,21 +86,20 @@ fun bindBirthdate(@NonNull textView: TextView, dateString: String?) {
     }
     textView.text = dateStr
 }
-
 
 @BindingAdapter("bindLeftTime")
 fun bindLeftTime(@NonNull textView: TextView, dateString: String?) {
     var dateStr = ""
+    val sessionHelper = SessionHelper(textView.context)
     if (dateString != null) {
         val dateFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
         var date: Date? =
             null //You will get date object relative to server/client timezone wherever it is parsed
-
         try {
             date = dateFormat.parse(dateString)
             val formatter: DateFormat = SimpleDateFormat(
                 "HH:mm:ss",
-                Locale.ENGLISH
+                Locale(sessionHelper.userLanguageCode)
             ) //If you need time just put specific format for time like 'HH:mm:ss'
             dateStr = formatter.format(date)
         } catch (e: ParseException) {
@@ -107,11 +109,10 @@ fun bindLeftTime(@NonNull textView: TextView, dateString: String?) {
     textView.text = dateStr
 }
 
-
-
 @BindingAdapter("bindTime")
 fun bindTime(@NonNull textView: TextView, dateString: String?) {
     var dateStr = "00/00/0000"
+    val sessionHelper = SessionHelper(textView.context)
     if (dateString != null) {
         val dateFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
         var date: Date? =
@@ -119,8 +120,8 @@ fun bindTime(@NonNull textView: TextView, dateString: String?) {
         try {
             date = dateFormat.parse(dateString)
             val formatter: DateFormat = SimpleDateFormat(
-                "HH:mm a",
-                Locale.ENGLISH
+                "HH:mm aa",
+                Locale(sessionHelper.userLanguageCode)
             ) //If you need time just put specific format for time like 'HH:mm:ss'
             dateStr = formatter.format(date)
         } catch (e: ParseException) {

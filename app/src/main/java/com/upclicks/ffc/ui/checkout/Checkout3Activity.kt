@@ -1,14 +1,12 @@
 package com.upclicks.ffc.ui.checkout
 
 import android.content.Intent
-import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import com.google.gson.Gson
 import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseActivity
 import com.upclicks.ffc.commons.Keys
-import com.upclicks.ffc.databinding.ActivityCheckout2Binding
 import com.upclicks.ffc.databinding.ActivityCheckout3Binding
 import com.upclicks.ffc.ui.checkout.dialog.PaymentResponseDialog
 import com.upclicks.ffc.ui.checkout.model.CheckoutRequest
@@ -49,7 +47,7 @@ class Checkout3Activity: BaseActivity() {
     }
 
     private fun setUpPageActions() {
-        checkoutRequest.order!!.paymentWay = 1
+        checkoutRequest.checkoutOrder!!.paymentWay = 1
         binding.checkoutBtn.setOnClickListener {
             checkoutViewModel.checkout(checkoutRequest, onResult = { checkoutResponse ->
                 this.checkoutResponse = checkoutResponse     //Do online payment process

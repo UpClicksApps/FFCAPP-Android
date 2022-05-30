@@ -3,7 +3,13 @@ package com.upclicks.ffc.ui.orders.model
 import com.google.gson.annotations.Expose
 
 import com.google.gson.annotations.SerializedName
-open class Order {
+open class CheckoutOrder {
+    @SerializedName("couponId")
+    @Expose
+    var couponId: String? = null
+    @SerializedName("couponCode")
+    @Expose
+    var couponCode: String? = null
     @SerializedName("code")
     @Expose
     var code: String? = null
@@ -28,9 +34,6 @@ open class Order {
     @SerializedName("net")
     @Expose
     var net: Double? = null
-    @SerializedName("subTotal")
-    @Expose
-    var subTotal: Double? = null
     @SerializedName("totalCost")
     @Expose
     var totalCost: Double? = null
@@ -43,9 +46,27 @@ open class Order {
     @SerializedName("deliveryWay")
     @Expose
     var deliveryWay: Int? = null
+    @SerializedName("cityId")
+    @Expose
+    var cityId: String? = null
     @SerializedName("creationTime")
     @Expose
     var creationTime: String? = null
+    @SerializedName("notes")
+    @Expose
+    var notes: String? = null
+    @SerializedName("phoneNumber")
+    @Expose
+    var phoneNumber: String? = null
+    @SerializedName("emailAddress")
+    @Expose
+    var emailAddress: String? = null
+    @SerializedName("address")
+    @Expose
+    var address: String? = null
+    @SerializedName("memberName")
+    @Expose
+    var memberName: String? = null
     @SerializedName("id")
     @Expose
     var id: String? = null

@@ -78,9 +78,10 @@ enum class FcmNotificationType(final val value: Int) {
     SignOut(1000),
 }
 enum class OrderStatus(val value: Int) {
-    Requested(0),
-    Confirmed(1),
-    Finished(2),
+    Requested(1),
+    Confirmed(2),
+    Delivered(3),
+    OnTheWay(4),
     Cancelled(100),
     Refused(200),
     Returned(300),

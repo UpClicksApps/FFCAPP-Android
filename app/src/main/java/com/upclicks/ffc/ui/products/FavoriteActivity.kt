@@ -55,16 +55,21 @@ class FavoriteActivity : BaseActivity() {
     private fun setPageActions() {
         setUpLoadOnScrollListener()
         binding.swipeRefresh.setOnRefreshListener {
-            skip = 0
-            productsList.clear()
-            favoriteAdapter.notifyDataSetChanged()
+            resetList()
             productViewModel.getMyWishlist(skip, take)
         }
+    }
+
+    private fun resetList() {
+        skip = 0
+        productsList.clear()
+        favoriteAdapter.notifyDataSetChanged()
     }
 
     private fun setUpObserver() {
         productViewModel.getMyWishlist(skip, take)
         productViewModel.observeMyWishlistList.observe(this, Observer { products ->
+            binding.swipeRefresh.isRefreshing = false
             if (!products.isNullOrEmpty()) {
                 binding.emptyProductsTv.visibility = View.GONE
                 binding.recycler.visibility = View.VISIBLE
@@ -72,8 +77,11 @@ class FavoriteActivity : BaseActivity() {
                 stopScrollIfDataEnded(binding.nestedScrollView, products.size)
                 favoriteAdapter.notifyDataSetChanged()
             } else {
-                binding.emptyProductsTv.visibility = View.VISIBLE
-                binding.recycler.visibility = View.GONE
+                stopScroll = true
+                if (productsList.isNullOrEmpty()) {
+                    binding.emptyProductsTv.visibility = View.VISIBLE
+                    binding.recycler.visibility = View.GONE
+                }
             }
         })
         cartViewModel.observeCartActionResponse.observe(this, Observer { cartActionResponse ->
@@ -116,12 +124,13 @@ class FavoriteActivity : BaseActivity() {
 
     private fun setUpUiList() {
         favoriteAdapter = FavoriteAdapter(this, productsList, onRemovedClicked = { product ->
-            productViewModel.assign(product.id!!, onAddToFavorite = {message->
+            productViewModel.assign(product.id!!, onAddToFavorite = { message ->
                 shoMsg(message, MotionToast.TOAST_SUCCESS)
+                resetList()
                 productViewModel.getMyWishlist(skip, take)
             })
-        }, onCartClicked = {product->
-            cartViewModel.addProductToCart(product.id!!,product.currentPrice!!)
+        }, onCartClicked = { product ->
+            cartViewModel.addProductToCart(product.id!!, product.currentPrice!!)
         }, onItemClicked = {
             startActivity(
                 Intent(

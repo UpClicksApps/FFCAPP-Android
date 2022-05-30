@@ -3,43 +3,29 @@ package com.upclicks.ffc.ui.orders
 import com.google.gson.annotations.Expose
 
 import com.google.gson.annotations.SerializedName
-class OrderDetails {
+import com.upclicks.ffc.ui.orders.model.CheckoutOrder
+import com.upclicks.ffc.ui.orders.model.Order
+import com.upclicks.ffc.ui.products.model.Product
+
+class OrderDetails: Order() {
+    @SerializedName("memberId")
+    @Expose
+    var memberId: String? = null
     @SerializedName("couponId")
     @Expose
     var couponId: String? = null
     @SerializedName("couponCode")
     @Expose
     var couponCode: String? = null
-    @SerializedName("voucherId")
+    @SerializedName("cityName")
     @Expose
-    var voucherId: String? = null
-    @SerializedName("providerSpecialistId")
-    @Expose
-    var providerSpecialistId: String? = null
-    @SerializedName("providerId")
-    @Expose
-    var providerId: String? = null
-    @SerializedName("orderDate")
-    @Expose
-    var orderDate: String? = null
-    @SerializedName("servicePlace")
-    @Expose
-    var servicePlace: Int? = null
-    @SerializedName("deliveryFees")
-    @Expose
-    var deliveryFees: Double? = null
-    @SerializedName("paymentWay")
-    @Expose
-    var paymentWay: Int? = null
-    @SerializedName("deliveryWay")
-    @Expose
-    var deliveryWay: Int? = null
-    @SerializedName("cityId")
-    @Expose
-    var cityId: String? = null
+    var cityName: String? = null
     @SerializedName("notes")
     @Expose
     var notes: String? = null
+    @SerializedName("onlinePaymentRef")
+    @Expose
+    var onlinePaymentRef: String? = null
     @SerializedName("phoneNumber")
     @Expose
     var phoneNumber: String? = null
@@ -49,7 +35,20 @@ class OrderDetails {
     @SerializedName("address")
     @Expose
     var address: String? = null
+    @SerializedName("street")
+    @Expose
+    var street: String? = null
+    @SerializedName("houseNumber")
+    @Expose
+    var houseNumber: String? = null
+    @SerializedName("deliveryTime")
+    @Expose
+    var deliveryTime: String? = null
     @SerializedName("memberName")
     @Expose
     var memberName: String? = null
+    @SerializedName("orderProducts")
+    @Expose
+    var orderProducts: List<Product>? = null
+
 }

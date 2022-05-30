@@ -200,13 +200,11 @@
                     android:id="@+id/quantity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:custom_layout="@layout/number_picker_custom_layout"
+                    app:custom_layout="@layout/number_picker_custom_layout_product_details"
                     app:min="0"
                     android:layout_gravity="center"
                     numberpicker:focusable="false"
                     numberpicker:min="0"
-                    android:visibility="gone"
-                    android:layout_marginEnd="@dimen/_12sdp"
                     numberpicker:unit="1" />
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="match_parent"

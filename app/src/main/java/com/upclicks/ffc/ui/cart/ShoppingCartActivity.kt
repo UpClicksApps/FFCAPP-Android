@@ -15,7 +15,7 @@ import com.upclicks.ffc.ui.products.adapter.CartAdapter
 import com.upclicks.ffc.ui.cart.model.Cart
 import com.upclicks.ffc.ui.cart.viewmodel.CartViewModel
 import com.upclicks.ffc.ui.checkout.model.CheckoutRequest
-import com.upclicks.ffc.ui.orders.model.Order
+import com.upclicks.ffc.ui.orders.model.CheckoutOrder
 import www.sanju.motiontoast.MotionToast
 
 class ShoppingCartActivity : BaseActivity() {
@@ -34,7 +34,7 @@ class ShoppingCartActivity : BaseActivity() {
 
     private fun initPage() {
         checkoutRequest.orderProducts = ArrayList()
-        checkoutRequest.order = Order()
+        checkoutRequest.checkoutOrder = CheckoutOrder()
         setUpToolbar()
         setUpPageActions()
         setUpUiList()

@@ -18,10 +18,10 @@ import com.upclicks.ffc.ui.products.model.Product
 import com.upclicks.ffc.ui.products.model.ProductDetails
 import com.upclicks.ffc.ui.checkout.model.CheckoutRequest
 import com.upclicks.ffc.ui.checkout.model.CheckoutResponse
-import com.upclicks.ffc.ui.orders.model.Order
 import com.upclicks.ffc.ui.checkout.model.PaymentResponse
 import com.upclicks.ffc.ui.general.model.*
 import com.upclicks.ffc.ui.orders.OrderDetails
+import com.upclicks.ffc.ui.orders.model.Order
 import com.upclicks.ffc.ui.products.model.HomeProduct
 import com.upclicks.ffc.ui.products.model.ProductsResponse
 
@@ -200,140 +200,18 @@ interface ApiService {
         @Query("code") code: String
     ): Observable<Result<PaymentResponse>>
 
-
-//    //Get salons(providers)
-//    @GET("services/app/Provider/GetProviders")
-//    fun getSalons(
-//        @Query("categoryId") categoryId: String,
-//        @Query("servicePlace") servicePlace: Int,
-//        @Query("name") name: String,
-//        @Query("skip") skip: Int,
-//        @Query("take") take: Int
-//    ): Observable<Result<List<Salon>>>
-//
-//    //Get salon(provider)
-//    @GET("services/app/Provider/GetProvider")
-//    fun getSalon(
-//        @Query("id") providerId: String
-//    ): Observable<Result<SalonDetails>>
-//
-//    //Get salons on map(providers)
-//    @GET("services/app/Provider/GetNearBy")
-//    fun getSalonsOnMap(
-//        @Query("lat") lat: Double,
-//        @Query("lng") lng: Double
-//    ): Observable<Result<List<Salon>>>
-//
-//    //Get Offers
-//    @GET("services/app/Provider/GetOffers")
-//    fun getSalonOffers(
-//        @Query("providerId") providerId: String, @Query("skip") skip: Int,
-//        @Query("take") take: Int
-//    ): Observable<Result<List<Order>>>
-//
-//    //Get Offers
-//    @GET("services/app/Provider/GetOffers")
-//    fun getSpecialOffers(
-//        @Query("skip") skip: Int,
-//        @Query("take") take: Int
-//    ): Observable<Result<List<Order>>>
-//
-//    //Get Order
-//    @GET("services/app/Provider/GetOffer")
-//    fun getOffer(
-//        @Query("id") id: String,
-//        @Query("notifyId") notifyId: String
-//    ): Observable<Result<Order>>
-//
-//    //Get Specialist
-//    @GET("services/app/Provider/GetAvailableTimesAndSpecialists")
-//    fun getAvailableTimesAndSpecialists(
-//        @Query("providerId") providerId: String, @Query("Date") skip: String
-//    ): Observable<Result<SpecialistResponse>>
-//
-//    //Get services
-//    @GET("services/app/Provider/GetServices")
-//    fun getSalonServices(
-//        @Query("providerId") providerId: String, @Query("servicePlace") servicePlace: Int,
-//        @Query("skip") skip: Int,
-//        @Query("take") take: Int
-//    ): Observable<Result<List<ServiceResponse>>>
-//
-//    //Get salon product
-//    @GET("services/app/Provider/GetProducts")
-//    fun getSalonProducts(
-//        @Query("providerId") providerId: String, @Query("servicePlace") servicePlace: Int,
-//        @Query("skip") skip: Int,
-//        @Query("take") take: Int
-//    ): Observable<Result<List<ProductResponse>>>
-//
-//    //Get salon product
-//    @POST("services/app/Provider/AssignToWishlist")
-//    fun assignToWishlist(
-//        @Query("providerId") providerId: String
-//    ): Observable<Result<String>>
-//
-//    //make checkout
-//    @POST("services/app/Order/Checkout")
-//    fun checkout(
-//        @Body() checkoutRequest: CheckoutRequest
-//    ): Observable<Result<String>>
-//
-//    //validate checkout order items
-//    @POST("services/app/Order/CalculateTotals")
-//    fun calculateTotals(
-//        @Body() totalsRequest: TotalsRequest
-//    ): Observable<Result<TotalsResponse>>
-//
-//    //Get MyOrders
-//    @GET("services/app/Order/GetMyOrders")
-//    fun getMyOrders(
-//        @Query("appointmentsStatus") AppointmentsStatus: Int,
-//        @Query("skip") skip: Int,
-//        @Query("take") take: Int
-//    ): Observable<Result<List<Appointment>>>
-//
-//    //Get order
-//    @GET("services/app/Order/GetOrder")
-//    fun getOrder(
-//        @Query("id") id: String,
-//        @Query("notifyId") notifyId: String
-//    ): Observable<Result<Appointment>>
-
-    //reschedule order
+    //reschedule Order
     @POST("services/app/Order/Reschedule")
     fun reschedule(
         @Query("id") id: String,
         @Query("date") date: String
     ): Observable<Result<String>>
 
-    //cancel order
+    //cancel Order
     @POST("services/app/Order/Cancel")
     fun cancel(
         @Query("id") id: String
     ): Observable<Result<String>>
-
-// //review order
-//    @POST("services/app/Order/Review")
-//    fun reviewOrder(
-//     @Body() reviewRequest: ReviewRequest
-//    ): Observable<Result<String>>
-//
-//    //Get Wishlist
-//    @GET("services/app/Member/GetMemberWishlist")
-//    fun getWishlist(
-//        @Query("skip") skip: Int,
-//        @Query("take") take: Int
-//    ): Observable<Result<List<Salon>>>
-//
-//
-//
-//    //list your business
-//    @POST("services/app/ProviderJoiningRequest/Create")
-//    fun listYourBusiness(
-//        @Body() joinRequest: JoinRequest
-//    ): Observable<Result<String>>
-
 
     //list your business
     @POST("services/app/ContactMessage/Create")

@@ -1,10 +1,11 @@
-package com.upclicks.ffc.ui.products.adapter
+package com.upclicks.ffc.ui.orders.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.upclicks.ffc.databinding.ItemOrderBinding
+import com.upclicks.ffc.ui.orders.model.CheckoutOrder
 import com.upclicks.ffc.ui.orders.model.Order
 
 class OrderAdapter(
@@ -25,8 +26,8 @@ class OrderAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        holder.binding.overlayFrame.backgroundTintList = ColorStateList.valueOf(CustomColorHelper.generateRandomColor(context))
-        holder.itemView.setOnClickListener {
+        holder.binding.order = orderList[position]
+        holder.binding.detailsBtn.setOnClickListener {
             onItemClicked(position)
         }
     }

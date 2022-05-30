@@ -6,8 +6,8 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 import com.upclicks.ffc.data.remote.Result
 import com.upclicks.ffc.ui.orders.OrderDetails
+import com.upclicks.ffc.ui.orders.model.CheckoutOrder
 import com.upclicks.ffc.ui.orders.model.Order
-import com.upclicks.ffc.ui.products.model.*
 
 @ExperimentalCoroutinesApi
 class OrderRepository @Inject constructor(private val apiService: ApiService) {

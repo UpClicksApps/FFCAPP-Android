@@ -44,14 +44,14 @@ class Checkout1Activity : BaseActivity() {
         setUpInputsTypingCallback(createInputViewsList())
     }
     private fun next() {
-//        checkoutRequest.order!!.emailAddress = binding.emailInput.text.toString()
-        checkoutRequest.order!!.emailAddress = "aa@aa.com"
-//        checkoutRequest.order!!.memberName = binding.nameInput.text.toString()
-        checkoutRequest.order!!.memberName = "Ahmed"
-//        checkoutRequest.order!!.phoneNumber = binding.nameInput.text.toString()
-        checkoutRequest.order!!.phoneNumber = "1234564654"
-//        checkoutRequest.order!!.notes = binding.notesInput.text.toString()
-        checkoutRequest.order!!.notes = "Test notes"
+//        checkoutRequest.checkoutOrder!!.emailAddress = binding.emailInput.text.toString()
+        checkoutRequest.checkoutOrder!!.emailAddress = "aa@aa.com"
+//        checkoutRequest.checkoutOrder!!.memberName = binding.nameInput.text.toString()
+        checkoutRequest.checkoutOrder!!.memberName = "Ahmed"
+//        checkoutRequest.checkoutOrder!!.phoneNumber = binding.nameInput.text.toString()
+        checkoutRequest.checkoutOrder!!.phoneNumber = "1234564654"
+//        checkoutRequest.checkoutOrder!!.notes = binding.notesInput.text.toString()
+        checkoutRequest.checkoutOrder!!.notes = "Test notes"
         startActivity(Intent(this,Checkout2Activity::class.java).putExtra(Keys.Intent_Constants.CHECKOUT, Gson().toJson(checkoutRequest)))
     }
 
