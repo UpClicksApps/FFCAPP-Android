@@ -59,7 +59,8 @@ interface ApiService {
     //Get Cities
     @GET("services/app/City/GetAll")
     fun getCities(
-        @Query("governorateId") governorateId: String): Observable<Result<List<City>>>
+        @Query("governorateId") governorateId: String
+    ): Observable<Result<List<City>>>
 
     //Complete profile
     @POST("services/app/Member/CompleteProfile")
@@ -148,21 +149,33 @@ interface ApiService {
         @Query("take") take: Int
     ): Observable<Result<List<Product>>>
 
+    //Assign
+    @POST("services/app/MemberWishlist/Assign")
+    fun assign(@Body body: Any): Observable<Result<String>>
+
+
+    ////////////// order
     //Get MyOrders
     @GET("services/app/Order/GetMyOrders")
     fun getMyOrders(
-        @Query("orderStatus") orderStatus: Int,
+        @Query("input") orderStatus: Int,
         @Query("skip") skip: Int,
         @Query("take") take: Int
     ): Observable<Result<List<Order>>>
 
     //Get Order
     @GET("services/app/Order/GetOrder")
-    fun getOrder(@Query("id") OrderId: String): Observable<Result<OrderDetails>>
+    fun getOrder(
+        @Query("id") OrderId: String,
+        @Query("notifyId") notifyId: String
+    ): Observable<Result<OrderDetails>>
 
-    //Assign
-    @POST("services/app/MemberWishlist/Assign")
-    fun assign(@Body body: Any): Observable<Result<String>>
+    //Cancel Order
+    @POST("services/app/Order/Cancel")
+    fun cancelOrder(
+        @Query("id") id: String
+    ): Observable<Result<String>>
+
 
     ///////////////// cart
     //GetCurrentCartDetails

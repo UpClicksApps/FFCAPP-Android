@@ -12,7 +12,7 @@ class NotificationRepository @Inject constructor(private val apiService: ApiServ
     fun callNotificationsList(skip: Int, take: Int): Observable<Result<List<Notification>>> {
         return apiService.callNotificationsList(skip, take)
     }
-    fun callReadNotification(id: String): Observable<Result<String>> {
+    fun callReadNotification(id: Any): Observable<Result<String>> {
         return apiService.callReadNotification(id)
     }
     fun callReadAllNotifications(): Observable<Result<String>> {

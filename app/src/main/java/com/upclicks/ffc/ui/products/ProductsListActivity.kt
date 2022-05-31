@@ -36,6 +36,8 @@ class ProductsListActivity : BaseActivity() {
         setUpToolbar()
         setUpUiList()
         setUpObservers()
+        binding.viewModel = productViewModel
+        binding.lifecycleOwner = this
     }
     private fun setUpIntent() {
         if (intent.getStringExtra(Keys.Intent_Constants.CATEGORY_ID) != null) {

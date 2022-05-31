@@ -1,4 +1,4 @@
-package com.upclicks.ffc.ui.orders.model
+package com.upclicks.ffc.ui.checkout.model
 
 import com.google.gson.annotations.Expose
 
@@ -58,6 +58,15 @@ open class CheckoutOrder {
     @SerializedName("phoneNumber")
     @Expose
     var phoneNumber: String? = null
+    @SerializedName("flatNo")
+    @Expose
+    var flatNo: String? = null
+    @SerializedName("house")
+    @Expose
+    var house: String? = null
+    @SerializedName("street")
+    @Expose
+    var street: String? = null
     @SerializedName("emailAddress")
     @Expose
     var emailAddress: String? = null

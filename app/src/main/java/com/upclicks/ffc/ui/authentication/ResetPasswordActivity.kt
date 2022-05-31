@@ -37,6 +37,8 @@ class ResetPasswordActivity : BaseActivity() {
         setUpPageUi()
         setUpObservers()
         setUpPageActions()
+        binding.viewModel = accountViewModel
+        binding.lifecycleOwner = this
     }
 
     private fun setUpToolbar() {

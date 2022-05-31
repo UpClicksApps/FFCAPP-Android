@@ -15,7 +15,7 @@ import com.upclicks.ffc.ui.products.adapter.CartAdapter
 import com.upclicks.ffc.ui.cart.model.Cart
 import com.upclicks.ffc.ui.cart.viewmodel.CartViewModel
 import com.upclicks.ffc.ui.checkout.model.CheckoutRequest
-import com.upclicks.ffc.ui.orders.model.CheckoutOrder
+import com.upclicks.ffc.ui.checkout.model.CheckoutOrder
 import www.sanju.motiontoast.MotionToast
 
 class ShoppingCartActivity : BaseActivity() {

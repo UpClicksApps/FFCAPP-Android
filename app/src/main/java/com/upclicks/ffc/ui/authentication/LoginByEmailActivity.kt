@@ -30,6 +30,8 @@ class LoginByEmailActivity : BaseActivity() {
         setUpPageUi()
         setUpPageActions()
         setUpObserver()
+        binding.viewModel = accountViewModel
+        binding.lifecycleOwner = this
     }
 
     // set up page ui

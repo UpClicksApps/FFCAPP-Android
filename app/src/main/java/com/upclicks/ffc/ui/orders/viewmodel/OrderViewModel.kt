@@ -10,7 +10,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 import com.upclicks.ffc.data.remote.Result
 import com.upclicks.ffc.ui.orders.OrderDetails
-import com.upclicks.ffc.ui.orders.model.CheckoutOrder
 import com.upclicks.ffc.ui.orders.model.Order
 import com.upclicks.ffc.ui.orders.repositories.OrderRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -43,13 +42,24 @@ class OrderViewModel
             })
     }
     //Get MyOrders
-    fun getOrder(orderId: String) {
-        orderRepository.getOrder(orderId)
+    fun getOrder(orderId: String,notifyId: String) {
+        orderRepository.getOrder(orderId,notifyId)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribe(object : CustomRxObserver<Result<OrderDetails>>(this@OrderViewModel) {
                 override fun onResponse(response: Result<OrderDetails>) {
                     orderDetails.postValue(response.result!!)
+                }
+            })
+    }
+    //Get MyOrders
+    fun cancelOrder(id: String,onResult: (String) -> Unit) {
+        orderRepository.cancelOrder(id)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe(object : CustomRxObserver<Result<String>>(this@OrderViewModel) {
+                override fun onResponse(response: Result<String>) {
+                    onResult(response.result!!)
                 }
             })
     }

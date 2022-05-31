@@ -1,5 +1,6 @@
 package com.upclicks.ffc.ui.notification
 
+import android.content.Intent
 import android.view.View
 import android.widget.PopupMenu
 import androidx.activity.viewModels
@@ -14,9 +15,12 @@ import com.upclicks.ffc.ui.notification.data.model.Notification
 import com.upclicks.ffc.ui.notification.data.viewModel.NotificationViewModel
 import com.upclicks.ffc.ui.general.dialog.ConfirmDialog
 import com.upclicks.ffc.commons.FcmNotificationType
+import com.upclicks.ffc.commons.Keys
+import com.upclicks.ffc.ui.orders.OrderDetailsActivity
 import www.sanju.motiontoast.MotionToast
 
 class NotificationActivity : BaseActivity() {
+
 
     lateinit var binding: ActivityNotificationBinding
     private val notificationViewModel: NotificationViewModel by viewModels()
@@ -56,6 +60,10 @@ class NotificationActivity : BaseActivity() {
 
     // set up page ui
     private fun setUpPageUi() {
+        if (sessionHelper.userProfile.unSeenNotificationsCount != null && sessionHelper.userProfile.unSeenNotificationsCount!! > 0) {
+            binding.markAllAsReadBtn.visibility = View.VISIBLE
+        } else binding.markAllAsReadBtn.visibility = View.GONE
+
         setUpListUi()
     }
 
@@ -73,11 +81,25 @@ class NotificationActivity : BaseActivity() {
         binding.notificationRecycler.adapter = notificationAdapter
         binding.notificationRecycler.layoutManager = LinearLayoutManager(this)
     }
-
-
     // Set up page listeners and callback
     private fun setUpPageActions() {
-//        setUpLoadOnScrollListener()
+        setUpLoadOnScrollListener()
+        binding.swipeRefresh.setOnRefreshListener {
+            skip = 0
+            notificationList.clear()
+            notificationAdapter.notifyDataSetChanged()
+            notificationViewModel.callNotificationsList(skip, take)
+        }
+        binding.markAllAsReadBtn.setOnClickListener {
+            ConfirmDialog(
+                this,
+                getString(R.string.notifications),
+                getString(R.string.mark_all_notification_as_read),
+                onYesBtnClick = {
+                    notificationViewModel.callReadAllNotifications()
+                },
+                onNoBtnClick = {}).show()
+        }
     }
 
     // Set Up Load On Scroll Listener
@@ -101,7 +123,7 @@ class NotificationActivity : BaseActivity() {
     private fun stopScrollIfDataEnded(scrollView: NestedScrollView, size: Int) {
         stopScroll = size < take
         skip += take
-        binding.nestedScrollView.setOnScrollChangeListener(onScrollChangeListener)
+        scrollView.setOnScrollChangeListener(onScrollChangeListener)
     }
 
     // Set Up Notification Item Click
@@ -129,13 +151,12 @@ class NotificationActivity : BaseActivity() {
 
     // Navigate To Group Appointment
     private fun navigateToAppointment(notification: Notification) {
-//        startActivity(
-//            Intent(this, AppointmentDetailsActivity::class.java)
-//                .putExtra(Keys.Intent_Constants.ORDER_ID, notification.entityId)
-//                .putExtra(Keys.Intent_Constants.NOTIFY_ID, notification.id)
-//        )
+        startActivity(
+            Intent(this, OrderDetailsActivity::class.java)
+                .putExtra(Keys.Intent_Constants.ORDER_ID, notification.entityId)
+                .putExtra(Keys.Intent_Constants.NOTIFY_ID, notification.id)
+        )
     }
-
 
     // Show Notification Options Popup
     private fun showNotificationOptionsPopup(id: String, view: View) {
@@ -146,15 +167,15 @@ class NotificationActivity : BaseActivity() {
         popupMenu.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.read_action -> {
-//                    notificationViewModel.callReadNotification(id)
+                    notificationViewModel.callReadNotification(id)
                 }
                 R.id.delete_action -> {
                     ConfirmDialog(
                         this,
-                        getString(R.string.delete),
+                        getString(R.string.notifications),
                         getString(R.string.delete_this_notification),
                         onYesBtnClick = {
-//                            notificationViewModel.callDeleteNotification(id)
+                            notificationViewModel.callDeleteNotification(id)
                         },
                         onNoBtnClick = {}).show()
                 }
@@ -170,12 +191,14 @@ class NotificationActivity : BaseActivity() {
         observeNotificationList()
         observeReadNotification()
         observeDeleteNotification()
+        observeReadAllNotification()
     }
 
     // Observe notification list
     private fun observeNotificationList() {
         notificationViewModel.callNotificationsList(skip, take)
         notificationViewModel.observeNotificationsListResult().observe(this, Observer {
+            binding.swipeRefresh.isRefreshing = false
             if (it != null && it.isNotEmpty()) {
                 binding.emptyFlag.visibility = View.GONE
                 notificationList.addAll(it)
@@ -192,6 +215,21 @@ class NotificationActivity : BaseActivity() {
         notificationViewModel.observeReadNotificationResult().observe(this, Observer {
             shoMsg(it, MotionToast.TOAST_SUCCESS)
             skip = 0
+            notificationList.clear()
+            notificationAdapter.notifyDataSetChanged()
+            notificationViewModel.callNotificationsList(skip, take)
+        })
+    }
+
+    // Observe read all notification
+    private fun observeReadAllNotification() {
+        notificationViewModel.observeReadAllNotificationResult().observe(this, Observer {
+            sessionHelper.userProfile.unSeenNotificationsCount = 0
+            binding.markAllAsReadBtn.visibility = View.GONE
+            shoMsg(it, MotionToast.TOAST_SUCCESS)
+            skip = 0
+            notificationList.clear()
+            notificationAdapter.notifyDataSetChanged()
             notificationViewModel.callNotificationsList(skip, take)
         })
     }
@@ -201,6 +239,8 @@ class NotificationActivity : BaseActivity() {
         notificationViewModel.observeDeleteNotificationResult().observe(this, Observer {
             shoMsg(it, MotionToast.TOAST_SUCCESS)
             skip = 0
+            notificationList.clear()
+            notificationAdapter.notifyDataSetChanged()
             notificationViewModel.callNotificationsList(skip, take)
         })
     }

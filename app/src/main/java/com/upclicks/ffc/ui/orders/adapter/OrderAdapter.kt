@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.upclicks.ffc.databinding.ItemOrderBinding
-import com.upclicks.ffc.ui.orders.model.CheckoutOrder
 import com.upclicks.ffc.ui.orders.model.Order
 
 class OrderAdapter(
     val context: Context,
     private var orderList: List<Order>,
-    private val onItemClicked: (Int) -> Unit
+    private val onCancelClicked: (Int) -> Unit,
+    private val onDetailsClicked: (Int) -> Unit
 ) : RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
 
 
@@ -28,7 +28,10 @@ class OrderAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.order = orderList[position]
         holder.binding.detailsBtn.setOnClickListener {
-            onItemClicked(position)
+            onDetailsClicked(position)
+        }
+        holder.binding.cancelBtn.setOnClickListener {
+            onDetailsClicked(position)
         }
     }
 

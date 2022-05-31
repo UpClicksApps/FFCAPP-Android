@@ -5,7 +5,7 @@
     <data>
         <variable
             name="product"
-            type="com.upclicks.ffc.ui.products.model.Product" />
+            type="com.upclicks.ffc.ui.orders.OrderDetails.OrderDetailsProduct" />
     </data>
 
     <LinearLayout
@@ -18,12 +18,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
-
             <ImageView
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_50sdp"
-                imageBinding="@{product.defaultMediaFilePath}"
-                />
+                imageBinding="@{product.productDefaultFilePath}"
+            />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -31,18 +30,19 @@
                 android:gravity="center_vertical"
                 android:orientation="vertical">
                 <TextView
+                    notNullText="@{product.productName}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Organic Banana"
-                    notNullText="@{product.name}"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_13sdp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    tools:text="Organic Banana" />
+
                 <TextView
+                    notNullText='@{product.price +" "+@string/currency_code}'
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    notNullText='@{product.currentPrice +" "+@string/currency_code}'
                     android:textColor="@color/secondary"
                     android:textSize="@dimen/_12sdp"
                     />

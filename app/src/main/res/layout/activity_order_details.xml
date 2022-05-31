@@ -8,12 +8,24 @@
         <variable
             name="orderDetails"
             type="com.upclicks.ffc.ui.orders.OrderDetails" />
+        <variable
+            name="viewModel"
+            type="com.upclicks.ffc.base.BaseViewModel" />
     </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+    <include layout="@layout/loading_layout" app:viewModel="@{viewModel}" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ui.products.OrderDetailsActivity">
+        tools:context=".ui.orders.OrderDetailsActivity">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,8 +34,6 @@
 
         <include layout="@layout/app_bar_layout"
             android:id="@+id/toolbar"/>
-
-
 
             <TextView
                 android:layout_width="wrap_content"
@@ -159,7 +169,6 @@
                         android:layout_marginStart="@dimen/_8sdp"
                         android:textColor="@color/text_color_grey"/>
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -213,7 +222,6 @@ and typesetting industry."
                         notNullText="@{orderDetails.notes}"
                         />
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -233,12 +241,12 @@ and typesetting industry."
                         android:textSize="@dimen/_14sdp"
                         android:drawableStart="@drawable/ic_delivery_information"
                         android:drawablePadding="@dimen/_5sdp"        />
-                    <com.skydoves.expandablelayout.ExpandableLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:expandable_isExpanded="true"
-                        android:id="@+id/deliveryInformationExpandable"
-                        >
+<!--                    <com.skydoves.expandablelayout.ExpandableLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        app:expandable_isExpanded="true"-->
+<!--                        android:id="@+id/deliveryInformationExpandable"-->
+<!--                        >-->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -415,8 +423,7 @@ and typesetting industry."
                                 android:textColor="@color/text_color_grey"/>
                         </LinearLayout>
                     </LinearLayout>
-                    </com.skydoves.expandablelayout.ExpandableLayout>
-
+<!--                    </com.skydoves.expandablelayout.ExpandableLayout>-->
                 </LinearLayout>
 
                 <LinearLayout
@@ -431,35 +438,46 @@ and typesetting industry."
                     android:layout_margin="@dimen/_5sdp"
                     >
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/products"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/_14sdp"
-                        android:drawableStart="@drawable/ic_order_details_product"
-                        android:drawablePadding="@dimen/_5sdp"               />
-                    <com.skydoves.expandablelayout.ExpandableLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/productsExpandable"
-                        app:expandable_isExpanded="true"
-                        >
-                        <com.todkars.shimmer.ShimmerRecyclerView
+<!--                    <com.skydoves.expandablelayout.ExpandableLayout-->
+<!--                        android:id="@+id/productsExpandable"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="30dp"-->
+<!--                        app:expandable_duration="300"-->
+<!--                        app:expandable_isExpanded="true">-->
+<!--                        app:expandable_parentLayout="@layout/item_wallet"-->
+<!--                        app:expandable_secondLayout="@layout/item_order"-->
+<!--                        app:expandable_showSpinner="true"-->
+<!--                        app:expandable_spinner="@drawable/ic_arrow_down"-->
+<!--                        app:expandable_spinner_animate="true"-->
+<!--                        app:expandable_spinner_gravity="start"-->
+<!--                        app:expandable_spinner_margin="14dp"-->
+<!--                        app:expandable_spinner_size="32dp"-->
+                        <TextView
+                            android:id="@+id/productsTv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            tools:listitem="@layout/item_order_details_product"
-                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                            android:orientation="vertical"
-                            tools:itemCount="10"
-                            android:id="@+id/productsRv"
-                            />
+                            android:drawableStart="@drawable/ic_order_details_product"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:text="@string/products"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp"
+                            android:textStyle="bold" />
 
-                    </com.skydoves.expandablelayout.ExpandableLayout>
+                        <com.todkars.shimmer.ShimmerRecyclerView
+                            android:id="@+id/productsRv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:itemCount="10"
+                            tools:listitem="@layout/item_order_details_product" />
+<!--                    </com.skydoves.expandablelayout.ExpandableLayout>-->
                 </LinearLayout>
 
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

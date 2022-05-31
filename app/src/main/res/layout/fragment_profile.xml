@@ -7,7 +7,19 @@
         <variable
             name="profile"
             type="com.upclicks.ffc.ui.authentication.model.response.VerifySession.Profile" />
+        <variable
+            name="viewModel"
+            type="com.upclicks.ffc.base.BaseViewModel" />
     </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+    <include layout="@layout/loading_layout" app:viewModel="@{viewModel}" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -260,5 +272,6 @@
         </ScrollView>
 
     </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

@@ -39,6 +39,8 @@ class VerifyMembershipActivity : BaseActivity() {
         setUpPageUi()
         setUpPageActions()
         setUpObservers()
+        binding.viewModel = accountViewModel
+        binding.lifecycleOwner = this
     }
 
     //Receive data from login screen

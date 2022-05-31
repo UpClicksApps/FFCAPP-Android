@@ -4,9 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.upclicks.ffc.base.BaseViewModel" />
     </data>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <include layout="@layout/loading_layout" app:viewModel="@{viewModel}" />
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -259,5 +266,6 @@
             </LinearLayout>
         </ScrollView>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

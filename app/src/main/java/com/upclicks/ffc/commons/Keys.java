@@ -91,6 +91,7 @@ public class Keys {
         public final static String OrderCancelled = "30";
         public final static String OrderRefused = "40";
         public final static String OrderFinished = "50";
+        public final static String Order = "60";
         public final static String Public_Notification = "500";
         public final static String LOGOUT_NOTIFY = "1000";
     }

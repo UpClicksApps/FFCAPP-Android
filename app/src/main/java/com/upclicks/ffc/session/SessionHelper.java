@@ -105,6 +105,9 @@ public class SessionHelper {
     //Save cart count
     public void saveCartCount(Integer count) {
         SharedPreferences.Editor editor =  this.context.getSharedPreferences(CART_COUNT, Context.MODE_PRIVATE).edit();
+        VerifySession.Profile profile = getUserProfile();
+        profile.setCurrentCartProductsCount(count);
+        setUserProfile(profile);
         editor.putInt(CART_COUNT, count);
         editor.apply();
     }

@@ -6,7 +6,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 import com.upclicks.ffc.data.remote.Result
 import com.upclicks.ffc.ui.orders.OrderDetails
-import com.upclicks.ffc.ui.orders.model.CheckoutOrder
 import com.upclicks.ffc.ui.orders.model.Order
 
 @ExperimentalCoroutinesApi
@@ -17,7 +16,11 @@ class OrderRepository @Inject constructor(private val apiService: ApiService) {
         return apiService.getMyOrders(orderStatus, skip, take)
     }
     //Get Orders
-    fun getOrder(orderId: String): Observable<Result<OrderDetails>> {
-        return apiService.getOrder(orderId)
+    fun getOrder(orderId: String,notifyId: String): Observable<Result<OrderDetails>> {
+        return apiService.getOrder(orderId,notifyId)
+    }
+    //Cancel Order
+    fun cancelOrder(id: String): Observable<Result<String>> {
+        return apiService.cancelOrder(id)
     }
 }

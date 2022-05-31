@@ -1,5 +1,17 @@
 <resources>
     <string name="app_name">FFC</string>
+    // time ago
+    <string name="ago_in_arabic">منذ</string>
+    <string name="min_ago">دقائق</string>
+    <string name="hours_ago">ساعات</string>
+    <string name="days_ago">أيام</string>
+    <string name="just_now">الان</string>
+    <string name="a_min_ago">دقيقة</string>
+    <string name="yesterday">أمس</string>
+    <string name="hour_ago">ساعة</string>
+    <string name="work_hours">ساعة عمل</string>
+    <string name="birthdate">تاريخ الميلاد</string>
+
     <string name="not_valid">غير صالح</string>
     <string name="required">مطلوب</string>
     <string name="find_track_and_chat_clients_for_the_developmnet_process">ابحث عن عملاء  وتتبعهم ودردشتهم  لعملية التطوير</string>
@@ -216,5 +228,12 @@
     <string name="cancelled">Cancelled</string>
     <string name="refused">Refused</string>
     <string name="returned">Returned</string>
+    <string name="share">share</string>
+    <string name="make_all_as_read">تحديد الكل كمقروء</string>
+    <string name="mark_all_notification_as_read">تحديد كل الاشعارات كمقروء ؟</string>
+    <string name="error_in_orderId"> مشكلة فى orderId</string>
+    <string name="flat_number">Flat number</string>
+    <string name="delivery_fees">Delivery Fees</string>
+    <string name="cancel_this_order_are_you_sure">Cancel this order, Are you sure?</string>
 
 </resources>

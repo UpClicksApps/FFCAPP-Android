@@ -2,30 +2,48 @@ package com.upclicks.ffc.ui.checkout
 
 import android.content.Intent
 import android.view.View
+import androidx.activity.viewModels
 import com.google.gson.Gson
 import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseActivity
 import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.ActivityCheckout1Binding
+import com.upclicks.ffc.ui.authentication.viewmodel.AccountViewModel
 import com.upclicks.ffc.ui.checkout.model.CheckoutRequest
+import com.upclicks.ffc.ui.general.component.CustomInputHelper
 import com.upclicks.ffc.ui.general.component.customedittext.BaseInput
+import com.upclicks.ffc.ui.general.component.spinner.BaseSelection
+import com.upclicks.ffc.ui.general.component.spinner.CustomSpinner
 
 class Checkout1Activity : BaseActivity() {
-    lateinit var binding :ActivityCheckout1Binding
+    lateinit var binding: ActivityCheckout1Binding
     var checkoutRequest = CheckoutRequest()
+
+    private val accountViewModel: AccountViewModel by viewModels()
+    var deliveryFees = 0.0
     override fun getLayoutResourceId(): View {
         binding = ActivityCheckout1Binding.inflate(layoutInflater)
         initPage()
         return binding.root
     }
+
     private fun initPage() {
         setUpIntent()
         setUpToolbar()
         setUpPageActions()
+        setUpObservers()
     }
+
+    private fun setUpObservers() {
+        getGovernorates()
+    }
+
     private fun setUpIntent() {
-        if (intent.getStringExtra(Keys.Intent_Constants.CHECKOUT)!= null)
-            checkoutRequest = Gson().fromJson(intent.getStringExtra(Keys.Intent_Constants.CHECKOUT),CheckoutRequest::class.java)
+        if (intent.getStringExtra(Keys.Intent_Constants.CHECKOUT) != null)
+            checkoutRequest = Gson().fromJson(
+                intent.getStringExtra(Keys.Intent_Constants.CHECKOUT),
+                CheckoutRequest::class.java
+            )
     }
 
     private fun setUpToolbar() {
@@ -40,19 +58,60 @@ class Checkout1Activity : BaseActivity() {
         binding.nextBtn.setOnClickListener {
             next()
         }
-
-        setUpInputsTypingCallback(createInputViewsList())
+        CustomInputHelper.setUpInputsTypingCallback(createInputViewsList())
+        binding.governorateSP.setCustomSelectionCallback(object : CustomSpinner.SelectionCallback {
+            override fun onItemSelected(baseSelection: BaseSelection) {
+                getCities(baseSelection.id!!)
+            }
+        })
+        binding.citySP.setCustomSelectionCallback(object : CustomSpinner.SelectionCallback {
+            override fun onItemSelected(baseSelection: BaseSelection) {
+                binding.deliveryFeesInput.setText(
+                    "" + baseSelection.deliveryFees + " " + getString(
+                        R.string.currency_code
+                    )
+                )
+                deliveryFees = baseSelection.deliveryFees!!
+            }
+        })
     }
+
     private fun next() {
-//        checkoutRequest.checkoutOrder!!.emailAddress = binding.emailInput.text.toString()
-        checkoutRequest.checkoutOrder!!.emailAddress = "aa@aa.com"
-//        checkoutRequest.checkoutOrder!!.memberName = binding.nameInput.text.toString()
-        checkoutRequest.checkoutOrder!!.memberName = "Ahmed"
-//        checkoutRequest.checkoutOrder!!.phoneNumber = binding.nameInput.text.toString()
-        checkoutRequest.checkoutOrder!!.phoneNumber = "1234564654"
-//        checkoutRequest.checkoutOrder!!.notes = binding.notesInput.text.toString()
-        checkoutRequest.checkoutOrder!!.notes = "Test notes"
-        startActivity(Intent(this,Checkout2Activity::class.java).putExtra(Keys.Intent_Constants.CHECKOUT, Gson().toJson(checkoutRequest)))
+        if (CustomInputHelper.checkIfInputsIsValid(this, createInputViewsList())) {
+            checkoutRequest.checkoutOrder!!.emailAddress = binding.emailInput.text.toString()
+            checkoutRequest.checkoutOrder!!.memberName = binding.nameInput.text.toString()
+            checkoutRequest.checkoutOrder!!.phoneNumber = binding.phoneInput.text.toString()
+            checkoutRequest.checkoutOrder!!.notes = binding.notesInput.text.toString()
+            checkoutRequest.checkoutOrder!!.house = binding.houseNumberInput.text.toString()
+            checkoutRequest.checkoutOrder!!.flatNo = binding.flatNumberInput.text.toString()
+            checkoutRequest.checkoutOrder!!.street = binding.streetInput.text.toString()
+            checkoutRequest.checkoutOrder!!.address = binding.addressInput.text.toString()
+            checkoutRequest.checkoutOrder!!.deliveryFees = deliveryFees
+            checkoutRequest.checkoutOrder!!.cityId = binding.citySP.baseSelection.id
+//            startActivity(
+//                Intent(
+//                    this,
+//                    Checkout2Activity::class.java
+//                ).putExtra(Keys.Intent_Constants.CHECKOUT, Gson().toJson(checkoutRequest))
+//            )
+        }
+    }
+
+    private fun getCities(governorateId: String) {
+        accountViewModel.getCities(governorateId) { cities ->
+            if (!cities.isNullOrEmpty()) {
+                binding.citySP.setSelectionList(cities)
+            }
+        }
+    }
+
+    private fun getGovernorates() {
+        accountViewModel.getGovernorates { governorates ->
+            if (!governorates.isNullOrEmpty()) {
+                binding.governorateSP.setSelectionList(governorates)
+                getCities(governorates[0].id!!)
+            }
+        }
     }
 
     // create lis of inputs view
@@ -62,22 +121,11 @@ class Checkout1Activity : BaseActivity() {
         inputsList.add(binding.emailInput)
         inputsList.add(binding.notesInput)
         inputsList.add(binding.phoneInput)
-        inputsList.add(binding.cityInput)
+        inputsList.add(binding.flatNumberInput)
         inputsList.add(binding.addressInput)
         inputsList.add(binding.houseNumberInput)
-        inputsList.add(binding.shippingFeesInput)
+        inputsList.add(binding.deliveryFeesInput)
         inputsList.add(binding.streetInput)
         return inputsList
     }
-    // set up typingCallback for inputs views
-    private fun setUpInputsTypingCallback(inputViews: ArrayList<BaseInput>) {
-        inputViews.forEach { inputView ->
-            inputView!!.setOnTextTyping(
-                object : BaseInput.TypingCallback {
-                    override fun onTyping(text: String) {
-                    }
-                })
-        }
-    }
-
 }

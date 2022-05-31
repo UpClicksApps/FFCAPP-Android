@@ -34,6 +34,8 @@ class ProductDetailsActivity : BaseActivity() {
         setUpIntent()
         setUpPageActions()
         setUpObservers()
+        binding.viewModel = productViewModel
+        binding.lifecycleOwner = this
     }
 
     private fun setUpIntent() {

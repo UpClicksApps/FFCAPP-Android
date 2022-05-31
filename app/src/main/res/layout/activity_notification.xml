@@ -6,27 +6,36 @@
     <data>
         <variable
             name="viewModel"
-            type="com.upclicks.ffc.ui.notification.data.viewModel.NotificationViewModel" />
+            type="com.upclicks.ffc.base.BaseViewModel" />
     </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <include layout="@layout/loading_layout" app:viewModel="@{viewModel}" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:fitsSystemWindows="true"
+        android:orientation="vertical"
         tools:context=".ui.activities.notification.NotificationActivity">
 
         <include
-            layout="@layout/app_bar_layout"
             android:id="@+id/toolbar"
+            layout="@layout/app_bar_layout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.upclicks.ffc.ui.general.component.CustomSwipeRefreshLayout
+            android:id="@+id/swipeRefresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/swipeRefresh">
+            android:layout_weight="1"
+            >
 
             <androidx.core.widget.NestedScrollView
                 android:id="@+id/nestedScrollView"
@@ -34,9 +43,18 @@
                 android:layout_height="match_parent"
                 android:fillViewport="true">
 
+
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
+                    <com.todkars.shimmer.ShimmerRecyclerView
+                        android:id="@+id/notification_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:listitem="@layout/item_notification"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        />
 
                     <TextView
                         android:id="@+id/empty_flag"
@@ -46,17 +64,21 @@
                         android:text="@string/no_notifications"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15sdp"
-                        android:visibility="gone" />
-
-                    <com.todkars.shimmer.ShimmerRecyclerView
-                        android:id="@+id/notification_recycler"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        tools:listitem="@layout/item_notification" />
+                        android:visibility="gone"
+                        />
                 </FrameLayout>
             </androidx.core.widget.NestedScrollView>
         </com.upclicks.ffc.ui.general.component.CustomSwipeRefreshLayout>
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/markAllAsReadBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:background="@color/background_color_light_grey"
+            android:text="@string/make_all_as_read" />
     </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

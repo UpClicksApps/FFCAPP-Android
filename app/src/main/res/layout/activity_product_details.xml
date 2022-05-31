@@ -8,7 +8,16 @@
         <variable
             name="product"
             type="com.upclicks.ffc.ui.products.model.ProductDetails" />
+        <variable
+            name="viewModel"
+            type="com.upclicks.ffc.base.BaseViewModel" />
     </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <include layout="@layout/loading_layout" app:viewModel="@{viewModel}" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -220,4 +229,7 @@
             </LinearLayout>
         </LinearLayout>
     </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

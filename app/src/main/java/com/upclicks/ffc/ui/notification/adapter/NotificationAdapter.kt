@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.upclicks.ffc.R
+import com.upclicks.ffc.commons.Utils
 import com.upclicks.ffc.databinding.ItemNotificationBinding
 import com.upclicks.ffc.ui.notification.data.model.Notification
 
@@ -26,35 +27,40 @@ class NotificationAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        holder.binding.notification = notificationList[position]
-//        if (notificationList[position].notificationState == 0) {
-//            holder.binding.notificationCard.setCardBackgroundColor(
-//                ColorStateList.valueOf(
-//                    context!!.resources.getColor(
-//                        R.color.white
-//                    )
-//                )
-//            )
-//        } else
-//            holder.binding.notificationCard.setCardBackgroundColor(
-//                ColorStateList.valueOf(
-//                    context!!.resources.getColor(
-//                        R.color.line_color_grey
-//                    )
-//                )
-//            )
+        holder.binding.notification = notificationList[position]
+        if (notificationList[position].notificationState == 0) {
+            holder.binding.notificationCard.backgroundTintList =
+                ColorStateList.valueOf(
+                    context!!.resources.getColor(
+                        R.color.white
+                    )
+            )
+        } else
+            holder.binding.notificationCard.backgroundTintList =
+                ColorStateList.valueOf(
+                    context!!.resources.getColor(
+                        R.color.line_color_grey
+                    )
+                )
+        if (Utils.getDurationFromData(notificationList[position].creationTime, context)!!
+                .isNullOrEmpty()
+        )
+            Utils.getDate(holder.binding.timeAgoTv, notificationList[position].creationTime)
+        else
+            holder.binding.timeAgoTv.text =
+                Utils.getDurationFromData(notificationList[position].creationTime, context)
+
         holder.binding.moreBtn.setOnClickListener {
-            onOptionsBtnClicked(Notification(),it)
-//            onOptionsBtnClicked(notificationList[position],it)
+            onOptionsBtnClicked(notificationList[position], it)
         }
-//        holder.itemView.setOnClickListener {
-//            onNotificationItemClicked(notificationList[position])
-//        }
+        holder.itemView.setOnClickListener {
+            onNotificationItemClicked(notificationList[position])
+        }
     }
 
     override fun getItemCount(): Int {
         // number of items in the data set held by the adapter
-        return 15
+        return notificationList.size
     }
 
     class ViewHolder(val binding: ItemNotificationBinding) :

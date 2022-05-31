@@ -1,17 +1,17 @@
-package com.upclicks.ffc.ui.products
+package com.upclicks.ffc.ui.orders
 
 import android.content.Intent
 import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseActivity
 import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.ActivityOrderDetailsBinding
 import com.upclicks.ffc.ui.orders.viewmodel.OrderViewModel
+import com.upclicks.ffc.ui.products.ProductDetailsActivity
 import com.upclicks.ffc.ui.products.adapter.OrderDetailsProductAdapter
-import com.upclicks.ffc.ui.products.adapter.ProductGridAdapter
-import com.upclicks.ffc.ui.products.model.Product
 import www.sanju.motiontoast.MotionToast
 
 class OrderDetailsActivity : BaseActivity() {
@@ -19,10 +19,11 @@ class OrderDetailsActivity : BaseActivity() {
 
     private val orderViewModel: OrderViewModel by viewModels()
 
-    var productsList = ArrayList<Product>()
+    var productsList = ArrayList<OrderDetails.OrderDetailsProduct>()
     lateinit var productAdapter: OrderDetailsProductAdapter
 
     var orderId = ""
+    var notifyId: String = ""
 
     override fun getLayoutResourceId(): View {
         binding = ActivityOrderDetailsBinding.inflate(layoutInflater)
@@ -36,17 +37,25 @@ class OrderDetailsActivity : BaseActivity() {
         setUpPageActions()
         setUpUiList()
         setUpObserver()
+        binding.viewModel = orderViewModel
+        binding.lifecycleOwner = this
     }
 
     private fun setUpIntent() {
         if (intent.getStringExtra(Keys.Intent_Constants.ORDER_ID) != null)
             orderId = intent.getStringExtra(Keys.Intent_Constants.ORDER_ID)!!
+        else{
+            shoMsg(getString(R.string.error_in_orderId),MotionToast.TOAST_ERROR)
+            finish()
+        }
+        if (!intent.getStringExtra(Keys.Intent_Constants.NOTIFY_ID).isNullOrEmpty())
+            notifyId = intent.getStringExtra(Keys.Intent_Constants.NOTIFY_ID)!!
     }
 
     private fun setUpObserver() {
-        orderViewModel.getOrder(orderId)
+        orderViewModel.getOrder(orderId,notifyId)
         orderViewModel.observeOrderDetails.observe(this, Observer { orderDetails ->
-            binding.toolbar.titleTv.setText("#" + orderDetails.code)
+            binding.toolbar.titleTv.text = "#" + orderDetails.code
             binding.orderDetails = orderDetails
             if (!orderDetails.orderProducts.isNullOrEmpty()) {
                 productsList.clear()
@@ -64,8 +73,11 @@ class OrderDetailsActivity : BaseActivity() {
     }
 
     private fun setUpPageActions() {
+//        binding.productsExpandable.setOnExpandListener { isExpand ->
+//            if (isExpand) {
+//            }
+//        }
     }
-
 
     private fun setUpUiList() {
         productAdapter = OrderDetailsProductAdapter(this, productsList, onItemClicked = {
@@ -73,10 +85,10 @@ class OrderDetailsActivity : BaseActivity() {
                 Intent(
                     this,
                     ProductDetailsActivity::class.java
-                ).putExtra(Keys.Intent_Constants.PRODUCT_ID, productsList[it].id)
+                ).putExtra(Keys.Intent_Constants.PRODUCT_ID, productsList[it].productName)
             )
         })
         binding.productsRv.adapter = productAdapter
-        binding.productsRv.layoutManager = GridLayoutManager(this, 2)
+        binding.productsRv.layoutManager = LinearLayoutManager(this)
     }
 }

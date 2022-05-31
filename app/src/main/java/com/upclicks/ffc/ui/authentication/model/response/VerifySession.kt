@@ -27,7 +27,7 @@ class VerifySession {
         @SerializedName("identityVerificationStatusEnum" ) var identityVerificationStatusEnum : Int?     = null
         @SerializedName("unSeenNotificationsCount"       ) var unSeenNotificationsCount       : Int?     = null
         @SerializedName("unSeenMessagesCount"            ) var unSeenMessagesCount            : Int?     = null
-        @SerializedName("currentCartItemsCount"            ) var currentCartItemsCount            : Int?     = null
+        @SerializedName("currentCartProductsCount"            ) var currentCartProductsCount            : Int?     = null
         @SerializedName("isProfileCompleted"             ) var isProfileCompleted             : Boolean? = null
         @SerializedName("userId"                         ) var userId                         : Int?     = null
         @SerializedName("avatarPath"                     ) var avatarPath                     : String?  = null

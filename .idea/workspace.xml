@@ -28,61 +28,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d219a198-d409-4f7a-91ec-02cd32610b85" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_databinding_viewbinding_4_1_3_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_skydoves_expandablelayout_1_0_7_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_4_32.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_common_1_4_32.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/orders/model/CheckoutOrder.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/orders/model/OrderStatusModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/adapter/OrderDetailsProductAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_delivery_information.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_notes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_order_details_product.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_promo_code.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_order_details_product.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/number_picker_custom_layout_product_details.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/notification/GetTimeAgo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_stat_name.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_stat_name.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_stat_name.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_stat_name.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_stat_name.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_databinding_viewbinding_4_1_2_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_4_31.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_common_1_4_31.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/FFC_APP.app.androidTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/FFC_APP.app.androidTest.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/FFC_APP.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/FFC_APP.app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/FFC_APP.app.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/FFC_APP.app.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/FFC_APP.app.unitTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/FFC_APP.app.unitTest.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/commons/Enums.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/commons/Enums.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/commons/Keys.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/commons/Keys.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/commons/Utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/commons/Utils.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/data/remote/ApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/data/remote/ApiService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/helpers/BindingAdapters.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/helpers/BindingAdapters.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/PersonalDetailsActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/PersonalDetailsActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/model/request/UpdateProfileRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/model/request/UpdateProfileRequest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/session/SessionHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/session/SessionHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/LoginByEmailActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/LoginByEmailActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/ResetPasswordActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/ResetPasswordActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/SignUpFirstActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/SignUpFirstActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/VerifyMembershipActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/VerifyMembershipActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/model/response/VerifySession.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/model/response/VerifySession.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/cart/ShoppingCartActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/cart/ShoppingCartActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/checkout/Checkout1Activity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/checkout/Checkout1Activity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/checkout/Checkout3Activity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/checkout/Checkout3Activity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/checkout/model/CheckoutRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/checkout/model/CheckoutRequest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/general/component/numberPicker/NumberPicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/general/component/numberPicker/NumberPicker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/main/fragments/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/main/fragments/HomeFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/main/SplashActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/main/SplashActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/notification/MyFirebaseMessagingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/notification/MyFirebaseMessagingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/notification/NotificationActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/notification/NotificationActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/notification/adapter/NotificationAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/notification/adapter/NotificationAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/notification/data/repository/NotificationRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/notification/data/repository/NotificationRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/notification/data/viewModel/NotificationViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/notification/data/viewModel/NotificationViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/orders/MyOrdersActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/orders/MyOrdersActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/orders/OrderDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/orders/OrderDetails.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/orders/model/Order.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/orders/model/Order.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/orders/adapter/OrderAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/orders/adapter/OrderAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/orders/model/CheckoutOrder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/checkout/model/CheckoutOrder.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/orders/repositories/OrderRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/orders/repositories/OrderRepository.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/orders/viewmodel/OrderViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/orders/viewmodel/OrderViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/FavoriteActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/FavoriteActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/OrderDetailsActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/OrderDetailsActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/adapter/OrderAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/orders/adapter/OrderAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/adapter/OrderStatusSelectionAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/orders/adapter/OrderStatusSelectionAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_payment_method.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_payment_method.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_total_icon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_total_icon.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_orders.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_orders.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/OrderDetailsActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/orders/OrderDetailsActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/ProductDetailsActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/ProductDetailsActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/ProductsListActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/ProductsListActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/adapter/OrderDetailsProductAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/adapter/OrderDetailsProductAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_checkout1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_checkout1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login_by_email.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login_by_email.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_notification.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_notification.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_order_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_order_details.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_personal_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_personal_details.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_product_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_product_details.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_cart.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_cart.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_favorite.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_favorite.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_order.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_order.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_order_status_selection.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_order_status_selection.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/number_picker_custom_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/number_picker_custom_layout_cart.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_products_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_products_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_reset_password.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_reset_password.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_shopping_cart.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_shopping_cart.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_sign_up_first.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_sign_up_first.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_verify_membership.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_verify_membership.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_order_details_product.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_order_details_product.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values-ar/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-ar/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
@@ -230,11 +224,11 @@
       <recent name="E:\My Work\UpClicks\app\src\main\res\drawable" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.upclicks.ffc.ui.orders" />
+      <recent name="com.upclicks.ffc.ui.checkout.model" />
       <recent name="com.upclicks.ffc.ui.orders.adapter" />
       <recent name="com.upclicks.ffc.ui.orders.model" />
-      <recent name="com.upclicks.ffc.ui.orders" />
       <recent name="com.upclicks.ffc.ui.cart.model" />
-      <recent name="com.upclicks.ffc.ui.cart" />
     </key>
     <key name="android.template.-1223163543">
       <recent name="com.upclicks.ads4you.ui" />
@@ -268,21 +262,21 @@
       <recent name="com.upclicks.ads4you.di" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.upclicks.ffc.ui.products.model" />
       <recent name="com.upclicks.ffc.ui.products.adapter" />
       <recent name="com.upclicks.ffc.ui.orders.model" />
       <recent name="com.upclicks.ffc.ui.general.component" />
       <recent name="com.upclicks.ffc.ui.general.model" />
-      <recent name="com.upclicks.ffc.ui.orders" />
     </key>
     <key name="android.template.1327266735">
       <recent name="com.upclicks.ads4you.ui.activites.AccountActivites.signUp" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.upclicks.ffc.ui.notification" />
       <recent name="com.upclicks.ffc.data" />
       <recent name="com.upclicks.ffc.session" />
       <recent name="com.upclicks.ads4you.ui.activites" />
       <recent name="com.upclicks.ads4you.ui.dialogs" />
-      <recent name="com.upclicks.ads4you.ui.adapters" />
     </key>
     <key name="android.template.1511726045">
       <recent name="com.upclicks.ads4you.ui.activites.Ads" />
@@ -639,7 +633,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653578720972</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="#30/5/2022">
+      <created>1653920641747</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1653920641747</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -693,7 +694,6 @@
       <path value="$PROJECT_DIR$/manzileProvider" />
       <path value="$PROJECT_DIR$/manzili" />
     </ignored-roots>
-    <MESSAGE value="Fixes add Ads places issue" />
     <MESSAGE value="Fav and Journals" />
     <MESSAGE value="Add Langauge UI" />
     <MESSAGE value="Localization" />
@@ -718,39 +718,40 @@
     <MESSAGE value="#24/5/2022" />
     <MESSAGE value="#25/5/2022" />
     <MESSAGE value="#26/5/2022" />
-    <option name="LAST_COMMIT_MESSAGE" value="#26/5/2022" />
+    <MESSAGE value="#30/5/2022" />
+    <option name="LAST_COMMIT_MESSAGE" value="#30/5/2022" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/session/SessionHelper.java</url>
-          <line>210</line>
+          <line>213</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/ProductDetailsActivity.kt</url>
-          <line>128</line>
+          <line>130</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/ProductDetailsActivity.kt</url>
-          <line>130</line>
+          <line>132</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/ProductDetailsActivity.kt</url>
-          <line>135</line>
+          <line>137</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/ProductDetailsActivity.kt</url>
-          <line>137</line>
+          <line>139</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/ProductDetailsActivity.kt</url>
-          <line>134</line>
+          <line>136</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
@@ -765,12 +766,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/authentication/ResetPasswordActivity.kt</url>
-          <line>96</line>
+          <line>98</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/products/ProductDetailsActivity.kt</url>
-          <line>127</line>
+          <line>129</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
@@ -812,6 +813,16 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/general/component/spinner/CustomSpinner.kt</url>
           <line>29</line>
           <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/checkout/Checkout2Activity.kt</url>
+          <line>33</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/upclicks/ffc/ui/checkout/Checkout2Activity.kt</url>
+          <line>34</line>
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

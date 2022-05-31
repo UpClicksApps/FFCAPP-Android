@@ -29,8 +29,14 @@
             android:name=".ui.checkout.Checkout1Activity"
             android:exported="false" />
         <activity
-            android:name=".ui.products.OrderDetailsActivity"
-            android:exported="false" />
+            android:name=".ui.orders.OrderDetailsActivity"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.upclicks.ffc.orderDetails" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name=".ui.main.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -78,6 +84,13 @@
         <activity
             android:name=".ui.notification.NotificationActivity"
             android:exported="false" />
+        <service
+            android:name=".ui.notification.MyFirebaseMessagingService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 

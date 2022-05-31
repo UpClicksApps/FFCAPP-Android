@@ -6,11 +6,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.upclicks.ffc.databinding.ItemOrderDetailsProductBinding
 import com.upclicks.ffc.databinding.ItemProductForLinearBinding
+import com.upclicks.ffc.ui.orders.OrderDetails
 import com.upclicks.ffc.ui.products.model.Product
 
 class OrderDetailsProductAdapter(
     val context: Context,
-    private var productList: List<Product>,
+    private var productList: List<OrderDetails.OrderDetailsProduct>,
     private val onItemClicked: (Int) -> Unit
 ) : RecyclerView.Adapter<OrderDetailsProductAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

@@ -115,10 +115,31 @@
                     android:elevation="@dimen/_5sdp"
                     android:inputType="phone"
                     android:layout_margin="@dimen/_5sdp"
-                    
                     android:padding="@dimen/_5sdp"
                     android:id="@+id/phoneInput"
                     />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/governorate"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColor="@color/black"/>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/solid_rectangle_background_primary"
+                    android:backgroundTint="@color/white"
+                    android:elevation="@dimen/_5sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    >
+                    <com.upclicks.ffc.ui.general.component.spinner.CustomSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:padding="@dimen/_5sdp"
+                        android:id="@+id/governorateSP"
+                        />
+                </FrameLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -137,16 +158,21 @@
                             android:text="@string/city"
                             android:textColor="@color/black" />
 
-                        <com.upclicks.ffc.ui.general.component.customedittext.TextInput
-                            android:id="@+id/cityInput"
-                            
+                        <FrameLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/_40sdp"
-                            android:layout_margin="@dimen/_5sdp"
+                            android:layout_height="wrap_content"
                             android:background="@drawable/solid_rectangle_background_primary"
                             android:backgroundTint="@color/white"
                             android:elevation="@dimen/_5sdp"
-                            android:padding="@dimen/_5sdp" />
+                            android:layout_margin="@dimen/_5sdp"
+                            >
+                            <com.upclicks.ffc.ui.general.component.spinner.CustomSpinner
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"
+                                android:padding="@dimen/_5sdp"
+                                android:id="@+id/citySP"
+                                />
+                        </FrameLayout>
                     </LinearLayout>
 
                     <LinearLayout
@@ -159,15 +185,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
-                            android:text="@string/shipping_fees"
+                            android:text="@string/delivery_fees"
                             android:textColor="@color/black" />
 
                         <com.upclicks.ffc.ui.general.component.customedittext.TextInput
-                            android:id="@+id/shippingFeesInput"
+                            android:id="@+id/deliveryFeesInput"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_40sdp"
                             android:layout_margin="@dimen/_5sdp"
-                            
                             android:background="@drawable/solid_rectangle_background_primary"
                             android:backgroundTint="@color/white"
                             android:elevation="@dimen/_5sdp"
@@ -197,7 +222,6 @@
                             android:layout_height="@dimen/_40sdp"
                             android:layout_margin="@dimen/_5sdp"
                             android:background="@drawable/solid_rectangle_background_primary"
-                            
                             android:backgroundTint="@color/white"
                             android:elevation="@dimen/_5sdp"
                             android:padding="@dimen/_5sdp" />
@@ -221,13 +245,29 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_40sdp"
                             android:layout_margin="@dimen/_5sdp"
-                            
                             android:background="@drawable/solid_rectangle_background_primary"
                             android:backgroundTint="@color/white"
                             android:elevation="@dimen/_5sdp"
                             android:padding="@dimen/_5sdp" />
                     </LinearLayout>
                 </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="@string/flat_number"
+                    android:layout_marginTop="@dimen/_10sdp"/>
+                <com.upclicks.ffc.ui.general.component.customedittext.TextInput
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@drawable/solid_rectangle_background_primary"
+                    android:backgroundTint="@color/white"
+                    android:elevation="@dimen/_5sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:id="@+id/flatNumberInput"
+                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -239,7 +279,7 @@
                     android:layout_height="@dimen/_40sdp"
                     android:background="@drawable/solid_rectangle_background_primary"
                     android:backgroundTint="@color/white"
-                    
+
                     android:elevation="@dimen/_5sdp"
                     android:layout_margin="@dimen/_5sdp"
                     android:padding="@dimen/_5sdp"

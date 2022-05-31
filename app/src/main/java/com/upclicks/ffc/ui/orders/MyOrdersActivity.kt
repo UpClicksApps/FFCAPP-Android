@@ -12,22 +12,22 @@ import com.upclicks.ffc.base.BaseActivity
 import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.commons.OrderStatus
 import com.upclicks.ffc.databinding.ActivityMyOrdersBinding
-import com.upclicks.ffc.ui.orders.model.CheckoutOrder
-import com.upclicks.ffc.ui.products.OrderDetailsActivity
+import com.upclicks.ffc.ui.general.dialog.ConfirmDialog
 import com.upclicks.ffc.ui.orders.adapter.OrderAdapter
 import com.upclicks.ffc.ui.orders.adapter.OrderStatusSelectionAdapter
 import com.upclicks.ffc.ui.orders.model.Order
 import com.upclicks.ffc.ui.orders.model.OrderStatusModel
 import com.upclicks.ffc.ui.orders.viewmodel.OrderViewModel
+import www.sanju.motiontoast.MotionToast
 
-class MyOrdersActivity  : BaseActivity() {
+class MyOrdersActivity : BaseActivity() {
     lateinit var binding: ActivityMyOrdersBinding
 
     private var orderList = ArrayList<Order>()
-    private lateinit var orderAdapter : OrderAdapter
+    private lateinit var orderAdapter: OrderAdapter
 
     var orderStatusSelectionList = ArrayList<OrderStatusModel>()
-    lateinit var orderStatusSelectionAdapter : OrderStatusSelectionAdapter
+    lateinit var orderStatusSelectionAdapter: OrderStatusSelectionAdapter
 
     private val orderViewModel: OrderViewModel by viewModels()
 
@@ -60,7 +60,7 @@ class MyOrdersActivity  : BaseActivity() {
         setUpLoadOnScrollListener()
         binding.swipeRefresh.setOnRefreshListener {
             resetList()
-            orderViewModel.getMyOrders(orderStatus,skip, take)
+            orderViewModel.getMyOrders(orderStatus, skip, take)
         }
     }
 
@@ -69,9 +69,10 @@ class MyOrdersActivity  : BaseActivity() {
         orderList.clear()
         orderAdapter.notifyDataSetChanged()
     }
+
     private fun setUpObservers() {
-        orderViewModel.getMyOrders(orderStatus,skip, take)
-        orderViewModel.observeOrdersList.observe(this, Observer { orders->
+        orderViewModel.getMyOrders(orderStatus, skip, take)
+        orderViewModel.observeOrdersList.observe(this, Observer { orders ->
             binding.swipeRefresh.isRefreshing = false
             if (!orders.isNullOrEmpty()) {
                 binding.emptyProductsTv.visibility = View.GONE
@@ -98,7 +99,7 @@ class MyOrdersActivity  : BaseActivity() {
                         scrollY > oldScrollY
                     ) {
                         if (!stopScroll) {
-                            orderViewModel.getMyOrders(orderStatus,skip, take)
+                            orderViewModel.getMyOrders(orderStatus, skip, take)
                         }
                     }
                 }
@@ -122,23 +123,72 @@ class MyOrdersActivity  : BaseActivity() {
     }
 
     private fun setUpStatusUiList() {
-        orderStatusSelectionList.add(OrderStatusModel(OrderStatus.Requested.value,getString(R.string.requested)))
-        orderStatusSelectionList.add(OrderStatusModel(OrderStatus.Confirmed.value,getString(R.string.confirmed)))
-        orderStatusSelectionList.add(OrderStatusModel(OrderStatus.OnTheWay.value,getString(R.string.on_the_way)))
-        orderStatusSelectionList.add(OrderStatusModel(OrderStatus.Delivered.value,getString(R.string.delivered)))
-        orderStatusSelectionList.add(OrderStatusModel(OrderStatus.Returned.value,getString(R.string.returned)))
-        orderStatusSelectionList.add(OrderStatusModel(OrderStatus.Cancelled.value,getString(R.string.cancelled)))
-        orderStatusSelectionAdapter = OrderStatusSelectionAdapter(this,orderStatusSelectionList, onItemClicked = {orderStatusModel->
-            resetList()
-            orderStatus = orderStatusModel.orderStatus!!
-            orderViewModel.getMyOrders(orderStatusModel.orderStatus!!,skip, take)
-        })
+        orderStatusSelectionList.add(
+            OrderStatusModel(
+                OrderStatus.Requested.value,
+                getString(R.string.requested)
+            )
+        )
+        orderStatusSelectionList.add(
+            OrderStatusModel(
+                OrderStatus.Confirmed.value,
+                getString(R.string.confirmed)
+            )
+        )
+        orderStatusSelectionList.add(
+            OrderStatusModel(
+                OrderStatus.OnTheWay.value,
+                getString(R.string.on_the_way)
+            )
+        )
+        orderStatusSelectionList.add(
+            OrderStatusModel(
+                OrderStatus.Delivered.value,
+                getString(R.string.delivered)
+            )
+        )
+        orderStatusSelectionList.add(
+            OrderStatusModel(
+                OrderStatus.Returned.value,
+                getString(R.string.returned)
+            )
+        )
+        orderStatusSelectionList.add(
+            OrderStatusModel(
+                OrderStatus.Cancelled.value,
+                getString(R.string.cancelled)
+            )
+        )
+        orderStatusSelectionAdapter = OrderStatusSelectionAdapter(
+            this,
+            orderStatusSelectionList,
+            onItemClicked = { orderStatusModel ->
+                resetList()
+                orderStatus = orderStatusModel.orderStatus!!
+                orderViewModel.getMyOrders(orderStatusModel.orderStatus!!, skip, take)
+            })
         binding.statusRv.adapter = orderStatusSelectionAdapter
-        binding.statusRv.layoutManager = LinearLayoutManager(this,RecyclerView.HORIZONTAL,false)
+        binding.statusRv.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
     }
     private fun setUpOrdersUiList() {
-        orderAdapter = OrderAdapter(this,orderList, onItemClicked = {
-            startActivity(Intent(this, OrderDetailsActivity::class.java).putExtra(Keys.Intent_Constants.ORDER_ID,orderList[it].id))
+        orderAdapter = OrderAdapter(this, orderList, onCancelClicked = {
+            ConfirmDialog(
+                this,
+                getString(R.string.my_orders),
+                getString(R.string.cancel_this_order_are_you_sure),
+                onYesBtnClick = {
+                    orderViewModel.cancelOrder(orderList[it].id!!, onResult = {result->
+                        shoMsg(result,MotionToast.TOAST_SUCCESS)
+                    })
+                },
+                onNoBtnClick = {}).show()
+        }, onDetailsClicked = {
+            startActivity(
+                Intent(
+                    this,
+                    OrderDetailsActivity::class.java
+                ).putExtra(Keys.Intent_Constants.ORDER_ID, orderList[it].id)
+            )
         })
         binding.ordersRv.adapter = orderAdapter
         binding.ordersRv.layoutManager = LinearLayoutManager(this)

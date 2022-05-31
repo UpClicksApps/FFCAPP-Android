@@ -125,6 +125,7 @@ class SplashActivity : BaseActivity() {
                 } else {
                     if (verifySession.profile != null) {
                         sessionHelper.userProfile = verifySession.profile!!
+                        sessionHelper.saveCartCount(verifySession.profile!!.currentCartProductsCount)
                     }
                     verifyFinished.postValue(true)
                 }
