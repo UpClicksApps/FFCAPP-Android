@@ -14,8 +14,8 @@ import com.upclicks.ffc.ui.checkout.model.CheckoutResponse
 import com.upclicks.ffc.ui.checkout.viewmodel.CheckoutViewModel
 import com.upclicks.ffc.ui.main.MainActivity
 
-class Checkout3Activity: BaseActivity() {
-    lateinit var binding : ActivityCheckout3Binding
+class Checkout3Activity : BaseActivity() {
+    lateinit var binding: ActivityCheckout3Binding
 
     var checkoutRequest = CheckoutRequest()
     private val checkoutViewModel: CheckoutViewModel by viewModels()
@@ -33,9 +33,15 @@ class Checkout3Activity: BaseActivity() {
         setUpToolbar()
         setUpPageActions()
     }
+
     private fun setUpIntent() {
-        if (intent.getStringExtra(Keys.Intent_Constants.CHECKOUT)!= null)
-            checkoutRequest = Gson().fromJson(intent.getStringExtra(Keys.Intent_Constants.CHECKOUT),CheckoutRequest::class.java)
+        if (intent.getStringExtra(Keys.Intent_Constants.CHECKOUT) != null) {
+            checkoutRequest = Gson().fromJson(
+                intent.getStringExtra(Keys.Intent_Constants.CHECKOUT),
+                CheckoutRequest::class.java
+            )
+            checkoutRequest.checkoutOrder!!.paymentWay = 1
+        }
     }
 
     private fun setUpToolbar() {
@@ -47,31 +53,54 @@ class Checkout3Activity: BaseActivity() {
     }
 
     private fun setUpPageActions() {
-        checkoutRequest.checkoutOrder!!.paymentWay = 1
         binding.checkoutBtn.setOnClickListener {
             checkoutViewModel.checkout(checkoutRequest, onResult = { checkoutResponse ->
                 this.checkoutResponse = checkoutResponse     //Do online payment process
-                if (!checkoutResponse.onlinePaymenLink.isNullOrEmpty())
-                    startActivityForResult(
-                        Intent(this, OnlinePaymentActivity::class.java)
-                            .putExtra("url", checkoutResponse.onlinePaymenLink.toString() + "")
-                            .putExtra("callbackUrl", checkoutResponse.callbackUrl.toString() + "")
-                            .putExtra("sec", checkoutResponse.resultPageTimeoutInSec),
-                        PAYMENT_REQUEST
+//                if (!checkoutResponse.onlinePaymenLink.isNullOrEmpty())
+//                    startActivityForResult(
+//                        Intent(this, OnlinePaymentActivity::class.java)
+//                            .putExtra("url", checkoutResponse.onlinePaymenLink.toString() + "")
+//                            .putExtra("callbackUrl", checkoutResponse.callbackUrl.toString() + "")
+//                            .putExtra("sec", checkoutResponse.resultPageTimeoutInSec),
+//                        PAYMENT_REQUEST
+//                    )
+//                else
+                startActivity(
+                    Intent(
+                        this,
+                        CheckoutSuccessActivity::class.java
+                    ).putExtra(
+                        Keys.Intent_Constants.CHECKOUT_MESSAGE,
+                        checkoutResponse.resultMessage
                     )
-                else
-                    startActivity(
-                        Intent(
-                            this,
-                            CheckoutSuccessActivity::class.java
-                        ).putExtra(
-                            Keys.Intent_Constants.CHECKOUT_MESSAGE,
-                            checkoutResponse.resultMessage
-                        )
-                    )
+                )
+                finish()
             })
         }
+
+
+
+        binding.onlinePaymentLy.setOnClickListener {
+            binding.onlinePaymentRb.isChecked = true
+            binding.cashRb.isChecked = false
+            binding.fromWalletRb.isChecked = false
+            checkoutRequest.checkoutOrder!!.paymentWay = 1
+        }
+        binding.cashLy.setOnClickListener {
+            binding.onlinePaymentRb.isChecked = false
+            binding.cashRb.isChecked = true
+            binding.fromWalletRb.isChecked = false
+            checkoutRequest.checkoutOrder!!.paymentWay = 1
+        }
+        binding.fromWalletLy.setOnClickListener {
+            binding.onlinePaymentRb.isChecked = false
+            binding.cashRb.isChecked = false
+            binding.fromWalletRb.isChecked = true
+            checkoutRequest.checkoutOrder!!.paymentWay = 1
+        }
+
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PAYMENT_REQUEST) {

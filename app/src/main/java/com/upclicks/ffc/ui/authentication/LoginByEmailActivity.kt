@@ -42,7 +42,7 @@ class LoginByEmailActivity : BaseActivity() {
     // set up page listeners and callback
     private fun setUpPageActions() {
         binding.skip.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+//            startActivity(Intent(this, MainActivity::class.java))
         }
         binding.loginBtn.setOnClickListener {
             login()

@@ -22,7 +22,6 @@ class EmailInput(context: Context, attrs: AttributeSet?) : BaseInput(context, at
                 } else {
                     isValid = false
                     error = context.getString(R.string.not_valid)
-                    animation = shakeError()
                 }
             }
 

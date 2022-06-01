@@ -12,9 +12,11 @@ import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.ActivityProductsListBinding
 import com.upclicks.ffc.ui.cart.viewmodel.CartViewModel
 import com.upclicks.ffc.ui.products.adapter.ProductGridAdapter
+import com.upclicks.ffc.ui.products.dialog.FilterDialog
 import com.upclicks.ffc.ui.products.model.Product
 import com.upclicks.ffc.ui.products.model.ProductRequest
 import com.upclicks.ffc.ui.products.viewmodel.ProductViewModel
+import kotlinx.android.synthetic.main.fragment_home.*
 import www.sanju.motiontoast.MotionToast
 
 class ProductsListActivity : BaseActivity() {
@@ -30,18 +32,26 @@ class ProductsListActivity : BaseActivity() {
         initPage()
         return binding.root
     }
-
     private fun initPage() {
         setUpIntent()
         setUpToolbar()
+        setUpPAgeActions()
         setUpUiList()
         setUpObservers()
         binding.viewModel = productViewModel
         binding.lifecycleOwner = this
     }
+    private fun setUpPAgeActions() {
+        binding.filterBtn.setOnClickListener {
+            FilterDialog(this,productViewModel, onApplyBtnClicked = {category->
+                productRequest.categoryId = category.id
+                binding.toolbar.titleTv.text = category.name
+                productViewModel.getProducts(productRequest)
+            }).show()
+        }
+    }
     private fun setUpIntent() {
         if (intent.getStringExtra(Keys.Intent_Constants.CATEGORY_ID) != null) {
-            productRequest.categoryId = intent.getStringExtra(Keys.Intent_Constants.CATEGORY_ID)!!
             productRequest.categoryId = intent.getStringExtra(Keys.Intent_Constants.CATEGORY_ID)!!
         } else {
             shoMsg(getString(R.string.category_id_is_empty), MotionToast.TOAST_ERROR)

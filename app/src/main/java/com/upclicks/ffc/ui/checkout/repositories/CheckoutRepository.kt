@@ -8,6 +8,7 @@ import io.reactivex.rxjava3.core.Observable
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 import com.upclicks.ffc.data.remote.Result
+import com.upclicks.ffc.ui.checkout.model.DeliveryTimeResponse
 
 @ExperimentalCoroutinesApi
 class CheckoutRepository @Inject constructor(private val apiService: ApiService) {
@@ -21,6 +22,11 @@ class CheckoutRepository @Inject constructor(private val apiService: ApiService)
     //check payment online
     fun checkPaymentOnline(code: String) : Observable<Result<PaymentResponse>> {
         return apiService.checkPaymentOnline(code)
+    }
+
+    //check payment online
+    fun getAvailableDeliveryTimes() : Observable<Result<DeliveryTimeResponse>> {
+        return apiService.getAvailableDeliveryTimes()
     }
 
 }

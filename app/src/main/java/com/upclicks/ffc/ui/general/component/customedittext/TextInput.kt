@@ -28,7 +28,6 @@ class TextInput(context: Context, attrs: AttributeSet?) : BaseInput(context, att
         } else{
             isValid = false
             error = context.getString(R.string.required)
-            animation = shakeError()
         }
     }
 

@@ -12,6 +12,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 import com.upclicks.ffc.ui.checkout.repositories.CheckoutRepository
 import com.upclicks.ffc.data.remote.Result
+import com.upclicks.ffc.ui.checkout.model.DeliveryTimeResponse
 
 
 @ExperimentalCoroutinesApi
@@ -44,6 +45,19 @@ class CheckoutViewModel
             .subscribeOn(Schedulers.io())
             .subscribe(object : CustomRxObserver<Result<PaymentResponse>>(this@CheckoutViewModel) {
                 override fun onResponse(response: Result<PaymentResponse>) {
+                    isLoading.postValue(false)
+                    onResult(response?.result!!)
+                }
+            })
+    }
+    //check payment online
+    fun getAvailableDeliveryTimes(onResult: (DeliveryTimeResponse) -> Unit) {
+        isLoading.postValue(true)
+        checkoutRepository.getAvailableDeliveryTimes()
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe(object : CustomRxObserver<Result<DeliveryTimeResponse>>(this@CheckoutViewModel) {
+                override fun onResponse(response: Result<DeliveryTimeResponse>) {
                     isLoading.postValue(false)
                     onResult(response?.result!!)
                 }

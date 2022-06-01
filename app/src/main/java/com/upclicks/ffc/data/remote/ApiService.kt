@@ -14,16 +14,14 @@ import com.upclicks.ffc.ui.notification.data.model.Notification
 import com.upclicks.ffc.ui.authentication.model.request.ValidateResetPasswordCodeRequest
 import com.upclicks.ffc.ui.cart.model.CartActionResponse
 import com.upclicks.ffc.ui.cart.model.CartDetails
-import com.upclicks.ffc.ui.products.model.Product
-import com.upclicks.ffc.ui.products.model.ProductDetails
 import com.upclicks.ffc.ui.checkout.model.CheckoutRequest
 import com.upclicks.ffc.ui.checkout.model.CheckoutResponse
+import com.upclicks.ffc.ui.checkout.model.DeliveryTimeResponse
 import com.upclicks.ffc.ui.checkout.model.PaymentResponse
 import com.upclicks.ffc.ui.general.model.*
 import com.upclicks.ffc.ui.orders.OrderDetails
 import com.upclicks.ffc.ui.orders.model.Order
-import com.upclicks.ffc.ui.products.model.HomeProduct
-import com.upclicks.ffc.ui.products.model.ProductsResponse
+import com.upclicks.ffc.ui.products.model.*
 
 interface ApiService {
     @POST("TokenAuth/Authenticate")
@@ -201,8 +199,12 @@ interface ApiService {
 
     /////////////// checkout
 
+    //Get Available Delivery Times
+    @GET("services/app/DeliveryTime/GetAvailableDeliveryTimes")
+    fun getAvailableDeliveryTimes(): Observable<Result<DeliveryTimeResponse>>
+
     //make checkout
-    @POST("services/app/Order/Checkout")
+    @POST("services/app/Cart/Checkout")
     fun checkout(
         @Body() checkoutRequest: CheckoutRequest
     ): Observable<Result<CheckoutResponse>>
@@ -218,12 +220,6 @@ interface ApiService {
     fun reschedule(
         @Query("id") id: String,
         @Query("date") date: String
-    ): Observable<Result<String>>
-
-    //cancel Order
-    @POST("services/app/Order/Cancel")
-    fun cancel(
-        @Query("id") id: String
     ): Observable<Result<String>>
 
     //list your business

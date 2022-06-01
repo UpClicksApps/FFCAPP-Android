@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 import com.upclicks.ffc.ui.cart.model.Cart
 
 class CheckoutRequest {
-    @SerializedName("checkoutOrder")
+    @SerializedName("order")
     @Expose
     var checkoutOrder: CheckoutOrder? = null
     @SerializedName("orderProducts")

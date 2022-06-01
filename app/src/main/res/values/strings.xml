@@ -236,6 +236,10 @@
     <string name="flat_number">Flat number</string>
     <string name="delivery_fees">Delivery Fees</string>
     <string name="cancel_this_order_are_you_sure">Cancel this order, Are you sure?</string>
+    <string name="apply_filter">Apply Filter</string>
+    <string name="category_must_be_selected">Category must be selected</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="delivery_time_must_be_selected">Delivery time must be selected</string>
 
 
 </resources>

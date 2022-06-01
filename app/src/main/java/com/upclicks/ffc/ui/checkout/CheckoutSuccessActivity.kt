@@ -29,4 +29,8 @@ class CheckoutSuccessActivity : BaseActivity() {
         }
     }
 
+    override fun onBackPressed() {
+
+    }
+
 }

@@ -27,7 +27,7 @@ class ResetPasswordActivity : BaseActivity() {
 
     override fun getLayoutResourceId(): View {
         binding = ActivityResetPasswordBinding.inflate(layoutInflater)
-        setUpPageActions()
+        initPage()
         return binding.root
     }
 
@@ -81,6 +81,7 @@ class ResetPasswordActivity : BaseActivity() {
         var emailAddress = binding.emailInput.editText?.text.toString()
         if (TextUtils.isEmpty(emailAddress) || !Validator.isEmailValid(emailAddress)) {
             binding.emailInput.startAnimation(Validator.shakeError())
+            binding.emailInput.error = getString(R.string.required)
             return
         }
         accountViewModel.forgotPassword(emailAddress, onForgotPasswordRequested = {

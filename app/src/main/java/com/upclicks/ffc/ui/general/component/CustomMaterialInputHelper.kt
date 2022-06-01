@@ -29,6 +29,7 @@ class CustomMaterialInputHelper {
             inputsViews.forEach { inputView ->
                 if (!inputView!!.baseMaterialEditText.isValid) {
                     inputView!!.baseMaterialEditText.requestFocus()
+                    inputView!!.baseMaterialEditText.error = context.getString(R.string.required)
                     return false
                 }
             }

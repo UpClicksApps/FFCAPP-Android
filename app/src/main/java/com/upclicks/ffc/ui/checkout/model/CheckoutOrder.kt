@@ -64,6 +64,9 @@ open class CheckoutOrder {
     @SerializedName("house")
     @Expose
     var house: String? = null
+    @SerializedName("deliveryTime")
+    @Expose
+    var deliveryTime: String? = null
     @SerializedName("street")
     @Expose
     var street: String? = null

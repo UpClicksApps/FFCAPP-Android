@@ -28,6 +28,7 @@ class CustomInputHelper {
             inputsViews.forEach { inputView ->
                 if (!inputView!!.isValid) {
                     inputView!!.requestFocus()
+                    inputView!!.error = context.getString(R.string.required)
                     return false
                 }
             }

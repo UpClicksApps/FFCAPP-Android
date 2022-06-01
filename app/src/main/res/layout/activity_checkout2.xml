@@ -74,8 +74,7 @@
                     android:textSize="@dimen/_14sdp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:paddingVertical="@dimen/_5sdp"
-                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:text="@string/set_a_delivery_sate"/>
 
 
@@ -86,14 +85,14 @@
                     android:textSize="@dimen/_13sdp"
                     android:textColor="@color/primary"
                     android:textStyle="bold"
-                    android:paddingVertical="@dimen/_5sdp"
-                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:layout_marginVertical="@dimen/_5sdp"
                     android:text="@string/today"/>
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/todayRv"
-                    tools:itemCount="2"
+                    app:spanCount="3"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"              tools:itemCount="2"
                     tools:listitem="@layout/item_delivery_time"
                     />
                 <TextView
@@ -103,13 +102,17 @@
                     android:textSize="@dimen/_13sdp"
                     android:textColor="@color/primary"
                     android:textStyle="bold"
+                    android:id="@+id/tomorrowTv"
                     android:paddingVertical="@dimen/_5sdp"
                     android:layout_marginVertical="@dimen/_10sdp"
-                    android:text="Wednesday 3-30-2022"/>
+                    android:text="@string/tomorrow"/>
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:itemCount="4"
+                    android:layout_weight="1"
+                    app:spanCount="3"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     tools:listitem="@layout/item_delivery_time"
                     android:id="@+id/tomorrowRv"/>
 

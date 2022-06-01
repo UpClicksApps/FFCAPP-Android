@@ -107,7 +107,7 @@
                     android:textColor="@color/black"
                     android:text="@string/phone_number"
                     android:layout_marginTop="@dimen/_10sdp"/>
-                <com.upclicks.ffc.ui.general.component.customedittext.EmailInput
+                <com.upclicks.ffc.ui.general.component.customedittext.TextInput
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
                     android:background="@drawable/solid_rectangle_background_primary"
@@ -188,11 +188,12 @@
                             android:text="@string/delivery_fees"
                             android:textColor="@color/black" />
 
-                        <com.upclicks.ffc.ui.general.component.customedittext.TextInput
+                        <TextView
                             android:id="@+id/deliveryFeesInput"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_40sdp"
                             android:layout_margin="@dimen/_5sdp"
+                            android:gravity="center"
                             android:background="@drawable/solid_rectangle_background_primary"
                             android:backgroundTint="@color/white"
                             android:elevation="@dimen/_5sdp"

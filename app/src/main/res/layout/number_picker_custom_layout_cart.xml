@@ -31,14 +31,17 @@
         android:gravity="center"
         />
     <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
         android:id="@+id/increment"
-        android:layout_height="@dimen/_45sdp"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
         android:layout_weight="1"
-        style="@style/ButtonContainedSecondary"
-        android:text="@string/add_more"
-        android:textSize="@dimen/_12sdp"
+        android:backgroundTint="@color/white"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        app:icon="@drawable/ic_circle_plus"
+        app:iconGravity="textStart"
+        app:iconTint="@color/secondary"
+        app:iconSize="@dimen/_22sdp"
         />
-
+<!--    @string/add_more-->
 
 </LinearLayout>

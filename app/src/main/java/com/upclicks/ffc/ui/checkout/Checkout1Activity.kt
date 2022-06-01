@@ -88,12 +88,12 @@ class Checkout1Activity : BaseActivity() {
             checkoutRequest.checkoutOrder!!.address = binding.addressInput.text.toString()
             checkoutRequest.checkoutOrder!!.deliveryFees = deliveryFees
             checkoutRequest.checkoutOrder!!.cityId = binding.citySP.baseSelection.id
-//            startActivity(
-//                Intent(
-//                    this,
-//                    Checkout2Activity::class.java
-//                ).putExtra(Keys.Intent_Constants.CHECKOUT, Gson().toJson(checkoutRequest))
-//            )
+            startActivity(
+                Intent(
+                    this,
+                    Checkout2Activity::class.java
+                ).putExtra(Keys.Intent_Constants.CHECKOUT, Gson().toJson(checkoutRequest))
+            )
         }
     }
 
@@ -124,7 +124,6 @@ class Checkout1Activity : BaseActivity() {
         inputsList.add(binding.flatNumberInput)
         inputsList.add(binding.addressInput)
         inputsList.add(binding.houseNumberInput)
-        inputsList.add(binding.deliveryFeesInput)
         inputsList.add(binding.streetInput)
         return inputsList
     }
