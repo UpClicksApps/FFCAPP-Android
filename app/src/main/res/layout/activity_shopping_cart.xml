@@ -85,9 +85,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="@{cartDetails.subTotal ==null||cartDetails.subTotal ==0?View.GONE:View.VISIBLE}"
                 >
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -122,27 +120,6 @@
                     android:layout_height="wrap_content"
                     android:text='@{cartDetails.discountAmount +" "+ @string/currency_code}'
                     android:id="@+id/discountTv"
-                    android:textColor="@color/text_color_grey" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="@{cartDetails.tax ==null||cartDetails.tax ==0?View.GONE:View.VISIBLE}"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/tax"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_12sdp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text='@{cartDetails.tax +" "+ @string/currency_code}'
-                    android:id="@+id/taxTv"
                     android:textColor="@color/text_color_grey" />
             </LinearLayout>
             <LinearLayout

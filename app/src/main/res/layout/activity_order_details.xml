@@ -150,6 +150,7 @@
                     android:backgroundTint="@color/white"
                     android:elevation="@dimen/_5sdp"
                     android:padding="@dimen/_10sdp"
+                    android:visibility="@{orderDetails.couponCode == null||orderDetails.notes.empty?View.GONE:View.VISIBLE}"
                     android:layout_margin="@dimen/_5sdp"     >
                     <TextView
                         android:layout_width="wrap_content"
@@ -164,7 +165,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="Cash on Delivery"
+                        tools:text="awfasdaa"
                         notNullText="@{orderDetails.couponCode}"
                         android:layout_marginStart="@dimen/_8sdp"
                         android:textColor="@color/text_color_grey"/>
@@ -204,6 +205,7 @@
                     android:elevation="@dimen/_5sdp"
                     android:padding="@dimen/_10sdp"
                     android:layout_margin="@dimen/_5sdp"
+                    android:visibility="@{orderDetails.notes == null||orderDetails.notes.empty?View.GONE:View.VISIBLE}"
                     >
                     <TextView
                         android:layout_width="wrap_content"
@@ -232,198 +234,215 @@ and typesetting industry."
                     android:padding="@dimen/_10sdp"
                     android:layout_margin="@dimen/_5sdp"
                     >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/delivery_information"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/_14sdp"
-                        android:drawableStart="@drawable/ic_delivery_information"
-                        android:drawablePadding="@dimen/_5sdp"        />
-<!--                    <com.skydoves.expandablelayout.ExpandableLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        app:expandable_isExpanded="true"-->
-<!--                        android:id="@+id/deliveryInformationExpandable"-->
-<!--                        >-->
-                    <LinearLayout
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            app:tint="@color/black"
+                            android:padding="@dimen/_5sdp"
+                            android:src="@drawable/ic_arrow_down"
+                            android:layout_gravity="end"
+                            android:id="@+id/deliveryInformationArrowIv"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/delivery_information"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:id="@+id/deliveryInformationTV"
+                            android:textSize="@dimen/_14sdp"
+                            android:drawableStart="@drawable/ic_delivery_information"
+                            android:drawablePadding="@dimen/_5sdp"/>
+
+                    </FrameLayout>
+                    <net.cachapa.expandablelayout.ExpandableLayout
+                        android:id="@+id/deliveryInformationExpand"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        >
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            >
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/black"
-                                android:layout_weight="1"
-                                android:text="@string/name"
-                                android:textSize="@dimen/_11sdp"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                tools:text="User name"
-                                notNullText="@{orderDetails.memberName}"
-                                android:layout_marginStart="@dimen/_8sdp"
-                                android:textSize="@dimen/_10sdp"
-                                android:textColor="@color/text_color_grey"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            >
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/black"
-                                android:layout_weight="1"
-                                android:text="@string/e_mail"
-                                android:textSize="@dimen/_11sdp"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                tools:text="Info@gmail.com"
-                                notNullText="@{orderDetails.emailAddress}"
-                                android:layout_marginStart="@dimen/_8sdp"
-                                android:textSize="@dimen/_10sdp"
-                                android:textColor="@color/text_color_grey"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            >
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/black"
-                                android:layout_weight="1"
-                                android:text="@string/phone_number"
-                                android:textSize="@dimen/_11sdp"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                tools:text="+9651544 444"
-                                notNullText='@{""+orderDetails.phoneNumber}'
-                                android:layout_marginStart="@dimen/_8sdp"
-                                android:textSize="@dimen/_10sdp"
-                                android:textColor="@color/text_color_grey"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            >
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/black"
-                                android:layout_weight="1"
-                                android:text="@string/city"
-                                android:textSize="@dimen/_11sdp"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                tools:text="City name"
-                                notNullText="@{orderDetails.cityName}"
-                                android:layout_marginStart="@dimen/_8sdp"
-                                android:textSize="@dimen/_10sdp"
-                                android:textColor="@color/text_color_grey"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            >
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/black"
-                                android:layout_weight="1"
-                                android:text="@string/street"
-                                android:textSize="@dimen/_11sdp"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                tools:text="dummy text"
-                                notNullText="@{orderDetails.street}"
-                                android:layout_marginStart="@dimen/_8sdp"
-                                android:textSize="@dimen/_10sdp"
-                                android:textColor="@color/text_color_grey"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            >
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/black"
-                                android:layout_weight="1"
-                                android:text="@string/house_number"
-                                android:textSize="@dimen/_11sdp"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                tools:text="B144"
-                                notNullText="@{orderDetails.houseNumber}"
-                                android:layout_marginStart="@dimen/_8sdp"
-                                android:textSize="@dimen/_10sdp"
-                                android:textColor="@color/text_color_grey"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            >
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/black"
-                                android:layout_weight="1"
-                                android:text="@string/delivery_time"
-                                android:textSize="@dimen/_11sdp"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                tools:text="Oct 22/10/2021-2:30 PM"
-                                bindServerDate="@{orderDetails.deliveryTime}"
-                                android:layout_marginStart="@dimen/_8sdp"
-                                android:textSize="@dimen/_10sdp"
-                                android:textColor="@color/text_color_grey"/>
-                        </LinearLayout>
+                        app:el_duration="1000"
+                        app:el_expanded="false"
+                        app:el_parallax="0.5">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             >
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/black"
-                                android:layout_weight="1"
-                                android:text="@string/delivery_address"
-                                android:textSize="@dimen/_11sdp"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
+                                >
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/black"
+                                    android:layout_weight="1"
+                                    android:text="@string/name"
+                                    android:textSize="@dimen/_11sdp"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    tools:text="User name"
+                                    notNullText="@{orderDetails.memberName}"
+                                    android:layout_marginStart="@dimen/_8sdp"
+                                    android:textSize="@dimen/_10sdp"
+                                    android:textColor="@color/text_color_grey"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:inputType="textMultiLine"
-                                notNullText="@{orderDetails.address}"
-                                tools:text="Lorem Ipsum is simply dummy text of the printing
+                                >
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/black"
+                                    android:layout_weight="1"
+                                    android:text="@string/e_mail"
+                                    android:textSize="@dimen/_11sdp"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    tools:text="Info@gmail.com"
+                                    notNullText="@{orderDetails.emailAddress}"
+                                    android:layout_marginStart="@dimen/_8sdp"
+                                    android:textSize="@dimen/_10sdp"
+                                    android:textColor="@color/text_color_grey"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                >
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/black"
+                                    android:layout_weight="1"
+                                    android:text="@string/phone_number"
+                                    android:textSize="@dimen/_11sdp"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    tools:text="+9651544 444"
+                                    notNullText='@{""+orderDetails.phoneNumber}'
+                                    android:layout_marginStart="@dimen/_8sdp"
+                                    android:textSize="@dimen/_10sdp"
+                                    android:textColor="@color/text_color_grey"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                >
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/black"
+                                    android:layout_weight="1"
+                                    android:text="@string/city"
+                                    android:textSize="@dimen/_11sdp"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    tools:text="City name"
+                                    notNullText="@{orderDetails.cityName}"
+                                    android:layout_marginStart="@dimen/_8sdp"
+                                    android:textSize="@dimen/_10sdp"
+                                    android:textColor="@color/text_color_grey"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                >
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/black"
+                                    android:layout_weight="1"
+                                    android:text="@string/street"
+                                    android:textSize="@dimen/_11sdp"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    tools:text="dummy text"
+                                    notNullText="@{orderDetails.street}"
+                                    android:layout_marginStart="@dimen/_8sdp"
+                                    android:textSize="@dimen/_10sdp"
+                                    android:textColor="@color/text_color_grey"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                >
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/black"
+                                    android:layout_weight="1"
+                                    android:text="@string/house_number"
+                                    android:textSize="@dimen/_11sdp"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    tools:text="B144"
+                                    notNullText="@{orderDetails.houseNumber}"
+                                    android:layout_marginStart="@dimen/_8sdp"
+                                    android:textSize="@dimen/_10sdp"
+                                    android:textColor="@color/text_color_grey"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                >
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/black"
+                                    android:layout_weight="1"
+                                    android:text="@string/delivery_time"
+                                    android:textSize="@dimen/_11sdp"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    tools:text="Oct 22/10/2021-2:30 PM"
+                                    bindServerDate="@{orderDetails.deliveryTime}"
+                                    android:layout_marginStart="@dimen/_8sdp"
+                                    android:textSize="@dimen/_10sdp"
+                                    android:textColor="@color/text_color_grey"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                >
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/black"
+                                    android:layout_weight="1"
+                                    android:text="@string/delivery_address"
+                                    android:textSize="@dimen/_11sdp"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="textMultiLine"
+                                    notNullText="@{orderDetails.address}"
+                                    tools:text="Lorem Ipsum is simply dummy text of the printing
     and typesetting industry."
-                                android:textSize="@dimen/_10sdp"
-                                android:textColor="@color/text_color_grey"/>
+                                    android:textSize="@dimen/_10sdp"
+                                    android:textColor="@color/text_color_grey"/>
+                            </LinearLayout>
                         </LinearLayout>
-                    </LinearLayout>
-<!--                    </com.skydoves.expandablelayout.ExpandableLayout>-->
+
+                    </net.cachapa.expandablelayout.ExpandableLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -438,21 +457,17 @@ and typesetting industry."
                     android:layout_margin="@dimen/_5sdp"
                     >
 
-<!--                    <com.skydoves.expandablelayout.ExpandableLayout-->
-<!--                        android:id="@+id/productsExpandable"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginTop="30dp"-->
-<!--                        app:expandable_duration="300"-->
-<!--                        app:expandable_isExpanded="true">-->
-<!--                        app:expandable_parentLayout="@layout/item_wallet"-->
-<!--                        app:expandable_secondLayout="@layout/item_order"-->
-<!--                        app:expandable_showSpinner="true"-->
-<!--                        app:expandable_spinner="@drawable/ic_arrow_down"-->
-<!--                        app:expandable_spinner_animate="true"-->
-<!--                        app:expandable_spinner_gravity="start"-->
-<!--                        app:expandable_spinner_margin="14dp"-->
-<!--                        app:expandable_spinner_size="32dp"-->
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            app:tint="@color/black"
+                            android:src="@drawable/ic_arrow_down"
+                            android:padding="@dimen/_5sdp"
+                            android:layout_gravity="end"
+                            android:id="@+id/productsArrowIv"/>
                         <TextView
                             android:id="@+id/productsTv"
                             android:layout_width="match_parent"
@@ -464,6 +479,16 @@ and typesetting industry."
                             android:textSize="@dimen/_14sdp"
                             android:textStyle="bold" />
 
+                    </FrameLayout>
+
+                    <net.cachapa.expandablelayout.ExpandableLayout
+                        android:id="@+id/productsExpand"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:el_duration="1000"
+                        app:el_expanded="false"
+                        app:el_parallax="0.5">
+
                         <com.todkars.shimmer.ShimmerRecyclerView
                             android:id="@+id/productsRv"
                             android:layout_width="match_parent"
@@ -472,9 +497,8 @@ and typesetting industry."
                             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                             tools:itemCount="10"
                             tools:listitem="@layout/item_order_details_product" />
-<!--                    </com.skydoves.expandablelayout.ExpandableLayout>-->
+                    </net.cachapa.expandablelayout.ExpandableLayout>
                 </LinearLayout>
-
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

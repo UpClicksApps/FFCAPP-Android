@@ -78,7 +78,7 @@
                     android:textColor="@color/black"
                     android:text="@string/total"
                     android:textSize="@dimen/_12sdp"
-                    android:drawableStart="@drawable/ic_total_icon"
+                    android:drawableStart="@drawable/ic_total_order"
                     android:drawablePadding="@dimen/_5sdp"
                     />
                 <TextView

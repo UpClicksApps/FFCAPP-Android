@@ -1,26 +1,24 @@
 package com.upclicks.ffc.ui.main.fragments
 
 import android.content.Intent
-import android.util.Log
-import android.view.Gravity
+import android.text.TextUtils
 import android.view.View
-import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import com.adroitandroid.chipcloud.ChipListener
 import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseFragment
 import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.FragmentSearchBinding
-import com.upclicks.ffc.ui.cart.ShoppingCartActivity
 import com.upclicks.ffc.ui.cart.viewmodel.CartViewModel
 import com.upclicks.ffc.ui.products.ProductDetailsActivity
 import com.upclicks.ffc.ui.products.adapter.ProductGridAdapter
 import com.upclicks.ffc.ui.products.model.Product
 import com.upclicks.ffc.ui.products.model.ProductRequest
 import com.upclicks.ffc.ui.products.viewmodel.ProductViewModel
-import q.rorbin.badgeview.QBadgeView
 import www.sanju.motiontoast.MotionToast
+import java.util.*
 
 class SearchFragment : BaseFragment(R.layout.fragment_search) {
     lateinit var binding: FragmentSearchBinding
@@ -31,6 +29,7 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
     lateinit var productAdapter: ProductGridAdapter
     private val productViewModel: ProductViewModel by viewModels()
     private var productRequest = ProductRequest()
+    var lastSearchedList = ArrayList<String>()
 
     override fun setUpLayout() {
         binding = FragmentSearchBinding.bind(requireView())
@@ -41,8 +40,29 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
         setUpToolbar()
         setUpUiList()
         setUpObservers()
+        setUpHistory()
     }
-
+    private fun setUpHistory() {
+        if (!TextUtils.isEmpty(sessionHelper.lastSearched)) {
+            sessionHelper.lastSearched.split("!!!").forEach { chip->
+                binding.chipCloud.addChip(chip)
+            }
+            binding.historyLy.visibility = View.VISIBLE
+            binding.chipCloud.visibility = View.VISIBLE
+            lastSearchedList.clear()
+            lastSearchedList.addAll(sessionHelper.lastSearched.split("!!!"))
+        } else {
+            binding.historyLy.visibility = View.GONE
+            binding.chipCloud.visibility = View.GONE
+        }
+        binding.chipCloud.setChipListener(object : ChipListener {
+            override fun chipSelected(index: Int) {
+                lastSearchedList[index]
+            }
+            override fun chipDeselected(index: Int) {
+            }
+        })
+    }
     private fun setUpObservers() {
         productViewModel.getProducts(productRequest)
         productViewModel.observeProductList.observe(this, Observer { productResponse ->
@@ -52,7 +72,6 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
                 productAdapter.notifyDataSetChanged()
             }
         })
-
         cartViewModel.observeCartActionResponse.observe(this, Observer { cartActionResponse ->
             shoMsg(cartActionResponse.message!!, MotionToast.TOAST_SUCCESS)
             sessionHelper.saveCartCount(cartActionResponse.currentCartItemsCount)

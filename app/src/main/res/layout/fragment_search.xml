@@ -48,33 +48,37 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/history"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_13sdp"
-            android:textStyle="bold"
-            android:layout_marginHorizontal="@dimen/_8sdp"
-            />
-        <com.adroitandroid.chipcloud.ChipCloud
-            xmlns:chipcloud="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/chip_cloud"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            chipcloud:deselectedColor="@color/light_grey"
-            chipcloud:deselectedFontColor="@color/black"
-            chipcloud:selectedColor="@color/secondary"
-            chipcloud:selectedFontColor="@color/white"
-            chipcloud:deselectTransitionMS="500"
-            chipcloud:selectTransitionMS="750"
-            chipcloud:labels="@array/labels"
-            chipcloud:selectMode="single"
-            chipcloud:gravity="staggered"
-            chipcloud:minHorizontalSpacing="32dp"
-            chipcloud:textSize="14sp"
-            /> <!--path relative to assets folder-->
+            android:orientation="vertical"
+            android:id="@+id/historyLy"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:text="@string/history"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp"
+                android:textStyle="bold" />
+            <com.adroitandroid.chipcloud.ChipCloud xmlns:chipcloud="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/chip_cloud"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                chipcloud:deselectTransitionMS="500"
+                chipcloud:deselectedColor="@color/light_grey"
+                chipcloud:deselectedFontColor="@color/black"
+                chipcloud:gravity="staggered"
+                chipcloud:labels="@array/labels"
+                chipcloud:minHorizontalSpacing="32dp"
+                chipcloud:selectMode="single"
+                chipcloud:selectTransitionMS="750"
+                chipcloud:selectedColor="@color/secondary"
+                chipcloud:selectedFontColor="@color/white"
+                chipcloud:textSize="14sp" /> <!--path relative to assets folder-->
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"

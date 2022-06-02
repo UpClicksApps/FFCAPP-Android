@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.upclicks.ffc.commons.Keys
@@ -12,14 +11,13 @@ import com.upclicks.ffc.databinding.ItemHomeProductBinding
 import com.upclicks.ffc.ui.products.ProductDetailsActivity
 import com.upclicks.ffc.ui.products.model.HomeProduct
 import com.upclicks.ffc.ui.products.model.Product
-import www.sanju.motiontoast.MotionToast
 
 class HomeProductAdapter(
     val context: Context,
     private var productList: List<HomeProduct>,
     private val onFavoriteClicked: (Product) -> Unit,
     private val onCartClicked: (Product) -> Unit,
-    private val onItemClicked: (Int) -> Unit
+    private val onMoreClicked: (Int) -> Unit
 ) : RecyclerView.Adapter<HomeProductAdapter.ViewHolder>() {
 
     lateinit var productAdapter: ProductLinearAdapter
@@ -50,8 +48,8 @@ class HomeProductAdapter(
         })
         holder.binding.topSaleRv.adapter = productAdapter
         holder.binding.topSaleRv.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL,false)
-        holder.itemView.setOnClickListener {
-            onItemClicked(position)
+        holder.binding.moreTv.setOnClickListener {
+            onMoreClicked(position)
         }
     }
     override fun getItemCount(): Int {

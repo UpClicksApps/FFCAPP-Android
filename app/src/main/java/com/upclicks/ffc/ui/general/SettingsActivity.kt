@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import com.upclicks.ffc.R
 import com.upclicks.ffc.base.BaseActivity
+import com.upclicks.ffc.commons.Utils
 import com.upclicks.ffc.databinding.ActivityCheckoutSuccessBinding
 import com.upclicks.ffc.databinding.ActivitySettingsBinding
 import com.upclicks.ffc.ui.checkout.Checkout1Activity
@@ -42,6 +43,7 @@ class SettingsActivity : BaseActivity() {
         binding.aboutTv.setOnClickListener {
         }
         binding.shareTv.setOnClickListener {
+            Utils.shareAppLink(this)
         }
     }
 }

@@ -190,7 +190,14 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             }, onCartClicked = { product ->
                 cartViewModel.addProductToCart(product.id!!,product.currentPrice!!)
             },
-            onItemClicked = {
+            onMoreClicked = {
+                startActivity(
+                    Intent(
+                        requireContext(),
+                        ProductsListActivity::class.java
+                    ).putExtra(Keys.Intent_Constants.CATEGORY_NAME, categoriesList[it].name)
+                        .putExtra(Keys.Intent_Constants.CATEGORY_ID, categoriesList[it].id)
+                )
             })
         binding.homeCategoriesRv.adapter = homeProductAdapter
         binding.homeCategoriesRv.layoutManager = LinearLayoutManager(requireContext())

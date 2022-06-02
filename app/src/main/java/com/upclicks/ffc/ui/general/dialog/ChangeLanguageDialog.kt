@@ -1,7 +1,9 @@
 package com.upclicks.ffc.ui.general.dialog
 
+import android.app.Activity
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,11 +14,12 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.upclicks.ffc.databinding.DialogChangeLanguageBinding
 import com.upclicks.ffc.databinding.DialogConfirmBinding
 import com.upclicks.ffc.session.SessionHelper
+import com.upclicks.ffc.ui.main.SplashActivity
 
 class ChangeLanguageDialog(
     context: Context,
-    sessionHelper: SessionHelper
-) : Dialog(context) {
+    var sessionHelper: SessionHelper
+) : Dialog(context),SessionHelper.OnSessionUpdate{
 
     lateinit var binding: DialogChangeLanguageBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,13 +39,22 @@ class ChangeLanguageDialog(
         binding.arabicLy.setOnClickListener {
             binding.arabicIv.visibility = View.VISIBLE
             binding.englishIv.visibility = View.INVISIBLE
+            dismiss()
+            sessionHelper.setLanguageArabic(this)
         }
         binding.englishLy.setOnClickListener {
             binding.englishIv.visibility = View.VISIBLE
             binding.arabicIv.visibility = View.INVISIBLE
+            dismiss()
+            sessionHelper.setLanguageEnglish(this)
         }
         binding.closeIv.setOnClickListener {
             dismiss()
         }
+    }
+
+    override fun refreshActivity() {
+        (context as Activity).startActivity(Intent(context,SplashActivity::class.java))
+        (context as Activity).finishAffinity()
     }
 }

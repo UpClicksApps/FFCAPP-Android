@@ -26,6 +26,7 @@
             android:layout_gravity="center"
             android:textSize="@dimen/_12sdp"
             android:gravity="center"
+            android:id="@+id/timeTv"
             android:textColor="@color/black"
             bindTime="@{time}"
             tools:text="2:30 PM - 3:15 PM"/>

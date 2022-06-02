@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.text.TextUtils;
 
 import com.google.gson.Gson;
 import com.upclicks.ffc.ui.authentication.model.Session;
@@ -36,10 +37,12 @@ public class SessionHelper {
     private static final String AR = "ar";
     private static final String EN = "en";
     private static final String INTRO_LANGUAGE="intro_language";
+    private static final String LAST_SEARCHED = "lastSearched";
     SharedPreferences sharedPref;
     private static Session userSession;
     private static VerifySession.Profile profile;
     Context context;
+    private static String lastSearched;
 
     @Inject
     public SessionHelper(@ApplicationContext Context context) {
@@ -85,6 +88,21 @@ public class SessionHelper {
         return profile;
     }
 
+    //Save LastSearched
+    public  void saveLastSearched(String lastSearched) {
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString(LAST_SEARCHED,lastSearched);
+        editor.apply();
+        SessionHelper.lastSearched = lastSearched;
+    }
+
+    //Get LastSearcheds
+    public String getLastSearched() {
+        if (TextUtils.isEmpty(lastSearched)) {
+            lastSearched = sharedPref.getString(LAST_SEARCHED, "");
+        }
+        return lastSearched;
+    }
 
 
     //Save device id

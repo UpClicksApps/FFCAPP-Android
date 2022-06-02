@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.FragmentTransaction
 import com.upclicks.ffc.R
 import com.upclicks.ffc.rx.RxBus
@@ -29,8 +30,10 @@ abstract class BaseActivity : AppCompatActivity() {
     lateinit var baseURLConfigHelper: BaseURLConfigHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(getLayoutResourceId());
+        sessionHelper.configLanguage(this)
         sessionHelper.saveDeviceId(Utils.getDeviceId(this))
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        setContentView(getLayoutResourceId())
         //subscribe to events
         eventDisposable = RxBus.listen(EventsModel.MessageEvent::class.java)
             .subscribe() {

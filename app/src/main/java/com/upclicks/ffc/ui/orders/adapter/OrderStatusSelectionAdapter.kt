@@ -38,9 +38,10 @@ class OrderStatusSelectionAdapter(
             holder.binding.line.visibility = View.GONE
         }
         holder.itemView.setOnClickListener {
+            notifyItemChanged(position)
+            notifyItemChanged(lastSelectedItem)
             lastSelectedItem = position
             onItemClicked(statusList[position])
-            notifyDataSetChanged()
         }
     }
 

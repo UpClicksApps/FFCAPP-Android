@@ -31,7 +31,7 @@ class OrderAdapter(
             onDetailsClicked(position)
         }
         holder.binding.cancelBtn.setOnClickListener {
-            onDetailsClicked(position)
+            onCancelClicked(position)
         }
     }
 

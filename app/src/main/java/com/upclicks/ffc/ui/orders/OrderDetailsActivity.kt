@@ -44,8 +44,8 @@ class OrderDetailsActivity : BaseActivity() {
     private fun setUpIntent() {
         if (intent.getStringExtra(Keys.Intent_Constants.ORDER_ID) != null)
             orderId = intent.getStringExtra(Keys.Intent_Constants.ORDER_ID)!!
-        else{
-            shoMsg(getString(R.string.error_in_orderId),MotionToast.TOAST_ERROR)
+        else {
+            shoMsg(getString(R.string.error_in_orderId), MotionToast.TOAST_ERROR)
             finish()
         }
         if (!intent.getStringExtra(Keys.Intent_Constants.NOTIFY_ID).isNullOrEmpty())
@@ -53,7 +53,7 @@ class OrderDetailsActivity : BaseActivity() {
     }
 
     private fun setUpObserver() {
-        orderViewModel.getOrder(orderId,notifyId)
+        orderViewModel.getOrder(orderId, notifyId)
         orderViewModel.observeOrderDetails.observe(this, Observer { orderDetails ->
             binding.toolbar.titleTv.text = "#" + orderDetails.code
             binding.orderDetails = orderDetails
@@ -73,10 +73,24 @@ class OrderDetailsActivity : BaseActivity() {
     }
 
     private fun setUpPageActions() {
-//        binding.productsExpandable.setOnExpandListener { isExpand ->
-//            if (isExpand) {
-//            }
-//        }
+        binding.deliveryInformationTV.setOnClickListener {
+            if (binding.deliveryInformationExpand.isExpanded) {
+                binding.deliveryInformationExpand.collapse()
+                binding.deliveryInformationArrowIv.rotation = 0f
+            } else {
+                binding.deliveryInformationExpand.expand()
+                binding.deliveryInformationArrowIv.rotation = 180f
+            }
+        }
+        binding.productsTv.setOnClickListener {
+            if (binding.productsExpand.isExpanded) {
+                binding.productsExpand.collapse()
+                binding.productsArrowIv.rotation = 0f
+            } else {
+                binding.productsExpand.expand()
+                binding.productsArrowIv.rotation = 180f
+            }
+        }
     }
 
     private fun setUpUiList() {

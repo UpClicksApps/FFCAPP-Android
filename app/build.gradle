@@ -170,7 +170,7 @@ dependencies {
     //Progress spinner
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
 
-    //expandablelayout
-    implementation "com.github.skydoves:expandablelayout:1.0.7"
+    //ExpandableLayout
+    implementation 'com.github.cachapa:ExpandableLayout:2.9.2'
 
 }

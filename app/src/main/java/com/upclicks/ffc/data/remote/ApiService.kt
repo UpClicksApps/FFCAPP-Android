@@ -156,7 +156,7 @@ interface ApiService {
     //Get MyOrders
     @GET("services/app/Order/GetMyOrders")
     fun getMyOrders(
-        @Query("input") orderStatus: Int,
+        @Query("orderStatus") orderStatus: Int,
         @Query("skip") skip: Int,
         @Query("take") take: Int
     ): Observable<Result<List<Order>>>

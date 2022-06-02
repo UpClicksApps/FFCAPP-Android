@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.upclicks.ffc.R
 import com.upclicks.ffc.databinding.ItemDeliveryTimeBinding
 
 class DeliveryTimeAdapter(
@@ -32,6 +33,37 @@ class DeliveryTimeAdapter(
 //        holder.binding.overlayFrame.backgroundTintList = ColorStateList.valueOf(CustomColorHelper.generateRandomColor(context))
         holder.binding.time = timeList[position]
         holder.binding.radiobutton.isChecked = lastSelectedItem == position
+        if (lastSelectedItem == position) {
+            holder.binding.container.backgroundTintList =
+                ColorStateList.valueOf(
+                    context!!.resources.getColor(
+                        R.color.primary_light
+                    )
+                )
+            holder.binding.timeTv.setTextColor(
+                ColorStateList.valueOf(
+                    context!!.resources.getColor(
+                        R.color.primary
+                    )
+                )
+            )
+            holder.binding.radiobutton.isChecked = true
+        } else {
+            holder.binding.container.backgroundTintList =
+                ColorStateList.valueOf(
+                    context!!.resources.getColor(
+                        R.color.white
+                    )
+                )
+            holder.binding.timeTv.setTextColor(
+                ColorStateList.valueOf(
+                    context!!.resources.getColor(
+                        R.color.black
+                    )
+                )
+            )
+            holder.binding.radiobutton.isChecked = false
+        }
         holder.itemView.setOnClickListener {
             if (lastSelectedItem != position) {
                 notifyItemChanged(position)

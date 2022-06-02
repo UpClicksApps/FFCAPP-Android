@@ -75,7 +75,7 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:text="@string/set_a_delivery_sate"/>
+                    android:text="@string/set_a_delivery_date"/>
 
 
                 <TextView

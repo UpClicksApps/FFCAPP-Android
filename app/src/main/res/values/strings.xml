@@ -132,7 +132,7 @@
     <string name="passwordchanged">Password has been Changed</string>
     <string name="price_range">Price Range</string>
     <string name="rating">Rating</string>
-    <string name="min_order">Min CheckoutOrder</string>
+    <string name="min_order">Min Order</string>
     <string name="more">More</string>
     <string name="min">Min</string>
     <string name="choose_city">Choose City</string>
@@ -168,8 +168,8 @@
     <string name="next">Next</string>
     <string name="categories">Categories</string>
     <string name="sort">Sort</string>
-    <string name="order_number">CheckoutOrder number</string>
-    <string name="track_order">Track checkoutOrder</string>
+    <string name="order_number">Order number</string>
+    <string name="track_order">Track Order</string>
     <string name="explore_by_category">Explore by category</string>
     <string name="top_sale">Top sale</string>
     <string name="history">History</string>
@@ -196,12 +196,12 @@
     <string name="street">Street</string>
     <string name="house_number">House number</string>
     <string name="notes">Notes</string>
-    <string name="set_a_delivery_sate">Set a Delivery Sate</string>
+    <string name="set_a_delivery_date">Set a Delivery date</string>
     <string name="today">Today</string>
     <string name="online_payment">Online Payment</string>
     <string name="cash">Cash</string>
     <string name="from_wallet">From Wallet</string>
-    <string name="your_order_is_complete">Your CheckoutOrder is Complete</string>
+    <string name="your_order_is_complete">Your Order is Complete</string>
     <string name="continue_shopping">Continue Shopping</string>
     <string name="language">Language</string>
     <string name="contact_us">Contact Us</string>
@@ -214,7 +214,6 @@
     <string name="choose">Choose</string>
     <string name="camera">Camera</string>
     <string name="gallery">Gallery</string>
-    <string name="tax">Tax</string>
     <string name="ok">Ok</string>
     <string name="category_id_is_empty">Category id is empty</string>
     <string name="add_more">Add More</string>

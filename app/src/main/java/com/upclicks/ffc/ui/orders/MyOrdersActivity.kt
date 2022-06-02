@@ -55,7 +55,6 @@ class MyOrdersActivity : BaseActivity() {
         binding.viewModel = orderViewModel
         binding.lifecycleOwner = this
     }
-
     private fun setUpPageAction() {
         setUpLoadOnScrollListener()
         binding.swipeRefresh.setOnRefreshListener {
@@ -63,7 +62,6 @@ class MyOrdersActivity : BaseActivity() {
             orderViewModel.getMyOrders(orderStatus, skip, take)
         }
     }
-
     private fun resetList() {
         skip = 0
         orderList.clear()

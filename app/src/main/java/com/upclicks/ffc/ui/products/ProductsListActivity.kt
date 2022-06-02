@@ -32,69 +32,87 @@ class ProductsListActivity : BaseActivity() {
         initPage()
         return binding.root
     }
-    private fun initPage() {
-        setUpIntent()
-        setUpToolbar()
-        setUpPAgeActions()
-        setUpUiList()
-        setUpObservers()
-        binding.viewModel = productViewModel
-        binding.lifecycleOwner = this
-    }
-    private fun setUpPAgeActions() {
-        binding.filterBtn.setOnClickListener {
-            FilterDialog(this,productViewModel, onApplyBtnClicked = {category->
-                productRequest.categoryId = category.id
-                binding.toolbar.titleTv.text = category.name
-                productViewModel.getProducts(productRequest)
-            }).show()
+
+    override fun onStart() {
+        super.onStart()
+        if (intent.getStringExtra(Keys.Intent_Constants.CATEGORY_ID) != null)
+            productViewModel.getProducts(productRequest)
         }
-    }
-    private fun setUpIntent() {
-        if (intent.getStringExtra(Keys.Intent_Constants.CATEGORY_ID) != null) {
-            productRequest.categoryId = intent.getStringExtra(Keys.Intent_Constants.CATEGORY_ID)!!
-        } else {
-            shoMsg(getString(R.string.category_id_is_empty), MotionToast.TOAST_ERROR)
+        private fun initPage() {
+            setUpIntent()
+            setUpToolbar()
+            setUpPAgeActions()
+            setUpUiList()
+            setUpObservers()
+            binding.viewModel = productViewModel
+            binding.lifecycleOwner = this
         }
-    }
-    private fun setUpToolbar() {
-        binding.toolbar.titleTv.text = intent.getStringExtra(Keys.Intent_Constants.CATEGORY_NAME)
-        binding.toolbar.backIv.visibility = View.VISIBLE
-        binding.toolbar.backIv.setOnClickListener {
-            onBackPressed()
-        }
-    }
-    private fun setUpUiList() {
-        productAdapter = ProductGridAdapter(this, productsList,
-            onFavoriteClicked = {position->
-                productViewModel.assign(productsList[position].id!!, onAddToFavorite = {message->
+
+        private fun setUpPAgeActions() {
+            binding.filterBtn.setOnClickListener {
+                FilterDialog(this, productViewModel, onApplyBtnClicked = { category ->
+                    productRequest.categoryId = category.id
+                    binding.toolbar.titleTv.text = category.name
                     productViewModel.getProducts(productRequest)
-                    shoMsg(message,MotionToast.TOAST_SUCCESS)
-                })
-            }, onCartClicked = {
-                cartViewModel.addProductToCart(productsList[it].id!!,productsList[it].currentPrice!!)
-            }, onItemClicked = {
-                startActivity(
-                    Intent(
-                        this,
-                        ProductDetailsActivity::class.java
-                    ).putExtra(Keys.Intent_Constants.PRODUCT_ID, productsList[it].id)
-                )
-            })
-        binding.recycler.adapter = productAdapter
-        binding.recycler.layoutManager = GridLayoutManager(this, 2)
-    }
-    private fun setUpObservers() {
-        productViewModel.observeProductList.observe(this, Observer { productResponse ->
-            if (productResponse != null && !productResponse.products.isNullOrEmpty()) {
-                productsList.clear()
-                productsList.addAll(productResponse.products!!)
-                productAdapter.notifyDataSetChanged()
+                }).show()
             }
-        })
-        cartViewModel.observeCartActionResponse.observe(this, Observer { cartActionResponse ->
-            shoMsg(cartActionResponse.message!!, MotionToast.TOAST_SUCCESS)
-            sessionHelper.saveCartCount(cartActionResponse.currentCartItemsCount)
-        })
+        }
+
+        private fun setUpIntent() {
+            if (intent.getStringExtra(Keys.Intent_Constants.CATEGORY_ID) != null) {
+                productRequest.categoryId =
+                    intent.getStringExtra(Keys.Intent_Constants.CATEGORY_ID)!!
+            } else {
+                shoMsg(getString(R.string.category_id_is_empty), MotionToast.TOAST_ERROR)
+            }
+        }
+
+        private fun setUpToolbar() {
+            binding.toolbar.titleTv.text =
+                intent.getStringExtra(Keys.Intent_Constants.CATEGORY_NAME)
+            binding.toolbar.backIv.visibility = View.VISIBLE
+            binding.toolbar.backIv.setOnClickListener {
+                onBackPressed()
+            }
+        }
+
+        private fun setUpUiList() {
+            productAdapter = ProductGridAdapter(this, productsList,
+                onFavoriteClicked = { position ->
+                    productViewModel.assign(
+                        productsList[position].id!!,
+                        onAddToFavorite = { message ->
+                            productViewModel.getProducts(productRequest)
+                            shoMsg(message, MotionToast.TOAST_SUCCESS)
+                        })
+                }, onCartClicked = {
+                    cartViewModel.addProductToCart(
+                        productsList[it].id!!,
+                        productsList[it].currentPrice!!
+                    )
+                }, onItemClicked = {
+                    startActivity(
+                        Intent(
+                            this,
+                            ProductDetailsActivity::class.java
+                        ).putExtra(Keys.Intent_Constants.PRODUCT_ID, productsList[it].id)
+                    )
+                })
+            binding.recycler.adapter = productAdapter
+            binding.recycler.layoutManager = GridLayoutManager(this, 2)
+        }
+
+        private fun setUpObservers() {
+            productViewModel.observeProductList.observe(this, Observer { productResponse ->
+                if (productResponse != null && !productResponse.products.isNullOrEmpty()) {
+                    productsList.clear()
+                    productsList.addAll(productResponse.products!!)
+                    productAdapter.notifyDataSetChanged()
+                }
+            })
+            cartViewModel.observeCartActionResponse.observe(this, Observer { cartActionResponse ->
+                shoMsg(cartActionResponse.message!!, MotionToast.TOAST_SUCCESS)
+                sessionHelper.saveCartCount(cartActionResponse.currentCartItemsCount)
+            })
+        }
     }
-}
