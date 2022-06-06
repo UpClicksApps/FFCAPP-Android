@@ -2,7 +2,7 @@ package com.upclicks.ffc.ui.notification.data.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.upclicks.ffc.base.BaseViewModel
+import com.upclicks.ffc.architecture.BaseViewModel
 import com.upclicks.ffc.ui.notification.data.model.Notification
 import com.upclicks.ffc.ui.notification.data.repository.NotificationRepository
 import com.upclicks.ffc.rx.CustomRxObserver

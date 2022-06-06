@@ -7,17 +7,15 @@
         <import type="android.view.View"/>
         <variable
             name="orderDetails"
-            type="com.upclicks.ffc.ui.orders.OrderDetails" />
+            type="com.upclicks.ffc.ui.orders.model.OrderDetails" />
         <variable
             name="viewModel"
-            type="com.upclicks.ffc.base.BaseViewModel" />
+            type="com.upclicks.ffc.architecture.BaseViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-
 
 
     <include layout="@layout/loading_layout" app:viewModel="@{viewModel}" />

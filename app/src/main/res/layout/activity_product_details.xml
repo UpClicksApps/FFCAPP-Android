@@ -10,7 +10,7 @@
             type="com.upclicks.ffc.ui.products.model.ProductDetails" />
         <variable
             name="viewModel"
-            type="com.upclicks.ffc.base.BaseViewModel" />
+            type="com.upclicks.ffc.architecture.BaseViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

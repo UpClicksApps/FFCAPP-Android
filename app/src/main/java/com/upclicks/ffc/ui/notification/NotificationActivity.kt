@@ -8,7 +8,7 @@ import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.upclicks.ffc.R
-import com.upclicks.ffc.base.BaseActivity
+import com.upclicks.ffc.architecture.BaseActivity
 import com.upclicks.ffc.databinding.ActivityNotificationBinding
 import com.upclicks.ffc.ui.notification.adapter.NotificationAdapter
 import com.upclicks.ffc.ui.notification.data.model.Notification

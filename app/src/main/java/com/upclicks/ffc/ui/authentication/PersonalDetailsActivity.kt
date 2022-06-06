@@ -1,14 +1,11 @@
 package com.upclicks.ffc.ui.authentication
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import com.upclicks.ffc.R
-import com.upclicks.ffc.base.BaseActivity
-import com.upclicks.ffc.databinding.ActivityFavoriteBinding
+import com.upclicks.ffc.architecture.BaseActivity
 import com.upclicks.ffc.databinding.ActivityPersonalDetailsBinding
 import com.upclicks.ffc.helpers.CameraGalleryHelper
 import com.upclicks.ffc.ui.authentication.model.request.UpdateProfileRequest
@@ -16,12 +13,9 @@ import com.upclicks.ffc.ui.authentication.model.response.VerifySession
 import com.upclicks.ffc.ui.authentication.viewmodel.AccountViewModel
 import com.upclicks.ffc.ui.general.component.CustomInputHelper
 import com.upclicks.ffc.ui.general.component.customedittext.BaseInput
-import com.upclicks.ffc.ui.general.component.material.CustomMaterialInputLayout
 import com.upclicks.ffc.ui.general.component.spinner.BaseSelection
 import com.upclicks.ffc.ui.general.component.spinner.CustomSpinner
 import com.upclicks.ffc.ui.general.dialog.CameraGalleryDialog
-import com.upclicks.ffc.ui.products.adapter.FavoriteAdapter
-import com.upclicks.ffc.ui.products.model.Product
 import www.sanju.motiontoast.MotionToast
 
 class PersonalDetailsActivity : BaseActivity() {

@@ -6,7 +6,7 @@
     <data>
     <variable
         name="viewModel"
-        type="com.upclicks.ffc.base.BaseViewModel" />
+        type="com.upclicks.ffc.architecture.BaseViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

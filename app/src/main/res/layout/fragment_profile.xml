@@ -9,7 +9,7 @@
             type="com.upclicks.ffc.ui.authentication.model.response.VerifySession.Profile" />
         <variable
             name="viewModel"
-            type="com.upclicks.ffc.base.BaseViewModel" />
+            type="com.upclicks.ffc.architecture.BaseViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

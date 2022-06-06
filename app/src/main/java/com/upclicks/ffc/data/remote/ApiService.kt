@@ -19,7 +19,7 @@ import com.upclicks.ffc.ui.checkout.model.CheckoutResponse
 import com.upclicks.ffc.ui.checkout.model.DeliveryTimeResponse
 import com.upclicks.ffc.ui.checkout.model.PaymentResponse
 import com.upclicks.ffc.ui.general.model.*
-import com.upclicks.ffc.ui.orders.OrderDetails
+import com.upclicks.ffc.ui.orders.model.OrderDetails
 import com.upclicks.ffc.ui.orders.model.Order
 import com.upclicks.ffc.ui.products.model.*
 
@@ -37,6 +37,15 @@ interface ApiService {
         @Query("membershipIdentity") membershipIdentity: String,
         @Query("verificationCode") verificationCode: String
     ): Observable<Result<Boolean>>
+
+
+    //Get All Faq
+    @GET("services/app/FAQ/GetAll")
+    fun getAllFaq(
+        @Query("skip") skip: Int,
+        @Query("take") take: Int
+    ): Observable<Result<List<Faq>>>
+
 
     //Validate reset password code
     @POST("services/app/Account/ValidateResetPasswordCode")

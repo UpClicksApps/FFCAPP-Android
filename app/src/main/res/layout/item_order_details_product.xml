@@ -5,7 +5,7 @@
     <data>
         <variable
             name="product"
-            type="com.upclicks.ffc.ui.orders.OrderDetails.OrderDetailsProduct" />
+            type="com.upclicks.ffc.ui.orders.model.OrderDetails.OrderDetailsProduct" />
     </data>
 
     <LinearLayout

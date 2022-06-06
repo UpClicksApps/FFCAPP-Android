@@ -4,8 +4,7 @@ import android.content.Intent
 import android.view.View
 import androidx.activity.viewModels
 import com.google.gson.Gson
-import com.upclicks.ffc.R
-import com.upclicks.ffc.base.BaseActivity
+import com.upclicks.ffc.architecture.BaseActivity
 import com.upclicks.ffc.commons.Keys.Intent_Constants.MEMBER_REQUEST
 import com.upclicks.ffc.commons.Keys.Intent_Constants.MEMBER_RESPONSE
 import com.upclicks.ffc.databinding.ActivitySignUpFirstBinding

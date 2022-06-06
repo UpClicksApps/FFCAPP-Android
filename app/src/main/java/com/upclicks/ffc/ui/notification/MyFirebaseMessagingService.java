@@ -75,7 +75,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             Log.e(TAG, "title: " + title);
             Log.e(TAG, "message: " + body);
             Log.e(TAG, "entityId: " + entityId);
-            RxBus.INSTANCE.publish(new EventsModel.UnSeenNotificationsCountEvent(""));
 
             switch (type) {
                 case Keys.FcmNotificationsTypes.Public_Notification: {

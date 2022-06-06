@@ -7,7 +7,7 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.upclicks.ffc.R
-import com.upclicks.ffc.base.BaseActivity
+import com.upclicks.ffc.architecture.BaseActivity
 import com.upclicks.ffc.databinding.ActivityResetPasswordBinding
 import com.upclicks.ffc.ui.authentication.model.request.LoginRequest
 import com.upclicks.ffc.ui.authentication.model.request.ResetPasswordRequest

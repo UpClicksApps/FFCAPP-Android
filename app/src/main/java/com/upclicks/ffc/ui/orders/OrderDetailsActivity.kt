@@ -6,9 +6,10 @@ import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.upclicks.ffc.R
-import com.upclicks.ffc.base.BaseActivity
+import com.upclicks.ffc.architecture.BaseActivity
 import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.ActivityOrderDetailsBinding
+import com.upclicks.ffc.ui.orders.model.OrderDetails
 import com.upclicks.ffc.ui.orders.viewmodel.OrderViewModel
 import com.upclicks.ffc.ui.products.ProductDetailsActivity
 import com.upclicks.ffc.ui.products.adapter.OrderDetailsProductAdapter

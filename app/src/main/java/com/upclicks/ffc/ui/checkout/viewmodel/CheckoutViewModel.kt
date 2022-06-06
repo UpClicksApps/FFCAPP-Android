@@ -1,6 +1,6 @@
 package com.upclicks.ffc.ui.checkout.viewmodel
 
-import com.upclicks.ffc.base.BaseViewModel
+import com.upclicks.ffc.architecture.BaseViewModel
 import com.upclicks.ffc.rx.CustomRxObserver
 import com.upclicks.ffc.ui.checkout.model.CheckoutRequest
 import com.upclicks.ffc.ui.checkout.model.CheckoutResponse

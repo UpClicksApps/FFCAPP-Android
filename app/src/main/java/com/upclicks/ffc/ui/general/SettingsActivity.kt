@@ -1,15 +1,11 @@
 package com.upclicks.ffc.ui.general
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.View
 import com.upclicks.ffc.R
-import com.upclicks.ffc.base.BaseActivity
+import com.upclicks.ffc.architecture.BaseActivity
 import com.upclicks.ffc.commons.Utils
-import com.upclicks.ffc.databinding.ActivityCheckoutSuccessBinding
 import com.upclicks.ffc.databinding.ActivitySettingsBinding
-import com.upclicks.ffc.ui.checkout.Checkout1Activity
 import com.upclicks.ffc.ui.general.dialog.ChangeLanguageDialog
 
 class SettingsActivity : BaseActivity() {
@@ -36,11 +32,15 @@ class SettingsActivity : BaseActivity() {
 
     private fun setUpPageActions() {
         binding.languageTv.setOnClickListener {
-            ChangeLanguageDialog(this,sessionHelper).show()
+            ChangeLanguageDialog(this, sessionHelper).show()
         }
         binding.contactTv.setOnClickListener {
+
         }
         binding.aboutTv.setOnClickListener {
+        }
+        binding.helpTv.setOnClickListener {
+            startActivity(Intent(this, HelpActivity::class.java))
         }
         binding.shareTv.setOnClickListener {
             Utils.shareAppLink(this)

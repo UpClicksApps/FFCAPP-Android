@@ -9,7 +9,7 @@
             type="com.upclicks.ffc.ui.authentication.model.response.VerifySession.Profile" />
         <variable
             name="viewModel"
-            type="com.upclicks.ffc.base.BaseViewModel" />
+            type="com.upclicks.ffc.architecture.BaseViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -47,14 +47,12 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         >
 
-                    <de.hdodenhof.circleimageview.CircleImageView
+                    <com.mikhaellopez.circularimageview.CircularImageView
                         android:layout_width="@dimen/_60sdp"
                         android:layout_height="@dimen/_60sdp"
-                        android:src="@drawable/user_placeholder"
-                        android:background="@drawable/solid_circle"
-                        android:backgroundTint="@color/primary"
-                        android:padding="@dimen/_1sdp"
                         imageBinding="@{profile.avatarPath}"
+                        app:civ_border_width="@dimen/_1sdp"
+                        app:civ_border_color="@color/primary"
                         android:id="@+id/imageProfile"
                         />
                         <ImageView

@@ -8,7 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.adroitandroid.chipcloud.ChipListener
 import com.upclicks.ffc.R
-import com.upclicks.ffc.base.BaseFragment
+import com.upclicks.ffc.architecture.BaseFragment
 import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.FragmentSearchBinding
 import com.upclicks.ffc.ui.cart.viewmodel.CartViewModel

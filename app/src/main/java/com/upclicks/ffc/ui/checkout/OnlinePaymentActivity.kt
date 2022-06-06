@@ -2,7 +2,7 @@ package com.upclicks.ffc.ui.checkout
 
 import android.view.View
 import android.webkit.WebSettings
-import com.upclicks.ffc.base.BaseActivity
+import com.upclicks.ffc.architecture.BaseActivity
 import com.upclicks.ffc.databinding.ActivityOnlinePaymentBinding
 import com.upclicks.ffc.ui.checkout.helper.ClientWebView
 

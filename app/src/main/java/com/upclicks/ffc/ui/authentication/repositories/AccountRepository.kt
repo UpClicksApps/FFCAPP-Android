@@ -3,16 +3,13 @@ package com.upclicks.ffc.ui.authentication.repositories
 import com.upclicks.ffc.data.remote.ApiService
 import com.upclicks.ffc.ui.authentication.model.response.*
 import com.upclicks.ffc.ui.authentication.model.Session
-import com.upclicks.ffc.ui.general.model.City
-import com.upclicks.ffc.ui.general.model.Country
 import io.reactivex.rxjava3.core.Observable
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import okhttp3.MultipartBody
 import javax.inject.Inject
 import com.upclicks.ffc.ui.authentication.model.request.*
-import com.upclicks.ffc.ui.general.model.FeedbackRequest
 import com.upclicks.ffc.data.remote.Result
-import com.upclicks.ffc.ui.general.model.Governorate
+import com.upclicks.ffc.ui.general.model.*
 
 @ExperimentalCoroutinesApi
 class AccountRepository @Inject constructor(private val apiService: ApiService) {
@@ -31,6 +28,11 @@ class AccountRepository @Inject constructor(private val apiService: ApiService) 
     //Get Governorates
     fun getGovernorates() : Observable<Result<List<Governorate>>> {
         return apiService.getGovernorates()
+    }
+
+    //Get All Faq
+    fun getAllFaq( skip: Int, take: Int) : Observable<Result<List<Faq>>> {
+        return apiService.getAllFaq(skip,take)
     }
 
 

@@ -87,6 +87,22 @@
                         android:layout_height="@dimen/_1sdp"
                         android:background="@color/line_color_grey"
                         />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help"
+                        android:drawableEnd="@drawable/ic_arrow_right"
+                        android:drawableStart="@drawable/ic_settings_about_us"
+                        android:drawablePadding="@dimen/_8sdp"
+                        android:gravity="start|center"
+                        android:id="@+id/helpTv"
+                        android:paddingVertical="@dimen/_8sdp"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/line_color_grey"
+                        />
 
                     <TextView
                         android:layout_width="match_parent"

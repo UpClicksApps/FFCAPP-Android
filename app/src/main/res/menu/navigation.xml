@@ -6,23 +6,33 @@
         android:icon="@drawable/ic_home"
         android:title="@string/home"
         android:checked="true"
-        android:color="@color/primary"
+        android:color="@color/primary_light"
+        app:cnb_backgroundColor="@color/primary_light"
+        app:cnb_iconColor="@color/primary"
+        app:cnb_textColor="@color/primary"
         />
     <item
         android:id="@+id/categories_nav"
         android:icon="@drawable/ic_categories"
         android:title="@string/categories"
-        android:color="@color/primary"
-        />
+        android:color="@color/primary_light"
+        app:cnb_backgroundColor="@color/primary_light"
+        app:cnb_iconColor="@color/primary"
+        app:cnb_textColor="@color/primary"       />
     <item
         android:id="@+id/search_nav"
         android:icon="@drawable/ic_search"
-        android:color="@color/primary"
-        android:title="@string/search" />
-
+        android:color="@color/primary_light"
+        android:title="@string/search"
+        app:cnb_backgroundColor="@color/primary_light"
+        app:cnb_iconColor="@color/primary"
+        app:cnb_textColor="@color/primary" />
     <item
         android:id="@+id/profile_nav"
         android:icon="@drawable/ic_nav_user"
-        android:color="@color/primary"
-        android:title="@string/profile" />
+        android:color="@color/primary_light"
+        android:title="@string/profile"
+        app:cnb_backgroundColor="@color/primary_light"
+        app:cnb_iconColor="@color/primary"
+        app:cnb_textColor="@color/primary" />
 </menu>

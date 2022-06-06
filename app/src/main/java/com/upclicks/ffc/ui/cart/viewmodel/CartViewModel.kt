@@ -2,7 +2,7 @@ package com.upclicks.ffc.ui.cart.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.upclicks.ffc.base.BaseViewModel
+import com.upclicks.ffc.architecture.BaseViewModel
 import com.upclicks.ffc.rx.CustomRxObserver
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -12,10 +12,6 @@ import com.upclicks.ffc.data.remote.Result
 import com.upclicks.ffc.ui.cart.model.CartActionResponse
 import com.upclicks.ffc.ui.cart.model.CartDetails
 import com.upclicks.ffc.ui.cart.repositories.CartRepository
-import com.upclicks.ffc.ui.general.model.Category
-import com.upclicks.ffc.ui.products.model.Product
-import com.upclicks.ffc.ui.products.model.ProductDetails
-import com.upclicks.ffc.ui.products.repositories.ProductRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 
 @ExperimentalCoroutinesApi

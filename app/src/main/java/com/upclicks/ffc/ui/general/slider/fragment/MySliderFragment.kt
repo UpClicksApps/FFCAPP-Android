@@ -5,7 +5,7 @@ import com.squareup.picasso.Picasso
 import com.upclicks.ffc.R
 import com.upclicks.ffc.databinding.FragmentMySliderBinding
 import com.upclicks.ffc.commons.Utils.Companion.openUrl
-import com.upclicks.ffc.base.BaseFragment
+import com.upclicks.ffc.architecture.BaseFragment
 
 class MySliderFragment : BaseFragment(R.layout.fragment_my_slider) {
 

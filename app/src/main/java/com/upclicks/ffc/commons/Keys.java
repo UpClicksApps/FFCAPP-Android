@@ -84,6 +84,14 @@ public class Keys {
         final public static int PROFILE = 5;
     }
 
+    public static class NavigationBottom {
+        public static final int HOME = 0;
+        public static final int CATEGORIES = 1;
+        public static final int SEARCH = 2;
+        public static final int PROFILE = 3 ;
+    }
+
+
 
     public static class FcmNotificationsTypes {
         public final static String OrderRequested = "10";

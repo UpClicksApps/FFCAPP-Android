@@ -5,9 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.upclicks.ffc.databinding.ItemOrderDetailsProductBinding
-import com.upclicks.ffc.databinding.ItemProductForLinearBinding
-import com.upclicks.ffc.ui.orders.OrderDetails
-import com.upclicks.ffc.ui.products.model.Product
+import com.upclicks.ffc.ui.orders.model.OrderDetails
 
 class OrderDetailsProductAdapter(
     val context: Context,

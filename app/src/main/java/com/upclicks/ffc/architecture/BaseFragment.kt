@@ -1,4 +1,4 @@
-package com.upclicks.ffc.base
+package com.upclicks.ffc.architecture
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

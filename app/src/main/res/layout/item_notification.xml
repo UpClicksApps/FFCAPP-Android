@@ -22,13 +22,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             >
-            <de.hdodenhof.circleimageview.CircleImageView
+            <com.mikhaellopez.circularimageview.CircularImageView
                 android:layout_width="@dimen/_40sdp"
+                imageBinding="@{notification.notificationImage}"
                 android:layout_height="@dimen/_40sdp"
-                android:tint="@color/white"
                 android:src="@drawable/user_placeholder"
+                android:tint="@color/white"
                 />
-            <!--        imageBinding="@{notification.notificationImage}"-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -48,9 +48,9 @@
                         android:textSize="@dimen/_12sdp"
                         android:textStyle="bold"
                         android:layout_weight="1"
+                        bindServerDate="@{notification.creationTime}"
                         android:textColor="@color/black"
-                        android:text="@string/user_name" />
-                    <!--                    bindServerDate="@{notification.creationTime}"-->
+                        tools:text="@string/user_name" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -59,21 +59,19 @@
                         android:id="@+id/timeAgoTv"
                         android:textColor="@color/text_color_grey"
                         android:text="10 minutes ago" />
-                    <!--                    bindServerDate="@{notification.creationTime}"-->
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingMultiplier=".8"
-                    android:text="Lorem Ipsum is simply dummy text of the printing and
+                    tools:text="Lorem Ipsum is simply dummy text of the printing and
 typesetting industry"
+                    notNullHtmlText="@{notification.content}"
                     android:textAlignment="viewStart"
                     android:textColor="@color/text_color_grey"
                     android:textSize="@dimen/_10sdp"
                     />
-                <!--                    notNullHtmlText="@{notification.content}"-->
-
             </LinearLayout>
 
             <ImageView

@@ -1,16 +1,13 @@
-package com.upclicks.ffc.base
+package com.upclicks.ffc.architecture
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
-import androidx.annotation.LayoutRes
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.upclicks.ffc.R
 import com.upclicks.ffc.session.SessionHelper
-import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 

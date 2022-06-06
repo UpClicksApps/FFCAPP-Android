@@ -85,7 +85,7 @@ dependencies {
     // CameraView
     implementation 'com.otaliastudios:cameraview:2.6.4'
     // CircleImageView
-    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.mikhaellopez:circularimageview:4.3.0'
     // ExoPlayer
     implementation 'com.google.android.exoplayer:exoplayer:2.13.3'
     // Firebase
@@ -172,5 +172,8 @@ dependencies {
 
     //ExpandableLayout
     implementation 'com.github.cachapa:ExpandableLayout:2.9.2'
+
+    // navigation bottom
+    implementation 'com.github.ismaeldivita:chip-navigation-bar:1.3.0'
 
 }

@@ -1,20 +1,15 @@
 package com.upclicks.ffc.ui.products
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.core.widget.NestedScrollView
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.upclicks.ffc.R
-import com.upclicks.ffc.base.BaseActivity
+import com.upclicks.ffc.architecture.BaseActivity
 import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.ActivityFavoriteBinding
-import com.upclicks.ffc.databinding.ActivityProductsListBinding
 import com.upclicks.ffc.ui.cart.viewmodel.CartViewModel
 import com.upclicks.ffc.ui.products.adapter.FavoriteAdapter
 import com.upclicks.ffc.ui.products.adapter.ProductGridAdapter

@@ -1,13 +1,12 @@
 package com.upclicks.ffc.ui.products
 
 import android.content.Intent
-import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.upclicks.ffc.R
-import com.upclicks.ffc.base.BaseActivity
+import com.upclicks.ffc.architecture.BaseActivity
 import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.ActivityProductsListBinding
 import com.upclicks.ffc.ui.cart.viewmodel.CartViewModel
@@ -16,7 +15,6 @@ import com.upclicks.ffc.ui.products.dialog.FilterDialog
 import com.upclicks.ffc.ui.products.model.Product
 import com.upclicks.ffc.ui.products.model.ProductRequest
 import com.upclicks.ffc.ui.products.viewmodel.ProductViewModel
-import kotlinx.android.synthetic.main.fragment_home.*
 import www.sanju.motiontoast.MotionToast
 
 class ProductsListActivity : BaseActivity() {

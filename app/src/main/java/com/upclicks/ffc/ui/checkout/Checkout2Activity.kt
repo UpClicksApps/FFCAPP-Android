@@ -4,18 +4,14 @@ import android.content.Intent
 import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.upclicks.ffc.R
-import com.upclicks.ffc.base.BaseActivity
+import com.upclicks.ffc.architecture.BaseActivity
 import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.ActivityCheckout2Binding
 import com.upclicks.ffc.ui.checkout.adapter.DeliveryTimeAdapter
 import com.upclicks.ffc.ui.checkout.model.CheckoutRequest
 import com.upclicks.ffc.ui.checkout.viewmodel.CheckoutViewModel
-import com.upclicks.ffc.ui.general.dialog.ConfirmDialog
-import com.upclicks.ffc.ui.orders.OrderDetailsActivity
-import com.upclicks.ffc.ui.orders.adapter.OrderAdapter
 import www.sanju.motiontoast.MotionToast
 
 class Checkout2Activity : BaseActivity() {

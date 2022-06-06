@@ -5,7 +5,7 @@ import android.text.TextUtils
 import android.view.View
 import androidx.activity.viewModels
 import com.upclicks.ffc.R
-import com.upclicks.ffc.base.BaseActivity
+import com.upclicks.ffc.architecture.BaseActivity
 import com.upclicks.ffc.databinding.ActivityChangePasswordBinding
 import com.upclicks.ffc.ui.authentication.model.request.ChangePasswordRequest
 import com.upclicks.ffc.ui.general.component.Validator

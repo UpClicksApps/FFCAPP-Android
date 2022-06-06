@@ -2,7 +2,7 @@ package com.upclicks.ffc.ui.authentication.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.upclicks.ffc.base.BaseViewModel
+import com.upclicks.ffc.architecture.BaseViewModel
 import com.upclicks.ffc.ui.authentication.model.response.*
 import com.upclicks.ffc.rx.CustomRxObserver
 import com.upclicks.ffc.ui.authentication.model.Session
@@ -13,11 +13,8 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import okhttp3.MultipartBody
 import javax.inject.Inject
 import com.upclicks.ffc.ui.authentication.model.request.*
-import com.upclicks.ffc.ui.general.model.City
-import com.upclicks.ffc.ui.general.model.Country
-import com.upclicks.ffc.ui.general.model.FeedbackRequest
 import com.upclicks.ffc.data.remote.Result
-import com.upclicks.ffc.ui.general.model.Governorate
+import com.upclicks.ffc.ui.general.model.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 
 
@@ -29,11 +26,15 @@ class AccountViewModel
 ) : BaseViewModel() {
     private val _authResponse: MutableLiveData<Session> = MutableLiveData()
     private val _verifySessionResponse: MutableLiveData<VerifySession> = MutableLiveData()
+    private val _faqResponse: MutableLiveData<List<Faq>> = MutableLiveData()
 
     val authResponse: LiveData<Session>
         get() = _authResponse
     val observeVerifySession: LiveData<VerifySession>
         get() = _verifySessionResponse
+
+    val observeFaqResponse: LiveData<List<Faq>>
+        get() = _faqResponse
 
     fun auth(loginRequest : LoginRequest) {
         loginRequest.rememberClient = true
@@ -80,6 +81,18 @@ class AccountViewModel
             .subscribe(object : CustomRxObserver<Result<List<Governorate>>>(this@AccountViewModel) {
                 override fun onResponse(response: Result<List<Governorate>>) {
                     onGetGovernorates(response?.result!!)
+                }
+            })
+    }
+
+    //Get Countries
+    fun getAllFaq( skip: Int, take: Int) {
+        accountRepository.getAllFaq(skip,take)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe(object : CustomRxObserver<Result<List<Faq>>>(this@AccountViewModel) {
+                override fun onResponse(response: Result<List<Faq>>) {
+                    _faqResponse.postValue(response?.result!!)
                 }
             })
     }

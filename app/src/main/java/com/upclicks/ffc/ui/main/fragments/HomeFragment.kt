@@ -4,13 +4,12 @@ import android.content.Intent
 import android.util.Log
 import android.view.Gravity
 import android.view.View
-import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.upclicks.ffc.R
-import com.upclicks.ffc.base.BaseFragment
+import com.upclicks.ffc.architecture.BaseFragment
 import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.FragmentHomeBinding
 import com.upclicks.ffc.helpers.CustomRecyclerViewHelper

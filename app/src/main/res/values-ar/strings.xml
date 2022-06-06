@@ -238,5 +238,8 @@
     <string name="category_must_be_selected">يجب اختيار القسم</string>
     <string name="tomorrow">غداً</string>
     <string name="delivery_time_must_be_selected">يجب اخيار موعد التوصيل</string>
+    <string name="help">Help</string>
+    <string name="how_can">How can</string>
+    <string name="we_help_you">we help you ?</string>
 
 </resources>

@@ -3,7 +3,7 @@ package com.upclicks.ffc.ui.main.fragments
 import android.content.Intent
 import androidx.fragment.app.viewModels
 import com.upclicks.ffc.R
-import com.upclicks.ffc.base.BaseFragment
+import com.upclicks.ffc.architecture.BaseFragment
 import com.upclicks.ffc.databinding.FragmentProfileBinding
 import com.upclicks.ffc.ui.authentication.PersonalDetailsActivity
 import com.upclicks.ffc.ui.authentication.viewmodel.AccountViewModel

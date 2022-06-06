@@ -2,7 +2,7 @@ package com.upclicks.ffc.ui.products.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.upclicks.ffc.base.BaseViewModel
+import com.upclicks.ffc.architecture.BaseViewModel
 import com.upclicks.ffc.rx.CustomRxObserver
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers

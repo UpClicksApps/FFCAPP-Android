@@ -2,7 +2,7 @@ package com.upclicks.ffc.ui.general.language
 
 import android.view.View
 import com.upclicks.ffc.R
-import com.upclicks.ffc.base.BaseActivity
+import com.upclicks.ffc.architecture.BaseActivity
 import com.upclicks.ffc.databinding.ActivityChangeLanguageBinding
 import com.upclicks.ffc.session.SessionHelper
 

@@ -1,10 +1,7 @@
-package com.upclicks.ffc.base
+package com.upclicks.ffc.architecture
 
 import android.app.Application
-import com.upclicks.ffc.commons.Keys
-import com.upclicks.ffc.data.BaseURLConfigHelper
 import dagger.hilt.android.HiltAndroidApp
-import javax.inject.Inject
 
 @HiltAndroidApp
 class BaseApp:Application(){

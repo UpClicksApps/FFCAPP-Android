@@ -4,16 +4,19 @@
     package="com.upclicks.ffc">
 
     <application
-        android:name=".base.BaseApp"
+        android:name=".architecture.BaseApp"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:allowBackup="false"
-        android:supportsRtl="true"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
         android:theme="@style/Theme.Main"
         android:windowSoftInputMode="adjustResize|stateHidden"
         tools:replace="android:allowBackup">
-    <activity
+        <activity
+            android:name=".ui.general.HelpActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.general.SettingsActivity"
             android:exported="false" />
         <activity
@@ -30,7 +33,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.orders.OrderDetailsActivity"
-            android:exported="false" >
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.upclicks.ffc.orderDetails" />
 
@@ -40,6 +43,7 @@
         <activity android:name=".ui.main.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -84,6 +88,7 @@
         <activity
             android:name=".ui.notification.NotificationActivity"
             android:exported="false" />
+
         <service
             android:name=".ui.notification.MyFirebaseMessagingService"
             android:exported="true">
@@ -92,8 +97,9 @@
             </intent-filter>
         </service>
     </application>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>

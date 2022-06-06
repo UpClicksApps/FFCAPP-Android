@@ -4,7 +4,7 @@ import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import com.upclicks.ffc.R
-import com.upclicks.ffc.base.BaseActivity
+import com.upclicks.ffc.architecture.BaseActivity
 import com.upclicks.ffc.databinding.ActivityContactUsBinding
 import com.upclicks.ffc.ui.authentication.viewmodel.AccountViewModel
 import com.upclicks.ffc.ui.general.component.customedittext.BaseInput

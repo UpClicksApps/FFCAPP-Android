@@ -5,7 +5,7 @@ import android.view.View
 import androidx.activity.viewModels
 import com.google.gson.Gson
 import com.upclicks.ffc.R
-import com.upclicks.ffc.base.BaseActivity
+import com.upclicks.ffc.architecture.BaseActivity
 import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.ActivityCheckout1Binding
 import com.upclicks.ffc.ui.authentication.viewmodel.AccountViewModel

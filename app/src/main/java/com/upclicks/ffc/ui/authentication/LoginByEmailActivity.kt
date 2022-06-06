@@ -5,7 +5,7 @@ import android.text.TextUtils
 import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import com.upclicks.ffc.base.BaseActivity
+import com.upclicks.ffc.architecture.BaseActivity
 import com.upclicks.ffc.databinding.ActivityLoginByEmailBinding
 import com.upclicks.ffc.ui.authentication.model.request.LoginRequest
 import com.upclicks.ffc.ui.general.component.Validator

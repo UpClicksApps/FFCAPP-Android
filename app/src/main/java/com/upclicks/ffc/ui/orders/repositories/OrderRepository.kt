@@ -5,7 +5,7 @@ import io.reactivex.rxjava3.core.Observable
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 import com.upclicks.ffc.data.remote.Result
-import com.upclicks.ffc.ui.orders.OrderDetails
+import com.upclicks.ffc.ui.orders.model.OrderDetails
 import com.upclicks.ffc.ui.orders.model.Order
 
 @ExperimentalCoroutinesApi
