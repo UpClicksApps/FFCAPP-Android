@@ -1,10 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.pokercc:ExpandableRecyclerView:0.9.3@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/34470d6fc7e7736a560a37b49d1eef0e/jetified-ExpandableRecyclerView-0.9.3/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f914380a6cdb1225f4902a3081f23dd3/jetified-ExpandableRecyclerView-0.9.3/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/34470d6fc7e7736a560a37b49d1eef0e/jetified-ExpandableRecyclerView-0.9.3/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/34470d6fc7e7736a560a37b49d1eef0e/jetified-ExpandableRecyclerView-0.9.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/34470d6fc7e7736a560a37b49d1eef0e/jetified-ExpandableRecyclerView-0.9.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/34470d6fc7e7736a560a37b49d1eef0e/jetified-ExpandableRecyclerView-0.9.3/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

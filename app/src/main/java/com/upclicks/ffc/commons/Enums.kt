@@ -80,8 +80,8 @@ enum class FcmNotificationType(final val value: Int) {
 enum class OrderStatus(val value: Int) {
     Requested(1),
     Confirmed(2),
-    Delivered(3),
-    OnTheWay(4),
+    OnTheWay(3),
+    Delivered(4),
     Cancelled(100),
     Refused(200),
     Returned(300),

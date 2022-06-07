@@ -23,8 +23,8 @@ import java.io.File
 //        maven { url 'https://jitpack.io' }
 //    }
 //}
-//implementation 'com.github.Spikeysanju:ZoomRecylerLayout:1.0'
-//implementation 'com.github.rubensousa:gravitysnaphelper:2.2.2'
+// imagePicker
+//    implementation 'com.github.dhaval2404:imagepicker:2.1'
 class CameraGalleryHelper {
 
     companion object {

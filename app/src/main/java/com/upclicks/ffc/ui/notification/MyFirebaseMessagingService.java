@@ -18,9 +18,9 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.upclicks.ffc.R;
 import com.upclicks.ffc.commons.Keys;
+import com.upclicks.ffc.data.event.UnAuthorizedEvent;
 import com.upclicks.ffc.rx.RxBus;
 import com.upclicks.ffc.session.SessionHelper;
-import com.upclicks.ffc.ui.general.events.EventsModel;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -43,7 +43,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private NotificationChannel mChannel;
     private NotificationManager notifManager;
     public String channelId = "0";
-    public String channelName = "Shoply";
+    public String channelName = getApplicationContext().getString(R.string.app_name);
     @Inject
     public SessionHelper sessionHelper;
 
@@ -100,7 +100,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 }
                 //Logout
                 case LOGOUT_NOTIFY: {
-                    RxBus.INSTANCE.publish(new EventsModel.UnAuthorizedEvent(""));
+                    UnAuthorizedEvent unAuthorizedEvent  = new UnAuthorizedEvent(0,"Session Expire","");
+                    RxBus.INSTANCE.publish(unAuthorizedEvent);
                     break;
                 }
                 default: {

@@ -17,5 +17,8 @@ class LoginRequest {
     @SerializedName("rememberClient")
     @Expose
     var rememberClient: Boolean? = null
+    @SerializedName("roleName")
+    @Expose
+    var roleName: String = "Member"
 
 }

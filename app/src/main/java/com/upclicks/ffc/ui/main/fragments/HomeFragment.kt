@@ -57,7 +57,6 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         binding.lifecycleOwner = this
         setUpCartBadgeCount();
     }
-
     private fun setUpCartBadgeCount() {
         try {
             if (sessionHelper.cartCount > 0)

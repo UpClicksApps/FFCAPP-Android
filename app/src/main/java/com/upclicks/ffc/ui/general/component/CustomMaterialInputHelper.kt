@@ -28,8 +28,8 @@ class CustomMaterialInputHelper {
             var inputsViews = inputViews
             inputsViews.forEach { inputView ->
                 if (!inputView!!.baseMaterialEditText.isValid) {
-                    inputView!!.baseMaterialEditText.requestFocus()
-                    inputView!!.baseMaterialEditText.error = context.getString(R.string.required)
+                    inputView!!.requestFocus()
+                    inputView!!.error = context.getString(R.string.required)
                     return false
                 }
             }

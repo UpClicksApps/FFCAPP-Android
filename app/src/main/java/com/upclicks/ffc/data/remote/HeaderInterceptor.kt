@@ -1,18 +1,20 @@
-package com.upclicks.ffcDriver.data.remote
+package com.upclicks.ffc.data.remote
 
 import android.os.Build
 import com.google.firebase.database.annotations.NotNull
-import com.upclicks.ffcDriver.BuildConfig
-import com.upclicks.ffcDriver.commons.Connectivity
-import com.upclicks.ffcDriver.session.SessionHelper
+import com.upclicks.ffc.BuildConfig
+import com.upclicks.ffc.commons.Connectivity
+import com.upclicks.ffc.session.SessionHelper
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
 import java.io.IOException
 import javax.inject.Inject
+
 class HeaderInterceptor : Interceptor {
     @Inject
     constructor()
+
     @Inject
     lateinit var connectivity: Connectivity
     @Inject
@@ -44,9 +46,9 @@ class HeaderInterceptor : Interceptor {
             .addHeader("OSVersion", Build.VERSION.RELEASE.toString())
             .addHeader("ConnectionType", connectivity.networkConnectionType)
             .addHeader("AppVersion", BuildConfig.VERSION_NAME)
-            .addHeader("DeviceType", Build.BRAND + " " + Build.MODEL)
+            .addHeader("MachineType", Build.BRAND + " " + Build.MODEL)
             .addHeader("OSType", ANDROID)
-            .addHeader("DeviceId", sessionHelper.deviceId)
+            .addHeader("MachineId", sessionHelper.deviceId)
             .addHeader("Latitude", "0")
             .addHeader("Longitude", "0")
             .addHeader("Accept", "application/json")

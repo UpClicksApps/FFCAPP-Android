@@ -8,10 +8,11 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.FragmentTransaction
 import com.upclicks.ffc.R
 import com.upclicks.ffc.rx.RxBus
-import com.upclicks.ffc.ui.general.events.EventsModel
 import com.upclicks.ffc.session.SessionHelper
 import com.upclicks.ffc.commons.Utils
 import com.upclicks.ffc.data.BaseURLConfigHelper
+import com.upclicks.ffc.data.event.MessageEvent
+import com.upclicks.ffc.data.event.UnAuthorizedEvent
 import com.upclicks.ffc.ui.general.component.PagesController
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.disposables.Disposable
@@ -37,12 +38,14 @@ abstract class BaseActivity : AppCompatActivity() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         setContentView(getLayoutResourceId())
         //subscribe to events
-        eventDisposable = RxBus.listen(EventsModel.MessageEvent::class.java)
-            .subscribe() {
-                shoMsg(it.message, MotionToast.TOAST_ERROR)
+        eventDisposable = RxBus.listen(UnAuthorizedEvent::class.java)
+            .subscribe() { unAuth ->
+                shoMsg(unAuth.message!!, MotionToast.TOAST_ERROR)
             }
-        eventDisposable = RxBus.listen(EventsModel.UnAuthorizedEvent::class.java)
-            .subscribe { shoMsg(it.message, MotionToast.TOAST_ERROR) }
+        eventDisposable = RxBus.listen(MessageEvent::class.java)
+            .subscribe() { message ->
+                shoMsg(message.message!!, MotionToast.TOAST_ERROR)
+            }
     }
     protected abstract fun getLayoutResourceId(): View
     fun shoMsg(msg: String, type: String) {

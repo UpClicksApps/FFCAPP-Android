@@ -6,7 +6,10 @@ import android.net.Uri
 import android.provider.Settings
 import android.widget.TextView
 import androidx.annotation.NonNull
+import com.google.gson.Gson
 import com.upclicks.ffc.R
+import com.upclicks.ffc.data.event.ErrorEvent
+import com.upclicks.ffc.data.model.ErrorModel
 import com.upclicks.ffc.session.SessionHelper
 import com.upclicks.ffc.ui.notification.GetTimeAgo
 import org.json.JSONException
@@ -22,16 +25,21 @@ import java.util.*
 class Utils {
     companion object {
         // parse error body
-        fun parseResponse(response: Response<Any>): String? {
-            var errorMessage = ""
+        fun parseResponse(response: Response<Any>): ErrorEvent? {
+            var errorMessage = ErrorEvent(0, "", "")
+            var errorModel: ErrorModel
             try {
                 val jsonObject = JSONObject(response.errorBody()!!.string())
                 val errorObject: JSONObject = jsonObject.getJSONObject("error")
-                errorMessage =
-                    if (errorObject.getString("message") + " " + errorObject.getString("details") != null) errorObject.getString(
-                        "details"
-                    )
-                    else ""
+                if (errorObject != null) {
+                    errorModel =
+                        Gson().fromJson(errorObject.toString(), ErrorModel::class.java)
+                } else {
+                    errorModel = ErrorModel("Error in api response!")
+                }
+                errorMessage.message = errorModel.message
+                errorMessage.details = errorModel.details
+                errorMessage.code = errorModel.code
             } catch (e: JSONException) {
                 e.printStackTrace()
             } catch (e: IOException) {
@@ -39,6 +47,7 @@ class Utils {
             }
             return errorMessage
         }
+
 
         fun openUrl(context: Context, url: String?) {
             try {

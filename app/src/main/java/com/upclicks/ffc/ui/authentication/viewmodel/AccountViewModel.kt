@@ -38,6 +38,7 @@ class AccountViewModel
 
     fun auth(loginRequest : LoginRequest) {
         loginRequest.rememberClient = true
+        loginRequest.roleName = "Member"
         accountRepository.login(loginRequest)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())

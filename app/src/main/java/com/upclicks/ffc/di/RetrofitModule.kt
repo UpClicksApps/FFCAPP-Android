@@ -56,11 +56,11 @@ class RetrofitModule {
     @Singleton
     fun provideRetrofit(@Named("client") okHttpClient: OkHttpClient
     ): Retrofit = Retrofit.Builder()
-            .baseUrl(Keys.API_URL)
-            .client(okHttpClient)
-            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+        .baseUrl(Keys.API_URL)
+        .client(okHttpClient)
+        .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
 
 
     @Provides
