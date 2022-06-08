@@ -162,7 +162,8 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
                 var ids: ArrayList<String> = ArrayList()
                 for (message in listOfMessages) {
                     if (message.senderUserId != sessionHelper.userProfile.id && !message.isSeen!!) {
-                        ids.add(message.messageId!!)
+                        if (message.id!! != null)
+                            ids.add(message.messageId!!)
                     }
                 }
                 if (ids.isNotEmpty())
