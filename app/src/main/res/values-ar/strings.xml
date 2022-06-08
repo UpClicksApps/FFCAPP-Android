@@ -238,8 +238,20 @@
     <string name="category_must_be_selected">يجب اختيار القسم</string>
     <string name="tomorrow">غداً</string>
     <string name="delivery_time_must_be_selected">يجب اخيار موعد التوصيل</string>
-    <string name="help">Help</string>
-    <string name="how_can">How can</string>
-    <string name="we_help_you">we help you ?</string>
+    <string name="help">مساعدة</string>
+    <string name="how_can">كيف نستطيع</string>
+    <string name="we_help_you">مساعدتك؟</string>
+
+    <string name="message">الرسالة</string>
+    <string name="replay">الرد</string>
+    <string name="no_chats">لا توجد محادثات نصية</string>
+    <string name="showmore">عرض المزيد</string>
+    <string name="writemessage">أكتب رسالتك ..</string>
+    <string name="you_cant_reply_this_message">لا يمكنك الرد على هذه المحادثه</string>
+    <string name="messages_chat_service_price_per_month">سعر خدمة الرسائل النصية فى الشهر</string>
+    <string name="apply_sort">Apply Sort</string>
+    <string name="price">Price</string>
+    <string name="from_low_to_high_price">From low to high price</string>
+
 
 </resources>

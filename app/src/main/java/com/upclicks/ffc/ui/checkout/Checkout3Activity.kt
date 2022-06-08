@@ -80,19 +80,19 @@ class Checkout3Activity : BaseActivity() {
 
 
 
-        binding.onlinePaymentLy.setOnClickListener {
+        binding.onlinePaymentTv.setOnClickListener {
             binding.onlinePaymentRb.isChecked = true
             binding.cashRb.isChecked = false
             binding.fromWalletRb.isChecked = false
             checkoutRequest.checkoutOrder!!.paymentWay = 1
         }
-        binding.cashLy.setOnClickListener {
+        binding.cashTv.setOnClickListener {
             binding.onlinePaymentRb.isChecked = false
             binding.cashRb.isChecked = true
             binding.fromWalletRb.isChecked = false
-            checkoutRequest.checkoutOrder!!.paymentWay = 1
+            checkoutRequest.checkoutOrder!!.paymentWay = 0
         }
-        binding.fromWalletLy.setOnClickListener {
+        binding.fromWalletTv.setOnClickListener {
             binding.onlinePaymentRb.isChecked = false
             binding.cashRb.isChecked = false
             binding.fromWalletRb.isChecked = true

@@ -1,12 +1,16 @@
 package com.upclicks.ffc.architecture
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.FragmentTransaction
+import com.github.nkzawa.emitter.Emitter
+import com.github.nkzawa.engineio.client.Transport
 import com.upclicks.ffc.R
+import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.rx.RxBus
 import com.upclicks.ffc.session.SessionHelper
 import com.upclicks.ffc.commons.Utils
@@ -70,5 +74,44 @@ abstract class BaseActivity : AppCompatActivity() {
             R.anim.abc_fade_out
         )
         return transaction
+    }
+
+
+    //Init Socket connection Headers
+    fun initSocketHeaders(): Emitter.Listener? {
+        return Emitter.Listener { args ->
+            val transport = args[0] as Transport
+            transport.on(
+                Transport.EVENT_REQUEST_HEADERS
+            ) { args ->
+                val headers =
+                    args[0] as MutableMap<String, List<String>>
+                var bearer = ""
+                if(sessionHelper.isLogin) {
+                    bearer = "bearer " + sessionHelper.userToken()
+                }
+                var lang = sessionHelper.userLanguageCode
+                var firebaseToke = sessionHelper.pushNotificationToken
+                var osVersion = Build.VERSION.RELEASE
+                var connectionType = ""
+                var appVersion = ""
+                var deviceType = Build.BRAND + " " + Build.MODEL
+                var deviceId = sessionHelper.deviceId
+                headers["Authorization"] = listOf(bearer)
+                headers["x-access-token"] = listOf(bearer)
+                headers["LanguageCode"] = listOf(lang)
+                headers["RegistrationToken"] = listOf(firebaseToke)
+                headers["FirebaseToken"] = listOf(firebaseToke)
+                headers["OSVersion"] = listOf(osVersion.toString())
+                headers["OSType"] = listOf(Keys.OS_TYPE)
+                headers["ConnectionType"] = listOf(connectionType)
+                headers["AppVersion"] = listOf(appVersion)
+                headers["DeviceType"] = listOf(deviceType)
+                headers["DeviceId"] = listOf(deviceId)
+                headers["Accept"] = listOf("application/json")
+            }.on(
+                Transport.EVENT_RESPONSE_HEADERS
+            ) { }
+        }
     }
 }

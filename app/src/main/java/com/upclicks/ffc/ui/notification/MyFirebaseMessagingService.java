@@ -43,7 +43,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private NotificationChannel mChannel;
     private NotificationManager notifManager;
     public String channelId = "0";
-    public String channelName = getApplicationContext().getString(R.string.app_name);
+    public String channelName = "FFC";
     @Inject
     public SessionHelper sessionHelper;
 

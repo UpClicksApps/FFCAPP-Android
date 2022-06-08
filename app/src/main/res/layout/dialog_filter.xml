@@ -100,6 +100,45 @@
                         chipcloud:minHorizontalSpacing="32dp"
                         chipcloud:textSize="14sp" /> <!--path relative to assets folder-->
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/price"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14sdp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/_10sdp"/>
+
+
+                    <com.jaygoo.widget.RangeSeekBar
+                        android:id="@+id/seekbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        app:rsb_gravity="center"
+                        app:rsb_indicator_background_color="@color/white"
+                        app:rsb_indicator_margin="@dimen/_5sdp"
+                        app:rsb_indicator_radius="@dimen/_2sdp"
+                        app:rsb_indicator_show_mode="alwaysShow"
+                        app:rsb_indicator_text_color="@color/text_color_grey"
+                        app:rsb_indicator_text_size="@dimen/_13sdp"
+                        app:rsb_max="10000"
+                        app:rsb_min="0"
+                        app:rsb_progress_height="@dimen/_2sdp"
+                        app:rsb_progress_color="@color/primary"
+                        app:rsb_step_color="@color/primary"
+                        app:rsb_thumb_height="@dimen/_15sdp"
+                        app:rsb_thumb_width="@dimen/_15sdp"
+                        app:rsb_tick_mark_gravity="center"
+                        app:rsb_tick_mark_in_range_text_color="@color/primary"
+                        app:rsb_tick_mark_layout_gravity="top"
+                        app:rsb_tick_mark_text_color="@color/primary"
+                        app:rsb_tick_mark_text_size="@dimen/_20sdp"
+                        />
+
+
+
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/applyBtn"
                         style="@style/ButtonContainedSecondary"

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="message"
+            type="com.upclicks.ffc.ui.chat.data.model.Message" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp">
+
+
+        <LinearLayout
+            android:id="@id/bubble"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_custom_incoming_message"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/contentText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:inputType="textMultiLine|textNoSuggestions"
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:paddingVertical="@dimen/_5sdp"
+                        android:singleLine="false"
+                        android:textColor="@color/black"
+                        tools:text="aaaaaaa aaaaaaaaasd aaaaa"
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <TextView
+                android:id="@id/messageTime"
+                style="null"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bubble"
+                android:layout_alignEnd="@id/bubble"
+                android:layout_alignRight="@id/bubble"
+                android:text="16:04"
+                android:textSize="@dimen/_7sdp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

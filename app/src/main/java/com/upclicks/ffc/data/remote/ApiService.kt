@@ -14,6 +14,7 @@ import com.upclicks.ffc.ui.notification.data.model.Notification
 import com.upclicks.ffc.ui.authentication.model.request.ValidateResetPasswordCodeRequest
 import com.upclicks.ffc.ui.cart.model.CartActionResponse
 import com.upclicks.ffc.ui.cart.model.CartDetails
+import com.upclicks.ffc.ui.chat.data.model.*
 import com.upclicks.ffc.ui.checkout.model.CheckoutRequest
 import com.upclicks.ffc.ui.checkout.model.CheckoutResponse
 import com.upclicks.ffc.ui.checkout.model.DeliveryTimeResponse
@@ -22,6 +23,7 @@ import com.upclicks.ffc.ui.general.model.*
 import com.upclicks.ffc.ui.orders.model.OrderDetails
 import com.upclicks.ffc.ui.orders.model.Order
 import com.upclicks.ffc.ui.products.model.*
+import okhttp3.RequestBody
 
 interface ApiService {
     @POST("TokenAuth/Authenticate")
@@ -239,8 +241,8 @@ interface ApiService {
 
 
     /////////////////////////////////////////
-    //notification
-    //Notifications
+    //************* Notification Module **************
+
     //Get Notifications
     @GET("services/app/SystemNotification/GetMyNotifications")
     open fun callNotificationsList(
@@ -263,4 +265,55 @@ interface ApiService {
     //Delete all notifications
     @DELETE("services/app/SystemNotification/DeleteAllMyNotifications")
     fun callDeleteAllNotifications(): Observable<Result<String>>
+
+    //************* End Of Notification Module **************
+
+
+    //************* Chats Module **************
+
+    //Get conversation
+    @GET("services/app/Chat/GetConversation")
+    fun getConversation(
+        @Query("receiverId") receiverId: String,
+        @Query("id") convId: String
+    ): Observable<Result<Chat.Conversation>>
+
+
+    //Get chat messages
+//    @GET("services/app/Chat/GetMessages")
+    @GET("services/app/CustomerServiceChat/GetMessages")
+    fun getChatMessages(
+        @Query("memberId") memberId: String,
+        @Query("lastMessageTime") lastMessageTime: String,
+        @Query("take") take: Int
+    ): Observable<Result<List<Message>>>
+
+    //Get chats
+    @GET("services/app/Chat/GetChats")
+    fun getChats(
+        @Query("skip") skip: Int,
+        @Query("take") take: Int
+    ): Observable<Result<List<Chat>>>
+
+    //Get link preview
+    @GET("services/app/Chat/GetConversation")
+    fun getLinkPreview(@Query("url") url: String): Observable<Result<ConversationResponse>>
+
+    //SendMediaFiles
+    @Multipart
+    @POST("services/app/Chat/SendMediaFiles")
+    fun sendMediaFileToChat(
+        @PartMap partMap: Map<String, @JvmSuppressWildcards RequestBody>,
+        @Part files: List<MultipartBody.Part>
+    ): Observable<Result<UploadFilesMessage>>
+
+
+    //Get Ad Conversations
+    @GET("services/app/Chat/GetMyAdsConversations")
+    fun getAdsConversations(
+        @Query("skip") skip: Int,
+        @Query("take") take: Int
+    ): Observable<Result<List<AdConversation>>>
+
+    //************* End of Chats Module **************
 }

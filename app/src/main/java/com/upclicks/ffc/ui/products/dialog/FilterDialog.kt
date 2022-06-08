@@ -15,11 +15,12 @@ import com.upclicks.ffc.ui.general.model.Category
 import com.upclicks.ffc.ui.products.viewmodel.ProductViewModel
 import www.sanju.motiontoast.MotionToast
 
-class FilterDialog (
-    context: Context,
+class FilterDialog(
+    var mContext: Context,
+    var categoryId: String,
     var productViewModel: ProductViewModel,
     private val onApplyBtnClicked: (Category) -> Unit
-) : BottomSheetDialog(context, R.style.BottomSheetDialog) {
+) : BottomSheetDialog(mContext, R.style.BottomSheetDialog) {
     lateinit var binding: DialogFilterBinding
     var category = Category()
     var categoriesList = ArrayList<Category>()
@@ -45,9 +46,13 @@ class FilterDialog (
         binding.closeIv.setOnClickListener {
             dismiss()
         }
+
         binding.resetBtn.setOnClickListener {
             category = Category()
-            dismiss()
+            binding.chipCloud.removeAllViews()
+            categoriesList.forEach { category ->
+                binding.chipCloud.addChip(category.name)
+            }
         }
         binding.applyBtn.setOnClickListener {
             if (category.id != null){
@@ -66,8 +71,11 @@ class FilterDialog (
                 binding.emptyCategoriesTv.visibility = View.GONE
                 categoriesList.clear()
                 categoriesList.addAll(categories)
-                categories.forEach { category ->
+                categories.forEachIndexed { index,category ->
                     binding.chipCloud.addChip(category.name)
+                    if (category.id == categoryId){
+                        binding.chipCloud.setSelectedChip(index)
+                    }
                 }
                 binding.chipCloud.setChipListener(object :ChipListener{
                     override fun chipSelected(index: Int) {
@@ -84,10 +92,9 @@ class FilterDialog (
     }
 
     fun shoMsg(msg: String, type: String) {
-
         MotionToast.createColorToast(
-            context as Activity,
-            "App",
+            mContext as Activity,
+            mContext.getString(R.string.app_name),
             msg,
             type,
             MotionToast.GRAVITY_BOTTOM,

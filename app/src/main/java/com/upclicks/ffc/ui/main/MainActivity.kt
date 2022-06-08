@@ -1,10 +1,14 @@
 package com.upclicks.ffc.ui.main
 
+import android.content.Intent
 import android.view.View
 import com.upclicks.ffc.R
 import com.upclicks.ffc.architecture.BaseActivity
 import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.ActivityMainBinding
+import com.upclicks.ffc.ui.authentication.LoginByEmailActivity
+import com.upclicks.ffc.ui.cart.ShoppingCartActivity
+import com.upclicks.ffc.ui.general.dialog.LoginDialog
 
 class MainActivity : BaseActivity() {
 
@@ -35,7 +39,14 @@ class MainActivity : BaseActivity() {
                     pagesController!!.switchToPage(Keys.NavigationBottom.SEARCH, getTransaction())
                 }
                 R.id.profile_nav -> {
-                    pagesController!!.switchToPage(Keys.NavigationBottom.PROFILE, getTransaction())
+                    if (sessionHelper.isLogin)
+                        pagesController!!.switchToPage(Keys.NavigationBottom.PROFILE, getTransaction())
+                    else {
+                        LoginDialog(this, onYesBtnClick = {
+                            startActivity(Intent(this, LoginByEmailActivity::class.java))
+                            finishAffinity()
+                        }, onNoBtnClick = {})
+                    }
                 }
             }
         }

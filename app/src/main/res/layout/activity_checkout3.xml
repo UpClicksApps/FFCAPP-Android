@@ -76,7 +76,6 @@
                     android:elevation="@dimen/_5sdp"
                     android:layout_marginHorizontal="@dimen/_2sdp"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:id="@+id/onlinePaymentLy"
                     >
                     <ImageView
                         android:layout_width="@dimen/_30sdp"
@@ -86,11 +85,13 @@
                         android:padding="@dimen/_4sdp"
                         android:src="@drawable/ic_checkout_payment"/>
                     <TextView
+                        android:id="@+id/onlinePaymentTv"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
+                        android:layout_height="@dimen/_30sdp"
+                        android:gravity="center_vertical"
+                        android:elevation="@dimen/_1sdp"
+                        android:paddingStart="@dimen/_35sdp"
                         android:textSize="@dimen/_12sdp"
-                        android:layout_marginStart="@dimen/_25sdp"
                         android:textColor="@color/black"
                         android:text="@string/online_payment"/>
                     <RadioButton
@@ -113,9 +114,9 @@
                     android:elevation="@dimen/_5sdp"
                     android:layout_marginHorizontal="@dimen/_2sdp"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:id="@+id/cashLy"
                     >
                     <ImageView
+                        android:id="@+id/cashTv"
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
                         android:background="@drawable/solid_rectangle_background_primary"
@@ -124,10 +125,11 @@
                         android:src="@drawable/ic_checkout_cash"/>
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
+                        android:layout_height="@dimen/_30sdp"
+                        android:gravity="center_vertical"
+                        android:elevation="@dimen/_1sdp"
+                        android:paddingStart="@dimen/_35sdp"
                         android:textSize="@dimen/_12sdp"
-                        android:layout_marginStart="@dimen/_25sdp"
                         android:textColor="@color/black"
                         android:text="@string/cash"/>
                     <RadioButton
@@ -156,14 +158,15 @@
                         android:background="@drawable/solid_rectangle_background_primary"
                         android:backgroundTint="@color/primary_light"
                         android:padding="@dimen/_4sdp"
-                        android:id="@+id/fromWalletLy"
                         android:src="@drawable/ic_checkout_payment"/>
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
+                        android:layout_height="@dimen/_30sdp"
+                        android:gravity="center_vertical"
+                        android:elevation="@dimen/_1sdp"
+                        android:paddingStart="@dimen/_35sdp"
+                        android:id="@+id/fromWalletTv"
                         android:textSize="@dimen/_12sdp"
-                        android:layout_marginStart="@dimen/_25sdp"
                         android:textColor="@color/black"
                         android:text="@string/from_wallet"/>
                     <RadioButton

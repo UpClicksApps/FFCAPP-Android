@@ -34,7 +34,6 @@
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
             android:layout_gravity="end"
-            android:enabled="false"
             android:id="@+id/radiobutton"
             android:buttonTint="@color/primary"
             />

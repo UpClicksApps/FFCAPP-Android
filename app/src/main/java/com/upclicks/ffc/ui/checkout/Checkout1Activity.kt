@@ -119,12 +119,11 @@ class Checkout1Activity : BaseActivity() {
         var inputsList = ArrayList<BaseInput>()
         inputsList.add(binding.nameInput)
         inputsList.add(binding.emailInput)
-        inputsList.add(binding.notesInput)
         inputsList.add(binding.phoneInput)
+        inputsList.add(binding.streetInput)
+        inputsList.add(binding.houseNumberInput)
         inputsList.add(binding.flatNumberInput)
         inputsList.add(binding.addressInput)
-        inputsList.add(binding.houseNumberInput)
-        inputsList.add(binding.streetInput)
         return inputsList
     }
 }

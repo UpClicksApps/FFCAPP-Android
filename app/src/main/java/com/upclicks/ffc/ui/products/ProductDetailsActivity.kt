@@ -52,8 +52,12 @@ class ProductDetailsActivity : BaseActivity() {
                 this.productDetails = productDetails
                 currentProductCountValue = productDetails.quantityInCart!!
                 updateQuantityUi()
-                if (productDetails.isOutOfStock!!)
+                if (productDetails.isOutOfStock!!){
                     binding.addToCartBtn.text = getString(R.string.out_of_stock)
+                    binding.addToCartBtn.isEnabled = false
+                    binding.addToCartBtn.visibility = View.GONE
+                    binding.quantity.visibility = View.GONE
+                }
 
                 setUpSlider(productDetails.mediaFiles!!)
             } else {

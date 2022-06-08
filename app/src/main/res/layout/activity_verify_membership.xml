@@ -26,7 +26,8 @@
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
             android:orientation="vertical">
-
+            <include layout="@layout/app_bar_layout"
+                android:id="@+id/toolbar"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -77,22 +78,16 @@
                         android:layout_marginHorizontal="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:text="@string/submit" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_15sdp"
-                        android:text="@string/didn_t_receive_any_code"
-                        android:layout_marginHorizontal="@dimen/_10sdp"
-                        android:textColor="@color/text_color_grey"
-                        android:textSize="@dimen/_12sdp"></TextView>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_5sdp"
-                        android:text="@string/resend_a_new_code"
+                        underlineTextView="@string/resend_a_new_code"
                         android:id="@+id/resend"
-                        android:textColor="@color/secondary"
+                        android:textColor="@color/text_color_grey"
                         android:textSize="@dimen/_12sdp"
+                        android:layout_gravity="center"
                         android:onClick="resendCode"
                         android:layout_marginHorizontal="@dimen/_10sdp"
                         android:textStyle="bold"></TextView>

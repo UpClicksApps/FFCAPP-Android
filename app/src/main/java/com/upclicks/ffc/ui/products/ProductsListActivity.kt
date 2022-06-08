@@ -25,6 +25,7 @@ class ProductsListActivity : BaseActivity() {
     private val productViewModel: ProductViewModel by viewModels()
     private val cartViewModel: CartViewModel by viewModels()
     private var productRequest = ProductRequest()
+    private var categoryId = String
     override fun getLayoutResourceId(): View {
         binding = ActivityProductsListBinding.inflate(layoutInflater)
         initPage()
@@ -48,7 +49,7 @@ class ProductsListActivity : BaseActivity() {
 
         private fun setUpPAgeActions() {
             binding.filterBtn.setOnClickListener {
-                FilterDialog(this, productViewModel, onApplyBtnClicked = { category ->
+                FilterDialog(this,productRequest.categoryId!!, productViewModel, onApplyBtnClicked = { category ->
                     productRequest.categoryId = category.id
                     binding.toolbar.titleTv.text = category.name
                     productViewModel.getProducts(productRequest)

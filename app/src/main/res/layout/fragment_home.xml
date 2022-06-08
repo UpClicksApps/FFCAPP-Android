@@ -59,6 +59,15 @@
                             android:layout_gravity="end"
                             />
 
+                        <ImageView
+                            android:id="@+id/customerSupportIv"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_gravity="end"
+                            android:layout_marginEnd="@dimen/_35sdp"
+                            android:padding="@dimen/_5sdp"
+                            android:src="@drawable/ic_baseline_support_agent_24" />
+
                     </FrameLayout>
 
                 </LinearLayout>

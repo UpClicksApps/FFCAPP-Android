@@ -213,6 +213,7 @@
                     app:min="0"
                     android:layout_gravity="center"
                     numberpicker:focusable="false"
+                    android:visibility="gone"
                     numberpicker:min="0"
                     numberpicker:unit="1" />
                 <com.google.android.material.button.MaterialButton
@@ -221,8 +222,8 @@
                     android:layout_weight="1"
                     style="@style/ButtonContainedSecondary"
                     android:text='@{product.isOutOfStock()?@string/out_of_stock:@string/add_to_cart}'
-                    android:textSize="@dimen/_12sdp"
                     android:visibility="gone"
+                    android:textSize="@dimen/_12sdp"
                     android:layout_gravity="center"
                     android:id="@+id/addToCartBtn"
                     />

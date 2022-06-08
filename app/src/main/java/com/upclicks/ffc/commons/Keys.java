@@ -6,6 +6,8 @@ public class Keys {
 
     public static final long SPLASH_DISPLAY_LENGTH = 2000;
     public static final Integer BIO_MAX_LENGTH = 72;
+    public static String IS_MY_OWN = "-1";
+    public static String OS_TYPE = "0";
 
     //Media types
     public static class PublicKeys {
@@ -19,7 +21,18 @@ public class Keys {
         public static int EXEL = 3;
         public static int PDF = 4;
     }
-
+    public static class Chat_Socket {
+        public static String SOCKET_URL = "https://chat.freshfruitskw.com/";
+        //Socket commands
+        public static String JOIN_CHAT = "join-chat";
+        public static String SEND_MESSAGE = "send-message";
+        public static String SEEN_MESSAGE = "set-as-seen";
+        public static String REMOVE_MESSAGE = "remove-message";
+        public static String MESSAGE_REMOVED = "message-removed";
+        public static String NOTIFY_MESSAGE = "notify-upload-files";
+        public static String RECEIVE_MESSAGE = "message-received";
+        public static String LEAVE_CHAT = "leave-chat";
+    }
     public static class Intent_Constants {
         public static String START_UP_VIDEO_ID = "start_up_video_id";
         public static String PROFILE_VIDEO_ID = "profile_video_id";
@@ -57,6 +70,7 @@ public class Keys {
         public static int FILTER_CODE = 1;
         public static final String EXTERNAL_LOGIN = "ExternalLoginRequest";
         public static final String CHECKOUT_MESSAGE = "checkout_message";
+        public static String CONV_ID = "conv_id";
     }
 
 

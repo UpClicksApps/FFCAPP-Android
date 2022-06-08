@@ -243,5 +243,15 @@
     <string name="how_can">How can</string>
     <string name="we_help_you">we help you ?</string>
 
+    <string name="message">Message</string>
+    <string name="replay">Replay</string>
+    <string name="no_chats">No Chats</string>
+    <string name="showmore">Show More</string>
+    <string name="writemessage">Write Message ...</string>
+    <string name="you_cant_reply_this_message">You Cant reply this message</string>
+    <string name="messages_chat_service_price_per_month">Messages chat service price per month</string>
+    <string name="apply_sort">Apply Sort</string>
+    <string name="price">Price</string>
+    <string name="from_low_to_high_price">From low to high price</string>
 
 </resources>

@@ -13,12 +13,15 @@ import com.upclicks.ffc.architecture.BaseFragment
 import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.FragmentHomeBinding
 import com.upclicks.ffc.helpers.CustomRecyclerViewHelper
+import com.upclicks.ffc.ui.authentication.LoginByEmailActivity
 import com.upclicks.ffc.ui.general.model.Category
 import com.upclicks.ffc.ui.main.adapters.HomeCategoryAdapter
 import com.upclicks.ffc.ui.products.ProductDetailsActivity
 import com.upclicks.ffc.ui.products.ProductsListActivity
 import com.upclicks.ffc.ui.cart.ShoppingCartActivity
 import com.upclicks.ffc.ui.cart.viewmodel.CartViewModel
+import com.upclicks.ffc.ui.chat.ChatActivity
+import com.upclicks.ffc.ui.general.dialog.LoginDialog
 import com.upclicks.ffc.ui.products.adapter.HomeProductAdapter
 import com.upclicks.ffc.ui.products.adapter.ProductGridAdapter
 import com.upclicks.ffc.ui.products.model.HomeProduct
@@ -55,8 +58,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         setUpObservers()
         binding.viewModel = productViewModel
         binding.lifecycleOwner = this
-        setUpCartBadgeCount();
     }
+
     private fun setUpCartBadgeCount() {
         try {
             if (sessionHelper.cartCount > 0)
@@ -77,6 +80,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     override fun onStart() {
         super.onStart()
+        setUpCartBadgeCount();
         callProducts()
     }
 
@@ -128,7 +132,17 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         binding.cartIv.setOnClickListener {
             if (sessionHelper.cartCount > 0)
                 startActivity(Intent(requireContext(), ShoppingCartActivity::class.java))
-
+            else shoMsg(getString(R.string.empty_cart_message), MotionToast.TOAST_ERROR)
+        }
+        binding.customerSupportIv.setOnClickListener {
+            if (sessionHelper.isLogin)
+                startActivity(Intent(requireContext(), ChatActivity::class.java))
+            else {
+                LoginDialog(requireContext(), onYesBtnClick = {
+                    startActivity(Intent(requireContext(), LoginByEmailActivity::class.java))
+                    requireActivity().finishAffinity()
+                }, onNoBtnClick = {})
+            }
         }
     }
 
@@ -157,7 +171,10 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                     shoMsg(message, MotionToast.TOAST_SUCCESS)
                 })
             }, onCartClicked = {
-                cartViewModel.addProductToCart(productsList[it].id!!,productsList[it].currentPrice!!)
+                cartViewModel.addProductToCart(
+                    productsList[it].id!!,
+                    productsList[it].currentPrice!!
+                )
             }, onItemClicked = {
                 startActivity(
                     Intent(
@@ -186,7 +203,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                     shoMsg(message, MotionToast.TOAST_SUCCESS)
                 })
             }, onCartClicked = { product ->
-                cartViewModel.addProductToCart(product.id!!,product.currentPrice!!)
+                cartViewModel.addProductToCart(product.id!!, product.currentPrice!!)
             },
             onMoreClicked = {
                 startActivity(

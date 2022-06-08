@@ -49,6 +49,15 @@
             android:name=".ui.cart.ShoppingCartActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.chat.ChatActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.upclicks.ffc.chat" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".ui.products.ProductDetailsActivity"
             android:exported="false" />
         <activity

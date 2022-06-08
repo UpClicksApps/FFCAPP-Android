@@ -73,6 +73,7 @@ class DeliveryTimeAdapter(
             } else {
                 lastSelectedItem = -1
                 notifyItemChanged(position)
+                onItemRemoved(true)
             }
         }
         holder.binding.radiobutton.setOnClickListener {

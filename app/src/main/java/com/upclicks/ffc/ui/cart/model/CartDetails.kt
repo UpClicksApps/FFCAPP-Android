@@ -13,13 +13,10 @@ class CartDetails {
     @SerializedName("discountAmount")
     @Expose
     var discountAmount: Double? = null
-    @SerializedName("tax")
-    @Expose
-    var tax: Double? = null
-    @SerializedName("total")
+    @SerializedName("net")
     @Expose
     var total: Double? = null
-    @SerializedName("subTotal")
+    @SerializedName("totalCost")
     @Expose
     var subTotal: Double? = null
     @SerializedName("orderProducts")

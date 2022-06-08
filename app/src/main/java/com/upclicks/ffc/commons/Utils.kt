@@ -3,6 +3,7 @@ package com.upclicks.ffc.commons
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.provider.Settings
 import android.widget.TextView
 import androidx.annotation.NonNull
@@ -12,6 +13,9 @@ import com.upclicks.ffc.data.event.ErrorEvent
 import com.upclicks.ffc.data.model.ErrorModel
 import com.upclicks.ffc.session.SessionHelper
 import com.upclicks.ffc.ui.notification.GetTimeAgo
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody
 import org.json.JSONException
 import org.json.JSONObject
 import retrofit2.Response
@@ -49,6 +53,10 @@ class Utils {
         }
 
 
+        fun createPartFromString(str: String): RequestBody {
+            return RequestBody.create("text/plain".toMediaTypeOrNull(), str!!)
+        }
+
         fun openUrl(context: Context, url: String?) {
             try {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
@@ -57,6 +65,21 @@ class Utils {
             }
         }
 
+        fun convertFromStringToDate(stringDate: String): Date {
+            var format: SimpleDateFormat? = null
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+            }
+            var date = Date()
+            try {
+                date = format!!.parse(stringDate)
+            } catch (e: android.net.ParseException) {
+                e.printStackTrace()
+            } catch (e: ParseException) {
+                e.printStackTrace()
+            }
+            return date
+        }
         //Get Device Id
         fun getDeviceId(context: Context): String? {
             return Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID)
