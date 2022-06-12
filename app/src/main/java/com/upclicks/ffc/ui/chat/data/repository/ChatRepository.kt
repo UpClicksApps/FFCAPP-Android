@@ -34,10 +34,10 @@ class ChatRepository @Inject constructor(private val apiService: ApiService) {
     //Get Chat Messages
     fun getChatMessages(
         memberId: String,
-        lastMessageTime: String,
+        messageId: String,
         take: Int
     ): Observable<Result<List<Message>>> {
-        return apiService.getChatMessages(memberId,lastMessageTime, take)
+        return apiService.getChatMessages(memberId,messageId, take)
     }
 
     //Get Chats

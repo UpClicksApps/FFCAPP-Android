@@ -116,6 +116,7 @@ public class Keys {
         public final static String Order = "60";
         public final static String Public_Notification = "500";
         public final static String LOGOUT_NOTIFY = "1000";
+        public final static String CHAT_MSG_INCOME = "400";
     }
 
 }

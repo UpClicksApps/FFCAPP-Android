@@ -141,8 +141,8 @@ interface ApiService {
         @Query("categoryId") categoryId: String,
         @Query("productName") productName: String,
         @Query("sortProductBy") sortProductBy: Int,
-        @Query("minPrice") minPrice: Double,
-        @Query("maxPrice") maxPrice: Double,
+        @Query("minPrice") minPrice: Float,
+        @Query("maxPrice") maxPrice: Float,
         @Query("skip") skip: Int,
         @Query("take") take: Int
     ): Observable<Result<ProductsResponse>>
@@ -284,7 +284,7 @@ interface ApiService {
     @GET("services/app/CustomerServiceChat/GetMessages")
     fun getChatMessages(
         @Query("memberId") memberId: String,
-        @Query("lastMessageTime") lastMessageTime: String,
+        @Query("messageId") messageId: String,
         @Query("take") take: Int
     ): Observable<Result<List<Message>>>
 
@@ -316,4 +316,12 @@ interface ApiService {
     ): Observable<Result<List<AdConversation>>>
 
     //************* End of Chats Module **************
+
+
+    //************* Settings **************
+
+    @GET("services/app/Setting/GetByKey")
+    open fun getAboutUs(
+        @Query("key") skip: String
+    ): Observable<Result<String>>
 }

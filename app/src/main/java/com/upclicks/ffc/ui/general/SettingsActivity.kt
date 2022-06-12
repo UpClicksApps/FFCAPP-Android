@@ -38,6 +38,7 @@ class SettingsActivity : BaseActivity() {
 
         }
         binding.aboutTv.setOnClickListener {
+            startActivity(Intent(this, AboutUsActivity::class.java))
         }
         binding.helpTv.setOnClickListener {
             startActivity(Intent(this, HelpActivity::class.java))

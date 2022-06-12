@@ -1,7 +1,5 @@
 package com.upclicks.ffc.ui.chat
 
-import android.os.Bundle
-import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
@@ -24,23 +22,16 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import okhttp3.MultipartBody
 import org.json.JSONObject
-import java.util.*
 import kotlin.collections.ArrayList
 import java.lang.reflect.Type
 import android.location.*
 import androidx.activity.viewModels
-import com.upclicks.ffc.ui.chat.data.model.Chat
 import com.upclicks.ffc.ui.chat.data.model.MediaFile
 import com.upclicks.ffc.ui.chat.data.model.Message
-import com.upclicks.ffc.ui.chat.data.model.UploadFilesMessage
 import com.upclicks.ffc.R
 import com.upclicks.ffc.architecture.BaseActivity
 import com.upclicks.ffc.commons.Keys
-import com.upclicks.ffc.commons.Keys.IS_MY_OWN
-import com.upclicks.ffc.commons.Keys.Intent_Constants.CONV_ID
-import com.upclicks.ffc.helpers.imageBinding
 import com.upclicks.ffc.databinding.ActivityChatBinding
-import com.upclicks.ffc.socket.api.SocketController
 import com.upclicks.ffc.ui.chat.data.model.*
 import com.upclicks.ffc.ui.chat.data.viewmodel.ChatViewModel
 import com.upclicks.ffc.ui.chat.holders.CustomMessageViewHolder
@@ -62,10 +53,9 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
     private val chatViewModel: ChatViewModel by viewModels()
     var receiverId: Int = 0
     var advertisementId = ""
-    var convId = ""
     lateinit var textInputMessage: String
     private var messagesTake: Int = 5
-    private var lastMessageTime: String = ""
+    private var lastMessageId: String = ""
     private var stopLoadingMoreMessages: Boolean = false
     private var isDataChange: Boolean = false
     private var currentShareLocation: Location? = null
@@ -73,32 +63,23 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
 
     // chatKit
     var imageLoader: ImageLoader? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        getDataFromIntent()
-        initSocket()
-        setUpUi()
-        observerMessagesData()
-    }
-
-
-    private fun getDataFromIntent() {
-        convId = intent.getStringExtra(CONV_ID).toString()
-    }
-
     override fun getLayoutResourceId(): View {
         binding = ActivityChatBinding.inflate(layoutInflater)
+        setUpUi()
+        initSocket()
+        observerMessagesData()
         return binding.root
     }
-
 
     private fun setUpUi() {
         setUpToolbar()
         initAdapter()
+        var profile = sessionHelper.userProfile
+        profile.unSeenMessagesCount = 0
+        sessionHelper.userProfile = profile
         binding.input.setInputListener(this)
         binding.input.setAttachmentsListener(this)
     }
-
 
     private fun setUpToolbar() {
         binding.toolbar.backIv.setOnClickListener {
@@ -106,7 +87,6 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
         }
         binding.toolbar.titleTv.text = "System"
     }
-
 
     private fun initAdapter() {
         imageLoader = ImageLoader { imageView: ImageView?, url: String?, payload: Any? ->
@@ -131,8 +111,8 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
                     }
                 }
             )
-
-        messagesListAdapter = MessagesListAdapter(IS_MY_OWN, holdersConfig, imageLoader);
+        messagesListAdapter =
+            MessagesListAdapter("" + sessionHelper.userProfile.userId, holdersConfig, imageLoader);
         messagesListAdapter!!.addToEnd(listOfMessages, false)
         messagesListAdapter!!.setOnMessageLongClickListener(this)
         messagesListAdapter!!.setLoadMoreListener(this)
@@ -144,11 +124,10 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
     private fun observerMessagesData() {
         binding.viewModel = chatViewModel
         binding.lifecycleOwner = this
-        emitJoinChat()
         //Get messages
         chatViewModel.getChatMessages(
             sessionHelper.userProfile.id!!,
-            lastMessageTime!!,
+            lastMessageId!!,
             messagesTake!!
         )
         chatViewModel.observeMessages?.observe(this, Observer {
@@ -157,8 +136,10 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
                 listOfMessages.addAll(it)
                 listOfMessages = updateMessageList(listOfMessages)
                 messagesListAdapter!!.addToEnd(listOfMessages, false)
-                lastMessageTime = it[it.size - 1].creationTime!!
-                stopLoadingMoreMessages = false
+                if (it[it.size - 1].messageId != null)
+                    lastMessageId = it[it.size - 1].messageId!!
+                if (it.size < messagesTake)
+                    stopLoadingMoreMessages = true
                 var ids: ArrayList<String> = ArrayList()
                 for (message in listOfMessages) {
                     if (message.senderUserId != sessionHelper.userProfile.id && !message.isSeen!!) {
@@ -166,7 +147,7 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
                             ids.add(message.messageId!!)
                     }
                 }
-                if (ids.isNotEmpty())
+                if (!ids.isNullOrEmpty())
                     emitSeenMessage(ids)
             } else
                 stopLoadingMoreMessages = true
@@ -185,29 +166,52 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
 
     //join to chat
     private fun emitJoinChat() {
-        SocketController.request<String>(
-            mSocket!!,
-            Keys.Chat_Socket.JOIN_CHAT,
-            JSONObject(),
-            onResult = {
-                val gson = Gson()
-                Log.e("emit JoinChat response", gson.toJson(it[0]))
-            })
+        mSocket?.emit(Keys.Chat_Socket.JOIN_CHAT, JSONObject(), Ack {
+            val gson = Gson()
+            Log.e("emit JoinChat response", gson.toJson(it[0]))
+        })
     }
 
     //join to chat
     private fun emitRemoveMessageFromChat(message: Message) {
         val jsonOb = JSONObject()
+        jsonOb.put("memberId", sessionHelper.userProfile.id)
         jsonOb.put("message_id", message.messageId)
-        SocketController.request<SocketMessageRemovedResponse>(
-            mSocket!!,
-            Keys.Chat_Socket.REMOVE_MESSAGE,
-            jsonOb,
-            onResult = { socketMessageRemovedResponse ->
-                Observable.just(true)
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe {
-                        if (socketMessageRemovedResponse != null) {
+        mSocket?.emit(Keys.Chat_Socket.REMOVE_MESSAGE, jsonOb, Ack {
+            val gson = Gson()
+            val removeResponse: String = gson.toJson(it[0])
+            Log.e("emit remove response", gson.toJson(it[0]))
+            var socketMessageRemovedResponse =
+                gson?.fromJson(gson.toJson(it[0]), SocketMessageRemovedResponse::class.java)
+            Observable.just(true)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
+                    if (socketMessageRemovedResponse != null) {
+                        val message = Message(
+                            socketMessageRemovedResponse.nameValuePairs.message_id,
+                            sessionHelper.userProfile.id
+                        )
+                        listOfMessages.remove(message)
+                        messagesListAdapter?.delete(message)
+                        messagesListAdapter?.notifyDataSetChanged()
+                    }
+                }
+        })
+    }
+
+    //Message Removed From Chat
+    private fun messageRemovedFromChat() {
+        mSocket?.on(Keys.Chat_Socket.MESSAGE_REMOVED, Emitter.Listener {
+            val gson = Gson()
+            var socketMessageRemovedResponse =
+                gson?.fromJson(gson.toJson(it[0]), SocketMessageRemovedResponse::class.java)
+            Log.e("message Removed", gson.toJson(it[0]))
+//            if (socketMessageResponse != null)
+            Observable.just(true)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
+                    if (socketMessageRemovedResponse != null) {
+                        if (socketMessageRemovedResponse.nameValuePairs.success!!) {
                             val message = Message(
                                 socketMessageRemovedResponse.nameValuePairs.message_id,
                                 sessionHelper.userProfile.id
@@ -217,45 +221,61 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
                             messagesListAdapter?.notifyDataSetChanged()
                         }
                     }
-            })
-    }
-
-    //Message Removed From Chat
-    private fun messageRemovedFromChat() {
-        SocketController.receive<SocketMessageRemovedResponse>(
-            mSocket!!,
-            Keys.Chat_Socket.MESSAGE_REMOVED,
-            onResult = { socketMessageRemovedResponse ->
-                Observable.just(true)
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe {
-                        if (socketMessageRemovedResponse != null) {
-                            if (socketMessageRemovedResponse.nameValuePairs.success!!) {
-                                val message = Message(
-                                    socketMessageRemovedResponse.nameValuePairs.message_id,
-                                    sessionHelper.userProfile.id
-                                )
-                                listOfMessages.remove(message)
-                                messagesListAdapter?.delete(message)
-                                messagesListAdapter?.notifyDataSetChanged()
-                            }
-                        }
-                    }
-
-            })
+                }
+        })
     }
 
     //Send message to user
     private fun emitSendMessage() {
         val jsonOb = JSONObject()
+        jsonOb.put("memberId", sessionHelper.userProfile.id)
         jsonOb.put("message", textInputMessage)
-        SocketController.request<SocketMessageResponse>(
-            mSocket!!,
-            Keys.Chat_Socket.SEND_MESSAGE,
-            jsonOb,
-            onResult = { socketMessageResponse ->
-                if (socketMessageResponse != null)
-                    emitJoinChat()
+
+        mSocket?.emit(Keys.Chat_Socket.SEND_MESSAGE, jsonOb, Ack {
+            //check if socket emit success
+            val gson = Gson()
+            Log.e("emit send response", gson.toJson(it[0]))
+            var res = it[0] as JSONObject
+            var result = res.get("result")
+            var socketMessageResponse =
+                gson?.fromJson(gson.toJson(result), SocketMessageResponse::class.java)
+            emitJoinChat()
+            Observable.just(true)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
+                    val gson = Gson()
+                    val itemType: Type =
+                        object : TypeToken<ArrayList<MediaFile?>?>() {}.getType()
+                    val mediaFiles: List<MediaFile> = ArrayList<MediaFile>()
+
+                    messagesListAdapter!!.addToStart(
+                        Message(
+                            socketMessageResponse.nameValuePairs.messageId,
+                            sessionHelper.userProfile.userId.toString(),
+                            socketMessageResponse.nameValuePairs.messageType,
+                            socketMessageResponse.nameValuePairs.content,
+                            socketMessageResponse.nameValuePairs.creationTime,
+                            socketMessageResponse.nameValuePairs.isMyOwn,
+                            socketMessageResponse.nameValuePairs.senderAvatar,
+                            mediaFiles,
+                            gson.fromJson(
+                                socketMessageResponse.nameValuePairs.additionalData.toString(),
+                                Any::class.java
+                            ),
+                        ), true
+                    )
+                }
+        })
+    }
+
+    //Listen message from another user
+    private fun emitReceiveMessage() {
+        mSocket?.on(Keys.Chat_Socket.RECEIVE_MESSAGE, Emitter.Listener {
+            val gson = Gson()
+            var socketMessageResponse =
+                gson?.fromJson(gson.toJson(it[0]), SocketMessageResponse::class.java)
+            Log.e("emit receive response", gson.toJson(it[0]))
+            if (socketMessageResponse != null)
                 Observable.just(true)
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe {
@@ -263,56 +283,28 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
                         val itemType: Type =
                             object : TypeToken<ArrayList<MediaFile?>?>() {}.getType()
                         val mediaFiles: List<MediaFile> = ArrayList<MediaFile>()
-
-                        messagesListAdapter!!.addToStart(
-                            Message(
-                                socketMessageResponse.nameValuePairs.messageId,
-                                sessionHelper.userProfile.id,
-                                socketMessageResponse.nameValuePairs.messageType,
-                                socketMessageResponse.nameValuePairs.content,
-                                socketMessageResponse.nameValuePairs.creationTime,
-                                true,
-                                socketMessageResponse.nameValuePairs.senderAvatar,
-                                mediaFiles,
-                                gson.fromJson(
-                                    socketMessageResponse.nameValuePairs.additionalData.toString(),
-                                    Any::class.java
-                                ),
-                            ), true
-                        )
-                    }
-            })
-
-    }
-
-    //Listen message from another user
-    private fun emitReceiveMessage() {
-        SocketController.receive<SocketMessageResponse>(
-            mSocket!!,
-            Keys.Chat_Socket.RECEIVE_MESSAGE,
-            onResult = { socketMessageResponse ->
-                Observable.just(true)
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe {
                         var ids: ArrayList<String> = ArrayList()
                         ids.add(socketMessageResponse.nameValuePairs.messageId!!)
-                        Message(
-                            socketMessageResponse.nameValuePairs.messageId,
-                            socketMessageResponse.nameValuePairs.senderUserId.toString(),
-                            socketMessageResponse.nameValuePairs.messageType,
-                            socketMessageResponse.nameValuePairs.content,
-                            socketMessageResponse.nameValuePairs.creationTime,
-                            false,
-                            socketMessageResponse.nameValuePairs.senderAvatar,
-                            ArrayList(),
-                            Gson().fromJson(
-                                socketMessageResponse.nameValuePairs.additionalData.toString(),
-                                Any::class.java
-                            ),
-                        )
+                        emitSeenMessage(ids)
+                        if (!socketMessageResponse.nameValuePairs.isMyOwn!!)
+                            messagesListAdapter!!.addToStart(
+                                Message(
+                                    socketMessageResponse.nameValuePairs.messageId,
+                                    socketMessageResponse.nameValuePairs.senderUserId.toString(),
+                                    socketMessageResponse.nameValuePairs.messageType,
+                                    socketMessageResponse.nameValuePairs.content,
+                                    socketMessageResponse.nameValuePairs.creationTime,
+                                    socketMessageResponse.nameValuePairs.isMyOwn,
+                                    socketMessageResponse.nameValuePairs.senderAvatar,
+                                    mediaFiles,
+                                    gson.fromJson(
+                                        socketMessageResponse.nameValuePairs.additionalData.toString(),
+                                        Any::class.java
+                                    ),
+                                ), true
+                            )
                     }
-
-            })
+        })
     }
 
 
@@ -320,28 +312,21 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
     private fun emitSeenMessage(ids: ArrayList<String>) {
         val jsonOb = JSONObject()
         jsonOb.put("messagesIds", JSONArray(ids))
-        SocketController.request<String>(
-            mSocket!!,
-            Keys.Chat_Socket.SEEN_MESSAGE,
-            jsonOb,
-            onResult = {
-                val gson = Gson()
-                Log.e("emit SEEN response", gson.toJson(it[0]))
-            })
+        mSocket?.emit(Keys.Chat_Socket.SEEN_MESSAGE, jsonOb, Ack {
+            //check if socket emit success
+//            Log.e("emit SEEN response", gson.toJson(it[0]))
+
+        })
     }
 
 
     //leave chat
     private fun emitLeaveChat() {
-        SocketController.request<String>(
-            mSocket!!,
-            Keys.Chat_Socket.LEAVE_CHAT,
-            JSONObject(),
-            onResult = {
-                Log.e("Leave success", "success")
-            })
+        mSocket?.emit(Keys.Chat_Socket.LEAVE_CHAT, JSONObject(), Ack {
+            //check if socket emit success
+            Log.e("Leave success", "success")
+        })
     }
-
 
     override fun onDestroy() {
         super.onDestroy()
@@ -358,9 +343,7 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
             mSocket = IO.socket(Keys.Chat_Socket.SOCKET_URL, opts)
             mSocket?.io()?.on(Manager.EVENT_TRANSPORT, initSocketHeaders());
             mSocket?.on(Socket.EVENT_CONNECT, Emitter.Listener {
-                emitJoinChat()
                 emitReceiveMessage()
-                messageRemovedFromChat()
             })
             mSocket?.connect()
         }
@@ -416,7 +399,7 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
         if (!stopLoadingMoreMessages!!)
             chatViewModel.getChatMessages(
                 sessionHelper.userProfile.id!!,
-                lastMessageTime!!,
+                lastMessageId!!,
                 messagesTake!!
             )
     }

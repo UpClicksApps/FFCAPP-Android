@@ -38,7 +38,7 @@ class MyOrdersActivity : BaseActivity() {
     var take: Int = 10
     var stopScroll: Boolean = false
 
-    var orderStatus = 0
+    var orderStatus = OrderStatus.Requested.value
 
     override fun getLayoutResourceId(): View {
         binding = ActivityMyOrdersBinding.inflate(layoutInflater)

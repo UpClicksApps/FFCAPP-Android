@@ -1,4 +1,5 @@
 package com.upclicks.ffc.socket.models;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -23,7 +24,4 @@ public class BaseSocketResponseModel<T> {
         return result;
     }
 
-    //    @SerializedName("error")
-//    @Expose
-//    private String error;
 }

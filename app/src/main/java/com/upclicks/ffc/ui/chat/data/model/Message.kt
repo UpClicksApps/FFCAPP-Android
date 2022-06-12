@@ -15,7 +15,6 @@ class Message : CustomIMessage {
     @Expose
     var senderUserId: String? = null
 
-
     @SerializedName("messageType")
     @Expose
     var messageType: Int? = null
@@ -130,8 +129,7 @@ class Message : CustomIMessage {
     override fun getUser(): IUser {
         if (TextUtils.isEmpty(senderAvatar))
             senderAvatar = ""
-        if(isMyOwn!!)
-            senderUserId = IS_MY_OWN
+
         return User(
             "" + senderUserId,
             "",
@@ -146,9 +144,10 @@ class Message : CustomIMessage {
      * @return the message creation date
      */
     override fun getCreatedAt(): Date {
-        if (creationTime == null)
-            creationTime = Date().toString()
-        return Utils.convertFromStringToDate(creationTime!!)
+//        if (creationTime == null)
+//            creationTime = Date().toString()
+//        return Utils.convertFromStringToDate(creationTime!!)
+        return Date()
     }
 
     override fun getImage(): String {
@@ -160,12 +159,13 @@ class Message : CustomIMessage {
     }
 
     override fun getLongitude(): String {
-        if (messageType == Keys.MessageType.ShareLocation) {
-            if (additionalData != null) {
-                var longitude = additionalData as Map<String, Any>
-                return longitude?.get("longitude").toString()!!
+        if (messageType != null)
+            if (messageType == Keys.MessageType.ShareLocation) {
+                if (additionalData != null) {
+                    var longitude = additionalData as Map<String, Any>
+                    return longitude?.get("longitude").toString()!!
+                }
             }
-        }
         return ""
     }
 
@@ -178,7 +178,6 @@ class Message : CustomIMessage {
         }
         return ""
     }
-
 
 
     internal class User(

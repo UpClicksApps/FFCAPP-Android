@@ -14,10 +14,10 @@ class ProductRequest {
     var productName: String? = ""
     @SerializedName("minPrice")
     @Expose
-    var minPrice: Double? = 0.0
+    var minPrice: Float? = 0f
     @SerializedName("maxPrice")
     @Expose
-    var maxPrice: Double? = 0.0
+    var maxPrice: Float? = 0f
     @SerializedName("skip")
     @Expose
     var skip: Int? = 0

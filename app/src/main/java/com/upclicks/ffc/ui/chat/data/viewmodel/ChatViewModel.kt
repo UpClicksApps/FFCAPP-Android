@@ -87,9 +87,9 @@ class ChatViewModel
     //Get Chat Messages
     fun getChatMessages(
         memberId: String,
-        lastMessageTime: String, take: Int
+        messageId: String, take: Int
     ) {
-        chatRepository.getChatMessages(memberId,lastMessageTime, take)
+        chatRepository.getChatMessages(memberId,messageId, take)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribe(object : CustomRxObserver<Result<List<Message>>>(this@ChatViewModel) {

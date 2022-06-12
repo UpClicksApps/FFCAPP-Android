@@ -60,6 +60,13 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         binding.lifecycleOwner = this
     }
 
+    override fun onStart() {
+        super.onStart()
+        setUpCartBadgeCount();
+        setUpChatBadgeCount();
+        callProducts()
+    }
+
     private fun setUpCartBadgeCount() {
         try {
             if (sessionHelper.cartCount > 0)
@@ -73,15 +80,27 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                     .setBadgePadding(2f, true).badgeGravity =
                     Gravity.START or Gravity.TOP
         } catch (e: Exception) {
-            Log.e("Error in setBadgeNumber", "error")
+            Log.e("Error in setUpCartBadgeCount", "error")
             e.printStackTrace()
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        setUpCartBadgeCount();
-        callProducts()
+    private fun setUpChatBadgeCount() {
+        try {
+            if (sessionHelper.userProfile.unSeenMessagesCount!! > 0)
+                if (sessionHelper.isEnglish(requireContext()))
+                    QBadgeView(requireContext()).bindTarget(binding.customerSupportIv)
+                        .setBadgeNumber(sessionHelper.userProfile.unSeenMessagesCount!!)
+                        .setBadgePadding(2f, true).badgeGravity =
+                        Gravity.END or Gravity.TOP
+                else QBadgeView(requireContext()).bindTarget(binding.customerSupportIv)
+                    .setBadgeNumber(sessionHelper.userProfile.unSeenMessagesCount!!)
+                    .setBadgePadding(2f, true).badgeGravity =
+                    Gravity.START or Gravity.TOP
+        } catch (e: Exception) {
+            Log.e("Error in setUpChatBadgeCount", "error")
+            e.printStackTrace()
+        }
     }
 
     private fun setUpObservers() {
@@ -129,6 +148,10 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     }
 
     private fun setUpPageActions() {
+        if (sessionHelper.isLogin)
+            binding.customerSupportIv.visibility = View.VISIBLE
+        else binding.customerSupportIv.visibility = View.GONE
+
         binding.cartIv.setOnClickListener {
             if (sessionHelper.cartCount > 0)
                 startActivity(Intent(requireContext(), ShoppingCartActivity::class.java))

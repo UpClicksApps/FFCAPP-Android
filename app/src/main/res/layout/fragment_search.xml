@@ -29,11 +29,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-            <com.upclicks.ffc.ui.general.component.customedittext.SearchInput
+            <com.upclicks.ffc.ui.general.component.customedittext.TextInput
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/white"
                 android:layout_weight="1"
+                android:id="@+id/searchInput"
                 android:padding="@dimen/_8sdp"
                 android:hint="@string/search_for_products"
                 />
@@ -44,6 +45,7 @@
                     android:background="@color/secondary"
                     android:padding="@dimen/_12sdp"
                     app:tint="@color/white"
+                    android:id="@+id/searchIv"
                     />
             </LinearLayout>
         </androidx.cardview.widget.CardView>

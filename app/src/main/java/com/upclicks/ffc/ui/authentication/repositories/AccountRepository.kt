@@ -86,6 +86,11 @@ class AccountRepository @Inject constructor(private val apiService: ApiService) 
         return apiService.changePassword(changePasswordRequest)
     }
 
+    //getAboutUs
+    fun getAboutUs(key: String) : Observable<Result<String>> {
+        return apiService.getAboutUs(key)
+    }
+
 
     //Forgot Password
     fun forgotPassword(emailAddress : String) : Observable<Result<ForgotPasswordResponse>> {

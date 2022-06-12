@@ -106,8 +106,8 @@ abstract class BaseActivity : AppCompatActivity() {
                 headers["OSType"] = listOf(Keys.OS_TYPE)
                 headers["ConnectionType"] = listOf(connectionType)
                 headers["AppVersion"] = listOf(appVersion)
-                headers["DeviceType"] = listOf(deviceType)
-                headers["DeviceId"] = listOf(deviceId)
+                headers["MachineType"] = listOf(deviceType)
+                headers["MachineId"] = listOf(deviceId)
                 headers["Accept"] = listOf("application/json")
             }.on(
                 Transport.EVENT_RESPONSE_HEADERS

@@ -288,6 +288,23 @@ class AccountViewModel
             })
     }
 
+
+    //Get AboutUs
+    fun getAboutUs(
+        key: String,
+        onGetAboutUs: (String) -> Unit
+    ) {
+        accountRepository.getAboutUs(key)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe(object : CustomRxObserver<Result<String>>(this@AccountViewModel) {
+                override fun onResponse(response: Result<String>) {
+                    onGetAboutUs(response?.result!!)
+                }
+            })
+    }
+
+
     //Reset password
     fun resetPassword(
         resetPasswordRequest: ResetPasswordRequest,

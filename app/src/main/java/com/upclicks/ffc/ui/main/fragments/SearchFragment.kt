@@ -12,6 +12,7 @@ import com.upclicks.ffc.architecture.BaseFragment
 import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.FragmentSearchBinding
 import com.upclicks.ffc.ui.cart.viewmodel.CartViewModel
+import com.upclicks.ffc.ui.general.component.customedittext.BaseInput
 import com.upclicks.ffc.ui.products.ProductDetailsActivity
 import com.upclicks.ffc.ui.products.adapter.ProductGridAdapter
 import com.upclicks.ffc.ui.products.model.Product
@@ -30,6 +31,7 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
     private val productViewModel: ProductViewModel by viewModels()
     private var productRequest = ProductRequest()
     var lastSearchedList = ArrayList<String>()
+    var searchText = ""
 
     override fun setUpLayout() {
         binding = FragmentSearchBinding.bind(requireView())
@@ -38,13 +40,27 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
 
     private fun initPage() {
         setUpToolbar()
+        setUpPageAction()
         setUpUiList()
         setUpObservers()
         setUpHistory()
     }
+    private fun setUpPageAction() {
+        binding.searchInput.setOnTextTyping(object : BaseInput.TypingCallback {
+            override fun onTyping(text: String) {
+                searchText = text
+            }
+        })
+        binding.searchIv.setOnClickListener {
+            if (binding.searchInput.isValid) {
+                productRequest.productName = searchText
+                productViewModel.getProducts(productRequest)
+            }
+        }
+    }
     private fun setUpHistory() {
         if (!TextUtils.isEmpty(sessionHelper.lastSearched)) {
-            sessionHelper.lastSearched.split("!!!").forEach { chip->
+            sessionHelper.lastSearched.split("!!!").forEach { chip ->
                 binding.chipCloud.addChip(chip)
             }
             binding.historyLy.visibility = View.VISIBLE
@@ -59,10 +75,12 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
             override fun chipSelected(index: Int) {
                 lastSearchedList[index]
             }
+
             override fun chipDeselected(index: Int) {
             }
         })
     }
+
     private fun setUpObservers() {
         productViewModel.getProducts(productRequest)
         productViewModel.observeProductList.observe(this, Observer { productResponse ->
@@ -87,13 +105,16 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
 
     private fun setUpUiList() {
         productAdapter = ProductGridAdapter(requireContext(), productsList,
-            onFavoriteClicked = {position->
-                productViewModel.assign(productsList[position].id!!, onAddToFavorite = {message->
+            onFavoriteClicked = { position ->
+                productViewModel.assign(productsList[position].id!!, onAddToFavorite = { message ->
 //                    callProducts()
                     shoMsg(message, MotionToast.TOAST_SUCCESS)
                 })
             }, onCartClicked = {
-                cartViewModel.addProductToCart(productsList[it].id!!,productsList[it].currentPrice!!)
+                cartViewModel.addProductToCart(
+                    productsList[it].id!!,
+                    productsList[it].currentPrice!!
+                )
             }, onItemClicked = {
                 startActivity(
                     Intent(

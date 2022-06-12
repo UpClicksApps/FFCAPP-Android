@@ -16,6 +16,9 @@ open class Order {
     @SerializedName("orderDate")
     @Expose
     var orderDate: String? = null
+    @SerializedName("orderStatus")
+    @Expose
+    var orderStatus: Int? = null
     @SerializedName("orderStatusText")
     @Expose
     var orderStatusText: String? = null

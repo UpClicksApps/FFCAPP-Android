@@ -222,6 +222,7 @@
                         android:drawableEnd="@drawable/ic_arrow_right"
                         android:drawableStart="@drawable/ic_profile_shipping_address_icon"
                         android:drawablePadding="@dimen/_8sdp"
+                        android:visibility="gone"
                         android:gravity="start|center"
                         android:id="@+id/shippingAddressTv"
                         android:paddingVertical="@dimen/_8sdp"

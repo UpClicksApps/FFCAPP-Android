@@ -98,9 +98,16 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     intent.putExtra(Keys.Intent_Constants.ORDER_ID, entityId);
                     break;
                 }
+                //Income chat
+                case Keys.FcmNotificationsTypes.CHAT_MSG_INCOME: {
+                    clickAction = "com.upclicks.ffc.chat";
+                    intent = new Intent(clickAction);
+                    break;
+                }
+
                 //Logout
                 case LOGOUT_NOTIFY: {
-                    UnAuthorizedEvent unAuthorizedEvent  = new UnAuthorizedEvent(0,"Session Expire","");
+                    UnAuthorizedEvent unAuthorizedEvent = new UnAuthorizedEvent(0, "Session Expire", "");
                     RxBus.INSTANCE.publish(unAuthorizedEvent);
                     break;
                 }
@@ -109,6 +116,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 }
             }
             channelId = type;
+            if (type.equals(Keys.FcmNotificationsTypes.CHAT_MSG_INCOME)) {
+                return;
+            }
             notify(title, entityId, body, img + "", clickAction);
         }
     }

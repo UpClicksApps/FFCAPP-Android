@@ -17,6 +17,7 @@ class CheckoutSuccessActivity : BaseActivity() {
 
     private fun initPage() {
         binding.continueShoppingBtn.setOnClickListener {
+            sessionHelper.saveCartCount(0)
             startActivity(Intent(this,MainActivity::class.java))
             finishAffinity()
         }

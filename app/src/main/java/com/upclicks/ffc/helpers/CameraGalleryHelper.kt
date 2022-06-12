@@ -28,7 +28,6 @@ import java.io.File
 class CameraGalleryHelper {
 
     companion object {
-
         fun openCamera(context: Context) {
             ImagePicker.with(context as Activity)
                 .cameraOnly()
