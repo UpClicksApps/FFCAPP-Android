@@ -26,68 +26,114 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:padding="@dimen/_16sdp">
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/leave_us_a_message_we_will_get_contact_with_you_as_soon_as_possible"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginVertical="@dimen/_16sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/your_name"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    />
 
-                <LinearLayout
+                <com.upclicks.ffc.ui.general.component.customedittext.TextInput
+                    android:id="@+id/nameEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/stroke_rectangle_background_grey"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="@dimen/_5sdp"
-                    android:paddingVertical="@dimen/_2sdp">
-
-                    <com.upclicks.ffc.ui.general.component.customedittext.TextInput
-                        android:id="@+id/nameEt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/white"
-                        android:hint="@string/name"
-                        android:paddingVertical="@dimen/_8sdp" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_1sdp"
-                        android:background="@color/line_color_grey" />
-
-                    <com.upclicks.ffc.ui.general.component.customedittext.TextInput
-                        android:id="@+id/emailEt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/white"
-                        android:hint="@string/e_mail"
-                        android:paddingVertical="@dimen/_8sdp" />
-                </LinearLayout>
+                    android:background="@drawable/solid_rectangle_background_grey"
+                    android:backgroundTint="@color/white"
+                    android:elevation="@dimen/_5sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:padding="@dimen/_8sdp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone_number"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    />
 
                 <com.upclicks.ffc.ui.general.component.customedittext.TextInput
                     android:id="@+id/phoneEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:background="@drawable/stroke_rectangle_background_grey"
-                    android:hint="@string/phone_number"
-                    android:paddingHorizontal="@dimen/_5sdp"
-                    android:paddingVertical="@dimen/_8sdp" />
+                    android:background="@drawable/solid_rectangle_background_grey"
+                    android:backgroundTint="@color/white"
+                    android:elevation="@dimen/_5sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:padding="@dimen/_8sdp"
+                    />
 
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/e_mail"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    />
+
+                <com.upclicks.ffc.ui.general.component.customedittext.TextInput
+                    android:id="@+id/emailEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/solid_rectangle_background_grey"
+                    android:backgroundTint="@color/white"
+                    android:elevation="@dimen/_5sdp"
+                    android:padding="@dimen/_8sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/message"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    />
                 <com.upclicks.ffc.ui.general.component.customedittext.TextInput
                     android:id="@+id/messageEt"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_150sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:background="@drawable/stroke_rectangle_background_grey"
+                    android:background="@drawable/solid_rectangle_background_grey"
+                    android:backgroundTint="@color/white"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:elevation="@dimen/_5sdp"
                     android:gravity="top"
-                    android:hint="@string/send_your_feedback_let_us_know_how_you_like"
-                    android:paddingHorizontal="@dimen/_5sdp"
-                    android:paddingVertical="@dimen/_8sdp"
+                    android:padding="@dimen/_8sdp"
                     android:textSize="@dimen/_12sdp" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/sendFeedbackButton"
                     style="@style/ButtonContainedPrimary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_20sdp"
                     android:enabled="false"
-                    android:text="@string/send_feedback" />
+                    app:iconGravity="textStart"
+                    app:icon="@drawable/ic_send"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:backgroundTint="@color/secondary"
+                    android:text="@string/send" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

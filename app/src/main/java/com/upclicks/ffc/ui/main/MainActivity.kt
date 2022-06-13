@@ -45,7 +45,7 @@ class MainActivity : BaseActivity() {
                         LoginDialog(this, onYesBtnClick = {
                             startActivity(Intent(this, LoginByEmailActivity::class.java))
                             finishAffinity()
-                        }, onNoBtnClick = {})
+                        }, onNoBtnClick = {}).show()
                     }
                 }
             }

@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose
 
 import com.google.gson.annotations.SerializedName
 open class CheckoutOrder {
+
     @SerializedName("couponId")
     @Expose
     var couponId: String? = null

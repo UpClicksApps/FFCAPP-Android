@@ -3,7 +3,7 @@ package com.upclicks.ffc.ui.general.model
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class FeedbackRequest {
+class ContactUsRequest {
     @SerializedName("message")
     @Expose
     var message: String? = null

@@ -4,16 +4,17 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
+import android.os.Handler
 import android.provider.Settings
 import android.widget.TextView
 import androidx.annotation.NonNull
+import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.upclicks.ffc.R
 import com.upclicks.ffc.data.event.ErrorEvent
 import com.upclicks.ffc.data.model.ErrorModel
 import com.upclicks.ffc.session.SessionHelper
 import com.upclicks.ffc.ui.notification.GetTimeAgo
-import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import org.json.JSONException
@@ -50,6 +51,26 @@ class Utils {
                 e.printStackTrace()
             }
             return errorMessage
+        }
+        fun autoScrollRecycler(recyclerView: RecyclerView?, dataListSize: Int) {
+            val speedScroll = 3500
+            val handler = Handler()
+            val runnable: Runnable = object : Runnable {
+                var count = 0
+                override fun run() {
+                    if (recyclerView != null) {
+                        if (count == dataListSize) {
+                            count = 0
+                        }
+                        if (count < dataListSize) {
+                            recyclerView.smoothScrollToPosition(count)
+                            count++
+                            handler.postDelayed(this, speedScroll.toLong())
+                        }
+                    }
+                }
+            }
+            handler.postDelayed(runnable, speedScroll.toLong())
         }
 
 

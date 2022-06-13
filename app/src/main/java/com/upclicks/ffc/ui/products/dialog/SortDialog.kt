@@ -10,20 +10,18 @@ import com.adroitandroid.chipcloud.ChipListener
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.upclicks.ffc.R
-import com.upclicks.ffc.databinding.DialogFilterBinding
+import com.upclicks.ffc.commons.ProductSortBy
+import com.upclicks.ffc.databinding.DialogSortBinding
 import com.upclicks.ffc.ui.general.model.Category
 import com.upclicks.ffc.ui.products.viewmodel.ProductViewModel
 import www.sanju.motiontoast.MotionToast
 
 class SortDialog(
     var mContext: Context,
-    var categoryId: String,
-    var productViewModel: ProductViewModel,
-    private val onApplyBtnClicked: (Category) -> Unit
+    private val onApplyBtnClicked: (Int) -> Unit
 ) : BottomSheetDialog(mContext, R.style.BottomSheetDialog) {
-    lateinit var binding: DialogFilterBinding
-    var category = Category()
-    var categoriesList = ArrayList<Category>()
+    lateinit var binding: DialogSortBinding
+    var sortByKey:Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +29,7 @@ class SortDialog(
     }
 
     private fun setUpDialogUi() {
-        binding = DialogFilterBinding.inflate(LayoutInflater.from(context))
+        binding = DialogSortBinding.inflate(LayoutInflater.from(context))
         setContentView(binding.root)
         window!!.setLayout(
             WindowManager.LayoutParams.MATCH_PARENT,
@@ -42,51 +40,48 @@ class SortDialog(
         val mBehavior: BottomSheetBehavior<*> =
             BottomSheetBehavior.from(binding.root.parent as View)
         mBehavior.peekHeight = height
-        setUpCategories()
         binding.closeIv.setOnClickListener {
             dismiss()
         }
         binding.resetBtn.setOnClickListener {
-            category = Category()
-            binding.chipCloud.removeAllViews()
-            categoriesList.forEach { category ->
-                binding.chipCloud.addChip(category.name)
-            }
+            binding.highPriceRb.isChecked = false
+            binding.lowPriceRb.isChecked = false
+            binding.fromAToZRb.isChecked = false
+            binding.fromZToARb.isChecked = false
+            sortByKey = null
         }
         binding.applyBtn.setOnClickListener {
-            if (category.id != null){
-                onApplyBtnClicked(category)
+                onApplyBtnClicked(sortByKey!!)
                 dismiss()
-            }else{
-                shoMsg(context.getString(R.string.category_must_be_selected),MotionToast.TOAST_ERROR)
-            }
         }
 
-    }
-    private fun setUpCategories() {
-        productViewModel.getCategories { categories->
-            if (!categories.isNullOrEmpty()){
-                binding.chipCloud.visibility = View.VISIBLE
-                binding.emptyCategoriesTv.visibility = View.GONE
-                categoriesList.clear()
-                categoriesList.addAll(categories)
-                categories.forEachIndexed { index,category ->
-                    binding.chipCloud.addChip(category.name)
-                    if (category.id == categoryId){
-                        binding.chipCloud.setSelectedChip(index)
-                    }
-                }
-                binding.chipCloud.setChipListener(object :ChipListener{
-                    override fun chipSelected(index: Int) {
-                        category = categoriesList[index]
-                    }
-                    override fun chipDeselected(index: Int) {
-                    }
-                })
-            }else{
-                binding.chipCloud.visibility = View.GONE
-                binding.emptyCategoriesTv.visibility = View.VISIBLE
-            }
+        binding.lowPriceTv.setOnClickListener {
+            binding.highPriceRb.isChecked = false
+            binding.lowPriceRb.isChecked = true
+            binding.fromAToZRb.isChecked = false
+            binding.fromZToARb.isChecked = false
+            sortByKey = ProductSortBy.HighToLowPrice.value
+        }
+        binding.highPriceTv.setOnClickListener {
+            binding.highPriceRb.isChecked = true
+            binding.lowPriceRb.isChecked = false
+            binding.fromAToZRb.isChecked = false
+            binding.fromZToARb.isChecked = false
+            sortByKey = ProductSortBy.LowToHighPrice.value
+        }
+        binding.fromAToZTv.setOnClickListener {
+            binding.highPriceRb.isChecked = false
+            binding.lowPriceRb.isChecked = false
+            binding.fromAToZRb.isChecked = true
+            binding.fromZToARb.isChecked = false
+            sortByKey = ProductSortBy.AToZ.value
+        }
+        binding.fromZToATv.setOnClickListener {
+            binding.highPriceRb.isChecked = false
+            binding.lowPriceRb.isChecked = false
+            binding.fromAToZRb.isChecked = false
+            binding.fromZToARb.isChecked = true
+            sortByKey = ProductSortBy.ZToA.value
         }
     }
 

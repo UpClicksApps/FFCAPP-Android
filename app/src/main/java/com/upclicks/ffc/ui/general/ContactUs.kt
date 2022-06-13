@@ -8,7 +8,7 @@ import com.upclicks.ffc.architecture.BaseActivity
 import com.upclicks.ffc.databinding.ActivityContactUsBinding
 import com.upclicks.ffc.ui.authentication.viewmodel.AccountViewModel
 import com.upclicks.ffc.ui.general.component.customedittext.BaseInput
-import com.upclicks.ffc.ui.general.model.FeedbackRequest
+import com.upclicks.ffc.ui.general.model.ContactUsRequest
 import www.sanju.motiontoast.MotionToast
 
 class ContactUs : BaseActivity() {
@@ -77,18 +77,18 @@ class ContactUs : BaseActivity() {
     }
     private fun sendFeedback() {
         Log.e("isValid",""+checkIfInputsIsValid())
-        accountViewModel.sendFeedback(createFeedbackRequest(), onResult = { message ->
+        accountViewModel.contactUs(createFeedbackRequest(), onResult = { message ->
                 shoMsg(message, MotionToast.TOAST_SUCCESS)
             })
     }
 
-    private fun createFeedbackRequest(): FeedbackRequest {
-        var feedbackRequest = FeedbackRequest()
-        feedbackRequest.emailAddress = binding.emailEt.text.toString()
-        feedbackRequest.phoneNumber = binding.phoneEt.text.toString()
-        feedbackRequest.name = binding.nameEt.text.toString()
-        feedbackRequest.message = binding.messageEt.text.toString()
-        return feedbackRequest
+    private fun createFeedbackRequest(): ContactUsRequest {
+        var contactUsRequest = ContactUsRequest()
+        contactUsRequest.emailAddress = binding.emailEt.text.toString()
+        contactUsRequest.phoneNumber = binding.phoneEt.text.toString()
+        contactUsRequest.name = binding.nameEt.text.toString()
+        contactUsRequest.message = binding.messageEt.text.toString()
+        return contactUsRequest
     }
 
 }

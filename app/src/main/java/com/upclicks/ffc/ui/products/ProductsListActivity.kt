@@ -12,9 +12,11 @@ import com.upclicks.ffc.databinding.ActivityProductsListBinding
 import com.upclicks.ffc.ui.cart.viewmodel.CartViewModel
 import com.upclicks.ffc.ui.products.adapter.ProductGridAdapter
 import com.upclicks.ffc.ui.products.dialog.FilterDialog
+import com.upclicks.ffc.ui.products.dialog.SortDialog
 import com.upclicks.ffc.ui.products.model.Product
 import com.upclicks.ffc.ui.products.model.ProductRequest
 import com.upclicks.ffc.ui.products.viewmodel.ProductViewModel
+import kotlinx.android.synthetic.main.activity_login_by_email.*
 import www.sanju.motiontoast.MotionToast
 
 class ProductsListActivity : BaseActivity() {
@@ -58,6 +60,14 @@ class ProductsListActivity : BaseActivity() {
                     if (!productRequest.categoryId.isNullOrEmpty())
                         this.productRequest.categoryId = productRequest.categoryId
                     binding.toolbar.titleTv.text = categoryName
+                    productViewModel.getProducts(productRequest)
+                }).show()
+        }
+        binding.sortBtn.setOnClickListener {
+            SortDialog(
+                this,
+                onApplyBtnClicked = { sortByKey ->
+                    productRequest.sortProductBy = sortByKey
                     productViewModel.getProducts(productRequest)
                 }).show()
         }
@@ -113,7 +123,15 @@ class ProductsListActivity : BaseActivity() {
                 productsList.clear()
                 productsList.addAll(productResponse.products!!)
                 productAdapter.notifyDataSetChanged()
+                binding.recycler.visibility = View.VISIBLE
+                binding.emptyTopSalesTv.visibility = View.GONE
+            }else{
+                binding.recycler.visibility = View.GONE
+                binding.emptyTopSalesTv.visibility = View.VISIBLE
             }
+
+
+
         })
         cartViewModel.observeCartActionResponse.observe(this, Observer { cartActionResponse ->
             shoMsg(cartActionResponse.message!!, MotionToast.TOAST_SUCCESS)

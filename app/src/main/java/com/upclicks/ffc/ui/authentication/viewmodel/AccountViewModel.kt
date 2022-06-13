@@ -142,11 +142,11 @@ class AccountViewModel
     }
 
     //sendFeedback
-    fun sendFeedback(
-        feedbackRequest: FeedbackRequest,
+    fun contactUs(
+        contactUsRequest: ContactUsRequest,
         onResult: (String) -> Unit
     ) {
-        accountRepository.sendFeedback(feedbackRequest)
+        accountRepository.contactUs(contactUsRequest)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribe(object :

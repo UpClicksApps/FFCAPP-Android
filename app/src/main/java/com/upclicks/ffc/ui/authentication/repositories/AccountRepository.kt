@@ -114,8 +114,8 @@ class AccountRepository @Inject constructor(private val apiService: ApiService) 
     }
 
     //sendFeedback
-    fun sendFeedback(feedbackRequest: FeedbackRequest) : Observable<Result<String>> {
-        return apiService.sendFeedback(feedbackRequest)
+    fun contactUs(contactUsRequest: ContactUsRequest) : Observable<Result<String>> {
+        return apiService.contactUs(contactUsRequest)
     }
 
 }

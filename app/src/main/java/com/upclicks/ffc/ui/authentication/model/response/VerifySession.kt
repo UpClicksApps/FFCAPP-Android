@@ -30,7 +30,7 @@ class VerifySession {
         @SerializedName("currentCartProductsCount"            ) var currentCartProductsCount            : Int?     = null
         @SerializedName("isProfileCompleted"             ) var isProfileCompleted             : Boolean? = null
         @SerializedName("userId"                         ) var userId                         : Int?     = null
-        @SerializedName("avatarPath"                     ) var avatarPath                     : String?  = null
+        @SerializedName("avaterPath"                     ) var avatarPath                     : String?  = null
         @SerializedName("fullName"                       ) var fullName                       : String?  = null
         @SerializedName("name"                           ) var name                           : String?  = null
         @SerializedName("surname"                        ) var surname                        : String?  = null

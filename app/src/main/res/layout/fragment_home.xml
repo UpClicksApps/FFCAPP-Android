@@ -58,7 +58,6 @@
                             android:src="@drawable/ic_cart"
                             android:layout_gravity="end"
                             />
-
                         <ImageView
                             android:id="@+id/customerSupportIv"
                             android:layout_width="@dimen/_30sdp"
@@ -67,23 +66,26 @@
                             android:layout_marginEnd="@dimen/_35sdp"
                             android:padding="@dimen/_5sdp"
                             android:src="@drawable/ic_baseline_support_agent_24" />
-
                     </FrameLayout>
-
                 </LinearLayout>
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_120sdp"
-                    android:layout_marginTop="@dimen/_40sdp"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
-                    android:background="@drawable/home_slider_placeholder"
-                    />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sliderRv"
+                        tools:listitem="@layout/item_slider"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/_50sdp"
+                        >
+                    </androidx.recyclerview.widget.RecyclerView>
             </FrameLayout>
 
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fillViewport="true">
+                android:fillViewport="true"
+                android:layout_marginTop="@dimen/_16sdp"
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -102,7 +104,6 @@
                             android:text="@string/explore_by_category"
                             android:textSize="@dimen/_14sdp"
                             android:textColor="@color/primary"
-                            android:layout_marginTop="@dimen/_16sdp"
                             android:layout_marginStart="@dimen/_8sdp"
                             android:textStyle="bold"
                             />
@@ -209,12 +210,25 @@
                         </FrameLayout>
                     </LinearLayout>
 
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/_8sdp"
+                        >
+
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_100sdp"
-                        android:background="@drawable/home_advert"
-                        android:layout_marginVertical="@dimen/_8sdp"
+                        android:layout_height="0dp"
+                        android:id="@+id/mainAdBannerIv"
+                        android:scaleType="fitXY"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintDimensionRatio="2:1"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

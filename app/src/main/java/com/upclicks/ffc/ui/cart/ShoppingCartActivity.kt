@@ -16,6 +16,7 @@ import com.upclicks.ffc.ui.cart.model.Cart
 import com.upclicks.ffc.ui.cart.viewmodel.CartViewModel
 import com.upclicks.ffc.ui.checkout.model.CheckoutRequest
 import com.upclicks.ffc.ui.checkout.model.CheckoutOrder
+import com.upclicks.ffc.ui.general.component.customedittext.BaseInput
 import www.sanju.motiontoast.MotionToast
 
 class ShoppingCartActivity : BaseActivity() {
@@ -25,7 +26,7 @@ class ShoppingCartActivity : BaseActivity() {
     private val cartViewModel: CartViewModel by viewModels()
 
     var checkoutRequest = CheckoutRequest()
-
+    var couponId = ""
     override fun getLayoutResourceId(): View {
         binding = ActivityShoppingCartBinding.inflate(layoutInflater)
         initPage()
@@ -50,8 +51,9 @@ class ShoppingCartActivity : BaseActivity() {
             finish()
         }
     }
+
     private fun setUpObserver() {
-        cartViewModel.getCurrentCartDetails()
+        cartViewModel.getCurrentCartDetails(couponId)
         cartViewModel.observeCartDetails.observe(this, Observer { cartDetails ->
             if (cartDetails != null) {
                 binding.cartDetails = cartDetails
@@ -69,7 +71,7 @@ class ShoppingCartActivity : BaseActivity() {
         cartViewModel.observeCartActionResponse.observe(this, Observer { cartActionResponse ->
             shoMsg(cartActionResponse.message!!, MotionToast.TOAST_SUCCESS)
             sessionHelper.saveCartCount(cartActionResponse.currentCartItemsCount)
-            cartViewModel.getCurrentCartDetails()
+            cartViewModel.getCurrentCartDetails(couponId)
         })
     }
 
@@ -82,6 +84,18 @@ class ShoppingCartActivity : BaseActivity() {
     }
 
     private fun setUpPageActions() {
+        binding.promoCodeEt.setOnTextTyping(object : BaseInput.TypingCallback {
+            override fun onTyping(text: String) {
+
+            }
+        })
+        binding.promoCodeApplyBtn.setOnClickListener {
+            if (binding.promoCodeEt.isValid) {
+                couponId = binding.promoCodeEt.text.toString()
+                cartViewModel.getCurrentCartDetails(couponId)
+            }
+
+        }
         binding.checkoutBtn.setOnClickListener {
             startActivity(
                 Intent(

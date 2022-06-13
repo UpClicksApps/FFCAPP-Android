@@ -62,12 +62,12 @@
                 android:elevation="@dimen/_5sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 >
-                <EditText
+                <com.upclicks.ffc.ui.general.component.customedittext.TextInput
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_38sdp"
                     android:layout_weight="1"
                     android:padding="@dimen/_5sdp"
-                    android:id="@+id/promoCodeTv"
+                    android:id="@+id/promoCodeEt"
                     android:background="@color/transparent"
                     android:hint="@string/enter_promo_code"
                     />

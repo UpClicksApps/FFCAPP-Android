@@ -51,7 +51,7 @@ class FilterDialog(
         binding.closeIv.setOnClickListener {
             dismiss()
         }
-
+        productRequest.categoryId = categoryId
         binding.resetBtn.setOnClickListener {
             productRequest = ProductRequest()
             binding.chipCloud.removeAllViews()
@@ -64,7 +64,7 @@ class FilterDialog(
             categoryName = resetName
         }
         binding.applyBtn.setOnClickListener {
-            onApplyBtnClicked(categoryName,productRequest)
+            onApplyBtnClicked(categoryName, productRequest)
             dismiss()
         }
         binding.seekbar.setOnRangeChangedListener(object : OnRangeChangedListener {
@@ -100,6 +100,7 @@ class FilterDialog(
                     binding.chipCloud.addChip(category.name)
                     if (category.id == categoryId) {
                         binding.chipCloud.setSelectedChip(index)
+                        categoryName = categoriesList[index].name!!
                         resetName = categoriesList[index].name!!
                     }
                 }

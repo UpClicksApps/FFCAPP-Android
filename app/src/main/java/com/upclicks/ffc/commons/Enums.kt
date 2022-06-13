@@ -19,12 +19,14 @@ enum class SpecificationType(val value: Int) {
     Image(2),
 }
 
-enum class ProductSort(val value: Int) {
+enum class ProductSortBy(val value: Int) {
     LowToHighPrice(0),
     HighToLowPrice(1),
     LowRate(2),
     HighRate(3),
     BestSeller(4),
+    AToZ (5),
+    ZToA  (6),
 }
 
 
@@ -39,8 +41,6 @@ enum class VideosSearchType(val value: Int) {
     Product(2),
     Shop(3)
 }
-
-
 enum class PostsSearchType(val value: Int) {
     Posts(0),
     Hashtags(1),

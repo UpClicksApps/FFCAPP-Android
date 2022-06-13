@@ -82,15 +82,30 @@
                 chipcloud:textSize="14sp" /> <!--path relative to assets folder-->
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/item_product_for_grid"
-            android:id="@+id/recycler"
-            android:layout_marginHorizontal="@dimen/_8sdp"
-            app:spanCount="2"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            tools:itemCount="10"/>
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/emptyTopSalesTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/no_products"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:itemCount="10"
+                tools:listitem="@layout/item_product_for_grid" />
+        </FrameLayout>
 
     </LinearLayout>
 </layout>

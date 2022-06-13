@@ -8,20 +8,26 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.upclicks.ffc.R
 import com.upclicks.ffc.architecture.BaseFragment
 import com.upclicks.ffc.commons.Keys
+import com.upclicks.ffc.commons.Utils
+import com.upclicks.ffc.commons.Utils.Companion.autoScrollRecycler
 import com.upclicks.ffc.databinding.FragmentHomeBinding
 import com.upclicks.ffc.helpers.CustomRecyclerViewHelper
+import com.upclicks.ffc.helpers.imageBinding
 import com.upclicks.ffc.ui.authentication.LoginByEmailActivity
-import com.upclicks.ffc.ui.general.model.Category
-import com.upclicks.ffc.ui.main.adapters.HomeCategoryAdapter
-import com.upclicks.ffc.ui.products.ProductDetailsActivity
-import com.upclicks.ffc.ui.products.ProductsListActivity
 import com.upclicks.ffc.ui.cart.ShoppingCartActivity
 import com.upclicks.ffc.ui.cart.viewmodel.CartViewModel
 import com.upclicks.ffc.ui.chat.ChatActivity
 import com.upclicks.ffc.ui.general.dialog.LoginDialog
+import com.upclicks.ffc.ui.general.model.Category
+import com.upclicks.ffc.ui.general.slider.model.Slider
+import com.upclicks.ffc.ui.main.adapters.HomeCategoryAdapter
+import com.upclicks.ffc.ui.orders.adapter.SliderAdapter
+import com.upclicks.ffc.ui.products.ProductDetailsActivity
+import com.upclicks.ffc.ui.products.ProductsListActivity
 import com.upclicks.ffc.ui.products.adapter.HomeProductAdapter
 import com.upclicks.ffc.ui.products.adapter.ProductGridAdapter
 import com.upclicks.ffc.ui.products.model.HomeProduct
@@ -65,6 +71,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         setUpCartBadgeCount();
         setUpChatBadgeCount();
         callProducts()
+        productViewModel.getHomeSliderForMobile()
+        productViewModel.geMainAdBanner()
     }
 
     private fun setUpCartBadgeCount() {
@@ -145,6 +153,30 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             sessionHelper.saveCartCount(cartActionResponse.currentCartItemsCount)
             setUpCartBadgeCount()
         })
+        productViewModel.observeSliderList.observe(this, Observer { sliderList ->
+            setUpSlider(sliderList)
+        })
+
+        productViewModel.observeMainAdBanner.observe(this, Observer { banner ->
+            if (banner != null) {
+                binding.mainAdBannerIv.visibility = View.VISIBLE
+                binding.mainAdBannerIv.setOnClickListener {
+                    Utils.openUrl(requireContext(),banner.url)
+                }
+                imageBinding(binding.mainAdBannerIv, banner.imagePath)
+            } else binding.mainAdBannerIv.visibility = View.GONE
+        })
+    }
+
+    // set up slider
+    private fun setUpSlider(sliders: List<Slider>) {
+        CustomRecyclerViewHelper.addZoomRecyclerLayoutHorizontal(requireContext(),binding.sliderRv)
+        var sliderAdapter = SliderAdapter(requireContext(),sliders, onItemClicked = {
+            Utils.openUrl(requireContext(),sliders[it].url)
+        })
+        binding.sliderRv.adapter = sliderAdapter
+//        binding.sliderRv.layoutManager = LinearLayoutManager(requireContext(),RecyclerView.HORIZONTAL,false)
+        autoScrollRecycler(binding.sliderRv, sliders.size)
     }
 
     private fun setUpPageActions() {

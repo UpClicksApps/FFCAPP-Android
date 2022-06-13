@@ -45,10 +45,17 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
         setUpObservers()
         setUpHistory()
     }
+
     private fun setUpPageAction() {
         binding.searchInput.setOnTextTyping(object : BaseInput.TypingCallback {
             override fun onTyping(text: String) {
                 searchText = text
+                if (searchText.isNullOrEmpty()) {
+                    productsList.clear()
+                    productAdapter.notifyDataSetChanged()
+                    binding.recycler.visibility = View.GONE
+                    binding.emptyTopSalesTv.visibility = View.GONE
+                }
             }
         })
         binding.searchIv.setOnClickListener {
@@ -58,6 +65,7 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
             }
         }
     }
+
     private fun setUpHistory() {
         if (!TextUtils.isEmpty(sessionHelper.lastSearched)) {
             sessionHelper.lastSearched.split("!!!").forEach { chip ->
@@ -82,12 +90,16 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
     }
 
     private fun setUpObservers() {
-        productViewModel.getProducts(productRequest)
         productViewModel.observeProductList.observe(this, Observer { productResponse ->
             if (productResponse != null && !productResponse.products.isNullOrEmpty()) {
                 productsList.clear()
                 productsList.addAll(productResponse.products!!)
                 productAdapter.notifyDataSetChanged()
+                binding.recycler.visibility = View.VISIBLE
+                binding.emptyTopSalesTv.visibility = View.GONE
+            } else {
+                binding.recycler.visibility = View.GONE
+                binding.emptyTopSalesTv.visibility = View.VISIBLE
             }
         })
         cartViewModel.observeCartActionResponse.observe(this, Observer { cartActionResponse ->

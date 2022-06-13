@@ -20,6 +20,7 @@ import com.upclicks.ffc.ui.checkout.model.CheckoutResponse
 import com.upclicks.ffc.ui.checkout.model.DeliveryTimeResponse
 import com.upclicks.ffc.ui.checkout.model.PaymentResponse
 import com.upclicks.ffc.ui.general.model.*
+import com.upclicks.ffc.ui.general.slider.model.Slider
 import com.upclicks.ffc.ui.orders.model.OrderDetails
 import com.upclicks.ffc.ui.orders.model.Order
 import com.upclicks.ffc.ui.products.model.*
@@ -158,6 +159,20 @@ interface ApiService {
         @Query("take") take: Int
     ): Observable<Result<List<Product>>>
 
+
+    //Get HomeSliderForMobile
+    @GET("services/app/PageSection/GetHomeSliderForMobile")
+    fun getHomeSliderForMobile(
+    ): Observable<Result<List<Slider>>>
+
+
+
+    //Get HomeSliderForMobile
+    @POST("services/app/PageSection/mainAdBanner")
+    fun geMainAdBanner(
+    ): Observable<Result<Slider>>
+
+
     //Assign
     @POST("services/app/MemberWishlist/Assign")
     fun assign(@Body body: Any): Observable<Result<String>>
@@ -189,7 +204,7 @@ interface ApiService {
     ///////////////// cart
     //GetCurrentCartDetails
     @GET("services/app/Cart/GetCurrentCartDetails")
-    fun getCurrentCartDetails(): Observable<Result<CartDetails>>
+        fun getCurrentCartDetails(@Query("couponId") couponId: String): Observable<Result<CartDetails>>
 
     //Add Product
     @POST("services/app/Cart/AddProduct")
@@ -235,8 +250,8 @@ interface ApiService {
 
     //list your business
     @POST("services/app/ContactMessage/Create")
-    fun sendFeedback(
-        @Body() feedbackRequest: FeedbackRequest
+    fun contactUs(
+        @Body() contactUsRequest: ContactUsRequest
     ): Observable<Result<String>>
 
 

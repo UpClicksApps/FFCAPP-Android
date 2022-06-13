@@ -8,6 +8,7 @@ import com.upclicks.ffc.R
 import com.upclicks.ffc.architecture.BaseActivity
 import com.upclicks.ffc.databinding.ActivityPersonalDetailsBinding
 import com.upclicks.ffc.helpers.CameraGalleryHelper
+import com.upclicks.ffc.helpers.imageBinding
 import com.upclicks.ffc.ui.authentication.model.request.UpdateProfileRequest
 import com.upclicks.ffc.ui.authentication.model.response.VerifySession
 import com.upclicks.ffc.ui.authentication.viewmodel.AccountViewModel
@@ -59,6 +60,7 @@ class PersonalDetailsActivity : BaseActivity() {
         accountViewModel.getMyProfile { profile ->
             if (profile != null) {
                 this.profile = profile
+                imageBinding(binding.imageProfile,profile.avatarPath)
                 binding.nameInput.setText(profile.name)
                 binding.surnameInput.setText(profile.surname)
                 binding.phoneInput.setText(profile.phoneNumber)

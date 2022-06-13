@@ -252,6 +252,13 @@
     <string name="apply_sort">Apply Sort</string>
     <string name="price">Price</string>
     <string name="from_low_to_high_price">From low to high price</string>
-
+    <string name="sort_by">Sort by</string>
+    <string name="from_high_to_low_price">From high to low price</string>
+    <string name="from_a_z">From A-Z</string>
+    <string name="from_z_a">From Z-A</string>
+    <string name="Yomust_choose_sort_option_for_apply">You must choose sort option for apply</string>
+    <string name="your_name">اسمك</string>
+    <string name="send">ارسال</string>
+    <string name="leave_us_a_message_we_will_get_contact_with_you_as_soon_as_possible">اترك لنا رسالة ، وسوف نتواصل معك في أقرب وقت ممكن.</string>
 
 </resources>

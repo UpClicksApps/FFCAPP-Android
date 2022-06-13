@@ -16,8 +16,8 @@ import retrofit2.http.Body
 class CartRepository @Inject constructor(private val apiService: ApiService) {
 
     //getCurrentCartDetails
-    fun getCurrentCartDetails() : Observable<Result<CartDetails>> {
-        return apiService.getCurrentCartDetails()
+    fun getCurrentCartDetails(couponId: String) : Observable<Result<CartDetails>> {
+        return apiService.getCurrentCartDetails(couponId)
     }
 
     //Get Products

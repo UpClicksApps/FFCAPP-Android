@@ -84,19 +84,21 @@ class Checkout3Activity : BaseActivity() {
             binding.onlinePaymentRb.isChecked = true
             binding.cashRb.isChecked = false
             binding.fromWalletRb.isChecked = false
-            checkoutRequest.checkoutOrder!!.paymentWay = 1
+            checkoutRequest.checkoutOrder!!.paymentWay = 0
+            // 1 for online
         }
         binding.cashTv.setOnClickListener {
             binding.onlinePaymentRb.isChecked = false
             binding.cashRb.isChecked = true
             binding.fromWalletRb.isChecked = false
             checkoutRequest.checkoutOrder!!.paymentWay = 0
+            // 0 for cash
         }
         binding.fromWalletTv.setOnClickListener {
             binding.onlinePaymentRb.isChecked = false
             binding.cashRb.isChecked = false
             binding.fromWalletRb.isChecked = true
-            checkoutRequest.checkoutOrder!!.paymentWay = 1
+            checkoutRequest.checkoutOrder!!.paymentWay = 0
         }
 
     }

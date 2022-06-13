@@ -25,7 +25,7 @@ class CustomRecyclerViewHelper {
             val linearLayoutManager = ZoomRecyclerLayout(context)
             linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
             recyclerView.layoutManager = linearLayoutManager // Add your recycler
-            val snapHelper = GravitySnapHelper(Gravity.START)
+            val snapHelper = GravitySnapHelper(Gravity.CENTER)
             snapHelper.attachToRecyclerView(recyclerView)
         }
         fun addZoomRecyclerLayoutVertical(context:Context,recyclerView: RecyclerView){

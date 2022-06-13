@@ -30,8 +30,8 @@ class CartViewModel
 
 
     //getCurrentCartDetails
-    fun getCurrentCartDetails() {
-        cartRepository.getCurrentCartDetails()
+    fun getCurrentCartDetails(couponId: String) {
+        cartRepository.getCurrentCartDetails(couponId)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribe(object : CustomRxObserver<Result<CartDetails>>(this@CartViewModel) {

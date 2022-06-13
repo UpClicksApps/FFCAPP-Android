@@ -6,6 +6,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 import com.upclicks.ffc.data.remote.Result
 import com.upclicks.ffc.ui.general.model.Category
+import com.upclicks.ffc.ui.general.slider.model.Slider
 import com.upclicks.ffc.ui.products.model.*
 
 @ExperimentalCoroutinesApi
@@ -20,6 +21,16 @@ class ProductRepository @Inject constructor(private val apiService: ApiService) 
     //Get MyWishlist
     fun getMyWishlist(skip: Int,take: Int) : Observable<Result<List<Product>>> {
         return apiService.getMyWishlist(skip,take)
+    }
+
+    //Get HomeSliderForMobile
+    fun getHomeSliderForMobile() : Observable<Result<List<Slider>>> {
+        return apiService.getHomeSliderForMobile()
+    }
+
+    //Get MainAdBanner
+    fun geMainAdBanner() : Observable<Result<Slider>> {
+        return apiService.geMainAdBanner()
     }
 
 

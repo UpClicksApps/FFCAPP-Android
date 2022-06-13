@@ -7,6 +7,12 @@ import com.upclicks.ffc.ui.products.model.Product
 
 class CartDetails {
 
+    @SerializedName("hasCoupon")
+    @Expose
+    var hasCoupon: String? = null
+    @SerializedName("couponId")
+    @Expose
+    var couponId: String? = null
     @SerializedName("id")
     @Expose
     var id: String? = null
@@ -16,7 +22,7 @@ class CartDetails {
     @SerializedName("total")
     @Expose
     var total: Double? = null
-    @SerializedName("totalCost")
+    @SerializedName("subTotal")
     @Expose
     var subTotal: Double? = null
     @SerializedName("orderProducts")

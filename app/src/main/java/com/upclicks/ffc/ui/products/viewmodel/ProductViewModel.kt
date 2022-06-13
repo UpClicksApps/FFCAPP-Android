@@ -10,6 +10,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 import com.upclicks.ffc.data.remote.Result
 import com.upclicks.ffc.ui.general.model.Category
+import com.upclicks.ffc.ui.general.slider.model.Slider
 import com.upclicks.ffc.ui.products.model.*
 import com.upclicks.ffc.ui.products.repositories.ProductRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -24,6 +25,8 @@ class ProductViewModel
     private val allCategoriesList: MutableLiveData<List<Category>> = MutableLiveData()
     private val homeCategoriesList: MutableLiveData<List<HomeProduct>> = MutableLiveData()
     private val topSalesList: MutableLiveData<List<Product>> = MutableLiveData()
+    private val sliderList: MutableLiveData<List<Slider>> = MutableLiveData()
+    private val mainAdBanner: MutableLiveData<Slider> = MutableLiveData()
     private val wishlistList: MutableLiveData<List<Product>> = MutableLiveData()
     private val productsList: MutableLiveData<ProductsResponse> = MutableLiveData()
     private val productDetails: MutableLiveData<ProductDetails> = MutableLiveData()
@@ -32,6 +35,10 @@ class ProductViewModel
         get() = allCategoriesList
     val observeTopSalesList: LiveData<List<Product>>
         get() = topSalesList
+    val observeSliderList: LiveData<List<Slider>>
+        get() = sliderList
+    val observeMainAdBanner: LiveData<Slider>
+        get() = mainAdBanner
     val observeMyWishlistList: LiveData<List<Product>>
         get() = wishlistList
     val observeHomeCategoriesList: LiveData<List<HomeProduct>>
@@ -74,6 +81,30 @@ class ProductViewModel
             .subscribe(object : CustomRxObserver<Result<List<Product>>>(this@ProductViewModel) {
                 override fun onResponse(response: Result<List<Product>>) {
                     wishlistList.postValue(response.result!!)
+                }
+            })
+    }
+
+    //Get Home Slider For Mobile
+    fun getHomeSliderForMobile() {
+        productRepository.getHomeSliderForMobile()
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe(object : CustomRxObserver<Result<List<Slider>>>(this@ProductViewModel) {
+                override fun onResponse(response: Result<List<Slider>>) {
+                    sliderList.postValue(response.result!!)
+                }
+            })
+    }
+
+    //Get Home Slider For Mobile
+    fun geMainAdBanner() {
+        productRepository.geMainAdBanner()
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe(object : CustomRxObserver<Result<Slider>>(this@ProductViewModel) {
+                override fun onResponse(response: Result<Slider>) {
+                    mainAdBanner.postValue(response.result!!)
                 }
             })
     }
