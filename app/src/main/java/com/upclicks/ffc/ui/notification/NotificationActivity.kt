@@ -101,7 +101,6 @@ class NotificationActivity : BaseActivity() {
                 onNoBtnClick = {}).show()
         }
     }
-
     // Set Up Load On Scroll Listener
     private fun setUpLoadOnScrollListener() {
         onScrollChangeListener =
@@ -118,14 +117,12 @@ class NotificationActivity : BaseActivity() {
             }
         binding.nestedScrollView.setOnScrollChangeListener(onScrollChangeListener)
     }
-
     // Stop Scroll If Data Ended
     private fun stopScrollIfDataEnded(scrollView: NestedScrollView, size: Int) {
         stopScroll = size < take
         skip += take
         scrollView.setOnScrollChangeListener(onScrollChangeListener)
     }
-
     // Set Up Notification Item Click
     private fun setUpNotificationItemClick(notification: Notification) {
         when (notification.notificationType) {

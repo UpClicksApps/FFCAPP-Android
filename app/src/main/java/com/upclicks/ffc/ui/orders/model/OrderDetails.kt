@@ -47,6 +47,9 @@ class OrderDetails: Order() {
     @SerializedName("orderProducts")
     @Expose
     var orderProducts: List<OrderDetailsProduct>? = null
+    @SerializedName("orderStatusLogs")
+    @Expose
+    var orderStatusLogs: List<OrderStatusLog>? = null
 
     class OrderDetailsProduct{
         @SerializedName("total")

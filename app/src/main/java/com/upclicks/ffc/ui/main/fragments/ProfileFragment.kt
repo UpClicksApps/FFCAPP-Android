@@ -27,9 +27,12 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
     private fun initPage() {
         setUpToolbar()
         setUpPageActions()
-        callMyProfile()
     }
 
+    override fun onStart() {
+        super.onStart()
+        callMyProfile()
+    }
     private fun callMyProfile() {
         accountViewModel.getMyProfile { profile ->
             binding.profile = profile

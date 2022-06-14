@@ -9,7 +9,7 @@ import androidx.appcompat.widget.AppCompatSpinner
 
 class CustomSpinner<T>(context: Context, attrs: AttributeSet?) : AppCompatSpinner(context, attrs) {
 
-    lateinit var dataList: ArrayList<BaseSelection>
+    var dataList = ArrayList<BaseSelection>()
     lateinit var adapter: ArrayAdapter<String>
     lateinit var baseSelection: BaseSelection
     var selectionCallback = object : SelectionCallback {

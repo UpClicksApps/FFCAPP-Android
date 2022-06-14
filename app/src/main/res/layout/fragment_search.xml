@@ -28,7 +28,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
+                <ImageView
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:src="@drawable/ic_circle_close"
+                    android:padding="@dimen/_12sdp"
+                    app:tint="@color/secondary"
+                    android:id="@+id/clearIv"
+                    android:visibility="gone"
+                    />
             <com.upclicks.ffc.ui.general.component.customedittext.TextInput
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -38,6 +46,7 @@
                 android:padding="@dimen/_8sdp"
                 android:hint="@string/search_for_products"
                 />
+
                 <ImageView
                     android:layout_width="@dimen/_40sdp"
                     android:layout_height="@dimen/_40sdp"
@@ -72,8 +81,6 @@
                 chipcloud:deselectTransitionMS="500"
                 chipcloud:deselectedColor="@color/light_grey"
                 chipcloud:deselectedFontColor="@color/black"
-                chipcloud:gravity="staggered"
-                chipcloud:labels="@array/labels"
                 chipcloud:minHorizontalSpacing="32dp"
                 chipcloud:selectMode="single"
                 chipcloud:selectTransitionMS="750"

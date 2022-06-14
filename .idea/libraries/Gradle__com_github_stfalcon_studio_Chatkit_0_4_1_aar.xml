@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.stfalcon-studio:Chatkit:0.4.1@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6f1469be48dfef9dc515e628dc3be51d/jetified-Chatkit-0.4.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6f1469be48dfef9dc515e628dc3be51d/jetified-Chatkit-0.4.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6f1469be48dfef9dc515e628dc3be51d/jetified-Chatkit-0.4.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c33bce813d1e2c4e4838a144d69b99ef/jetified-Chatkit-0.4.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c33bce813d1e2c4e4838a144d69b99ef/jetified-Chatkit-0.4.1/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c33bce813d1e2c4e4838a144d69b99ef/jetified-Chatkit-0.4.1/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

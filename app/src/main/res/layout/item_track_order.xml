@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="orderStatusLog"
+            type="com.upclicks.ffc.ui.orders.model.OrderStatusLog"/>
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:textStyle="bold"
+                tools:text="01 Jan, 20"
+                bindServerDate="@{orderStatusLog.creationTime}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+            <ImageView
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/ic_notes"
+                android:paddingHorizontal="@dimen/_5sdp"
+                app:tint="@color/secondary"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:textStyle="bold"
+                tools:text="Order Placed"
+                notNullText="@{orderStatusLog.orderStatusText}"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/_13sdp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:textStyle="bold"
+                tools:text="8:30 AM"
+                bindTime="@{orderStatusLog.creationTime}"
+                android:textColor="@color/text_color_grey"
+                android:textSize="@dimen/_11sdp" />
+
+            <View
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:src="@drawable/ic_notes"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:background="@color/secondary"
+                app:tint="@color/secondary"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingHorizontal="@dimen/_10sdp"
+                notNullText="@{orderStatusLog.description}"
+                tools:text="Your order #1114 was placed for delivery."
+                android:textColor="@color/text_color_grey"
+                android:textSize="@dimen/_10sdp" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

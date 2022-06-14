@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: io.ak1:bubbletabbar:1.0.8@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9ded81723d0d2e09555288bbb8493e14/jetified-bubbletabbar-1.0.8/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9ded81723d0d2e09555288bbb8493e14/jetified-bubbletabbar-1.0.8/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9ded81723d0d2e09555288bbb8493e14/jetified-bubbletabbar-1.0.8/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c80b4444376f5e9a47526af270b2367c/jetified-bubbletabbar-1.0.8/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c80b4444376f5e9a47526af270b2367c/jetified-bubbletabbar-1.0.8/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c80b4444376f5e9a47526af270b2367c/jetified-bubbletabbar-1.0.8/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ak1/bubbletabbar/1.0.8/f1a731e35ecf877e1f600a207a47eb385af15f0a/bubbletabbar-1.0.8-javadoc.jar!/" />

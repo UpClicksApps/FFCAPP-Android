@@ -15,6 +15,7 @@ import com.upclicks.ffc.rx.RxBus
 import com.upclicks.ffc.session.SessionHelper
 import com.upclicks.ffc.commons.Utils
 import com.upclicks.ffc.data.BaseURLConfigHelper
+import com.upclicks.ffc.data.event.EventsModel
 import com.upclicks.ffc.data.event.MessageEvent
 import com.upclicks.ffc.data.event.UnAuthorizedEvent
 import com.upclicks.ffc.ui.general.component.PagesController
@@ -49,6 +50,12 @@ abstract class BaseActivity : AppCompatActivity() {
         eventDisposable = RxBus.listen(MessageEvent::class.java)
             .subscribe() { message ->
                 shoMsg(message.message!!, MotionToast.TOAST_ERROR)
+            }
+        eventDisposable = RxBus.listen(EventsModel.UnSeenMessagesCountEvent::class.java)
+            .subscribe() { unSeenMessagesCountEvent ->
+                var profile = sessionHelper.userProfile
+                profile.unSeenMessagesCount = unSeenMessagesCountEvent.count
+                sessionHelper.userProfile = profile
             }
     }
     protected abstract fun getLayoutResourceId(): View

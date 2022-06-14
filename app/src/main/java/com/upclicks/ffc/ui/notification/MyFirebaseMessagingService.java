@@ -18,6 +18,7 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.upclicks.ffc.R;
 import com.upclicks.ffc.commons.Keys;
+import com.upclicks.ffc.data.event.EventsModel;
 import com.upclicks.ffc.data.event.UnAuthorizedEvent;
 import com.upclicks.ffc.rx.RxBus;
 import com.upclicks.ffc.session.SessionHelper;
@@ -61,7 +62,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             String notifyId = "0";
             String entityId = "0";
             String subEntityId = "0";
-            String unSeenNotificationsCount = "";
+            String unSeenChatsCount = "";
             String type = "";
             String clickAction = "";
             id = remoteMessage.getData().get("id");
@@ -71,7 +72,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             img = remoteMessage.getData().get("imageUrl");
             icon = remoteMessage.getData().get("icon");
             type = remoteMessage.getData().get("type");
-            unSeenNotificationsCount = remoteMessage.getData().get("unSeenNotificationsCount");
+            unSeenChatsCount = remoteMessage.getData().get("UnSeenChatsCount");
             Log.e(TAG, "title: " + title);
             Log.e(TAG, "message: " + body);
             Log.e(TAG, "entityId: " + entityId);
@@ -102,6 +103,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 case Keys.FcmNotificationsTypes.CHAT_MSG_INCOME: {
                     clickAction = "com.upclicks.ffc.chat";
                     intent = new Intent(clickAction);
+                    EventsModel.UnSeenMessagesCountEvent unSeenMessagesCountEvent = new EventsModel.UnSeenMessagesCountEvent(Integer.parseInt(unSeenChatsCount));
+                    RxBus.INSTANCE.publish(unSeenMessagesCountEvent);
                     break;
                 }
 
@@ -116,9 +119,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 }
             }
             channelId = type;
-            if (type.equals(Keys.FcmNotificationsTypes.CHAT_MSG_INCOME)) {
-                return;
-            }
+//            if (type.equals(Keys.FcmNotificationsTypes.CHAT_MSG_INCOME)) {
+//                return;
+//            }
             notify(title, entityId, body, img + "", clickAction);
         }
     }

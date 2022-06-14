@@ -42,7 +42,6 @@ public class SessionHelper {
     private static Session userSession;
     private static VerifySession.Profile profile;
     Context context;
-    private static String lastSearched;
 
     @Inject
     public SessionHelper(@ApplicationContext Context context) {
@@ -90,18 +89,15 @@ public class SessionHelper {
 
     //Save LastSearched
     public  void saveLastSearched(String lastSearched) {
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString(LAST_SEARCHED,lastSearched);
+        SharedPreferences.Editor editor =  this.context.getSharedPreferences(LAST_SEARCHED, Context.MODE_PRIVATE).edit();
+        editor.putString(LAST_SEARCHED, lastSearched);
         editor.apply();
-        SessionHelper.lastSearched = lastSearched;
     }
 
-    //Get LastSearcheds
+    //Get LastSearches
     public String getLastSearched() {
-        if (TextUtils.isEmpty(lastSearched)) {
-            lastSearched = sharedPref.getString(LAST_SEARCHED, "");
-        }
-        return lastSearched;
+        SharedPreferences preferences =  this.context.getSharedPreferences(LAST_SEARCHED, Context.MODE_PRIVATE);
+        return preferences.getString(LAST_SEARCHED, "");
     }
 
 

@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.adroitandroid.chipcloud.ChipListener
+import com.adroitandroid.chipcloud.FlowLayout
 import com.upclicks.ffc.R
 import com.upclicks.ffc.architecture.BaseFragment
 import com.upclicks.ffc.commons.Keys
@@ -55,18 +56,43 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
                     productAdapter.notifyDataSetChanged()
                     binding.recycler.visibility = View.GONE
                     binding.emptyTopSalesTv.visibility = View.GONE
+                    binding.clearIv.visibility = View.GONE
+                } else {
+                    binding.recycler.visibility = View.VISIBLE
+                    binding.emptyTopSalesTv.visibility = View.VISIBLE
+                    binding.clearIv.visibility = View.VISIBLE
                 }
             }
         })
         binding.searchIv.setOnClickListener {
+            if (sessionHelper.lastSearched.trim().isEmpty()) {
+                sessionHelper.saveLastSearched(binding.searchInput.text.toString().trim())
+            } else sessionHelper.saveLastSearched(
+                sessionHelper.lastSearched.trim() + "!!!" + binding.searchInput.text.toString()
+                    .trim()
+            )
+            binding.chipCloud.removeAllViews()
+            setUpHistory()
             if (binding.searchInput.isValid) {
                 productRequest.productName = searchText
                 productViewModel.getProducts(productRequest)
             }
         }
+        binding.clearIv.setOnClickListener {
+            binding.searchInput.setText("")
+            productsList.clear()
+            productAdapter.notifyDataSetChanged()
+            binding.recycler.visibility = View.GONE
+            binding.emptyTopSalesTv.visibility = View.GONE
+        }
     }
 
     private fun setUpHistory() {
+        if (sessionHelper.isEnglish(requireContext())){
+            binding.chipCloud.setGravity(FlowLayout.Gravity.LEFT)
+        }else{
+            binding.chipCloud.setGravity(FlowLayout.Gravity.RIGHT)
+        }
         if (!TextUtils.isEmpty(sessionHelper.lastSearched)) {
             sessionHelper.lastSearched.split("!!!").forEach { chip ->
                 binding.chipCloud.addChip(chip)
@@ -81,10 +107,16 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
         }
         binding.chipCloud.setChipListener(object : ChipListener {
             override fun chipSelected(index: Int) {
-                lastSearchedList[index]
+                productRequest.productName = lastSearchedList[index]
+                productViewModel.getProducts(productRequest)
             }
 
             override fun chipDeselected(index: Int) {
+                binding.searchInput.setText("")
+                productsList.clear()
+                productAdapter.notifyDataSetChanged()
+                binding.recycler.visibility = View.GONE
+                binding.emptyTopSalesTv.visibility = View.GONE
             }
         })
     }

@@ -232,6 +232,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_1sdp"
                         android:background="@color/line_color_grey"
+                        android:visibility="gone"
                         />
                     <TextView
                         android:layout_width="match_parent"

@@ -260,5 +260,6 @@
     <string name="your_name">اسمك</string>
     <string name="send">ارسال</string>
     <string name="leave_us_a_message_we_will_get_contact_with_you_as_soon_as_possible">اترك لنا رسالة ، وسوف نتواصل معك في أقرب وقت ممكن.</string>
+    <string name="no_status_logs">No status logs</string>
 
 </resources>

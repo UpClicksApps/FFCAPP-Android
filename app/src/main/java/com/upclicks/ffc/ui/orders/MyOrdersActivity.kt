@@ -177,9 +177,17 @@ class MyOrdersActivity : BaseActivity() {
                 onYesBtnClick = {
                     orderViewModel.cancelOrder(orderList[it].id!!, onResult = {result->
                         shoMsg(result,MotionToast.TOAST_SUCCESS)
+                        orderViewModel.getMyOrders(OrderStatus.Requested.value, skip, take)
                     })
                 },
                 onNoBtnClick = {}).show()
+        }, onTrackOrderClicked = {
+            startActivity(
+                Intent(
+                    this,
+                    TrackOrderActivity::class.java
+                ).putExtra(Keys.Intent_Constants.ORDER_ID, orderList[it].id)
+            )
         }, onDetailsClicked = {
             startActivity(
                 Intent(

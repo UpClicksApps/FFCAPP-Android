@@ -14,9 +14,11 @@ import com.upclicks.ffc.architecture.BaseFragment
 import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.commons.Utils
 import com.upclicks.ffc.commons.Utils.Companion.autoScrollRecycler
+import com.upclicks.ffc.data.event.EventsModel
 import com.upclicks.ffc.databinding.FragmentHomeBinding
 import com.upclicks.ffc.helpers.CustomRecyclerViewHelper
 import com.upclicks.ffc.helpers.imageBinding
+import com.upclicks.ffc.rx.RxBus
 import com.upclicks.ffc.ui.authentication.LoginByEmailActivity
 import com.upclicks.ffc.ui.cart.ShoppingCartActivity
 import com.upclicks.ffc.ui.cart.viewmodel.CartViewModel
@@ -33,6 +35,7 @@ import com.upclicks.ffc.ui.products.adapter.ProductGridAdapter
 import com.upclicks.ffc.ui.products.model.HomeProduct
 import com.upclicks.ffc.ui.products.model.Product
 import com.upclicks.ffc.ui.products.viewmodel.ProductViewModel
+import io.reactivex.rxjava3.disposables.Disposable
 import q.rorbin.badgeview.QBadgeView
 import www.sanju.motiontoast.MotionToast
 
@@ -40,6 +43,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     lateinit var binding: FragmentHomeBinding
     private val productViewModel: ProductViewModel by viewModels()
     private val cartViewModel: CartViewModel by viewModels()
+    lateinit var eventDisposable: Disposable
 
 
     var categoriesList = ArrayList<Category>()
@@ -199,6 +203,10 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 }, onNoBtnClick = {})
             }
         }
+        eventDisposable = RxBus.listen(EventsModel.UnSeenMessagesCountEvent::class.java)
+            .subscribe() { unSeenMessagesCountEvent ->
+                setUpChatBadgeCount()
+            }
     }
 
     private fun setUpCategoryUiList() {
@@ -271,5 +279,11 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             })
         binding.homeCategoriesRv.adapter = homeProductAdapter
         binding.homeCategoriesRv.layoutManager = LinearLayoutManager(requireContext())
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (!eventDisposable.isDisposed) eventDisposable.dispose()
+
     }
 }

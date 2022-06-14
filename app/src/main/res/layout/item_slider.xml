@@ -12,7 +12,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="@dimen/_260sdp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_10sdp"
         >
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"

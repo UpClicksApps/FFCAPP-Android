@@ -13,6 +13,7 @@ class OrderAdapter(
     val context: Context,
     private var orderList: List<Order>,
     private val onCancelClicked: (Int) -> Unit,
+    private val onTrackOrderClicked: (Int) -> Unit,
     private val onDetailsClicked: (Int) -> Unit
 ) : RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
 
@@ -30,9 +31,16 @@ class OrderAdapter(
         holder.binding.order = orderList[position]
         if (orderList[position].orderStatus == OrderStatus.Requested.value) {
             holder.binding.cancelBtn.visibility = View.VISIBLE
-        } else holder.binding.cancelBtn.visibility = View.GONE
+            holder.binding.trackOrderBtn.visibility = View.GONE
+        } else {
+            holder.binding.cancelBtn.visibility = View.GONE
+            holder.binding.trackOrderBtn.visibility = View.VISIBLE
+        }
 
 
+        holder.binding.trackOrderBtn.setOnClickListener {
+            onTrackOrderClicked(position)
+        }
         holder.binding.detailsBtn.setOnClickListener {
             onDetailsClicked(position)
         }

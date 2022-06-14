@@ -35,7 +35,6 @@ class PersonalDetailsActivity : BaseActivity() {
         setUpToolbar()
         setUpPageAction()
         observeMyProfile()
-        getGovernorates()
         binding.viewModel = accountViewModel
         binding.lifecycleOwner = this
     }
@@ -43,6 +42,11 @@ class PersonalDetailsActivity : BaseActivity() {
     private fun getCities(governorateId: String) {
         accountViewModel.getCities(governorateId) { cities ->
             if (!cities.isNullOrEmpty()) {
+                if (profile.cityId != null && profile.cityId!!.isNotEmpty()) {
+                    binding.citySP.setSelectionList(cities, profile.cityId!!)
+                    binding.citySP.setSelectionItemById(profile.cityId!!)
+                }
+            } else {
                 binding.citySP.setSelectionList(cities)
             }
         }
@@ -51,7 +55,14 @@ class PersonalDetailsActivity : BaseActivity() {
     private fun getGovernorates() {
         accountViewModel.getGovernorates { governorates ->
             if (!governorates.isNullOrEmpty()) {
-                binding.governorateSP.setSelectionList(governorates, governorateId)
+                if (profile.governorateId != null && profile.governorateId!!.isNotEmpty()) {
+                    binding.governorateSP.setSelectionList(governorates)
+                    binding.governorateSP.setSelectionItemById(profile.governorateId!!)
+                    getCities(profile.governorateId!!)
+                } else {
+                    binding.governorateSP.setSelectionList(governorates)
+                    getCities(governorates[0].id!!)
+                }
             }
         }
     }
@@ -60,15 +71,11 @@ class PersonalDetailsActivity : BaseActivity() {
         accountViewModel.getMyProfile { profile ->
             if (profile != null) {
                 this.profile = profile
-                imageBinding(binding.imageProfile,profile.avatarPath)
+                imageBinding(binding.imageProfile, profile.avatarPath)
                 binding.nameInput.setText(profile.name)
                 binding.surnameInput.setText(profile.surname)
                 binding.phoneInput.setText(profile.phoneNumber)
-                if (profile.governorateId != null && profile.governorateId!!.isNotEmpty())
-                    binding.governorateSP.setSelectionItemById(profile.governorateId!!)
-                if (profile.cityId != null && profile.cityId!!.isNotEmpty())
-                    binding.citySP.setSelectionItemById(profile.cityId!!)
-
+                getGovernorates()
             }
         }
     }
@@ -115,8 +122,8 @@ class PersonalDetailsActivity : BaseActivity() {
             updateProfileRequest.name = binding.nameInput.text.toString()
             updateProfileRequest.surname = binding.surnameInput.text.toString()
             updateProfileRequest.phoneNumber = binding.phoneInput.text.toString()
-            accountViewModel.updateProfile(updateProfileRequest, onProfileUpdated = {message->
-                shoMsg(message,MotionToast.TOAST_SUCCESS)
+            accountViewModel.updateProfile(updateProfileRequest, onProfileUpdated = { message ->
+                shoMsg(message, MotionToast.TOAST_SUCCESS)
 
             })
         }

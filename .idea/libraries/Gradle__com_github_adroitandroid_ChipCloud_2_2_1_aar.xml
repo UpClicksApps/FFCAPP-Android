@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.adroitandroid:ChipCloud:2.2.1@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d26c7dd8d8a166084494e80cfda8cee9/jetified-ChipCloud-2.2.1/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d26c7dd8d8a166084494e80cfda8cee9/jetified-ChipCloud-2.2.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d26c7dd8d8a166084494e80cfda8cee9/jetified-ChipCloud-2.2.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1b50da5f4d0ee2a9220b6eac30f3333b/jetified-ChipCloud-2.2.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1b50da5f4d0ee2a9220b6eac30f3333b/jetified-ChipCloud-2.2.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1b50da5f4d0ee2a9220b6eac30f3333b/jetified-ChipCloud-2.2.1/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
