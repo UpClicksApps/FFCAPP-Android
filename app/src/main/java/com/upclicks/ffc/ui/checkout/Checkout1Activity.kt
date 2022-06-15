@@ -85,7 +85,6 @@ class Checkout1Activity : BaseActivity() {
             checkoutRequest.checkoutOrder!!.house = binding.houseNumberInput.text.toString()
             checkoutRequest.checkoutOrder!!.flatNo = binding.flatNumberInput.text.toString()
             checkoutRequest.checkoutOrder!!.street = binding.streetInput.text.toString()
-            checkoutRequest.checkoutOrder!!.address = binding.addressInput.text.toString()
             checkoutRequest.checkoutOrder!!.deliveryFees = deliveryFees
             checkoutRequest.checkoutOrder!!.cityId = binding.citySP.baseSelection.id
             startActivity(
@@ -122,8 +121,8 @@ class Checkout1Activity : BaseActivity() {
         inputsList.add(binding.phoneInput)
         inputsList.add(binding.streetInput)
         inputsList.add(binding.houseNumberInput)
+        inputsList.add(binding.notesInput)
         inputsList.add(binding.flatNumberInput)
-        inputsList.add(binding.addressInput)
         return inputsList
     }
 }

@@ -37,6 +37,7 @@
                 android:text="20 Nov, 2022 / 01:15 PM"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
+                android:id="@+id/dateTv"
                 android:layout_marginVertical="@dimen/_16sdp"
                 android:textColor="@color/black"/>
 

@@ -7,17 +7,13 @@ import javax.inject.Inject
 import com.upclicks.ffc.data.remote.Result
 import com.upclicks.ffc.ui.cart.model.CartActionResponse
 import com.upclicks.ffc.ui.cart.model.CartDetails
-import com.upclicks.ffc.ui.general.model.Category
-import com.upclicks.ffc.ui.products.model.Product
-import com.upclicks.ffc.ui.products.model.ProductDetails
-import retrofit2.http.Body
 
 @ExperimentalCoroutinesApi
 class CartRepository @Inject constructor(private val apiService: ApiService) {
 
     //getCurrentCartDetails
-    fun getCurrentCartDetails(couponId: String) : Observable<Result<CartDetails>> {
-        return apiService.getCurrentCartDetails(couponId)
+    fun getCurrentCartDetails(couponCode: String) : Observable<Result<CartDetails>> {
+        return apiService.getCurrentCartDetails(couponCode)
     }
 
     //Get Products

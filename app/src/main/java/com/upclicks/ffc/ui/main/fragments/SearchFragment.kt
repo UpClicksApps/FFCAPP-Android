@@ -85,6 +85,11 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
             binding.recycler.visibility = View.GONE
             binding.emptyTopSalesTv.visibility = View.GONE
         }
+        binding.clearAllTV.setOnClickListener {
+            sessionHelper.removeLastSearched()
+            binding.chipCloud.removeAllViews()
+            setUpHistory()
+        }
     }
 
     private fun setUpHistory() {

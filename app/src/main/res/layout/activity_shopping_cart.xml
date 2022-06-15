@@ -54,7 +54,7 @@
             android:orientation="vertical"
             android:padding="@dimen/_10sdp">
 
-            <FrameLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/solid_rectangle_background_primary"
@@ -62,15 +62,26 @@
                 android:elevation="@dimen/_5sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 >
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fillViewport="true"
+                    android:layout_weight="1"
+                    >
                 <com.upclicks.ffc.ui.general.component.customedittext.TextInput
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_38sdp"
-                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:padding="@dimen/_5sdp"
                     android:id="@+id/promoCodeEt"
+                    android:lines="1"
+                    android:gravity="center"
                     android:background="@color/transparent"
+                    android:textColor="@color/text_color_grey"
+                    android:text="5F8BAB53-AB42-4379-C9E2-08DA4ED7235E"
                     android:hint="@string/enter_promo_code"
                     />
+                </HorizontalScrollView>
+
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -80,7 +91,7 @@
                     style="@style/ButtonContainedSecondary"
                     android:textColor="@color/white"
                     android:text="@string/apply"/>
-            </FrameLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

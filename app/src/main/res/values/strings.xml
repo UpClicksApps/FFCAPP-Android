@@ -262,5 +262,6 @@
     <string name="send">Send</string>
     <string name="leave_us_a_message_we_will_get_contact_with_you_as_soon_as_possible">Leave us a message, we will get contact with you as soon as possible.</string>
     <string name="no_status_logs">No status logs</string>
+    <string name="clear_all">Clear all</string>
 
 </resources>

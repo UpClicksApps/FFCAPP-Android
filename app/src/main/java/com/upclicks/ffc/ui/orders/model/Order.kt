@@ -31,9 +31,6 @@ open class Order {
     @SerializedName("net")
     @Expose
     var net: Double? = null
-    @SerializedName("subTotal")
-    @Expose
-    var subTotal: Double? = null
     @SerializedName("totalCost")
     @Expose
     var totalCost: Double? = null

@@ -204,7 +204,7 @@ interface ApiService {
     ///////////////// cart
     //GetCurrentCartDetails
     @GET("services/app/Cart/GetCurrentCartDetails")
-        fun getCurrentCartDetails(@Query("couponId") couponId: String): Observable<Result<CartDetails>>
+        fun getCurrentCartDetails(@Query("couponCode") couponId: String): Observable<Result<CartDetails>>
 
     //Add Product
     @POST("services/app/Cart/AddProduct")

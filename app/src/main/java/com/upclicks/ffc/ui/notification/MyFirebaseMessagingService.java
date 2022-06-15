@@ -22,6 +22,7 @@ import com.upclicks.ffc.data.event.EventsModel;
 import com.upclicks.ffc.data.event.UnAuthorizedEvent;
 import com.upclicks.ffc.rx.RxBus;
 import com.upclicks.ffc.session.SessionHelper;
+import com.upclicks.ffc.ui.chat.ChatActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -119,6 +120,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 }
             }
             channelId = type;
+
+            if (type.equals(Keys.FcmNotificationsTypes.UPDATE_NOTIFICATION_COUNT)) {
+                return;
+            }
 //            if (type.equals(Keys.FcmNotificationsTypes.CHAT_MSG_INCOME)) {
 //                return;
 //            }

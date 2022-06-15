@@ -74,9 +74,6 @@ open class CheckoutOrder {
     @SerializedName("emailAddress")
     @Expose
     var emailAddress: String? = null
-    @SerializedName("address")
-    @Expose
-    var address: String? = null
     @SerializedName("memberName")
     @Expose
     var memberName: String? = null

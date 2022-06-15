@@ -269,23 +269,7 @@
                     android:padding="@dimen/_5sdp"
                     android:id="@+id/flatNumberInput"
                     />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:text="@string/address"
-                    android:layout_marginTop="@dimen/_10sdp"/>
-                <com.upclicks.ffc.ui.general.component.customedittext.TextInput
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:background="@drawable/solid_rectangle_background_primary"
-                    android:backgroundTint="@color/white"
 
-                    android:elevation="@dimen/_5sdp"
-                    android:layout_margin="@dimen/_5sdp"
-                    android:padding="@dimen/_5sdp"
-                    android:id="@+id/addressInput"
-                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

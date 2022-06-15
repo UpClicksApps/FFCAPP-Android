@@ -26,7 +26,7 @@ class ShoppingCartActivity : BaseActivity() {
     private val cartViewModel: CartViewModel by viewModels()
 
     var checkoutRequest = CheckoutRequest()
-    var couponId = ""
+    var couponCode = ""
     override fun getLayoutResourceId(): View {
         binding = ActivityShoppingCartBinding.inflate(layoutInflater)
         initPage()
@@ -53,10 +53,13 @@ class ShoppingCartActivity : BaseActivity() {
     }
 
     private fun setUpObserver() {
-        cartViewModel.getCurrentCartDetails(couponId)
+        cartViewModel.getCurrentCartDetails(couponCode)
         cartViewModel.observeCartDetails.observe(this, Observer { cartDetails ->
             if (cartDetails != null) {
                 binding.cartDetails = cartDetails
+                if (!cartDetails.couponId.isNullOrEmpty()) {
+                    checkoutRequest.checkoutOrder!!.couponId = cartDetails.couponId
+                }
                 if (!cartDetails.orderProducts.isNullOrEmpty()) {
                     checkoutRequest.orderProducts!!.clear()
                     checkoutRequest.orderProducts!!.addAll(cartDetails.orderProducts!!)
@@ -71,7 +74,7 @@ class ShoppingCartActivity : BaseActivity() {
         cartViewModel.observeCartActionResponse.observe(this, Observer { cartActionResponse ->
             shoMsg(cartActionResponse.message!!, MotionToast.TOAST_SUCCESS)
             sessionHelper.saveCartCount(cartActionResponse.currentCartItemsCount)
-            cartViewModel.getCurrentCartDetails(couponId)
+            cartViewModel.getCurrentCartDetails(couponCode)
         })
     }
 
@@ -86,13 +89,12 @@ class ShoppingCartActivity : BaseActivity() {
     private fun setUpPageActions() {
         binding.promoCodeEt.setOnTextTyping(object : BaseInput.TypingCallback {
             override fun onTyping(text: String) {
-
             }
         })
         binding.promoCodeApplyBtn.setOnClickListener {
             if (binding.promoCodeEt.isValid) {
-                couponId = binding.promoCodeEt.text.toString()
-                cartViewModel.getCurrentCartDetails(couponId)
+                couponCode = binding.promoCodeEt.text.toString()
+                cartViewModel.getCurrentCartDetails(couponCode)
             }
 
         }

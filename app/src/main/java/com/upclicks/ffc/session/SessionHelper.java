@@ -93,6 +93,12 @@ public class SessionHelper {
         editor.putString(LAST_SEARCHED, lastSearched);
         editor.apply();
     }
+    //Save LastSearched
+    public  void removeLastSearched() {
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.remove(LAST_SEARCHED);
+        editor.apply();
+    }
 
     //Get LastSearches
     public String getLastSearched() {
