@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">FFC</string>
+    <string name="ffc">شركة الفواكة الطازجة</string>
     // time ago
     <string name="ago_in_arabic">منذ</string>
     <string name="min_ago">دقائق</string>
@@ -163,7 +164,7 @@
     <string name="login">تسجيل دخول</string>
     <string name="create_a_new_account">ان شاء حساب جديد</string>
     <string name="user_name">اسم المستخدم</string>
-    <string name="please_enter_your_email_address_you_will_receive_a_link_to_create_a_new_password_via_email">Please enter your email address. You will receive a link to create a new password via email.</string>
+    <string name="please_enter_your_email_address_you_will_receive_a_link_to_create_a_new_password_via_email">الرجاء إدخال عنوان البريد الإلكتروني الخاص بك. سوف تتلقى رابطًا لإنشاء كلمة مرور جديدة عبر البريد الإلكتروني.</string>
     <string name="next">التالى</string>
     <string name="categories">الاقسام</string>
     <string name="sort">ترتيب</string>
@@ -171,7 +172,7 @@
     <string name="track_order">متابعة الطلب</string>
     <string name="explore_by_category">استكشف القسم</string>
     <string name="top_sale">الاكثر مبيعاً</string>
-    <string name="history">History</string>
+    <string name="history">سجلات البحث</string>
     <string name="search_for_products">ابحث عن المنتجات</string>
     <string name="personal_details">التفاصيل الشخصية</string>
     <string name="my_orders">طلباتى</string>
@@ -249,18 +250,20 @@
     <string name="writemessage">أكتب رسالتك ..</string>
     <string name="you_cant_reply_this_message">لا يمكنك الرد على هذه المحادثه</string>
     <string name="messages_chat_service_price_per_month">سعر خدمة الرسائل النصية فى الشهر</string>
-    <string name="apply_sort">Apply Sort</string>
-    <string name="price">Price</string>
-    <string name="from_low_to_high_price">From low to high price</string>
-    <string name="sort_by">Sort by</string>
-    <string name="from_high_to_low_price">From high to low price</string>
-    <string name="from_a_z">From A-Z</string>
-    <string name="from_z_a">From Z-A</string>
-    <string name="Yomust_choose_sort_option_for_apply">You must choose sort option for apply</string>
+    <string name="apply_sort">تطبيق التصنيف</string>
+    <string name="price">السعر</string>
+    <string name="from_low_to_high_price">الاعلى سعراً</string>
+    <string name="sort_by">صنف ب</string>
+    <string name="from_high_to_low_price">الاقل سعراً</string>
+    <string name="from_a_z">من أ إلى ى</string>
+    <string name="from_z_a">من ى إلى أ</string>
+    <string name="Yomust_choose_sort_option_for_apply">يجب عليك اختيار خيار تصنيف للتطبيق</string>
     <string name="your_name">اسمك</string>
     <string name="send">ارسال</string>
     <string name="leave_us_a_message_we_will_get_contact_with_you_as_soon_as_possible">اترك لنا رسالة ، وسوف نتواصل معك في أقرب وقت ممكن.</string>
     <string name="no_status_logs">لا يوجد معلومات</string>
     <string name="clear_all">مسح الكل</string>
+    <string name="your_password_has_been_reset">تم إعادة تعيين كلمة المرور الخاصة بك!</string>
+    <string name="clear_all_history_are_you_sure">مسح كل التاريخ ، هل أنت متأكد؟</string>
 
 </resources>

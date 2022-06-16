@@ -35,7 +35,7 @@ class SettingsActivity : BaseActivity() {
             ChangeLanguageDialog(this, sessionHelper).show()
         }
         binding.contactTv.setOnClickListener {
-
+            startActivity(Intent(this, ContactUs::class.java))
         }
         binding.aboutTv.setOnClickListener {
             startActivity(Intent(this, AboutUsActivity::class.java))

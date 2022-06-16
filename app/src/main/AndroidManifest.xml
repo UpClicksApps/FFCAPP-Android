@@ -23,10 +23,16 @@
             android:name=".ui.general.HelpActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.general.ContactUs"
+            android:exported="false" />
+        <activity
             android:name=".ui.general.SettingsActivity"
             android:exported="false" />
         <activity
             android:name=".ui.checkout.CheckoutSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.authentication.ResetPasswordSuccessActivity"
             android:exported="false" />
         <activity
             android:name=".ui.checkout.Checkout3Activity"

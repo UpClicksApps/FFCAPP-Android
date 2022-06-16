@@ -276,7 +276,7 @@
                     android:textColor="@color/black"
                     android:text="@string/notes"
                     android:layout_marginTop="@dimen/_10sdp"/>
-                <com.upclicks.ffc.ui.general.component.customedittext.TextInput
+                <EditText
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
                     android:background="@drawable/solid_rectangle_background_primary"
@@ -284,7 +284,6 @@
                     android:elevation="@dimen/_5sdp"
                     android:layout_margin="@dimen/_5sdp"
                     android:padding="@dimen/_5sdp"
-                    
                     android:id="@+id/notesInput"
                     />
 

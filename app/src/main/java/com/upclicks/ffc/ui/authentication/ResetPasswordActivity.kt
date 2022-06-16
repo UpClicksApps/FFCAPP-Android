@@ -6,6 +6,7 @@ import android.text.TextUtils
 import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
+import com.google.gson.Gson
 import com.upclicks.ffc.R
 import com.upclicks.ffc.architecture.BaseActivity
 import com.upclicks.ffc.databinding.ActivityResetPasswordBinding
@@ -168,7 +169,7 @@ class ResetPasswordActivity : BaseActivity() {
         var loginRequest = LoginRequest()
         loginRequest.usernameOrEmailAddress = binding.emailInput.editText!!.text.toString()
         loginRequest.password = binding.newPasswordInput.editText!!.text.toString()
-        accountViewModel.auth(loginRequest)
+        startActivity(Intent(this,ResetPasswordSuccessActivity::class.java).putExtra("login",Gson().toJson(loginRequest)))
     }
 
     fun resendCode(view: View) {

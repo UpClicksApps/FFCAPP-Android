@@ -95,7 +95,7 @@ public class SessionHelper {
     }
     //Save LastSearched
     public  void removeLastSearched() {
-        SharedPreferences.Editor editor = sharedPref.edit();
+        SharedPreferences.Editor editor =  this.context.getSharedPreferences(LAST_SEARCHED, Context.MODE_PRIVATE).edit();
         editor.remove(LAST_SEARCHED);
         editor.apply();
     }

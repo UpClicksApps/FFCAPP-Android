@@ -14,6 +14,7 @@ import com.upclicks.ffc.commons.Keys
 import com.upclicks.ffc.databinding.FragmentSearchBinding
 import com.upclicks.ffc.ui.cart.viewmodel.CartViewModel
 import com.upclicks.ffc.ui.general.component.customedittext.BaseInput
+import com.upclicks.ffc.ui.general.dialog.ConfirmDialog
 import com.upclicks.ffc.ui.products.ProductDetailsActivity
 import com.upclicks.ffc.ui.products.adapter.ProductGridAdapter
 import com.upclicks.ffc.ui.products.model.Product
@@ -86,16 +87,26 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
             binding.emptyTopSalesTv.visibility = View.GONE
         }
         binding.clearAllTV.setOnClickListener {
-            sessionHelper.removeLastSearched()
-            binding.chipCloud.removeAllViews()
-            setUpHistory()
+            ConfirmDialog(requireContext(),
+                getString(R.string.history),
+                getString(R.string.clear_all_history_are_you_sure),
+                onYesBtnClick = {
+                    sessionHelper.removeLastSearched()
+                    binding.chipCloud.removeAllViews()
+                    setUpHistory()
+                    binding.recycler.visibility = View.GONE
+                    binding.emptyTopSalesTv.visibility = View.GONE
+                },
+                onNoBtnClick = {
+
+                }).show()
         }
     }
 
     private fun setUpHistory() {
-        if (sessionHelper.isEnglish(requireContext())){
+        if (sessionHelper.isEnglish(requireContext())) {
             binding.chipCloud.setGravity(FlowLayout.Gravity.LEFT)
-        }else{
+        } else {
             binding.chipCloud.setGravity(FlowLayout.Gravity.RIGHT)
         }
         if (!TextUtils.isEmpty(sessionHelper.lastSearched)) {

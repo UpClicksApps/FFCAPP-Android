@@ -26,6 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:layout_marginHorizontal="@dimen/_10sdp"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -72,6 +73,7 @@
                     android:background="@drawable/solid_rectangle_background_grey"
                     android:backgroundTint="@color/white"
                     android:elevation="@dimen/_5sdp"
+                    android:inputType="phone"
                     android:layout_marginHorizontal="@dimen/_10sdp"
                     android:padding="@dimen/_8sdp"
                     />
@@ -86,12 +88,13 @@
                     android:layout_marginHorizontal="@dimen/_10sdp"
                     />
 
-                <com.upclicks.ffc.ui.general.component.customedittext.TextInput
+                <com.upclicks.ffc.ui.general.component.customedittext.EmailInput
                     android:id="@+id/emailEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/solid_rectangle_background_grey"
                     android:backgroundTint="@color/white"
+                    android:inputType="textEmailAddress"
                     android:elevation="@dimen/_5sdp"
                     android:padding="@dimen/_8sdp"
                     android:layout_marginHorizontal="@dimen/_10sdp"
@@ -127,8 +130,8 @@
                     style="@style/ButtonContainedPrimary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:enabled="false"
                     app:iconGravity="textStart"
+                    android:layout_marginTop="@dimen/_20sdp"
                     app:icon="@drawable/ic_send"
                     android:layout_marginHorizontal="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"

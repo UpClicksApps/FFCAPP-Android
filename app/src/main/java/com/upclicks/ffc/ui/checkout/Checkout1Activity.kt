@@ -121,7 +121,6 @@ class Checkout1Activity : BaseActivity() {
         inputsList.add(binding.phoneInput)
         inputsList.add(binding.streetInput)
         inputsList.add(binding.houseNumberInput)
-        inputsList.add(binding.notesInput)
         inputsList.add(binding.flatNumberInput)
         return inputsList
     }

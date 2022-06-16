@@ -50,8 +50,8 @@ class ContactUs : BaseActivity() {
     private fun createInputViewsList(): ArrayList<BaseInput> {
         var inputsList = ArrayList<BaseInput>()
         inputsList.add(binding.nameEt)
-        inputsList.add(binding.emailEt)
         inputsList.add(binding.phoneEt)
+        inputsList.add(binding.emailEt)
         inputsList.add(binding.messageEt)
         return inputsList
     }
@@ -61,7 +61,6 @@ class ContactUs : BaseActivity() {
         inputViews.forEach { inputView ->
             inputView.typingCallback = object : BaseInput.TypingCallback {
                 override fun onTyping(text: String) {
-                    binding.sendFeedbackButton.isEnabled = checkIfInputsIsValid()
                 }
             }
         }
@@ -70,14 +69,18 @@ class ContactUs : BaseActivity() {
     private fun checkIfInputsIsValid(): Boolean {
         var inputsViews = createInputViewsList()
         inputsViews.forEach { input ->
-            if (!input.isValid)
+            if (!input.isValid) {
+                input!!.requestFocus()
+                input!!.error = getString(R.string.required)
                 return false
+            }
         }
         return true
     }
+
     private fun sendFeedback() {
-        Log.e("isValid",""+checkIfInputsIsValid())
-        accountViewModel.contactUs(createFeedbackRequest(), onResult = { message ->
+        if (checkIfInputsIsValid())
+            accountViewModel.contactUs(createFeedbackRequest(), onResult = { message ->
                 shoMsg(message, MotionToast.TOAST_SUCCESS)
             })
     }

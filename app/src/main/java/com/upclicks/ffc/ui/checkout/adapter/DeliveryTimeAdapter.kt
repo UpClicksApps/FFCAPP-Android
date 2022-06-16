@@ -77,15 +77,7 @@ class DeliveryTimeAdapter(
             }
         }
         holder.binding.radiobutton.setOnClickListener {
-            if (lastSelectedItem != position) {
-                notifyItemChanged(position)
-                notifyItemChanged(lastSelectedItem)
-                lastSelectedItem = position
-            } else {
-                lastSelectedItem = -1
-                notifyItemChanged(position)
-                onItemRemoved(true)
-            }
+            holder.itemView.performClick()
         }
     }
 
