@@ -89,7 +89,7 @@
     <string name="confirm_new_password">تأكيد كلمة المرور الجديدة</string>
     <string name="save">حفظ</string>
     <string name="no_notifications">لا إشعارات</string>
-    <string name="mark_as_read">تعيين كمروء</string>
+    <string name="mark_as_read">تعيين كمقروء</string>
     <string name="notifications">الاشعارات</string>
     <string name="delete_this_notification">حذف هذا الإشعار !!</string>
     <string name="add">إضافة</string>
