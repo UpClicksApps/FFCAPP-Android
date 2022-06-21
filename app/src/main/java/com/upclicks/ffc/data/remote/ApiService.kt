@@ -211,7 +211,7 @@ interface ApiService {
     fun addProductToCart(@Body req: Any?): Observable<Result<CartActionResponse>>
 
     //UpdateProductQuantity
-    @PUT("services/app/Cart/AddProduct")
+    @PUT("services/app/Cart/UpdateProductQuantity")
     fun updateProductQuantity(@Body req: Any?): Observable<Result<CartActionResponse>>
 
     //RemoveProduct

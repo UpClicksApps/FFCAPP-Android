@@ -14,12 +14,13 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.upclicks.ffc.databinding.DialogChangeLanguageBinding
 import com.upclicks.ffc.databinding.DialogConfirmBinding
 import com.upclicks.ffc.session.SessionHelper
+import com.upclicks.ffc.socket.api.SocketController
 import com.upclicks.ffc.ui.main.SplashActivity
 
 class ChangeLanguageDialog(
-    context: Context,
+    var mContext: Context,
     var sessionHelper: SessionHelper
-) : Dialog(context),SessionHelper.OnSessionUpdate{
+) : Dialog(mContext),SessionHelper.OnSessionUpdate{
 
     lateinit var binding: DialogChangeLanguageBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +36,13 @@ class ChangeLanguageDialog(
             WindowManager.LayoutParams.WRAP_CONTENT
         )
         window!!.setBackgroundDrawableResource(android.R.color.transparent)
-
+        if (sessionHelper.isEnglish(mContext)){
+            binding.englishIv.visibility = View.VISIBLE
+            binding.arabicIv.visibility = View.INVISIBLE
+        }else{
+            binding.arabicIv.visibility = View.VISIBLE
+            binding.englishIv.visibility = View.INVISIBLE
+        }
         binding.arabicLy.setOnClickListener {
             binding.arabicIv.visibility = View.VISIBLE
             binding.englishIv.visibility = View.INVISIBLE
@@ -54,7 +61,7 @@ class ChangeLanguageDialog(
     }
 
     override fun refreshActivity() {
-        (context as Activity).startActivity(Intent(context,SplashActivity::class.java))
-        (context as Activity).finishAffinity()
+        (mContext as Activity).startActivity(Intent(context,SplashActivity::class.java))
+        (mContext as Activity).finishAffinity()
     }
 }

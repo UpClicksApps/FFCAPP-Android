@@ -21,7 +21,6 @@ import www.sanju.motiontoast.MotionToast
 
 class NotificationActivity : BaseActivity() {
 
-
     lateinit var binding: ActivityNotificationBinding
     private val notificationViewModel: NotificationViewModel by viewModels()
     private lateinit var notificationAdapter: NotificationAdapter
