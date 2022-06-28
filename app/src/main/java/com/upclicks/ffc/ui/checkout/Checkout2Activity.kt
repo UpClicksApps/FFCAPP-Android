@@ -12,6 +12,7 @@ import com.upclicks.ffc.databinding.ActivityCheckout2Binding
 import com.upclicks.ffc.ui.checkout.adapter.DeliveryTimeAdapter
 import com.upclicks.ffc.ui.checkout.model.CheckoutRequest
 import com.upclicks.ffc.ui.checkout.viewmodel.CheckoutViewModel
+import com.upclicks.ffc.ui.products.model.DeliveryTime
 import www.sanju.motiontoast.MotionToast
 
 class Checkout2Activity : BaseActivity() {
@@ -20,10 +21,10 @@ class Checkout2Activity : BaseActivity() {
     var checkoutRequest = CheckoutRequest()
     private val checkoutViewModel: CheckoutViewModel by viewModels()
 
-    var todayTimesList = ArrayList<String>()
+    var todayTimesList = ArrayList<DeliveryTime>()
     lateinit var todayAdapter: DeliveryTimeAdapter
 
-    var tomorrowTimesList = ArrayList<String>()
+    var tomorrowTimesList = ArrayList<DeliveryTime>()
     lateinit var tomorrowAdapter: DeliveryTimeAdapter
 
     override fun getLayoutResourceId(): View {

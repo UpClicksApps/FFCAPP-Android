@@ -56,24 +56,24 @@ class Checkout3Activity : BaseActivity() {
         binding.checkoutBtn.setOnClickListener {
             checkoutViewModel.checkout(checkoutRequest, onResult = { checkoutResponse ->
                 this.checkoutResponse = checkoutResponse     //Do online payment process
-//                if (!checkoutResponse.onlinePaymenLink.isNullOrEmpty())
-//                    startActivityForResult(
-//                        Intent(this, OnlinePaymentActivity::class.java)
-//                            .putExtra("url", checkoutResponse.onlinePaymenLink.toString() + "")
-//                            .putExtra("callbackUrl", checkoutResponse.callbackUrl.toString() + "")
-//                            .putExtra("sec", checkoutResponse.resultPageTimeoutInSec),
-//                        PAYMENT_REQUEST
-//                    )
-//                else
-                startActivity(
-                    Intent(
-                        this,
-                        CheckoutSuccessActivity::class.java
-                    ).putExtra(
-                        Keys.Intent_Constants.CHECKOUT_MESSAGE,
-                        checkoutResponse.resultMessage
+                if (!checkoutResponse.onlinePaymentLink.isNullOrEmpty())
+                    startActivityForResult(
+                        Intent(this, OnlinePaymentActivity::class.java)
+                            .putExtra("url", checkoutResponse.onlinePaymentLink.toString() + "")
+                            .putExtra("callbackUrl", checkoutResponse.callbackUrl.toString() + "")
+                            .putExtra("sec", checkoutResponse.resultPageTimeoutInSec),
+                        PAYMENT_REQUEST
                     )
-                )
+                else
+                    startActivity(
+                        Intent(
+                            this,
+                            CheckoutSuccessActivity::class.java
+                        ).putExtra(
+                            Keys.Intent_Constants.CHECKOUT_MESSAGE,
+                            checkoutResponse.resultMessage
+                        )
+                    )
                 finish()
             })
         }
@@ -84,7 +84,7 @@ class Checkout3Activity : BaseActivity() {
             binding.onlinePaymentRb.isChecked = true
             binding.cashRb.isChecked = false
             binding.fromWalletRb.isChecked = false
-            checkoutRequest.checkoutOrder!!.paymentWay = 0
+            checkoutRequest.checkoutOrder!!.paymentWay = 1
             // 1 for online
         }
         binding.cashTv.setOnClickListener {

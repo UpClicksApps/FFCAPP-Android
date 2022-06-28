@@ -9,10 +9,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.upclicks.ffc.R
 import com.upclicks.ffc.databinding.ItemDeliveryTimeBinding
+import com.upclicks.ffc.ui.products.model.DeliveryTime
 
 class DeliveryTimeAdapter(
     val context: Context,
-    private var timeList: List<String>,
+    private var timeList: List<DeliveryTime>,
     private val onItemClicked: (String) -> Unit,
     private val onItemRemoved: (Boolean) -> Unit
 
@@ -31,7 +32,7 @@ class DeliveryTimeAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, @SuppressLint("RecyclerView") position: Int) {
 //        holder.binding.overlayFrame.backgroundTintList = ColorStateList.valueOf(CustomColorHelper.generateRandomColor(context))
-        holder.binding.time = timeList[position]
+        holder.binding.time = timeList[position].time
         holder.binding.radiobutton.isChecked = lastSelectedItem == position
         if (lastSelectedItem == position) {
             holder.binding.container.backgroundTintList =
@@ -69,7 +70,7 @@ class DeliveryTimeAdapter(
                 notifyItemChanged(position)
                 notifyItemChanged(lastSelectedItem)
                 lastSelectedItem = position
-                onItemClicked(timeList[position])
+                onItemClicked(timeList[position].time!!)
             } else {
                 lastSelectedItem = -1
                 notifyItemChanged(position)

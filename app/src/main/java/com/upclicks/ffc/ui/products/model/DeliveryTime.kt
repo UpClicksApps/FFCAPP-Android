@@ -7,8 +7,10 @@ import com.upclicks.ffc.ui.general.component.spinner.BaseSelection
 
 class DeliveryTime {
 
-    @SerializedName("mediaFilePath")
+    @SerializedName("id")
     @Expose
-    var mediaFilePath: String? = null
-
+    var id: String? = null
+    @SerializedName("time")
+    @Expose
+    var time: String? = null
 }

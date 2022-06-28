@@ -8,9 +8,9 @@ class CheckoutResponse {
     @SerializedName("resultMessage")
     @Expose
     var resultMessage: String? = null
-    @SerializedName("onlinePaymenLink")
+    @SerializedName("onlinePaymentLink")
     @Expose
-    var onlinePaymenLink: String? = null
+    var onlinePaymentLink: String? = null
     @SerializedName("orderReference")
     @Expose
     var orderReference: String? = null

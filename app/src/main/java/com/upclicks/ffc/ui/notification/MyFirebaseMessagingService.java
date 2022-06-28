@@ -17,6 +17,7 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.upclicks.ffc.R;
+import com.upclicks.ffc.architecture.BaseApp;
 import com.upclicks.ffc.commons.Keys;
 import com.upclicks.ffc.data.event.EventsModel;
 import com.upclicks.ffc.data.event.UnAuthorizedEvent;
@@ -124,9 +125,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             if (type.equals(Keys.FcmNotificationsTypes.UPDATE_NOTIFICATION_COUNT)) {
                 return;
             }
-//            if (type.equals(Keys.FcmNotificationsTypes.CHAT_MSG_INCOME)) {
-//                return;
-//            }
+            if (type.equals(Keys.FcmNotificationsTypes.CHAT_MSG_INCOME)) {
+                if (((BaseApp) getApplicationContext()).getCurrentActivity().getLocalClassName().contains("ChatActivity"))
+                    return;
+            }
             notify(title, entityId, body, img + "", clickAction);
         }
     }
