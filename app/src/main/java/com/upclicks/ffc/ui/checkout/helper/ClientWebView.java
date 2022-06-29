@@ -4,22 +4,23 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Handler;
+import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 public class ClientWebView  extends WebViewClient {
     private Context context;
-    private String url;
+    private String callbackUrl;
     private int sec;
-    public ClientWebView(Context context, int sec, String url) {
+    public ClientWebView(Context context, int sec, String callbackUrl) {
         this.context = context;
-        this.url = url;
+        this.callbackUrl = callbackUrl;
         this.sec=sec;
     }
     @Override
     public void onPageStarted(WebView view, String url, Bitmap favicon) {
         super.onPageStarted(view, url, favicon);
-        if(!this.url.equals(url)){
+        if(url.contains(callbackUrl)){
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 public void run() {

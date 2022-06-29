@@ -25,11 +25,12 @@ class OnlinePaymentActivity : BaseActivity() {
         binding.webView.webViewClient =
             ClientWebView(
                 this,
-                intent.getIntExtra("sec", 1), intent.getStringExtra("url").toString() + ""
+                intent.getIntExtra("sec", 1), intent.getStringExtra("callbackUrl").toString() + ""
             )
         binding.webView.loadUrl(intent.getStringExtra("url")!!)
     }
 
     override fun onBackPressed() {
+
     }
 }

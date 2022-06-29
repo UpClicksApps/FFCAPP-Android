@@ -1,6 +1,7 @@
 package com.upclicks.ffc.ui.checkout
 
 import android.content.Intent
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import com.google.gson.Gson

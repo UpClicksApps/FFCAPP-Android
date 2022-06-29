@@ -236,7 +236,7 @@ interface ApiService {
     ): Observable<Result<CheckoutResponse>>
 
     //check payment online
-    @GET("services/app/Order/getOnlinePaymentRequestStatus")
+    @POST("services/app/Order/getOnlinePaymentRequestStatus")
     fun checkPaymentOnline(
         @Query("code") code: String
     ): Observable<Result<PaymentResponse>>
