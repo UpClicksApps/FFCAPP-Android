@@ -236,9 +236,9 @@ interface ApiService {
     ): Observable<Result<CheckoutResponse>>
 
     //check payment online
-    @POST("services/app/Order/getOnlinePaymentRequestStatus")
+    @POST("services/app/Order/CheckOnlinePaymentRequest")
     fun checkPaymentOnline(
-        @Query("code") code: String
+        @Query("oId") orderId: String
     ): Observable<Result<PaymentResponse>>
 
     //reschedule Order
@@ -286,49 +286,13 @@ interface ApiService {
 
     //************* Chats Module **************
 
-    //Get conversation
-    @GET("services/app/Chat/GetConversation")
-    fun getConversation(
-        @Query("receiverId") receiverId: String,
-        @Query("id") convId: String
-    ): Observable<Result<Chat.Conversation>>
-
-
     //Get chat messages
-//    @GET("services/app/Chat/GetMessages")
     @GET("services/app/CustomerServiceChat/GetMessages")
     fun getChatMessages(
         @Query("memberId") memberId: String,
-        @Query("messageId") messageId: String,
+        @Query("lastMessageId") lastMessageId: String,
         @Query("take") take: Int
     ): Observable<Result<List<Message>>>
-
-    //Get chats
-    @GET("services/app/Chat/GetChats")
-    fun getChats(
-        @Query("skip") skip: Int,
-        @Query("take") take: Int
-    ): Observable<Result<List<Chat>>>
-
-    //Get link preview
-    @GET("services/app/Chat/GetConversation")
-    fun getLinkPreview(@Query("url") url: String): Observable<Result<ConversationResponse>>
-
-    //SendMediaFiles
-    @Multipart
-    @POST("services/app/Chat/SendMediaFiles")
-    fun sendMediaFileToChat(
-        @PartMap partMap: Map<String, @JvmSuppressWildcards RequestBody>,
-        @Part files: List<MultipartBody.Part>
-    ): Observable<Result<UploadFilesMessage>>
-
-
-    //Get Ad Conversations
-    @GET("services/app/Chat/GetMyAdsConversations")
-    fun getAdsConversations(
-        @Query("skip") skip: Int,
-        @Query("take") take: Int
-    ): Observable<Result<List<AdConversation>>>
 
     //************* End of Chats Module **************
 

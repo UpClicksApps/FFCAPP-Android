@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.upclicks.ffc.R
 import com.upclicks.ffc.commons.OrderStatus
 import com.upclicks.ffc.databinding.ItemOrderBinding
 import com.upclicks.ffc.databinding.ItemTrackOrderBinding
@@ -26,6 +27,20 @@ class OrderStatusLogAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.orderStatusLog = orderStatusLogList[position]
+        when (orderStatusLogList[position].orderStatus) {
+            OrderStatus.Confirmed.value,OrderStatus.Returned.value,OrderStatus.Refused.value,OrderStatus.Cancelled.value -> {
+                holder.binding.icon.setImageDrawable(context.getDrawable(R.drawable.ic_track_cancel_accepted_returned))
+            }
+            OrderStatus.Delivered.value -> {
+                holder.binding.icon.setImageDrawable(context.getDrawable(R.drawable.ic_track_delivered))
+            }
+            OrderStatus.OnTheWay.value -> {
+                holder.binding.icon.setImageDrawable(context.getDrawable(R.drawable.ic_track_on_the_way))
+            }
+            OrderStatus.Requested.value -> {
+                holder.binding.icon.setImageDrawable(context.getDrawable(R.drawable.ic_track_requested))
+            }
+        }
     }
 
     override fun getItemCount(): Int {

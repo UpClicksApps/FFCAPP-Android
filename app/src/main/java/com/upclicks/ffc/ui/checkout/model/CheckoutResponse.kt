@@ -5,7 +5,7 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 class CheckoutResponse {
-    @SerializedName("resultMessage")
+    @SerializedName("message")
     @Expose
     var resultMessage: String? = null
     @SerializedName("onlinePaymentLink")
@@ -17,6 +17,9 @@ class CheckoutResponse {
     @SerializedName("code")
     @Expose
     var code: String? = null
+    @SerializedName("orderId")
+    @Expose
+    var orderId: String? = null
     @SerializedName("callbackUrl")
     @Expose
     var callbackUrl: String? = null

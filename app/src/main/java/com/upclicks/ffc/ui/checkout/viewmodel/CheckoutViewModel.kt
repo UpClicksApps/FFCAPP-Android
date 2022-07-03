@@ -38,9 +38,9 @@ class CheckoutViewModel
             })
     }
     //check payment online
-    fun checkPaymentOnline(code:String, onResult: (PaymentResponse) -> Unit) {
+    fun checkPaymentOnline(orderId:String, onResult: (PaymentResponse) -> Unit) {
         isLoading.postValue(true)
-        checkoutRepository.checkPaymentOnline(code)
+        checkoutRepository.checkPaymentOnline(orderId)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribe(object : CustomRxObserver<Result<PaymentResponse>>(this@CheckoutViewModel) {

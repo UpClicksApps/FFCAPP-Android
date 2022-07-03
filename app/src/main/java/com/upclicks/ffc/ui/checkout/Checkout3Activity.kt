@@ -75,7 +75,6 @@ class Checkout3Activity : BaseActivity() {
                             checkoutResponse.resultMessage
                         )
                     )
-                finish()
             })
         }
 
@@ -109,7 +108,7 @@ class Checkout3Activity : BaseActivity() {
         if (requestCode == PAYMENT_REQUEST) {
             if (resultCode == RESULT_OK) {
                 checkoutViewModel.checkPaymentOnline(
-                    checkoutResponse.code!!,
+                    checkoutResponse.orderId!!,
                     onResult = { paymentResponse ->
                         if (paymentResponse.isSuccess!!) {
                             startActivity(
@@ -118,7 +117,7 @@ class Checkout3Activity : BaseActivity() {
                                     CheckoutSuccessActivity::class.java
                                 ).putExtra(
                                     Keys.Intent_Constants.CHECKOUT_MESSAGE,
-                                    checkoutResponse.resultMessage
+                                    paymentResponse.message
                                 )
                             )
                         } else

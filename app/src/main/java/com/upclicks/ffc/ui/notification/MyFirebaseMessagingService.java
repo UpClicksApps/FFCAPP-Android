@@ -74,7 +74,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             img = remoteMessage.getData().get("imageUrl");
             icon = remoteMessage.getData().get("icon");
             type = remoteMessage.getData().get("type");
-            unSeenChatsCount = remoteMessage.getData().get("UnSeenChatsCount");
+            unSeenChatsCount = remoteMessage.getData().get("unSeenChatsCount");
             Log.e(TAG, "title: " + title);
             Log.e(TAG, "message: " + body);
             Log.e(TAG, "entityId: " + entityId);

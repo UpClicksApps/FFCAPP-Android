@@ -15,7 +15,7 @@ open class OrderStatusLog {
     var description: String? = null
     @SerializedName("orderStatus")
     @Expose
-    var orderStatus: String? = null
+    var orderStatus: Int? = null
     @SerializedName("creationTime")
     @Expose
     var creationTime: String? = null

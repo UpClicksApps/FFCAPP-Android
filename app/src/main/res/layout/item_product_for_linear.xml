@@ -96,7 +96,6 @@
                     android:layout_height="wrap_content"
                     android:textAlignment="viewStart"
                     android:textColor="@color/primary"
-                    tools:text="KD 8.850"
                     notNullText='@{product.currentPrice+" "+@string/currency_code}'
                     android:textSize="@dimen/_11sdp"
                     android:textStyle="bold"
@@ -108,6 +107,7 @@
                     android:background="@drawable/ic_product_cart_bg"
                     android:src="@drawable/ic_cart"
                     android:padding="@dimen/_7sdp"
+                    android:layout_gravity="bottom"
                     android:id="@+id/cartIv"
                     />
             </LinearLayout>

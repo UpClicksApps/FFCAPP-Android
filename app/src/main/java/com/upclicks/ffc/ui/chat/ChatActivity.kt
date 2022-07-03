@@ -234,7 +234,7 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
         mSocket?.emit(Keys.Chat_Socket.SEND_MESSAGE, jsonOb, Ack {
             //check if socket emit success
             val gson = Gson()
-            Log.e("emit send response", gson.toJson(it[0]))
+            Log.e("emit send response", (it[0] as JSONObject).toString())
             var res = it[0] as JSONObject
             var result = res.get("result")
             var socketMessageResponse =
@@ -245,17 +245,16 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
                 .subscribe {
                     val gson = Gson()
                     val itemType: Type =
-                        object : TypeToken<ArrayList<MediaFile?>?>() {}.getType()
+                        object : TypeToken<ArrayList<MediaFile?>?>() {}.type
                     val mediaFiles: List<MediaFile> = ArrayList<MediaFile>()
-
                     messagesListAdapter!!.addToStart(
                         Message(
                             socketMessageResponse.nameValuePairs.messageId,
-                            sessionHelper.userProfile.userId.toString(),
+                            ""+socketMessageResponse.nameValuePairs.senderUserId,
                             socketMessageResponse.nameValuePairs.messageType,
                             socketMessageResponse.nameValuePairs.content,
                             socketMessageResponse.nameValuePairs.creationTime,
-                            socketMessageResponse.nameValuePairs.isMyOwn,
+                            true,
                             socketMessageResponse.nameValuePairs.senderAvatar,
                             mediaFiles,
                             gson.fromJson(
@@ -272,10 +271,11 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
     private fun emitReceiveMessage() {
         mSocket?.on(Keys.Chat_Socket.RECEIVE_MESSAGE, Emitter.Listener {
             val gson = Gson()
+            Log.e("emit receive response", (it[0] as JSONObject).toString())
+            var res = it[0] as JSONObject
+            var result = res.get("result")
             var socketMessageResponse =
-                gson?.fromJson(gson.toJson(it[0]), SocketMessageResponse::class.java)
-            Log.e("emit receive response", gson.toJson(it[0]))
-            if (socketMessageResponse != null)
+                gson?.fromJson(gson.toJson(result), SocketMessageResponse::class.java)
                 Observable.just(true)
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe {
@@ -286,23 +286,22 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
                         var ids: ArrayList<String> = ArrayList()
                         ids.add(socketMessageResponse.nameValuePairs.messageId!!)
                         emitSeenMessage(ids)
-                        if (!socketMessageResponse.nameValuePairs.isMyOwn!!)
-                            messagesListAdapter!!.addToStart(
-                                Message(
-                                    socketMessageResponse.nameValuePairs.messageId,
-                                    socketMessageResponse.nameValuePairs.senderUserId.toString(),
-                                    socketMessageResponse.nameValuePairs.messageType,
-                                    socketMessageResponse.nameValuePairs.content,
-                                    socketMessageResponse.nameValuePairs.creationTime,
-                                    socketMessageResponse.nameValuePairs.isMyOwn,
-                                    socketMessageResponse.nameValuePairs.senderAvatar,
-                                    mediaFiles,
-                                    gson.fromJson(
-                                        socketMessageResponse.nameValuePairs.additionalData.toString(),
-                                        Any::class.java
-                                    ),
-                                ), true
-                            )
+                        messagesListAdapter!!.addToStart(
+                            Message(
+                                socketMessageResponse.nameValuePairs.messageId,
+                                ""+socketMessageResponse.nameValuePairs.senderUserId,
+                                socketMessageResponse.nameValuePairs.messageType,
+                                socketMessageResponse.nameValuePairs.content,
+                                socketMessageResponse.nameValuePairs.creationTime,
+                                false,
+                                socketMessageResponse.nameValuePairs.senderAvatar,
+                                mediaFiles,
+                                gson.fromJson(
+                                    socketMessageResponse.nameValuePairs.additionalData.toString(),
+                                    Any::class.java
+                                ),
+                            ), true
+                        )
                     }
         })
     }
@@ -343,6 +342,7 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
             mSocket = IO.socket(Keys.Chat_Socket.SOCKET_URL, opts)
             mSocket?.io()?.on(Manager.EVENT_TRANSPORT, initSocketHeaders());
             mSocket?.on(Socket.EVENT_CONNECT, Emitter.Listener {
+                emitJoinChat()
                 emitReceiveMessage()
             })
             mSocket?.connect()

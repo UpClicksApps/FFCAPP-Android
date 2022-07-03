@@ -77,34 +77,41 @@
                 />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_height="match_parent"
                 >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/text_color_grey"
-                    android:visibility="@{product.isOnSale()?View.VISIBLE:View.GONE}"
-                    oldPriceTextView='@{product.price+" "+@string/currency_code}'
-                    android:textSize="@dimen/_9sdp"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    />
-                <TextView
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/primary"
-                    tools:text="KD 8.850"
-                    notNullText='@{product.currentPrice+" "+@string/currency_code}'
-                    android:textSize="@dimen/_11sdp"
-                    android:paddingHorizontal="@dimen/_5sdp"
-                    />
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        oldPriceTextView='@{product.price+" "+@string/currency_code}'
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/text_color_grey"
+                        android:textSize="@dimen/_9sdp"
+                        android:visibility="@{product.isOnSale()?View.VISIBLE:View.GONE}" />
+
+                    <TextView
+                        notNullText='@{product.currentPrice+" "+@string/currency_code}'
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/_5sdp"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/primary"
+                        android:textSize="@dimen/_11sdp" />
+                </LinearLayout>
                 <ImageView
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"
                     android:background="@drawable/ic_product_cart_bg"
                     android:src="@drawable/ic_cart"
+                    android:layout_gravity="bottom"
                     android:padding="@dimen/_7sdp"
                     android:id="@+id/cartIv"
                     />

@@ -1,6 +1,7 @@
 package com.upclicks.ffc.architecture
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -36,8 +37,12 @@ abstract class BaseActivity : AppCompatActivity() {
     lateinit var baseURLConfigHelper: BaseURLConfigHelper
     @Inject
     lateinit var pagesController: PagesController
+
+    lateinit var myApp: BaseApp
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        myApp = this.applicationContext as BaseApp
         sessionHelper.configLanguage(this)
         sessionHelper.saveDeviceId(Utils.getDeviceId(this))
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
@@ -70,8 +75,26 @@ abstract class BaseActivity : AppCompatActivity() {
         )
     }
     override fun onDestroy() {
+        clearReferences()
         super.onDestroy()
         if (!eventDisposable.isDisposed) eventDisposable.dispose()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        myApp.setCurrentActivity(this)
+    }
+    //Check if in chat activity
+    private fun clearReferences() {
+        try {
+            val currActivity: Activity = myApp.getCurrentActivity()!!
+            if (this == currActivity) myApp.setCurrentActivity(null)
+        }catch (ex:NullPointerException){}
+    }
+
+    override fun onPause() {
+        super.onPause()
+        clearReferences()
     }
     @SuppressLint("ResourceType")
     open fun getTransaction(): FragmentTransaction? {
