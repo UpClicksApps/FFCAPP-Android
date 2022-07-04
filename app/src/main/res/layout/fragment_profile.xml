@@ -208,6 +208,7 @@
                         android:drawablePadding="@dimen/_8sdp"
                         android:gravity="start|center"
                         android:id="@+id/walletTv"
+                        android:visibility="gone"
                         android:paddingVertical="@dimen/_8sdp"
                         />
                     <View

@@ -239,7 +239,6 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
             var result = res.get("result")
             var socketMessageResponse =
                 gson?.fromJson(gson.toJson(result), SocketMessageResponse::class.java)
-            emitJoinChat()
             Observable.just(true)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
@@ -313,7 +312,7 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
         jsonOb.put("messagesIds", JSONArray(ids))
         mSocket?.emit(Keys.Chat_Socket.SEEN_MESSAGE, jsonOb, Ack {
             //check if socket emit success
-//            Log.e("emit SEEN response", gson.toJson(it[0]))
+            Log.e("emit SEEN response", (it[0] as JSONObject).toString())
 
         })
     }

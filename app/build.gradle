@@ -16,9 +16,9 @@ android {
         applicationId "com.upclicks.ffc"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
-        versionCode 4
+        versionCode 6
         multiDexEnabled true
-        versionName "1.0.0"
+        versionName "1.0.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndkVersion '21.3.6528147'
     }

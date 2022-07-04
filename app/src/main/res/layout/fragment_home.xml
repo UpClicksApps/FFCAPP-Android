@@ -65,7 +65,7 @@
                             android:layout_gravity="end"
                             android:layout_marginEnd="@dimen/_35sdp"
                             android:padding="@dimen/_5sdp"
-                            android:src="@drawable/ic_baseline_support_agent_24" />
+                            android:src="@drawable/ic_customer_support" />
                     </FrameLayout>
                 </LinearLayout>
                     <androidx.recyclerview.widget.RecyclerView
