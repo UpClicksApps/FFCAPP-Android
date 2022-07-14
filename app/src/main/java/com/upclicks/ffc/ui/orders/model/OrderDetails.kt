@@ -35,7 +35,7 @@ class OrderDetails: Order() {
     @SerializedName("street")
     @Expose
     var street: String? = null
-    @SerializedName("houseNumber")
+    @SerializedName("house")
     @Expose
     var houseNumber: String? = null
     @SerializedName("deliveryTime")

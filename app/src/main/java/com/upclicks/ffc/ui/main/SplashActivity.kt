@@ -132,7 +132,6 @@ class SplashActivity : BaseActivity() {
             }
         }
     }
-
     //     set up page listeners and callback
     private fun setUpPageActions() {
     }
