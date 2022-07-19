@@ -266,5 +266,6 @@
     <string name="clear_all">Clear all</string>
     <string name="your_password_has_been_reset">Your Password has been reset!</string>
     <string name="clear_all_history_are_you_sure">Clear all history,Are you sure?</string>
+    <string name="customer_support">Customer Support</string>
 
 </resources>

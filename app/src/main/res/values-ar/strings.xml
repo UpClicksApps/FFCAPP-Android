@@ -265,5 +265,6 @@
     <string name="clear_all">مسح الكل</string>
     <string name="your_password_has_been_reset">تم إعادة تعيين كلمة المرور الخاصة بك!</string>
     <string name="clear_all_history_are_you_sure">مسح كل التاريخ ، هل أنت متأكد؟</string>
+    <string name="customer_support">خدمة العملاء</string>
 
 </resources>

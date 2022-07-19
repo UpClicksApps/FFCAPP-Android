@@ -85,7 +85,7 @@ class ChatActivity : BaseActivity(), OnMessageLongClickListener<Message>,
         binding.toolbar.backIv.setOnClickListener {
             onBackPressed()
         }
-        binding.toolbar.titleTv.text = "System"
+        binding.toolbar.titleTv.text = getString(R.string.customer_support)
     }
 
     private fun initAdapter() {
